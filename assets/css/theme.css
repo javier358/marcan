@@ -82,11 +82,16 @@
 }
 
 .marcan-primary-nav {
+    -webkit-backdrop-filter: blur(70px);
+    backdrop-filter: blur(70px);
+    background: rgba(255, 255, 255, 0.25);
     display: none;
-    position: absolute;
-    right: 23px;
-    top: 64px;
-    width: 168px;
+    height: calc(100vh - 67px);
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 67px;
+    width: 100vw;
 }
 
 .marcan-primary-nav.is-open {
@@ -100,6 +105,10 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    position: absolute;
+    right: 23px;
+    top: -3px;
+    width: 168px;
 }
 
 .marcan-menu-list a {
@@ -796,9 +805,16 @@ img {
     }
 
     .marcan-primary-nav {
-        background: #ffffff;
-        right: 16px;
+        height: calc(100vh - 54px);
+        left: 0;
+        right: 0;
         top: 54px;
+        width: 100vw;
+    }
+
+    .marcan-menu-list {
+        right: 16px;
+        top: 0;
         width: 168px;
     }
 
