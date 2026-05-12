@@ -239,6 +239,29 @@ img {
     position: relative;
 }
 
+.marcan-home-hero {
+    background: #eaeae8;
+    display: block;
+    position: relative;
+}
+
+.marcan-home-hero-media {
+    height: 982px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.marcan-home-hero-media img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.marcan-home-hero-mobile-copy {
+    display: none;
+}
+
 .marcan-hero {
     background: var(--marcan-black);
     color: var(--marcan-white);
@@ -856,6 +879,35 @@ img {
     .site-footer {
         align-items: flex-start;
         flex-direction: column;
+    }
+
+    .marcan-home-hero {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .marcan-home-hero-media {
+        height: 580px;
+        width: 402px;
+    }
+
+    .marcan-home-hero-mobile-copy {
+        display: block;
+        height: 161px;
+        padding: 0 16px;
+        width: 402px;
+    }
+
+    .marcan-home-hero-mobile-copy p {
+        color: var(--marcan-ink);
+        font-family: Inter, Arial, Helvetica, sans-serif;
+        font-size: 19px;
+        font-weight: 300;
+        letter-spacing: 0;
+        line-height: 1.28;
+        margin: 0;
+        width: 272px;
     }
 
     .property-grid,
