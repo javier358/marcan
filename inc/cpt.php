@@ -43,6 +43,25 @@ function marcan_register_content_types(): void
         'show_in_rest' => true,
     ));
 
+    register_post_type('hero_slide', array(
+        'labels' => array(
+            'name'          => __('Slides del hero', 'marcan'),
+            'singular_name' => __('Slide del hero', 'marcan'),
+            'menu_name'     => __('Hero home', 'marcan'),
+            'add_new_item'  => __('Agregar slide', 'marcan'),
+            'edit_item'     => __('Editar slide', 'marcan'),
+        ),
+        'public'              => false,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_rest'        => true,
+        'exclude_from_search' => true,
+        'has_archive'         => false,
+        'rewrite'             => false,
+        'menu_icon'           => 'dashicons-images-alt2',
+        'supports'            => array('title', 'thumbnail', 'excerpt', 'page-attributes'),
+    ));
+
     register_taxonomy('property_type', array('property', 'project'), array(
         'labels' => array(
             'name'          => __('Tipos de inmueble', 'marcan'),

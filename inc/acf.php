@@ -60,5 +60,126 @@ function marcan_register_field_groups(): void
         ),
         'active' => true,
     ));
+
+    acf_add_local_field_group(array(
+        'key' => 'group_marcan_home_hero_settings',
+        'title' => 'Hero de inicio',
+        'fields' => array(
+            array(
+                'key' => 'field_marcan_hero_mobile_copy',
+                'label' => 'Texto móvil',
+                'name' => 'hero_mobile_copy',
+                'type' => 'textarea',
+                'rows' => 4,
+                'new_lines' => 'wpautop',
+            ),
+            array(
+                'key' => 'field_marcan_hero_autoplay',
+                'label' => 'Autoplay',
+                'name' => 'hero_autoplay',
+                'type' => 'true_false',
+                'ui' => 1,
+                'default_value' => 1,
+            ),
+            array(
+                'key' => 'field_marcan_hero_interval',
+                'label' => 'Intervalo',
+                'name' => 'hero_interval',
+                'type' => 'number',
+                'default_value' => 5000,
+                'min' => 1000,
+                'step' => 500,
+            ),
+            array(
+                'key' => 'field_marcan_hero_effect',
+                'label' => 'Efecto',
+                'name' => 'hero_effect',
+                'type' => 'select',
+                'choices' => array(
+                    'fade' => 'Fade',
+                    'zoom' => 'Zoom',
+                ),
+                'default_value' => 'fade',
+                'return_format' => 'value',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_type',
+                    'operator' => '==',
+                    'value' => 'front_page',
+                ),
+            ),
+        ),
+        'active' => true,
+    ));
+
+    acf_add_local_field_group(array(
+        'key' => 'group_marcan_hero_slide',
+        'title' => 'Slide del hero',
+        'fields' => array(
+            array(
+                'key' => 'field_marcan_hero_desktop_image',
+                'label' => 'Imagen desktop',
+                'name' => 'imagen_desktop',
+                'type' => 'image',
+                'return_format' => 'id',
+                'preview_size' => 'large',
+                'library' => 'all',
+            ),
+            array(
+                'key' => 'field_marcan_hero_mobile_image',
+                'label' => 'Imagen móvil',
+                'name' => 'imagen_movil',
+                'type' => 'image',
+                'return_format' => 'id',
+                'preview_size' => 'large',
+                'library' => 'all',
+            ),
+            array(
+                'key' => 'field_marcan_hero_slide_label',
+                'label' => 'Etiqueta',
+                'name' => 'etiqueta',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_marcan_hero_slide_link',
+                'label' => 'Enlace',
+                'name' => 'enlace',
+                'type' => 'link',
+            ),
+            array(
+                'key' => 'field_marcan_hero_slide_duration',
+                'label' => 'Duración',
+                'name' => 'duracion',
+                'type' => 'number',
+                'default_value' => 5000,
+                'min' => 1000,
+                'step' => 500,
+            ),
+            array(
+                'key' => 'field_marcan_hero_slide_effect',
+                'label' => 'Efecto de transición',
+                'name' => 'efecto_transicion',
+                'type' => 'select',
+                'choices' => array(
+                    'fade' => 'Fade',
+                    'zoom' => 'Zoom',
+                ),
+                'default_value' => 'fade',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'hero_slide',
+                ),
+            ),
+        ),
+        'active' => true,
+    ));
 }
 add_action('acf/init', 'marcan_register_field_groups');

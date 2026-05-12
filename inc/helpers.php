@@ -25,17 +25,51 @@ function marcan_svg(string $name): string
     return (string) file_get_contents($path);
 }
 
-function marcan_primary_menu_fallback(): void
+function marcan_get_front_page_id(): int
 {
-    ?>
-    <ul class="marcan-menu-list">
-        <li><a href="<?php echo esc_url(home_url('/quienes-somos/')); ?>"><?php esc_html_e('Quiénes somos', 'marcan'); ?></a></li>
-        <li><a href="<?php echo esc_url(get_post_type_archive_link('property') ?: home_url('/propiedades/')); ?>"><?php esc_html_e('Departamentos', 'marcan'); ?></a></li>
-        <li><a href="<?php echo esc_url(get_post_type_archive_link('project') ?: home_url('/oficinas/')); ?>"><?php esc_html_e('Oficinas', 'marcan'); ?></a></li>
-        <li><a href="<?php echo esc_url(home_url('/blog/')); ?>"><?php esc_html_e('Blog', 'marcan'); ?></a></li>
-        <li><a href="<?php echo esc_url(home_url('/contactanos/')); ?>"><?php esc_html_e('Contáctanos', 'marcan'); ?></a></li>
-    </ul>
-    <?php
+    return (int) get_option('page_on_front');
+}
+
+function marcan_get_home_hero_settings(): array
+{
+    $defaults = array(
+        'mobile_copy' => 'Somos una inmobiliaria enfocada en hacer proyectos que impulsan el desarrollo urbano de Lima, inspirados en las verdaderas necesidades de las personas y de la ciudad.',
+        'autoplay'    => true,
+        'interval'    => 5000,
+        'effect'      => 'fade',
+    );
+
+    if (!function_exists('get_field')) {
+        return $defaults;
+    }
+
+    $page_id = marcan_get_front_page_id();
+
+    if (!$page_id) {
+        return $defaults;
+    }
+
+    $mobile_copy = get_field('hero_mobile_copy', $page_id);
+    $autoplay = get_field('hero_autoplay', $page_id);
+    $interval = get_field('hero_interval', $page_id);
+    $effect = get_field('hero_effect', $page_id);
+
+    return array(
+        'mobile_copy' => is_string($mobile_copy) && $mobile_copy !== '' ? $mobile_copy : $defaults['mobile_copy'],
+        'autoplay'    => $autoplay === null ? $defaults['autoplay'] : (bool) $autoplay,
+        'interval'    => is_numeric($interval) ? max(1000, (int) $interval) : $defaults['interval'],
+        'effect'      => is_string($effect) && $effect !== '' ? $effect : $defaults['effect'],
+    );
+}
+
+function marcan_get_hero_slides(): WP_Query
+{
+    return new WP_Query(array(
+        'post_type'      => 'hero_slide',
+        'posts_per_page' => -1,
+        'orderby'        => array('menu_order' => 'ASC', 'date' => 'ASC'),
+        'post_status'    => 'publish',
+    ));
 }
 
 function marcan_get_property_meta(int $post_id, string $key): string
