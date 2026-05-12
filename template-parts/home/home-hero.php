@@ -9,11 +9,8 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$asset_uri = get_template_directory_uri() . '/assets/';
-$fallback_image = $asset_uri . 'img/hero-time.jpg';
 $hero_settings = marcan_get_home_hero_settings();
 $hero_query = marcan_get_hero_slides();
-$slide_count = $hero_query->post_count;
 ?>
 
 <section class="marcan-home-hero" aria-label="<?php esc_attr_e('Marcan', 'marcan'); ?>">
@@ -38,8 +35,6 @@ $slide_count = $hero_query->post_count;
                             echo wp_get_attachment_image($desktop_image_id, 'full', false, array(
                                 'alt' => esc_attr(get_the_title()),
                             ));
-                        } else {
-                            printf('<img src="%s" alt="%s">', esc_url($fallback_image), esc_attr(get_the_title()));
                         }
                         ?>
                     </div>
@@ -53,8 +48,6 @@ $slide_count = $hero_query->post_count;
                             echo wp_get_attachment_image($desktop_image_id, 'full', false, array(
                                 'alt' => esc_attr(get_the_title()),
                             ));
-                        } else {
-                            printf('<img src="%s" alt="%s">', esc_url($fallback_image), esc_attr(get_the_title()));
                         }
                         ?>
                     </div>
@@ -73,10 +66,10 @@ $slide_count = $hero_query->post_count;
         <?php else : ?>
             <article class="marcan-home-hero-slide is-active" data-hero-slide data-hero-duration="<?php echo esc_attr($hero_settings['interval']); ?>" data-hero-effect="<?php echo esc_attr($hero_settings['effect']); ?>">
                 <div class="marcan-home-hero-media marcan-home-hero-media-desktop">
-                    <img src="<?php echo esc_url($fallback_image); ?>" alt="<?php esc_attr_e('Edificio Time de Marcan', 'marcan'); ?>">
+                    <?php echo esc_html__('No hero slides configured.', 'marcan'); ?>
                 </div>
                 <div class="marcan-home-hero-media marcan-home-hero-media-mobile">
-                    <img src="<?php echo esc_url($fallback_image); ?>" alt="<?php esc_attr_e('Edificio Time de Marcan', 'marcan'); ?>">
+                    <?php echo esc_html__('No hero slides configured.', 'marcan'); ?>
                 </div>
             </article>
         <?php endif; ?>
