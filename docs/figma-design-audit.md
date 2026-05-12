@@ -44,6 +44,43 @@ Mobile:
 - Media frame: `8518:2862`, `402 x 580`
 - Text/content frame: `8523:2530`, `402 x 161`
 
+## Home Projects Block
+
+Desktop departments:
+- Section frame: `8300:2176`
+- Left card: `8300:2171`
+- Right card: `8300:2172`
+- Card size: `990 x 824`
+- Image size: `990 x 687`
+- Data row size: `345 x 122`
+- Section title: `8002:408`, `28px` Inter Light
+- Section button: `8015:635`, label `Ver más departamentos`
+
+Desktop offices:
+- Section frame: `8300:2177`
+- Left card: `8300:2173`
+- Middle card: `8300:2174`
+- Right card: `8300:2175`
+- Section title: `8002:432`, `28px` Inter Light
+- Section button: `8015:648`, label `Ver más oficinas`
+
+Mobile departments:
+- Section frame: `8523:2565`
+- Card size: `315 x 593`
+- Image size: `315 x 390`
+
+Mobile offices:
+- Section frame: `8549:2649`
+- Card size: `315 x 593`
+- Image size: `315 x 390`
+
+Observed project assets:
+- Llano Zapata 430: `4721aac4-6276-4ada-a8f4-6624a358831a`
+- Costa de Lima: `6cf74827-e37b-4f43-9eac-f492992f2105`
+- Time Aramburú: `53115681-5a32-474b-81e5-bac8271a616d`
+- Time Angamos: `5debe8a6-c131-4c3f-a94b-08ce5c439331`
+- Time Benavides: `f4650bb6-cdc3-48de-a331-d38b5358a6f9`
+
 ## Tokens Observed
 
 - Primary yellow: `#ffcb05`
@@ -68,5 +105,6 @@ Mobile:
 - [x] Mobile header height is 54px.
 - [x] Mobile logo is 100 x 20 at 20px / 17px.
 - [x] Mobile menu group is 94 x 34 at 16px from the right.
+- [x] Departments and offices slider is driven by CPT `project` and ACF fields.
 - [ ] Browser screenshot compared side-by-side against Figma desktop.
 - [ ] Browser screenshot compared side-by-side against Figma mobile.

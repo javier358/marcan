@@ -1,0 +1,34 @@
+{
+  "key": "group_marcan_project_home_card",
+  "title": "Tarjeta home de proyecto",
+  "fields": [
+    {
+      "key": "field_marcan_project_home_section",
+      "label": "Sección home",
+      "name": "home_section",
+      "type": "select",
+      "choices": {
+        "departamentos": "Departamentos",
+        "oficinas": "Oficinas"
+      },
+      "default_value": "departamentos",
+      "ui": 1,
+      "return_format": "value"
+    },
+    {"key": "field_marcan_project_home_badge", "label": "Etiqueta", "name": "home_badge_label", "type": "text"},
+    {"key": "field_marcan_project_home_location", "label": "Ubicación", "name": "home_location", "type": "text"},
+    {"key": "field_marcan_project_home_price_label", "label": "Etiqueta de precio", "name": "home_price_label", "type": "text", "default_value": "Desde:"},
+    {"key": "field_marcan_project_home_price", "label": "Precio", "name": "home_price", "type": "text"},
+    {"key": "field_marcan_project_home_bedrooms", "label": "Dormitorios", "name": "home_bedrooms_text", "type": "text"},
+    {"key": "field_marcan_project_home_area", "label": "Metros", "name": "home_area_text", "type": "text"},
+    {"key": "field_marcan_project_home_cta_label", "label": "Etiqueta CTA", "name": "home_cta_label", "type": "text", "default_value": "Ver más"},
+    {"key": "field_marcan_project_home_cta_link", "label": "Enlace CTA", "name": "home_cta_link", "type": "link"},
+    {"key": "field_marcan_project_home_desktop_image", "label": "Imagen desktop", "name": "home_desktop_image", "type": "image", "return_format": "id", "preview_size": "medium_large", "library": "all"},
+    {"key": "field_marcan_project_home_mobile_image", "label": "Imagen móvil", "name": "home_mobile_image", "type": "image", "return_format": "id", "preview_size": "medium_large", "library": "all"}
+  ],
+  "location": [
+    [{"param": "post_type", "operator": "==", "value": "project"}]
+  ],
+  "active": true,
+  "modified": 1778544002
+}

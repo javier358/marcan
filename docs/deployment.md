@@ -24,6 +24,7 @@
 CPT are registered by code in `inc/cpt.php`:
 - `property`
 - `project`
+- `hero_slide`
 
 Taxonomies:
 - `property_type`
@@ -42,6 +43,13 @@ Do not recreate these with a visual CPT plugin.
 - Figma-exported theme assets live in `assets/images`.
 - Do not replace Figma-exported images with stock or placeholder assets.
 - Heavy uploads remain in `wp-content/uploads` and are not versioned.
+
+## ACF Groups
+
+- `Hero de inicio`
+- `Slide del hero`
+- `Home - Proyectos`
+- `Tarjeta home de proyecto`
 
 ## Git
 

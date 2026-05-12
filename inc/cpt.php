@@ -39,7 +39,7 @@ function marcan_register_content_types(): void
         'has_archive'  => true,
         'rewrite'      => array('slug' => 'proyectos'),
         'menu_icon'    => 'dashicons-admin-multisite',
-        'supports'     => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'supports'     => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'),
         'show_in_rest' => true,
     ));
 

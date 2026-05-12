@@ -81,6 +81,101 @@ function marcan_get_home_hero_settings(): array
     );
 }
 
+function marcan_get_home_projects_settings(): array
+{
+    $defaults = array(
+        'intro_title'                 => 'Tenemos una manera diferente de hacer las cosas',
+        'intro_copy'                  => 'Somos una inmobiliaria enfocada en hacer proyectos que impulsan el desarrollo urbano de Lima, inspirados en las verdaderas necesidades de las personas y de la ciudad.',
+        'intro_button_label'          => 'Conoce más sobre nosotros',
+        'intro_button_url'            => home_url('/'),
+        'departments_title'           => 'Departamentos en venta',
+        'departments_button_label'     => 'Ver más departamentos',
+        'departments_button_url'       => home_url('/'),
+        'offices_title'               => 'Oficinas en venta',
+        'offices_button_label'        => 'Ver más oficinas',
+        'offices_button_url'          => home_url('/'),
+    );
+
+    if (!function_exists('get_field')) {
+        return $defaults;
+    }
+
+    $page_id = marcan_get_front_page_id();
+
+    if (!$page_id) {
+        return $defaults;
+    }
+
+    $intro_button = get_field('home_intro_button', $page_id);
+    $departments_button = get_field('home_departments_button', $page_id);
+    $offices_button = get_field('home_offices_button', $page_id);
+
+    $resolve_link = static function ($link, string $fallback): string {
+        if (is_array($link) && !empty($link['url'])) {
+            return (string) $link['url'];
+        }
+
+        return $fallback;
+    };
+
+    return array(
+        'intro_title'             => (string) (get_field('home_intro_title', $page_id) ?: $defaults['intro_title']),
+        'intro_copy'              => (string) (get_field('home_intro_copy', $page_id) ?: $defaults['intro_copy']),
+        'intro_button_label'      => (string) (get_field('home_intro_button_label', $page_id) ?: $defaults['intro_button_label']),
+        'intro_button_url'        => $resolve_link($intro_button, $defaults['intro_button_url']),
+        'departments_title'       => (string) (get_field('home_departments_title', $page_id) ?: $defaults['departments_title']),
+        'departments_button_label' => (string) (get_field('home_departments_button_label', $page_id) ?: $defaults['departments_button_label']),
+        'departments_button_url'  => $resolve_link($departments_button, $defaults['departments_button_url']),
+        'offices_title'           => (string) (get_field('home_offices_title', $page_id) ?: $defaults['offices_title']),
+        'offices_button_label'    => (string) (get_field('home_offices_button_label', $page_id) ?: $defaults['offices_button_label']),
+        'offices_button_url'      => $resolve_link($offices_button, $defaults['offices_button_url']),
+    );
+}
+
+function marcan_get_project_sections(string $section): WP_Query
+{
+    return new WP_Query(array(
+        'post_type'      => 'project',
+        'posts_per_page' => -1,
+        'orderby'        => array('menu_order' => 'ASC', 'date' => 'ASC'),
+        'post_status'    => 'publish',
+        'meta_query'     => array(
+            array(
+                'key'     => 'home_section',
+                'value'   => $section,
+                'compare' => '=',
+            ),
+        ),
+    ));
+}
+
+function marcan_get_project_card_field(int $post_id, string $field, string $fallback = ''): string
+{
+    if (function_exists('get_field')) {
+        $value = get_field($field, $post_id);
+
+        if (is_array($value) && !empty($value['url'])) {
+            return (string) $value['url'];
+        }
+
+        if (is_scalar($value) && $value !== '') {
+            return (string) $value;
+        }
+    }
+
+    $meta = get_post_meta($post_id, $field, true);
+
+    if (is_array($meta) && !empty($meta['url'])) {
+        return (string) $meta['url'];
+    }
+
+    if (is_scalar($meta) && $meta !== '') {
+        return (string) $meta;
+    }
+
+    return $fallback;
+}
+
 function marcan_get_hero_slides(): WP_Query
 {
     return new WP_Query(array(

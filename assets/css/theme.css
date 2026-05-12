@@ -298,6 +298,271 @@ img {
     display: none;
 }
 
+.marcan-home-projects {
+    background: var(--marcan-white);
+    color: var(--marcan-black);
+    padding: 0 0 72px;
+}
+
+.marcan-home-projects-intro {
+    display: flex;
+    gap: 24px;
+    justify-content: space-between;
+    padding: 228px 30px 116px;
+}
+
+.marcan-home-projects-intro-copy {
+    max-width: 624px;
+}
+
+.marcan-home-projects-intro-copy h2 {
+    color: var(--marcan-ink);
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+    margin: 0 0 18px;
+}
+
+.marcan-home-projects-intro-copy p {
+    color: var(--marcan-ink);
+    font-size: 18px;
+    line-height: 1.38;
+    margin: 0;
+    max-width: 592px;
+}
+
+.marcan-home-projects-intro-button,
+.marcan-home-projects-heading-button,
+.marcan-home-project-card-cta {
+    align-items: center;
+    background: var(--marcan-ink);
+    color: var(--marcan-white);
+    display: inline-flex;
+    font-size: 12px;
+    font-weight: 400;
+    justify-content: center;
+    line-height: 1.43;
+    padding: 8px 16px;
+    white-space: nowrap;
+}
+
+.marcan-home-projects-intro-button {
+    height: 41px;
+    padding: 10px 20px;
+    font-size: 15px;
+}
+
+.marcan-home-projects-group {
+    margin-top: 0;
+}
+
+.marcan-home-projects-heading {
+    align-items: center;
+    display: flex;
+    gap: 24px;
+    justify-content: space-between;
+    padding: 0 30px 10px;
+}
+
+.marcan-home-projects-heading h2 {
+    color: var(--marcan-ink);
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.marcan-home-projects-heading-button {
+    height: 33px;
+    padding: 8px 16px;
+}
+
+.marcan-home-project-slider {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.marcan-home-project-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.marcan-home-project-slider-track {
+    display: flex;
+    gap: 10px;
+    width: max-content;
+}
+
+.marcan-home-project-card {
+    flex: 0 0 auto;
+    width: 990px;
+    scroll-snap-align: start;
+}
+
+.marcan-home-project-card-link {
+    color: inherit;
+    display: block;
+}
+
+.marcan-home-project-card-media {
+    background: #deded8;
+    height: 687px;
+    overflow: hidden;
+    position: relative;
+}
+
+.marcan-home-project-card-image {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.marcan-home-project-card-arrow {
+    bottom: -100px;
+    height: 100px;
+    left: -100px;
+    position: absolute;
+    width: 100px;
+}
+
+.marcan-home-project-card-arrow img,
+.marcan-home-project-card-divider img,
+.marcan-home-project-card-spec-icon img {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.marcan-home-project-card-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 222px;
+    padding: 15px 0 0;
+}
+
+.marcan-home-project-card-main {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-left: 30px;
+    width: 100%;
+}
+
+.marcan-home-project-card-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.marcan-home-project-card-title-row {
+    align-items: center;
+    display: flex;
+    gap: 12px;
+    min-height: 29px;
+}
+
+.marcan-home-project-card-title-row h3 {
+    color: var(--marcan-ink);
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.3;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.marcan-home-project-card-divider {
+    height: 19px;
+    width: 0;
+}
+
+.marcan-home-project-card-badge {
+    align-items: center;
+    background: #fffcf2;
+    border: 1px solid #ffcb05;
+    border-radius: 61px;
+    color: #997a03;
+    display: inline-flex;
+    font-size: 14px;
+    font-weight: 500;
+    justify-content: center;
+    line-height: 1.4;
+    padding: 3px 15px;
+    white-space: nowrap;
+}
+
+.marcan-home-project-card-location {
+    color: #4f4f4f;
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.marcan-home-project-card-actions {
+    display: flex;
+}
+
+.marcan-home-project-card-cta {
+    height: 33px;
+}
+
+.marcan-home-project-card-side {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    padding-right: 30px;
+}
+
+.marcan-home-project-card-price {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.marcan-home-project-card-price span {
+    color: #838382;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.marcan-home-project-card-price strong {
+    color: #838382;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+.marcan-home-project-card-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.marcan-home-project-card-spec {
+    align-items: center;
+    color: #838382;
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.marcan-home-project-card-spec-icon {
+    display: block;
+    flex: 0 0 auto;
+    height: 13px;
+    width: 18px;
+}
+
+.marcan-home-projects-group-offices {
+    margin-top: 108px;
+}
+
 .marcan-hero {
     background: var(--marcan-black);
     color: var(--marcan-white);
@@ -965,6 +1230,126 @@ img {
         line-height: 1.28;
         margin: 0;
         width: 272px;
+    }
+
+    .marcan-home-projects {
+        padding-bottom: 56px;
+    }
+
+    .marcan-home-projects-intro {
+        display: block;
+        padding: 132px 16px 73px;
+    }
+
+    .marcan-home-projects-intro-copy {
+        max-width: none;
+    }
+
+    .marcan-home-projects-intro-copy h2 {
+        font-size: 24px;
+        margin-bottom: 14px;
+    }
+
+    .marcan-home-projects-intro-copy p {
+        font-size: 18px;
+        max-width: 272px;
+    }
+
+    .marcan-home-projects-intro-button {
+        margin-top: 14px;
+    }
+
+    .marcan-home-projects-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 0 16px 10px;
+    }
+
+    .marcan-home-projects-heading h2 {
+        font-size: 28px;
+    }
+
+    .marcan-home-projects-heading-button {
+        height: 33px;
+    }
+
+    .marcan-home-project-slider-track {
+        gap: 10px;
+        padding-left: 16px;
+    }
+
+    .marcan-home-project-card {
+        width: 315px;
+    }
+
+    .marcan-home-project-card-media {
+        height: 390px;
+    }
+
+    .marcan-home-project-card-body {
+        display: block;
+        padding-top: 10px;
+    }
+
+    .marcan-home-project-card-main {
+        gap: 10px;
+        padding-left: 0;
+    }
+
+    .marcan-home-project-card-title-row {
+        gap: 8px;
+        min-height: 26px;
+    }
+
+    .marcan-home-project-card-title-row h3 {
+        font-size: 22px;
+    }
+
+    .marcan-home-project-card-location {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .marcan-home-project-card-actions {
+        margin-top: 14px;
+    }
+
+    .marcan-home-project-card-side {
+        display: grid;
+        gap: 0;
+        grid-template-columns: 136px 1fr;
+        padding-right: 0;
+    }
+
+    .marcan-home-project-card-price {
+        flex-direction: row;
+        gap: 4px;
+        justify-content: space-between;
+    }
+
+    .marcan-home-project-card-price span {
+        font-size: 14px;
+    }
+
+    .marcan-home-project-card-price strong {
+        font-size: 24px;
+    }
+
+    .marcan-home-project-card-specs {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .marcan-home-project-card-spec {
+        gap: 8px;
+    }
+
+    .marcan-home-project-card-spec-icon {
+        width: 18px;
+    }
+
+    .marcan-home-projects-group-offices {
+        margin-top: 80px;
     }
 
     .property-grid,

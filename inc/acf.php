@@ -54,8 +54,182 @@ function marcan_register_field_groups(): void
             array(
                 array('param' => 'post_type', 'operator' => '==', 'value' => 'property'),
             ),
+        ),
+        'active' => true,
+    ));
+
+    acf_add_local_field_group(array(
+        'key' => 'group_marcan_home_projects_settings',
+        'title' => 'Home - Proyectos',
+        'fields' => array(
             array(
-                array('param' => 'post_type', 'operator' => '==', 'value' => 'project'),
+                'key' => 'field_marcan_home_intro_title',
+                'label' => 'Título introductorio',
+                'name' => 'home_intro_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_marcan_home_intro_copy',
+                'label' => 'Texto introductorio',
+                'name' => 'home_intro_copy',
+                'type' => 'textarea',
+                'rows' => 4,
+                'new_lines' => 'wpautop',
+            ),
+            array(
+                'key' => 'field_marcan_home_intro_button_label',
+                'label' => 'Etiqueta botón introductorio',
+                'name' => 'home_intro_button_label',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_marcan_home_intro_button',
+                'label' => 'Enlace botón introductorio',
+                'name' => 'home_intro_button',
+                'type' => 'link',
+            ),
+            array(
+                'key' => 'field_marcan_home_departments_title',
+                'label' => 'Título departamentos',
+                'name' => 'home_departments_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_marcan_home_departments_button_label',
+                'label' => 'Etiqueta botón departamentos',
+                'name' => 'home_departments_button_label',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_marcan_home_departments_button',
+                'label' => 'Enlace botón departamentos',
+                'name' => 'home_departments_button',
+                'type' => 'link',
+            ),
+            array(
+                'key' => 'field_marcan_home_offices_title',
+                'label' => 'Título oficinas',
+                'name' => 'home_offices_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_marcan_home_offices_button_label',
+                'label' => 'Etiqueta botón oficinas',
+                'name' => 'home_offices_button_label',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_marcan_home_offices_button',
+                'label' => 'Enlace botón oficinas',
+                'name' => 'home_offices_button',
+                'type' => 'link',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_type',
+                    'operator' => '==',
+                    'value' => 'front_page',
+                ),
+            ),
+        ),
+        'active' => true,
+    ));
+
+    acf_add_local_field_group(array(
+        'key' => 'group_marcan_project_home_card',
+        'title' => 'Tarjeta home de proyecto',
+        'fields' => array(
+            array(
+                'key' => 'field_marcan_project_home_section',
+                'label' => 'Sección home',
+                'name' => 'home_section',
+                'type' => 'select',
+                'choices' => array(
+                    'departamentos' => 'Departamentos',
+                    'oficinas' => 'Oficinas',
+                ),
+                'default_value' => 'departamentos',
+                'ui' => 1,
+                'return_format' => 'value',
+            ),
+            array(
+                'key' => 'field_marcan_project_home_badge',
+                'label' => 'Etiqueta',
+                'name' => 'home_badge_label',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_marcan_project_home_location',
+                'label' => 'Ubicación',
+                'name' => 'home_location',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_marcan_project_home_price_label',
+                'label' => 'Etiqueta de precio',
+                'name' => 'home_price_label',
+                'type' => 'text',
+                'default_value' => 'Desde:',
+            ),
+            array(
+                'key' => 'field_marcan_project_home_price',
+                'label' => 'Precio',
+                'name' => 'home_price',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_marcan_project_home_bedrooms',
+                'label' => 'Dormitorios',
+                'name' => 'home_bedrooms_text',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_marcan_project_home_area',
+                'label' => 'Metros',
+                'name' => 'home_area_text',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_marcan_project_home_cta_label',
+                'label' => 'Etiqueta CTA',
+                'name' => 'home_cta_label',
+                'type' => 'text',
+                'default_value' => 'Ver más',
+            ),
+            array(
+                'key' => 'field_marcan_project_home_cta_link',
+                'label' => 'Enlace CTA',
+                'name' => 'home_cta_link',
+                'type' => 'link',
+            ),
+            array(
+                'key' => 'field_marcan_project_home_desktop_image',
+                'label' => 'Imagen desktop',
+                'name' => 'home_desktop_image',
+                'type' => 'image',
+                'return_format' => 'id',
+                'preview_size' => 'medium_large',
+                'library' => 'all',
+            ),
+            array(
+                'key' => 'field_marcan_project_home_mobile_image',
+                'label' => 'Imagen móvil',
+                'name' => 'home_mobile_image',
+                'type' => 'image',
+                'return_format' => 'id',
+                'preview_size' => 'medium_large',
+                'library' => 'all',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'project',
+                ),
             ),
         ),
         'active' => true,

@@ -21,8 +21,7 @@
     {"key": "field_marcan_cta", "label": "CTA / contacto", "name": "cta_contacto", "type": "link"}
   ],
   "location": [
-    [{"param": "post_type", "operator": "==", "value": "property"}],
-    [{"param": "post_type", "operator": "==", "value": "project"}]
+    [{"param": "post_type", "operator": "==", "value": "property"}]
   ],
   "active": true,
   "modified": 1778544000
