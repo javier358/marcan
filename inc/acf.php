@@ -22,11 +22,104 @@ function marcan_acf_json_load_point(array $paths): array
 }
 add_filter('acf/settings/load_json', 'marcan_acf_json_load_point');
 
+function marcan_register_options_page(): void
+{
+    if (!function_exists('acf_add_options_page')) {
+        return;
+    }
+
+    acf_add_options_page(array(
+        'page_title' => 'MARCAN Global',
+        'menu_title' => 'MARCAN Global',
+        'menu_slug'  => 'marcan-global-settings',
+        'capability' => 'edit_theme_options',
+        'redirect'   => false,
+    ));
+}
+add_action('acf/init', 'marcan_register_options_page');
+
 function marcan_register_field_groups(): void
 {
     if (!function_exists('acf_add_local_field_group')) {
         return;
     }
+
+    acf_add_local_field_group(array(
+        'key' => 'group_marcan_global_header',
+        'title' => 'Global - Header',
+        'fields' => array(
+            array('key' => 'field_marcan_header_logo_desktop', 'label' => 'Logo desktop', 'name' => 'header_logo_desktop', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'library' => 'all'),
+            array('key' => 'field_marcan_header_logo_mobile', 'label' => 'Logo movil', 'name' => 'header_logo_mobile', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'library' => 'all'),
+            array('key' => 'field_marcan_header_menu_label', 'label' => 'Etiqueta menu', 'name' => 'header_menu_label', 'type' => 'text', 'default_value' => 'MENU'),
+            array('key' => 'field_marcan_header_background_color', 'label' => 'Color fondo', 'name' => 'header_background_color', 'type' => 'text', 'default_value' => 'rgba(234,234,232,0.72)'),
+            array('key' => 'field_marcan_header_text_color', 'label' => 'Color texto', 'name' => 'header_text_color', 'type' => 'text', 'default_value' => '#4f4f4f'),
+            array('key' => 'field_marcan_header_blur_amount', 'label' => 'Blur', 'name' => 'header_blur_amount', 'type' => 'number', 'default_value' => 70, 'min' => 0, 'step' => 1),
+            array('key' => 'field_marcan_header_dropdown_background_color', 'label' => 'Color dropdown', 'name' => 'header_dropdown_background_color', 'type' => 'text', 'default_value' => 'rgba(234,234,232,0.72)'),
+        ),
+        'location' => array(
+            array(
+                array('param' => 'options_page', 'operator' => '==', 'value' => 'marcan-global-settings'),
+            ),
+        ),
+        'active' => true,
+    ));
+
+    acf_add_local_field_group(array(
+        'key' => 'group_marcan_global_footer',
+        'title' => 'Global - Footer',
+        'fields' => array(
+            array('key' => 'field_marcan_footer_background_color', 'label' => 'Color fondo', 'name' => 'footer_background_color', 'type' => 'text', 'default_value' => '#ffcb05'),
+            array('key' => 'field_marcan_footer_text_color', 'label' => 'Color texto', 'name' => 'footer_text_color', 'type' => 'text', 'default_value' => '#4f4f4f'),
+            array('key' => 'field_marcan_footer_projects_title', 'label' => 'Titulo proyectos', 'name' => 'footer_projects_title', 'type' => 'text', 'default_value' => 'Proyectos actuales'),
+            array('key' => 'field_marcan_footer_company_title', 'label' => 'Titulo quienes somos', 'name' => 'footer_company_title', 'type' => 'text', 'default_value' => 'Quiénes somos'),
+            array('key' => 'field_marcan_footer_member_title', 'label' => 'Titulo miembros', 'name' => 'footer_member_title', 'type' => 'text', 'default_value' => 'Miembro de'),
+            array('key' => 'field_marcan_footer_brand_logo_desktop', 'label' => 'Marca desktop', 'name' => 'footer_brand_logo_desktop', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'library' => 'all'),
+            array('key' => 'field_marcan_footer_brand_logo_mobile', 'label' => 'Marca movil', 'name' => 'footer_brand_logo_mobile', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'library' => 'all'),
+            array('key' => 'field_marcan_footer_arrow_desktop', 'label' => 'Flecha desktop', 'name' => 'footer_arrow_desktop', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'library' => 'all'),
+            array('key' => 'field_marcan_footer_arrow_mobile', 'label' => 'Flecha movil', 'name' => 'footer_arrow_mobile', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'library' => 'all'),
+            array('key' => 'field_marcan_footer_social_1', 'label' => 'Social 1', 'name' => 'footer_social_1', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'library' => 'all'),
+            array('key' => 'field_marcan_footer_social_2', 'label' => 'Social 2', 'name' => 'footer_social_2', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'library' => 'all'),
+            array('key' => 'field_marcan_footer_social_3', 'label' => 'Social 3', 'name' => 'footer_social_3', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'library' => 'all'),
+            array('key' => 'field_marcan_footer_social_4', 'label' => 'Social 4', 'name' => 'footer_social_4', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'library' => 'all'),
+            array('key' => 'field_marcan_footer_member_1', 'label' => 'Miembro 1', 'name' => 'footer_member_1', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'library' => 'all'),
+            array('key' => 'field_marcan_footer_member_2', 'label' => 'Miembro 2', 'name' => 'footer_member_2', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'library' => 'all'),
+            array('key' => 'field_marcan_footer_member_3', 'label' => 'Miembro 3', 'name' => 'footer_member_3', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'library' => 'all'),
+            array('key' => 'field_marcan_footer_address', 'label' => 'Direccion', 'name' => 'footer_address', 'type' => 'text'),
+            array('key' => 'field_marcan_footer_phone_lines', 'label' => 'Telefonos', 'name' => 'footer_phone_lines', 'type' => 'textarea', 'rows' => 2),
+            array('key' => 'field_marcan_footer_email', 'label' => 'Correo', 'name' => 'footer_email', 'type' => 'text'),
+            array('key' => 'field_marcan_footer_legal_text', 'label' => 'Texto legal', 'name' => 'footer_legal_text', 'type' => 'text', 'default_value' => 'Términos & Condiciones | Política de Privacidad | © 2025 Marcan Ingenieros'),
+            array('key' => 'field_marcan_footer_projects_button_label', 'label' => 'CTA proyectos', 'name' => 'footer_projects_button_label', 'type' => 'text', 'default_value' => 'Ver Proyectos'),
+            array('key' => 'field_marcan_footer_projects_button', 'label' => 'Enlace CTA proyectos', 'name' => 'footer_projects_button', 'type' => 'link'),
+        ),
+        'location' => array(
+            array(
+                array('param' => 'options_page', 'operator' => '==', 'value' => 'marcan-global-settings'),
+            ),
+        ),
+        'active' => true,
+    ));
+
+    acf_add_local_field_group(array(
+        'key' => 'group_marcan_home_delivered_projects',
+        'title' => 'Home - Proyectos entregados',
+        'fields' => array(
+            array('key' => 'field_marcan_home_delivered_title', 'label' => 'Titulo', 'name' => 'home_delivered_title', 'type' => 'text'),
+            array('key' => 'field_marcan_home_delivered_button_label', 'label' => 'Etiqueta boton', 'name' => 'home_delivered_button_label', 'type' => 'text'),
+            array('key' => 'field_marcan_home_delivered_button', 'label' => 'Enlace boton', 'name' => 'home_delivered_button', 'type' => 'link'),
+            array('key' => 'field_marcan_home_delivered_image_desktop', 'label' => 'Imagen desktop', 'name' => 'home_delivered_image_desktop', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'large', 'library' => 'all'),
+            array('key' => 'field_marcan_home_delivered_image_mobile', 'label' => 'Imagen movil', 'name' => 'home_delivered_image_mobile', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'large', 'library' => 'all'),
+            array('key' => 'field_marcan_home_delivered_background_color', 'label' => 'Color fondo', 'name' => 'home_delivered_background_color', 'type' => 'text', 'default_value' => '#f3f2f1'),
+            array('key' => 'field_marcan_home_delivered_text_color', 'label' => 'Color texto', 'name' => 'home_delivered_text_color', 'type' => 'text', 'default_value' => '#4f4f4f'),
+            array('key' => 'field_marcan_home_delivered_button_background', 'label' => 'Color boton', 'name' => 'home_delivered_button_background', 'type' => 'text', 'default_value' => '#4f4f4f'),
+            array('key' => 'field_marcan_home_delivered_button_text_color', 'label' => 'Color texto boton', 'name' => 'home_delivered_button_text_color', 'type' => 'text', 'default_value' => '#fbfafa'),
+        ),
+        'location' => array(
+            array(
+                array('param' => 'page_type', 'operator' => '==', 'value' => 'front_page'),
+            ),
+        ),
+        'active' => true,
+    ));
 
     acf_add_local_field_group(array(
         'key' => 'group_marcan_property_data',

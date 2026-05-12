@@ -1,0 +1,16 @@
+{
+  "key": "group_marcan_global_header",
+  "title": "Global - Header",
+  "fields": [
+    {"key": "field_marcan_header_logo_desktop", "label": "Logo desktop", "name": "header_logo_desktop", "type": "image", "return_format": "id", "preview_size": "medium", "library": "all"},
+    {"key": "field_marcan_header_logo_mobile", "label": "Logo movil", "name": "header_logo_mobile", "type": "image", "return_format": "id", "preview_size": "medium", "library": "all"},
+    {"key": "field_marcan_header_menu_label", "label": "Etiqueta menu", "name": "header_menu_label", "type": "text", "default_value": "MENU"},
+    {"key": "field_marcan_header_background_color", "label": "Color fondo", "name": "header_background_color", "type": "text", "default_value": "rgba(234,234,232,0.72)"},
+    {"key": "field_marcan_header_text_color", "label": "Color texto", "name": "header_text_color", "type": "text", "default_value": "#4f4f4f"},
+    {"key": "field_marcan_header_blur_amount", "label": "Blur", "name": "header_blur_amount", "type": "number", "default_value": 70, "min": 0, "step": 1},
+    {"key": "field_marcan_header_dropdown_background_color", "label": "Color dropdown", "name": "header_dropdown_background_color", "type": "text", "default_value": "rgba(234,234,232,0.72)"}
+  ],
+  "location": [[{"param": "options_page", "operator": "==", "value": "marcan-global-settings"}]],
+  "active": true,
+  "modified": 1778598000
+}

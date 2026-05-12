@@ -24,8 +24,9 @@ function marcan_setup(): void
     ));
 
     register_nav_menus(array(
-        'primary' => __('Menú principal', 'marcan'),
-        'footer'  => __('Menú footer', 'marcan'),
+        'primary'         => __('Menu principal', 'marcan'),
+        'footer_projects' => __('Footer proyectos', 'marcan'),
+        'footer_company'  => __('Footer empresa', 'marcan'),
     ));
 }
 add_action('after_setup_theme', 'marcan_setup');

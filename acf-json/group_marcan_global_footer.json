@@ -1,0 +1,31 @@
+{
+  "key": "group_marcan_global_footer",
+  "title": "Global - Footer",
+  "fields": [
+    {"key": "field_marcan_footer_background_color", "label": "Color fondo", "name": "footer_background_color", "type": "text", "default_value": "#ffcb05"},
+    {"key": "field_marcan_footer_text_color", "label": "Color texto", "name": "footer_text_color", "type": "text", "default_value": "#4f4f4f"},
+    {"key": "field_marcan_footer_projects_title", "label": "Titulo proyectos", "name": "footer_projects_title", "type": "text", "default_value": "Proyectos actuales"},
+    {"key": "field_marcan_footer_company_title", "label": "Titulo quienes somos", "name": "footer_company_title", "type": "text", "default_value": "Quiénes somos"},
+    {"key": "field_marcan_footer_member_title", "label": "Titulo miembros", "name": "footer_member_title", "type": "text", "default_value": "Miembro de"},
+    {"key": "field_marcan_footer_brand_logo_desktop", "label": "Marca desktop", "name": "footer_brand_logo_desktop", "type": "image", "return_format": "id", "preview_size": "medium", "library": "all"},
+    {"key": "field_marcan_footer_brand_logo_mobile", "label": "Marca movil", "name": "footer_brand_logo_mobile", "type": "image", "return_format": "id", "preview_size": "medium", "library": "all"},
+    {"key": "field_marcan_footer_arrow_desktop", "label": "Flecha desktop", "name": "footer_arrow_desktop", "type": "image", "return_format": "id", "preview_size": "medium", "library": "all"},
+    {"key": "field_marcan_footer_arrow_mobile", "label": "Flecha movil", "name": "footer_arrow_mobile", "type": "image", "return_format": "id", "preview_size": "medium", "library": "all"},
+    {"key": "field_marcan_footer_social_1", "label": "Social 1", "name": "footer_social_1", "type": "image", "return_format": "id", "preview_size": "medium", "library": "all"},
+    {"key": "field_marcan_footer_social_2", "label": "Social 2", "name": "footer_social_2", "type": "image", "return_format": "id", "preview_size": "medium", "library": "all"},
+    {"key": "field_marcan_footer_social_3", "label": "Social 3", "name": "footer_social_3", "type": "image", "return_format": "id", "preview_size": "medium", "library": "all"},
+    {"key": "field_marcan_footer_social_4", "label": "Social 4", "name": "footer_social_4", "type": "image", "return_format": "id", "preview_size": "medium", "library": "all"},
+    {"key": "field_marcan_footer_member_1", "label": "Miembro 1", "name": "footer_member_1", "type": "image", "return_format": "id", "preview_size": "medium", "library": "all"},
+    {"key": "field_marcan_footer_member_2", "label": "Miembro 2", "name": "footer_member_2", "type": "image", "return_format": "id", "preview_size": "medium", "library": "all"},
+    {"key": "field_marcan_footer_member_3", "label": "Miembro 3", "name": "footer_member_3", "type": "image", "return_format": "id", "preview_size": "medium", "library": "all"},
+    {"key": "field_marcan_footer_address", "label": "Direccion", "name": "footer_address", "type": "text"},
+    {"key": "field_marcan_footer_phone_lines", "label": "Telefonos", "name": "footer_phone_lines", "type": "textarea", "rows": 2},
+    {"key": "field_marcan_footer_email", "label": "Correo", "name": "footer_email", "type": "text"},
+    {"key": "field_marcan_footer_legal_text", "label": "Texto legal", "name": "footer_legal_text", "type": "text", "default_value": "Términos & Condiciones | Política de Privacidad | © 2025 Marcan Ingenieros"},
+    {"key": "field_marcan_footer_projects_button_label", "label": "CTA proyectos", "name": "footer_projects_button_label", "type": "text", "default_value": "Ver Proyectos"},
+    {"key": "field_marcan_footer_projects_button", "label": "Enlace CTA proyectos", "name": "footer_projects_button", "type": "link"}
+  ],
+  "location": [[{"param": "options_page", "operator": "==", "value": "marcan-global-settings"}]],
+  "active": true,
+  "modified": 1778598001
+}

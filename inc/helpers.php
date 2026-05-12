@@ -44,6 +44,68 @@ function marcan_get_media_attachment_url(string $option_name): string
     return '';
 }
 
+function marcan_get_option_field(string $field_name, $fallback = null)
+{
+    if (function_exists('get_field')) {
+        $value = get_field($field_name, 'option');
+
+        if ($value !== null && $value !== '' && $value !== array()) {
+            return $value;
+        }
+    }
+
+    $legacy = get_option($field_name);
+
+    if ($legacy !== false && $legacy !== null && $legacy !== '') {
+        return $legacy;
+    }
+
+    return $fallback;
+}
+
+function marcan_get_option_text(string $field_name, string $fallback = ''): string
+{
+    $value = marcan_get_option_field($field_name, $fallback);
+
+    return is_scalar($value) ? (string) $value : $fallback;
+}
+
+function marcan_get_option_color(string $field_name, string $fallback = ''): string
+{
+    $value = marcan_get_option_field($field_name, $fallback);
+
+    return is_string($value) && $value !== '' ? $value : $fallback;
+}
+
+function marcan_get_option_media_attachment_id(string $field_name, string $legacy_option_name = ''): int
+{
+    $value = marcan_get_option_field($field_name, 0);
+
+    if (is_numeric($value)) {
+        return (int) $value;
+    }
+
+    if ($legacy_option_name !== '') {
+        return (int) get_option($legacy_option_name);
+    }
+
+    return 0;
+}
+
+function marcan_get_option_media_attachment_url(string $field_name, string $legacy_option_name = ''): string
+{
+    $attachment_id = marcan_get_option_media_attachment_id($field_name, $legacy_option_name);
+
+    if ($attachment_id && function_exists('wp_get_attachment_url')) {
+        $url = wp_get_attachment_url($attachment_id);
+        if (is_string($url) && $url !== '') {
+            return $url;
+        }
+    }
+
+    return '';
+}
+
 function marcan_get_front_page_id(): int
 {
     return (int) get_option('page_on_front');
@@ -129,6 +191,50 @@ function marcan_get_home_projects_settings(): array
         'offices_title'           => (string) (get_field('home_offices_title', $page_id) ?: $defaults['offices_title']),
         'offices_button_label'    => (string) (get_field('home_offices_button_label', $page_id) ?: $defaults['offices_button_label']),
         'offices_button_url'      => $resolve_link($offices_button, $defaults['offices_button_url']),
+    );
+}
+
+function marcan_get_home_delivered_settings(): array
+{
+    $defaults = array(
+        'title'               => 'Nuestros proyectos entregados hablan por nosotros',
+        'button_label'        => 'Conoce más sobre nosotros',
+        'button_url'          => home_url('/'),
+        'image_desktop_id'    => 0,
+        'image_mobile_id'     => 0,
+        'background_color'    => '#f3f2f1',
+        'text_color'          => '#4f4f4f',
+        'button_bg_color'     => '#4f4f4f',
+        'button_text_color'   => '#fbfafa',
+    );
+
+    if (!function_exists('get_field')) {
+        return $defaults;
+    }
+
+    $page_id = marcan_get_front_page_id();
+
+    if (!$page_id) {
+        return $defaults;
+    }
+
+    $button = get_field('home_delivered_button', $page_id);
+
+    $button_url = $defaults['button_url'];
+    if (is_array($button) && !empty($button['url'])) {
+        $button_url = (string) $button['url'];
+    }
+
+    return array(
+        'title'             => (string) (get_field('home_delivered_title', $page_id) ?: $defaults['title']),
+        'button_label'      => (string) (get_field('home_delivered_button_label', $page_id) ?: $defaults['button_label']),
+        'button_url'        => $button_url,
+        'image_desktop_id'  => (int) (get_field('home_delivered_image_desktop', $page_id) ?: $defaults['image_desktop_id']),
+        'image_mobile_id'   => (int) (get_field('home_delivered_image_mobile', $page_id) ?: $defaults['image_mobile_id']),
+        'background_color'  => (string) (get_field('home_delivered_background_color', $page_id) ?: $defaults['background_color']),
+        'text_color'        => (string) (get_field('home_delivered_text_color', $page_id) ?: $defaults['text_color']),
+        'button_bg_color'   => (string) (get_field('home_delivered_button_background', $page_id) ?: $defaults['button_bg_color']),
+        'button_text_color' => (string) (get_field('home_delivered_button_text_color', $page_id) ?: $defaults['button_text_color']),
     );
 }
 
