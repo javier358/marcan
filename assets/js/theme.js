@@ -92,20 +92,6 @@
         let startX = 0;
         let startScrollLeft = 0;
 
-        slider.addEventListener('wheel', function (event) {
-            const canScrollX = track.scrollWidth > slider.clientWidth;
-            if (!canScrollX) {
-                return;
-            }
-
-            if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) {
-                return;
-            }
-
-            event.preventDefault();
-            slider.scrollLeft += event.deltaY;
-        }, { passive: false });
-
         slider.addEventListener('pointerdown', function (event) {
             if (track.scrollWidth <= slider.clientWidth) {
                 return;
@@ -142,6 +128,25 @@
         slider.addEventListener('pointercancel', endDrag);
         slider.addEventListener('pointerleave', endDrag);
     }
+
+    window.addEventListener('wheel', function (event) {
+        const slider = event.target && event.target.closest ? event.target.closest('[data-project-slider]') : null;
+        if (!slider) {
+            return;
+        }
+
+        const track = slider.querySelector('.marcan-home-project-slider-track');
+        if (!track || track.scrollWidth <= slider.clientWidth) {
+            return;
+        }
+
+        if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) {
+            return;
+        }
+
+        event.preventDefault();
+        slider.scrollLeft += event.deltaY;
+    }, { passive: false, capture: true });
 
     if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver(function (entries) {

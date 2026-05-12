@@ -305,14 +305,12 @@ img {
 }
 
 .marcan-home-projects-intro {
-    display: flex;
-    gap: 24px;
-    justify-content: space-between;
-    padding: 228px 30px 116px;
+    display: block;
+    padding: 30px 30px 116px;
 }
 
 .marcan-home-projects-intro-copy {
-    max-width: 624px;
+    max-width: 591px;
 }
 
 .marcan-home-projects-intro-copy h2 {
@@ -330,6 +328,16 @@ img {
     line-height: 1.38;
     margin: 0;
     max-width: 592px;
+}
+
+.marcan-home-projects-intro-title {
+    color: var(--marcan-ink);
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+    margin: 288px 0 0;
+    max-width: 591px;
 }
 
 .marcan-home-projects-intro-button,
@@ -352,6 +360,7 @@ img {
     width: 239px;
     padding: 10px 20px;
     font-size: 15px;
+    margin-top: 10px;
 }
 
 .marcan-home-projects-group {
@@ -1246,26 +1255,30 @@ img {
 
     .marcan-home-projects-intro {
         display: block;
-        padding: 132px 16px 73px;
+        padding: 0 16px 73px;
     }
 
     .marcan-home-projects-intro-copy {
-        max-width: none;
+        display: none;
     }
 
-    .marcan-home-projects-intro-copy h2 {
-        font-size: 24px;
-        margin-bottom: 14px;
-    }
-
-    .marcan-home-projects-intro-copy p {
-        font-size: 18px;
+    .marcan-home-projects-intro-title {
+        font-family: Bitter, Georgia, serif;
+        font-weight: 400;
+        font-size: 32px;
+        letter-spacing: 0.01em;
+        line-height: 1;
+        margin: 0 auto 14px;
         max-width: 272px;
+        text-align: center;
     }
 
     .marcan-home-projects-intro-button {
+        display: inline-flex;
+        margin-left: auto;
+        margin-right: auto;
         width: 273px;
-        margin-top: 14px;
+        margin-top: 0;
     }
 
     .marcan-home-projects-heading {
@@ -1275,7 +1288,9 @@ img {
     }
 
     .marcan-home-projects-heading h2 {
-        font-size: 28px;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 1;
     }
 
     .marcan-home-projects-heading-button {
@@ -1311,7 +1326,7 @@ img {
     }
 
     .marcan-home-project-card-title-row h3 {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .marcan-home-project-card-location {
@@ -1341,7 +1356,7 @@ img {
     }
 
     .marcan-home-project-card-price strong {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .marcan-home-project-card-specs {

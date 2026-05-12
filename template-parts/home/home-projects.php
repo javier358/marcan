@@ -112,6 +112,7 @@ function marcan_render_home_project_card(WP_Post $post, string $section_class = 
             <h2><?php echo esc_html($project_settings['intro_title']); ?></h2>
             <p><?php echo esc_html($project_settings['intro_copy']); ?></p>
         </div>
+        <h2 class="marcan-home-projects-intro-title"><?php echo esc_html($project_settings['intro_title']); ?></h2>
         <a class="marcan-home-projects-intro-button" href="<?php echo esc_url($project_settings['intro_button_url']); ?>">
             <?php echo esc_html($project_settings['intro_button_label']); ?>
         </a>
