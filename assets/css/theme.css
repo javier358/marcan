@@ -86,11 +86,11 @@
     backdrop-filter: blur(70px);
     background: rgba(255, 255, 255, 0.25);
     display: none;
-    height: calc(100vh - 67px);
+    height: 162px;
     left: 0;
     position: fixed;
     right: 0;
-    top: 67px;
+    top: 64px;
     width: 100vw;
 }
 
@@ -107,7 +107,7 @@
     padding: 0;
     position: absolute;
     right: 23px;
-    top: -3px;
+    top: 0;
     width: 168px;
 }
 
@@ -805,7 +805,7 @@ img {
     }
 
     .marcan-primary-nav {
-        height: calc(100vh - 54px);
+        height: 162px;
         left: 0;
         right: 0;
         top: 54px;
