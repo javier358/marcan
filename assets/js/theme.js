@@ -82,6 +82,67 @@
         slider.addEventListener('mouseleave', start);
     }
 
+    function initProjectSlider(slider) {
+        const track = slider.querySelector('.marcan-home-project-slider-track');
+        if (!track) {
+            return;
+        }
+
+        let isDown = false;
+        let startX = 0;
+        let startScrollLeft = 0;
+
+        slider.addEventListener('wheel', function (event) {
+            const canScrollX = track.scrollWidth > slider.clientWidth;
+            if (!canScrollX) {
+                return;
+            }
+
+            if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) {
+                return;
+            }
+
+            event.preventDefault();
+            slider.scrollLeft += event.deltaY;
+        }, { passive: false });
+
+        slider.addEventListener('pointerdown', function (event) {
+            if (track.scrollWidth <= slider.clientWidth) {
+                return;
+            }
+
+            isDown = true;
+            startX = event.clientX;
+            startScrollLeft = slider.scrollLeft;
+            slider.classList.add('is-dragging');
+            slider.setPointerCapture(event.pointerId);
+        });
+
+        slider.addEventListener('pointermove', function (event) {
+            if (!isDown) {
+                return;
+            }
+
+            const delta = event.clientX - startX;
+            slider.scrollLeft = startScrollLeft - delta;
+        });
+
+        function endDrag(event) {
+            if (!isDown) {
+                return;
+            }
+            isDown = false;
+            slider.classList.remove('is-dragging');
+            try {
+                slider.releasePointerCapture(event.pointerId);
+            } catch (err) {}
+        }
+
+        slider.addEventListener('pointerup', endDrag);
+        slider.addEventListener('pointercancel', endDrag);
+        slider.addEventListener('pointerleave', endDrag);
+    }
+
     if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
@@ -118,5 +179,6 @@
             node.classList.add('is-visible');
         });
         heroSliders.forEach(initHeroSlider);
+        document.querySelectorAll('[data-project-slider]').forEach(initProjectSlider);
     });
 }());

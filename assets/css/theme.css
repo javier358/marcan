@@ -349,6 +349,7 @@ img {
 
 .marcan-home-projects-intro-button {
     height: 41px;
+    width: 239px;
     padding: 10px 20px;
     font-size: 15px;
 }
@@ -385,10 +386,17 @@ img {
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
+    cursor: grab;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
 }
 
 .marcan-home-project-slider::-webkit-scrollbar {
     display: none;
+}
+
+.marcan-home-project-slider.is-dragging {
+    cursor: grabbing;
 }
 
 .marcan-home-project-slider-track {
@@ -1256,6 +1264,7 @@ img {
     }
 
     .marcan-home-projects-intro-button {
+        width: 273px;
         margin-top: 14px;
     }
 

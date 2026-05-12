@@ -32,7 +32,7 @@ function marcan_render_home_project_card(WP_Post $post, string $section_class = 
     $area_icon_id = (int) get_option('marcan_project_icon_area_id');
     $title = get_the_title($post_id);
     $default_price_label = $price_label !== '' ? $price_label : __('Desde:', 'marcan');
-    $default_cta_label = $cta_label !== '' ? $cta_label : __('Ver más', 'marcan');
+    $default_cta_label = $cta_label !== '' ? $cta_label : html_entity_decode('Ver m&aacute;s', ENT_QUOTES, 'UTF-8');
     ?>
     <article class="marcan-home-project-card <?php echo esc_attr($section_class); ?>" data-reveal>
         <a class="marcan-home-project-card-link" href="<?php echo esc_url($cta_link && is_array($cta_link) && !empty($cta_link['url']) ? $cta_link['url'] : get_permalink($post_id)); ?>" target="<?php echo esc_attr($cta_link && is_array($cta_link) && !empty($cta_link['target']) ? $cta_link['target'] : '_self'); ?>">
