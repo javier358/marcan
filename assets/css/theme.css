@@ -406,6 +406,7 @@ img {
     scrollbar-width: none;
     cursor: grab;
     -webkit-overflow-scrolling: touch;
+    margin-top: 26px;
     touch-action: pan-y;
     user-select: none;
 }
@@ -427,6 +428,7 @@ img {
 
 .marcan-home-project-card {
     flex: 0 0 auto;
+    height: 824px;
     width: 990px;
     scroll-snap-align: start;
 }
@@ -619,8 +621,8 @@ img {
 }
 
 .marcan-home-projects-group-offices {
-    margin-top: 251px;
-    margin-bottom: 203px;
+    margin-top: 222px;
+    margin-bottom: 157px;
 }
 
 .marcan-hero {
@@ -1619,12 +1621,18 @@ img {
         height: 33px;
     }
 
+    .marcan-home-project-slider {
+        margin-top: 9px;
+        scroll-snap-type: none;
+    }
+
     .marcan-home-project-slider-track {
         gap: 10px;
         padding-left: 16px;
     }
 
     .marcan-home-project-card {
+        height: 593px;
         width: 315px;
     }
 
@@ -1639,12 +1647,21 @@ img {
 
     .marcan-home-project-card-body {
         display: block;
-        padding-top: 10px;
+        height: 203px;
+        padding-top: 30px;
+        position: relative;
     }
 
     .marcan-home-project-card-main {
         gap: 10px;
         padding-left: 0;
+    }
+
+    .marcan-home-project-card-actions {
+        left: 0;
+        margin-top: 0;
+        position: absolute;
+        top: 170px;
     }
 
     .marcan-home-project-card-title-row {
@@ -1661,15 +1678,14 @@ img {
         line-height: 1.4;
     }
 
-    .marcan-home-project-card-actions {
-        margin-top: 14px;
-    }
-
     .marcan-home-project-card-side {
         display: grid;
         gap: 0;
         grid-template-columns: 136px 1fr;
         padding-right: 0;
+        position: absolute;
+        top: 101px;
+        width: 273px;
     }
 
     .marcan-home-project-card-price {
@@ -1700,8 +1716,8 @@ img {
     }
 
     .marcan-home-projects-group-offices {
-        margin-top: 166px;
-        margin-bottom: 111px;
+        margin-top: 125px;
+        margin-bottom: 70px;
     }
 
     .property-grid,
