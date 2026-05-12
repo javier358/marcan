@@ -25,6 +25,25 @@ function marcan_svg(string $name): string
     return (string) file_get_contents($path);
 }
 
+function marcan_get_media_attachment_id(string $option_name): int
+{
+    return (int) get_option($option_name);
+}
+
+function marcan_get_media_attachment_url(string $option_name): string
+{
+    $attachment_id = marcan_get_media_attachment_id($option_name);
+
+    if ($attachment_id && function_exists('wp_get_attachment_url')) {
+        $url = wp_get_attachment_url($attachment_id);
+        if (is_string($url) && $url !== '') {
+            return $url;
+        }
+    }
+
+    return '';
+}
+
 function marcan_get_front_page_id(): int
 {
     return (int) get_option('page_on_front');

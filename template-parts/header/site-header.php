@@ -11,8 +11,22 @@ if (!defined('ABSPATH')) {
 ?>
 <header class="marcan-site-header" data-marcan-header>
     <a class="marcan-header-logo" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php echo esc_attr(get_bloginfo('name')); ?>">
-        <span class="marcan-logo-desktop" aria-hidden="true"><?php echo marcan_svg('marcan-logo-desktop'); ?></span>
-        <span class="marcan-logo-mobile" aria-hidden="true"><?php echo marcan_svg('marcan-logo-mobile'); ?></span>
+        <?php $desktop_logo = marcan_get_media_attachment_url('marcan_header_logo_desktop_id'); ?>
+        <?php $mobile_logo = marcan_get_media_attachment_url('marcan_header_logo_mobile_id'); ?>
+        <span class="marcan-logo-desktop" aria-hidden="true">
+            <?php if ($desktop_logo) : ?>
+                <img src="<?php echo esc_url($desktop_logo); ?>" alt="" width="110" height="22">
+            <?php else : ?>
+                <?php echo marcan_svg('marcan-logo-desktop'); ?>
+            <?php endif; ?>
+        </span>
+        <span class="marcan-logo-mobile" aria-hidden="true">
+            <?php if ($mobile_logo) : ?>
+                <img src="<?php echo esc_url($mobile_logo); ?>" alt="" width="100" height="20">
+            <?php else : ?>
+                <?php echo marcan_svg('marcan-logo-mobile'); ?>
+            <?php endif; ?>
+        </span>
     </a>
 
     <button class="marcan-menu-button" type="button" aria-expanded="false" aria-controls="primary-menu" data-menu-toggle>
