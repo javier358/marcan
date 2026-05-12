@@ -1,0 +1,35 @@
+<?php
+/**
+ * Pixel-mapped home header from Figma nodes 8002:455 and 9010:3144.
+ *
+ * @package Marcan
+ */
+
+if (!defined('ABSPATH')) {
+    exit;
+}
+?>
+<header class="marcan-site-header" data-marcan-header>
+    <a class="marcan-header-logo" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php echo esc_attr(get_bloginfo('name')); ?>">
+        <span class="marcan-logo-desktop" aria-hidden="true"><?php echo marcan_svg('marcan-logo-desktop'); ?></span>
+        <span class="marcan-logo-mobile" aria-hidden="true"><?php echo marcan_svg('marcan-logo-mobile'); ?></span>
+    </a>
+
+    <button class="marcan-menu-button" type="button" aria-expanded="false" aria-controls="primary-menu" data-menu-toggle>
+        <span><?php esc_html_e('MENU', 'marcan'); ?></span>
+        <svg class="marcan-menu-icon" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true" focusable="false">
+            <path d="M10 13l7 8 7-8" fill="none" stroke="#4F4F4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <nav class="marcan-primary-nav" id="primary-menu" data-primary-nav aria-label="<?php esc_attr_e('Menú principal', 'marcan'); ?>">
+        <?php
+        wp_nav_menu(array(
+            'theme_location' => 'primary',
+            'container'      => false,
+            'fallback_cb'    => 'marcan_primary_menu_fallback',
+            'menu_class'     => 'marcan-menu-list',
+        ));
+        ?>
+    </nav>
+</header>

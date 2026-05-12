@@ -3,7 +3,6 @@
     const menuToggle = document.querySelector('[data-menu-toggle]');
     const primaryNav = document.querySelector('[data-primary-nav]');
     const revealNodes = document.querySelectorAll('[data-reveal]');
-    const introHero = document.querySelector('.intro-hero');
 
     function syncHeader() {
         if (!header) {
@@ -11,9 +10,8 @@
         }
 
         const scrolled = window.scrollY > 24;
-        const shouldShow = !introHero || window.scrollY > window.innerHeight * 0.65;
 
-        header.classList.toggle('is-visible', shouldShow);
+        header.classList.add('is-visible');
         header.classList.toggle('is-scrolled', scrolled);
     }
 

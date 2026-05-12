@@ -1,6 +1,6 @@
 :root {
-    --marcan-yellow: #ffc400;
-    --marcan-ink: #45464b;
+    --marcan-yellow: #ffcb05;
+    --marcan-ink: #4f4f4f;
     --marcan-black: #111111;
     --marcan-surface: #f5f5f2;
     --marcan-muted: #b9b9b7;
@@ -8,6 +8,97 @@
     --marcan-max: 1180px;
     --marcan-radius: 8px;
     --marcan-ease: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.marcan-site-header {
+    background: #ffffff;
+    height: 67px;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.marcan-header-logo {
+    display: block;
+    height: 22px;
+    left: 23px;
+    line-height: 0;
+    position: absolute;
+    top: 21px;
+    width: 110px;
+}
+
+.marcan-header-logo svg {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.marcan-logo-mobile {
+    display: none;
+}
+
+.marcan-menu-button {
+    align-items: center;
+    background: transparent;
+    border: 0;
+    color: #4f4f4f;
+    cursor: pointer;
+    display: flex;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    height: 30px;
+    justify-content: center;
+    letter-spacing: 0.01em;
+    line-height: 30px;
+    padding: 0;
+    position: absolute;
+    right: 23px;
+    text-transform: uppercase;
+    top: 19px;
+    width: 61px;
+}
+
+.marcan-menu-icon {
+    display: none;
+    flex: 0 0 auto;
+}
+
+.marcan-primary-nav {
+    display: none;
+    position: absolute;
+    right: 23px;
+    top: 64px;
+    width: 168px;
+}
+
+.marcan-primary-nav.is-open {
+    display: block;
+}
+
+.marcan-menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.marcan-menu-list a {
+    color: #4f4f4f;
+    display: block;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    height: 30px;
+    letter-spacing: 0.01em;
+    line-height: 30px;
+    text-decoration: none;
 }
 
 * {
@@ -108,7 +199,8 @@ img {
     width: 28px;
 }
 
-.intro-hero {
+.intro-hero,
+.marcan-hero {
     align-items: center;
     background: var(--marcan-yellow);
     display: flex;
@@ -117,6 +209,67 @@ img {
     min-height: 640px;
     overflow: hidden;
     position: relative;
+}
+
+.marcan-hero {
+    background: var(--marcan-black);
+    color: var(--marcan-white);
+    min-height: 720px;
+}
+
+.hero-media {
+    height: 100%;
+    inset: 0;
+    opacity: 0;
+    position: absolute;
+    transform: scale(1.04);
+    transition: opacity 1200ms var(--marcan-ease), transform 1400ms var(--marcan-ease);
+}
+
+.hero-media.is-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.hero-media::after {
+    background: linear-gradient(90deg, rgba(17, 17, 17, 0.2), rgba(17, 17, 17, 0.08) 48%, rgba(17, 17, 17, 0.5));
+    content: "";
+    inset: 0;
+    position: absolute;
+}
+
+.hero-media img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.hero-panel {
+    align-self: stretch;
+    background: var(--marcan-yellow);
+    color: var(--marcan-ink);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: auto;
+    max-width: 420px;
+    padding: clamp(28px, 5vw, 56px);
+    position: relative;
+    width: 30vw;
+    z-index: 2;
+}
+
+.hero-panel p {
+    font-size: clamp(40px, 6vw, 86px);
+    font-weight: 800;
+    line-height: 0.8;
+    margin: 0;
+}
+
+.hero-panel h1 {
+    font-size: clamp(30px, 3.4vw, 54px);
+    line-height: 0.96;
+    margin: 0;
 }
 
 .intro-logo {
@@ -171,6 +324,16 @@ img {
     color: var(--marcan-white);
 }
 
+.section-light {
+    background: #eeeeea;
+    color: var(--marcan-black);
+}
+
+.section-white {
+    background: var(--marcan-white);
+    color: var(--marcan-black);
+}
+
 .section-inner,
 .page-shell {
     margin: 0 auto;
@@ -178,8 +341,11 @@ img {
 }
 
 .section-heading {
+    align-items: flex-end;
+    display: flex;
+    gap: 24px;
+    justify-content: space-between;
     margin-bottom: clamp(40px, 7vw, 80px);
-    max-width: 760px;
 }
 
 .section-heading p,
@@ -193,12 +359,212 @@ img {
 }
 
 .section-heading h1,
+.section-heading h2,
 .content-page h1,
 .property-detail h1 {
     font-size: clamp(42px, 7vw, 96px);
     letter-spacing: 0;
     line-height: 0.95;
     margin: 0;
+    max-width: 780px;
+}
+
+.section-heading a,
+.about-card a,
+.delivered-copy a,
+.project-link {
+    border-bottom: 2px solid currentColor;
+    display: inline-flex;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.2;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.about-band {
+    background: var(--marcan-white);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 42vw);
+    min-height: 760px;
+}
+
+.about-copy {
+    align-self: center;
+    max-width: 900px;
+    padding: clamp(56px, 8vw, 120px);
+}
+
+.about-copy p {
+    color: var(--marcan-ink);
+    font-size: 14px;
+    font-weight: 800;
+    margin: 0 0 24px;
+    text-transform: uppercase;
+}
+
+.about-copy h2 {
+    font-size: clamp(36px, 5vw, 82px);
+    letter-spacing: 0;
+    line-height: 0.98;
+    margin: 0;
+}
+
+.about-card {
+    background: var(--marcan-yellow);
+    display: grid;
+    grid-template-rows: 1fr auto;
+    min-height: 760px;
+}
+
+.about-card img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.about-card div {
+    padding: clamp(28px, 4vw, 56px);
+}
+
+.about-card h3 {
+    color: var(--marcan-ink);
+    font-size: clamp(30px, 4vw, 58px);
+    letter-spacing: 0;
+    line-height: 0.98;
+    margin: 0 0 32px;
+}
+
+.marcan-project-grid {
+    display: grid;
+    gap: 28px;
+}
+
+.project-grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.project-grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.project-card {
+    background: var(--marcan-white);
+    border-radius: 0;
+    color: var(--marcan-black);
+    overflow: hidden;
+    transform: translateY(28px);
+    transition: opacity 700ms var(--marcan-ease), transform 700ms var(--marcan-ease);
+}
+
+.project-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card figure {
+    aspect-ratio: 4 / 3;
+    background: #deded8;
+    margin: 0;
+    overflow: hidden;
+}
+
+.project-card img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform 900ms var(--marcan-ease);
+    width: 100%;
+}
+
+.project-card:hover img {
+    transform: scale(1.045);
+}
+
+.project-card-body {
+    padding: 24px;
+}
+
+.project-card-top {
+    align-items: flex-start;
+    display: flex;
+    gap: 18px;
+    justify-content: space-between;
+}
+
+.project-card h3 {
+    font-size: clamp(24px, 2.5vw, 40px);
+    letter-spacing: 0;
+    line-height: 1;
+    margin: 0;
+}
+
+.project-card-top span {
+    background: var(--marcan-yellow);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 7px 10px;
+    white-space: nowrap;
+}
+
+.project-card p {
+    color: #656565;
+    margin: 14px 0 22px;
+}
+
+.project-meta {
+    border-top: 1px solid #d8d8d5;
+    display: grid;
+    gap: 4px;
+    margin-top: 24px;
+    padding-top: 20px;
+}
+
+.project-meta small,
+.project-meta em {
+    color: #656565;
+    font-style: normal;
+}
+
+.project-meta strong {
+    font-size: 24px;
+}
+
+.delivered-band {
+    background: var(--marcan-yellow);
+    color: var(--marcan-ink);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 38vw);
+}
+
+.delivered-copy {
+    padding: clamp(56px, 8vw, 120px);
+}
+
+.delivered-copy p {
+    font-size: clamp(40px, 6vw, 96px);
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 0.94;
+    margin: 0 0 40px;
+}
+
+.delivered-list {
+    background: var(--marcan-black);
+    color: var(--marcan-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(40px, 6vw, 80px);
+}
+
+.delivered-list span {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    font-size: clamp(24px, 3vw, 48px);
+    font-weight: 800;
+    line-height: 1;
+    padding: 22px 0;
 }
 
 .property-grid {
@@ -340,17 +706,35 @@ img {
 }
 
 .site-footer {
-    align-items: center;
-    background: var(--marcan-yellow);
-    color: var(--marcan-ink);
-    display: flex;
+    align-items: flex-start;
+    background: var(--marcan-black);
+    color: var(--marcan-white);
+    display: grid;
     gap: 32px;
+    grid-template-columns: 1fr auto auto;
     justify-content: space-between;
-    padding: 42px clamp(20px, 4vw, 64px);
+    padding: 56px clamp(20px, 4vw, 64px);
 }
 
 .site-footer p {
     margin: 0;
+}
+
+.footer-address,
+.footer-contact,
+.footer-legal {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 15px;
+    margin-top: 24px;
+}
+
+.footer-contact {
+    display: grid;
+    gap: 10px;
+}
+
+.footer-legal {
+    grid-column: 1 / -1;
 }
 
 @keyframes introLogo {
@@ -361,6 +745,50 @@ img {
 }
 
 @media (max-width: 900px) {
+    .marcan-site-header {
+        height: 54px;
+    }
+
+    .marcan-header-logo {
+        height: 20px;
+        left: 20px;
+        top: 17px;
+        width: 100px;
+    }
+
+    .marcan-logo-desktop {
+        display: none;
+    }
+
+    .marcan-logo-mobile {
+        display: block;
+    }
+
+    .marcan-menu-button {
+        font-weight: 400;
+        height: 34px;
+        justify-content: flex-start;
+        letter-spacing: 0;
+        line-height: 26px;
+        right: 16px;
+        top: 9px;
+        width: 94px;
+    }
+
+    .marcan-menu-icon {
+        display: block;
+        height: 34px;
+        margin-left: 0;
+        width: 34px;
+    }
+
+    .marcan-primary-nav {
+        background: #ffffff;
+        right: 16px;
+        top: 54px;
+        width: 168px;
+    }
+
     .menu-toggle {
         display: block;
     }
@@ -388,8 +816,32 @@ img {
     }
 
     .property-grid,
-    .property-detail {
+    .property-detail,
+    .project-grid-2,
+    .project-grid-3,
+    .about-band,
+    .delivered-band {
         grid-template-columns: 1fr;
+    }
+
+    .hero-panel {
+        bottom: 74px;
+        left: 0;
+        max-width: none;
+        min-height: 260px;
+        position: absolute;
+        right: 0;
+        width: auto;
+    }
+
+    .about-band,
+    .about-card {
+        min-height: 0;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
     }
 
     .intro-hero {
@@ -403,6 +855,7 @@ img {
     }
 
     .section-heading h1,
+    .section-heading h2,
     .content-page h1,
     .property-detail h1 {
         font-size: 42px;
