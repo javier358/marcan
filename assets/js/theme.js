@@ -91,6 +91,7 @@
         let isDown = false;
         let startX = 0;
         let startScrollLeft = 0;
+        let dragged = false;
 
         slider.addEventListener('pointerdown', function (event) {
             if (track.scrollWidth <= slider.clientWidth) {
@@ -98,6 +99,7 @@
             }
 
             isDown = true;
+            dragged = false;
             startX = event.clientX;
             startScrollLeft = slider.scrollLeft;
             slider.classList.add('is-dragging');
@@ -110,6 +112,9 @@
             }
 
             const delta = event.clientX - startX;
+            if (Math.abs(delta) > 5) {
+                dragged = true;
+            }
             slider.scrollLeft = startScrollLeft - delta;
         });
 
@@ -127,26 +132,15 @@
         slider.addEventListener('pointerup', endDrag);
         slider.addEventListener('pointercancel', endDrag);
         slider.addEventListener('pointerleave', endDrag);
+        slider.addEventListener('click', function (event) {
+            if (!dragged) {
+                return;
+            }
+            event.preventDefault();
+            event.stopPropagation();
+            dragged = false;
+        }, true);
     }
-
-    window.addEventListener('wheel', function (event) {
-        const slider = event.target && event.target.closest ? event.target.closest('[data-project-slider]') : null;
-        if (!slider) {
-            return;
-        }
-
-        const track = slider.querySelector('.marcan-home-project-slider-track');
-        if (!track || track.scrollWidth <= slider.clientWidth) {
-            return;
-        }
-
-        if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) {
-            return;
-        }
-
-        event.preventDefault();
-        slider.scrollLeft += event.deltaY;
-    }, { passive: false, capture: true });
 
     if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver(function (entries) {
