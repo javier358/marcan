@@ -2,27 +2,36 @@
   "key": "group_marcan_property_data",
   "title": "Datos del inmueble",
   "fields": [
-    {"key": "field_marcan_commercial_title", "label": "Título comercial", "name": "titulo_comercial", "type": "text"},
-    {"key": "field_marcan_subtitle", "label": "Subtítulo", "name": "subtitulo", "type": "text"},
+    {"key": "field_marcan_commercial_title", "label": "Titulo comercial", "name": "titulo_comercial", "type": "text"},
+    {"key": "field_marcan_subtitle", "label": "Subtitulo", "name": "subtitulo", "type": "text"},
     {"key": "field_marcan_price", "label": "Precio", "name": "precio", "type": "text"},
     {"key": "field_marcan_currency", "label": "Moneda", "name": "moneda", "type": "select", "choices": {"S/": "S/", "US$": "US$"}},
-    {"key": "field_marcan_location", "label": "Ubicación", "name": "ubicacion", "type": "text"},
-    {"key": "field_marcan_area", "label": "Área", "name": "area", "type": "text"},
+    {"key": "field_marcan_location", "label": "Ubicacion", "name": "ubicacion", "type": "text"},
+    {"key": "field_marcan_district_text", "label": "Distrito", "name": "distrito", "type": "text"},
+    {"key": "field_marcan_area", "label": "Area", "name": "area", "type": "text"},
     {"key": "field_marcan_bedrooms", "label": "Dormitorios", "name": "dormitorios", "type": "number"},
-    {"key": "field_marcan_bathrooms", "label": "Baños", "name": "banos", "type": "number"},
+    {"key": "field_marcan_bathrooms", "label": "Banos", "name": "banos", "type": "number"},
     {"key": "field_marcan_parking", "label": "Estacionamientos", "name": "estacionamientos", "type": "number"},
     {"key": "field_marcan_status", "label": "Estado", "name": "estado", "type": "text"},
-    {"key": "field_marcan_gallery", "label": "Galería", "name": "galeria", "type": "gallery"},
+    {"key": "field_marcan_project_stage", "label": "Etapa comercial", "name": "etapa_comercial", "type": "text"},
+    {"key": "field_marcan_delivery_date", "label": "Fecha de entrega", "name": "fecha_entrega", "type": "text"},
+    {"key": "field_marcan_detail_hero_desktop", "label": "Detalle - hero desktop", "name": "detalle_hero_desktop", "type": "image", "return_format": "id", "preview_size": "large", "library": "all"},
+    {"key": "field_marcan_detail_hero_mobile", "label": "Detalle - hero movil", "name": "detalle_hero_movil", "type": "image", "return_format": "id", "preview_size": "large", "library": "all"},
+    {"key": "field_marcan_short_description", "label": "Descripcion corta", "name": "descripcion_corta", "type": "textarea", "rows": 3},
+    {"key": "field_marcan_gallery", "label": "Galeria", "name": "galeria", "type": "gallery"},
     {"key": "field_marcan_video", "label": "Video", "name": "video", "type": "url"},
     {"key": "field_marcan_map", "label": "Mapa", "name": "mapa", "type": "textarea"},
     {"key": "field_marcan_amenities", "label": "Amenities", "name": "amenities", "type": "textarea"},
-    {"key": "field_marcan_specs", "label": "Ficha técnica", "name": "ficha_tecnica", "type": "textarea"},
+    {"key": "field_marcan_specs", "label": "Ficha tecnica", "name": "ficha_tecnica", "type": "textarea"},
+    {"key": "field_marcan_floorplans", "label": "Planos / tipologias", "name": "planos", "type": "gallery", "return_format": "id", "preview_size": "medium", "library": "all"},
     {"key": "field_marcan_documents", "label": "Documentos descargables", "name": "documentos", "type": "file"},
-    {"key": "field_marcan_cta", "label": "CTA / contacto", "name": "cta_contacto", "type": "link"}
+    {"key": "field_marcan_brochure", "label": "Brochure", "name": "brochure", "type": "file", "return_format": "id", "library": "all"},
+    {"key": "field_marcan_cta", "label": "CTA / contacto", "name": "cta_contacto", "type": "link"},
+    {"key": "field_marcan_contact_whatsapp", "label": "WhatsApp contacto", "name": "whatsapp_contacto", "type": "text"}
   ],
   "location": [
     [{"param": "post_type", "operator": "==", "value": "property"}]
   ],
   "active": true,
-  "modified": 1778544000
+  "modified": 1778559001
 }

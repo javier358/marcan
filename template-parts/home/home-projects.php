@@ -26,6 +26,19 @@ function marcan_render_home_project_card(WP_Post $post, string $section_class = 
     $cta_link = get_field('home_cta_link', $post_id);
     $desktop_image_id = (int) get_field('home_desktop_image', $post_id);
     $mobile_image_id = (int) get_field('home_mobile_image', $post_id);
+    $image_left = is_numeric(get_field('home_image_left', $post_id)) ? (float) get_field('home_image_left', $post_id) : 0;
+    $image_top = is_numeric(get_field('home_image_top', $post_id)) ? (float) get_field('home_image_top', $post_id) : 0;
+    $image_width = is_numeric(get_field('home_image_width', $post_id)) ? (float) get_field('home_image_width', $post_id) : 100;
+    $image_height = is_numeric(get_field('home_image_height', $post_id)) ? (float) get_field('home_image_height', $post_id) : 100;
+    $image_fit = get_field('home_image_fit', $post_id) === 'fill' ? 'fill' : 'cover';
+    $image_style = sprintf(
+        '--project-image-left:%s%%;--project-image-top:%s%%;--project-image-width:%s%%;--project-image-height:%s%%;--project-image-fit:%s;',
+        esc_attr((string) $image_left),
+        esc_attr((string) $image_top),
+        esc_attr((string) $image_width),
+        esc_attr((string) $image_height),
+        esc_attr($image_fit)
+    );
     $arrow_id = (int) get_option('marcan_project_icon_arrow_id');
     $divider_id = (int) get_option('marcan_project_icon_divider_id');
     $bedrooms_icon_id = (int) get_option('marcan_project_icon_bedrooms_id');
@@ -36,15 +49,15 @@ function marcan_render_home_project_card(WP_Post $post, string $section_class = 
     ?>
     <article class="marcan-home-project-card <?php echo esc_attr($section_class); ?>" data-reveal>
         <a class="marcan-home-project-card-link" href="<?php echo esc_url($cta_link && is_array($cta_link) && !empty($cta_link['url']) ? $cta_link['url'] : get_permalink($post_id)); ?>" target="<?php echo esc_attr($cta_link && is_array($cta_link) && !empty($cta_link['target']) ? $cta_link['target'] : '_self'); ?>">
-            <div class="marcan-home-project-card-media">
+            <div class="marcan-home-project-card-media" style="<?php echo esc_attr($image_style); ?>">
                 <picture>
                     <?php if ($mobile_image_id) : ?>
                         <source media="(max-width: 900px)" srcset="<?php echo esc_url(wp_get_attachment_image_url($mobile_image_id, 'full')); ?>">
                     <?php endif; ?>
                     <?php if ($desktop_image_id) : ?>
-                        <?php echo wp_get_attachment_image($desktop_image_id, 'full', false, array('class' => 'marcan-home-project-card-image', 'alt' => esc_attr($title))); ?>
+                        <?php echo wp_get_attachment_image($desktop_image_id, 'full', false, array('class' => 'marcan-home-project-card-image', 'alt' => esc_attr($title), 'sizes' => '(max-width: 900px) 315px, 990px')); ?>
                     <?php elseif ($mobile_image_id) : ?>
-                        <?php echo wp_get_attachment_image($mobile_image_id, 'full', false, array('class' => 'marcan-home-project-card-image', 'alt' => esc_attr($title))); ?>
+                        <?php echo wp_get_attachment_image($mobile_image_id, 'full', false, array('class' => 'marcan-home-project-card-image', 'alt' => esc_attr($title), 'sizes' => '(max-width: 900px) 315px, 990px')); ?>
                     <?php endif; ?>
                 </picture>
                 <?php if ($arrow_id) : ?>

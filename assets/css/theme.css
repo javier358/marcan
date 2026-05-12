@@ -435,16 +435,24 @@ img {
 .marcan-home-project-card-media picture {
     display: block;
     height: 100%;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
     width: 100%;
 }
 
 .marcan-home-project-card-image {
     display: block;
-    height: 100%;
-    object-fit: cover;
+    height: var(--project-image-height, 100%);
+    left: var(--project-image-left, 0);
+    max-width: none;
+    object-fit: var(--project-image-fit, cover);
+    position: absolute;
+    top: var(--project-image-top, 0);
     transition: transform 650ms var(--marcan-ease);
     will-change: transform;
-    width: 100%;
+    width: var(--project-image-width, 100%);
 }
 
 .marcan-home-project-card-arrow {
