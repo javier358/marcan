@@ -1,0 +1,56 @@
+# Deployment Notes
+
+## Requirements
+
+- WordPress 6.4 or newer.
+- PHP 8.1 or newer recommended.
+- Theme: `marcan-theme`.
+- Required plugin: SCF installed and active.
+
+## Theme Install
+
+1. Deploy `wp-content/themes/marcan-theme`.
+2. Activate `marcan-theme` in WordPress.
+3. Visit Permalinks once to flush rewrite rules after CPT registration.
+
+## SCF JSON
+
+- JSON path: `wp-content/themes/marcan-theme/acf-json`.
+- SCF should load field groups from this folder through the ACF-compatible JSON filters.
+- After editing fields in admin, sync or save JSON back into the same folder and commit the changed JSON.
+
+## CPT
+
+CPT are registered by code in `inc/cpt.php`:
+- `property`
+- `project`
+
+Taxonomies:
+- `property_type`
+- `district`
+
+Do not recreate these with a visual CPT plugin.
+
+## Database and URLs
+
+- Migrate database with a standard WordPress migration tool or WP-CLI export/import.
+- Run search-replace for local/staging/production URLs after import.
+- Keep uploads outside Git and sync them separately.
+
+## Assets
+
+- Figma-exported theme assets live in `assets/images`.
+- Do not replace Figma-exported images with stock or placeholder assets.
+- Heavy uploads remain in `wp-content/uploads` and are not versioned.
+
+## Git
+
+Repository scope is the theme folder only:
+`wp-content/themes/marcan-theme`
+
+Do not commit:
+- `wp-content/uploads`
+- database exports
+- credentials
+- `wp-config.php`
+- LocalWP logs or temporary files
