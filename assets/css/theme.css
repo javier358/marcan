@@ -1,6 +1,7 @@
 :root {
     --marcan-yellow: #ffcb05;
     --marcan-ink: #4f4f4f;
+    --marcan-glass: rgba(255, 255, 255, 0.25);
     --marcan-black: #111111;
     --marcan-surface: #f5f5f2;
     --marcan-muted: #b9b9b7;
@@ -26,12 +27,19 @@
 .marcan-site-header::before {
     -webkit-backdrop-filter: blur(70px);
     backdrop-filter: blur(70px);
-    background: rgba(255, 255, 255, 0.25);
+    background: var(--marcan-glass);
     content: "";
-    inset: 0;
+    height: 67px;
+    left: 0;
     pointer-events: none;
     position: absolute;
+    right: 0;
+    top: 0;
     z-index: -1;
+}
+
+.marcan-site-header.is-menu-open::before {
+    height: 226px;
 }
 
 .marcan-header-logo {
@@ -82,9 +90,7 @@
 }
 
 .marcan-primary-nav {
-    -webkit-backdrop-filter: blur(70px);
-    backdrop-filter: blur(70px);
-    background: rgba(255, 255, 255, 0.25);
+    background: transparent;
     display: none;
     height: 162px;
     left: 0;
@@ -769,6 +775,14 @@ img {
 @media (max-width: 900px) {
     .marcan-site-header {
         height: 54px;
+    }
+
+    .marcan-site-header::before {
+        height: 54px;
+    }
+
+    .marcan-site-header.is-menu-open::before {
+        height: 216px;
     }
 
     .marcan-header-logo {

@@ -18,6 +18,7 @@
     if (menuToggle && primaryNav) {
         menuToggle.addEventListener('click', function () {
             const isOpen = primaryNav.classList.toggle('is-open');
+            header.classList.toggle('is-menu-open', isOpen);
             menuToggle.setAttribute('aria-expanded', String(isOpen));
         });
     }
