@@ -11,17 +11,27 @@
 }
 
 .marcan-site-header {
-    -webkit-backdrop-filter: blur(70px);
-    backdrop-filter: blur(70px);
-    background: rgba(255, 255, 255, 0.25);
+    background: transparent;
     height: 67px;
+    isolation: isolate;
     left: 0;
-    overflow: hidden;
+    overflow: visible;
     position: fixed;
     right: 0;
     top: 0;
     width: 100%;
     z-index: 1000;
+}
+
+.marcan-site-header::before {
+    -webkit-backdrop-filter: blur(70px);
+    backdrop-filter: blur(70px);
+    background: rgba(255, 255, 255, 0.25);
+    content: "";
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
 }
 
 .marcan-header-logo {
