@@ -305,21 +305,23 @@ img {
 }
 
 .marcan-home-projects-intro {
+    box-sizing: border-box;
     display: block;
-    padding: 30px 30px 116px;
+    height: 752px;
+    overflow: hidden;
+    padding: 30px 30px 0;
+    position: relative;
 }
 
 .marcan-home-projects-intro-copy {
+    left: 30px;
+    position: absolute;
+    top: 30px;
     max-width: 591px;
 }
 
 .marcan-home-projects-intro-copy h2 {
-    color: var(--marcan-ink);
-    font-size: 28px;
-    font-weight: 300;
-    letter-spacing: 0.01em;
-    line-height: 1.2;
-    margin: 0 0 18px;
+    display: none;
 }
 
 .marcan-home-projects-intro-copy p {
@@ -331,13 +333,18 @@ img {
 }
 
 .marcan-home-projects-intro-title {
+    font-family: Bitter, Georgia, serif;
     color: var(--marcan-ink);
-    font-size: 28px;
+    font-size: 45px;
     font-weight: 300;
     letter-spacing: 0.01em;
     line-height: 1.2;
-    margin: 288px 0 0;
+    left: 30px;
+    margin: 0;
+    position: absolute;
+    top: 341px;
     max-width: 591px;
+    width: 591px;
 }
 
 .marcan-home-projects-intro-button,
@@ -356,11 +363,13 @@ img {
 }
 
 .marcan-home-projects-intro-button {
+    left: 30px;
     height: 41px;
+    position: absolute;
+    top: 471px;
     width: 239px;
     padding: 10px 20px;
     font-size: 15px;
-    margin-top: 10px;
 }
 
 .marcan-home-projects-group {
@@ -610,7 +619,8 @@ img {
 }
 
 .marcan-home-projects-group-offices {
-    margin-top: 108px;
+    margin-top: 251px;
+    margin-bottom: 203px;
 }
 
 .marcan-hero {
@@ -1518,8 +1528,12 @@ img {
     }
 
     .marcan-home-projects-intro {
+        box-sizing: border-box;
         display: block;
-        padding: 0 16px 73px;
+        height: 855px;
+        overflow: hidden;
+        padding: 327px 16px 0;
+        position: relative;
     }
 
     .marcan-home-projects-intro-copy {
@@ -1535,12 +1549,15 @@ img {
         margin: 0 auto 14px;
         max-width: 272px;
         text-align: center;
+        position: static;
+        width: 272px;
     }
 
     .marcan-home-projects-intro-button {
         display: inline-flex;
         margin-left: auto;
         margin-right: auto;
+        position: static;
         width: 273px;
         margin-top: 0;
     }
@@ -1642,7 +1659,8 @@ img {
     }
 
     .marcan-home-projects-group-offices {
-        margin-top: 80px;
+        margin-top: 166px;
+        margin-bottom: 111px;
     }
 
     .property-grid,
