@@ -92,22 +92,36 @@
         let startX = 0;
         let startScrollLeft = 0;
         let dragged = false;
+        let activePointerId = null;
+
+        slider.addEventListener('dragstart', function (event) {
+            event.preventDefault();
+        });
 
         slider.addEventListener('pointerdown', function (event) {
+            if (event.pointerType === 'mouse' && event.button !== 0) {
+                return;
+            }
+
             if (track.scrollWidth <= slider.clientWidth) {
                 return;
             }
 
             isDown = true;
             dragged = false;
+            activePointerId = event.pointerId;
             startX = event.clientX;
             startScrollLeft = slider.scrollLeft;
             slider.classList.add('is-dragging');
-            slider.setPointerCapture(event.pointerId);
+            slider.setPointerCapture(activePointerId);
+
+            if (event.pointerType === 'mouse') {
+                event.preventDefault();
+            }
         });
 
         slider.addEventListener('pointermove', function (event) {
-            if (!isDown) {
+            if (!isDown || event.pointerId !== activePointerId) {
                 return;
             }
 
@@ -116,17 +130,22 @@
                 dragged = true;
             }
             slider.scrollLeft = startScrollLeft - delta;
+
+            if (dragged && event.pointerType === 'mouse') {
+                event.preventDefault();
+            }
         });
 
         function endDrag(event) {
-            if (!isDown) {
+            if (!isDown || event.pointerId !== activePointerId) {
                 return;
             }
             isDown = false;
             slider.classList.remove('is-dragging');
             try {
-                slider.releasePointerCapture(event.pointerId);
+                slider.releasePointerCapture(activePointerId);
             } catch (err) {}
+            activePointerId = null;
         }
 
         slider.addEventListener('pointerup', endDrag);

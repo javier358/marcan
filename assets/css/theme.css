@@ -398,6 +398,7 @@ img {
     cursor: grab;
     -webkit-overflow-scrolling: touch;
     touch-action: pan-y;
+    user-select: none;
 }
 
 .marcan-home-project-slider::-webkit-scrollbar {
@@ -406,6 +407,7 @@ img {
 
 .marcan-home-project-slider.is-dragging {
     cursor: grabbing;
+    scroll-snap-type: none;
 }
 
 .marcan-home-project-slider-track {
