@@ -90,6 +90,20 @@ Observed project assets:
 - Header background: `#ffffff`
 - Fonts: Inter and Bitter
 
+## Footer Animation
+
+Desktop footer node:
+- Section node: `8002:391`
+- Component node: `8002:536`
+- Size: `1512 x 852`
+- Background: `#ffcb05`
+- Large brand vector: `9068:2987`, y `635`, height `125`
+- Arrow vector: `9068:2985`, x `446`, y `572`, size `129 x 188`
+
+Implementation note:
+- Footer brand animation mirrors the preloader timing: brand moves in horizontally and the arrow rises into place after a delay.
+- The SVGs assigned in the media library are Figma exports; their viewBoxes were corrected because the original downloaded SVGs contained the vector paths outside the visible bounds.
+
 ## Current Implementation Notes
 
 - Header logo SVGs were exported from the actual Figma vector nodes, not recreated manually.

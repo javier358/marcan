@@ -4,6 +4,7 @@
     const primaryNav = document.querySelector('[data-primary-nav]');
     const revealNodes = document.querySelectorAll('[data-reveal]');
     const heroSliders = document.querySelectorAll('[data-hero-slider]');
+    const footerAnimationNodes = document.querySelectorAll('[data-footer-animation]');
 
     function syncHeader() {
         if (!header) {
@@ -161,6 +162,38 @@
         }, true);
     }
 
+    function initFooterAnimations() {
+        if (!footerAnimationNodes.length) {
+            return;
+        }
+
+        const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+            footerAnimationNodes.forEach(function (node) {
+                node.classList.add('is-footer-animated');
+            });
+            return;
+        }
+
+        const footerObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+
+                entry.target.classList.add('is-footer-animated');
+                footerObserver.unobserve(entry.target);
+            });
+        }, {
+            threshold: 0.35,
+            rootMargin: '0px 0px -8% 0px',
+        });
+
+        footerAnimationNodes.forEach(function (node) {
+            footerObserver.observe(node);
+        });
+    }
+
     if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
@@ -198,5 +231,6 @@
         });
         heroSliders.forEach(initHeroSlider);
         document.querySelectorAll('[data-project-slider]').forEach(initProjectSlider);
+        initFooterAnimations();
     });
 }());

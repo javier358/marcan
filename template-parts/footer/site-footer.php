@@ -97,7 +97,7 @@ $render_links = static function (string $theme_location, array $fallback_items):
             </div>
         </div>
 
-        <div class="marcan-site-footer-brand">
+        <div class="marcan-site-footer-brand" data-footer-animation>
             <?php if ($brand_desktop) : ?>
                 <img class="marcan-site-footer-brand-desktop" src="<?php echo esc_url($brand_desktop); ?>" alt="" aria-hidden="true">
             <?php endif; ?>
@@ -147,7 +147,7 @@ $render_links = static function (string $theme_location, array $fallback_items):
         </div>
 
         <div class="marcan-site-footer-brand-block">
-            <div class="marcan-site-footer-brand marcan-site-footer-brand-mobile">
+            <div class="marcan-site-footer-brand marcan-site-footer-brand-mobile" data-footer-animation>
                 <?php if ($brand_mobile) : ?>
                     <img class="marcan-site-footer-brand-desktop" src="<?php echo esc_url($brand_mobile); ?>" alt="" aria-hidden="true">
                 <?php endif; ?>
