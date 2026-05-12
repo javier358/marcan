@@ -212,13 +212,12 @@ function marcan_get_home_delivered_settings(): array
         return $defaults;
     }
 
-    $page_id = marcan_get_front_page_id();
-
-    if (!$page_id) {
-        return $defaults;
+    $field_source = marcan_get_front_page_id();
+    if (!$field_source) {
+        $field_source = 'option';
     }
 
-    $button = get_field('home_delivered_button', $page_id);
+    $button = get_field('home_delivered_button', $field_source);
 
     $button_url = $defaults['button_url'];
     if (is_array($button) && !empty($button['url'])) {
@@ -226,15 +225,15 @@ function marcan_get_home_delivered_settings(): array
     }
 
     return array(
-        'title'             => (string) (get_field('home_delivered_title', $page_id) ?: $defaults['title']),
-        'button_label'      => (string) (get_field('home_delivered_button_label', $page_id) ?: $defaults['button_label']),
+        'title'             => (string) (get_field('home_delivered_title', $field_source) ?: $defaults['title']),
+        'button_label'      => (string) (get_field('home_delivered_button_label', $field_source) ?: $defaults['button_label']),
         'button_url'        => $button_url,
-        'image_desktop_id'  => (int) (get_field('home_delivered_image_desktop', $page_id) ?: $defaults['image_desktop_id']),
-        'image_mobile_id'   => (int) (get_field('home_delivered_image_mobile', $page_id) ?: $defaults['image_mobile_id']),
-        'background_color'  => (string) (get_field('home_delivered_background_color', $page_id) ?: $defaults['background_color']),
-        'text_color'        => (string) (get_field('home_delivered_text_color', $page_id) ?: $defaults['text_color']),
-        'button_bg_color'   => (string) (get_field('home_delivered_button_background', $page_id) ?: $defaults['button_bg_color']),
-        'button_text_color' => (string) (get_field('home_delivered_button_text_color', $page_id) ?: $defaults['button_text_color']),
+        'image_desktop_id'  => (int) (get_field('home_delivered_image_desktop', $field_source) ?: $defaults['image_desktop_id']),
+        'image_mobile_id'   => (int) (get_field('home_delivered_image_mobile', $field_source) ?: $defaults['image_mobile_id']),
+        'background_color'  => (string) (get_field('home_delivered_background_color', $field_source) ?: $defaults['background_color']),
+        'text_color'        => (string) (get_field('home_delivered_text_color', $field_source) ?: $defaults['text_color']),
+        'button_bg_color'   => (string) (get_field('home_delivered_button_background', $field_source) ?: $defaults['button_bg_color']),
+        'button_text_color' => (string) (get_field('home_delivered_button_text_color', $field_source) ?: $defaults['button_text_color']),
     );
 }
 

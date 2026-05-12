@@ -146,15 +146,17 @@ $render_links = static function (string $theme_location, array $fallback_items):
             </div>
         </div>
 
-        <div class="marcan-site-footer-brand marcan-site-footer-brand-mobile">
-            <?php if ($brand_mobile) : ?>
-                <img class="marcan-site-footer-brand-desktop" src="<?php echo esc_url($brand_mobile); ?>" alt="" aria-hidden="true">
-            <?php endif; ?>
-            <?php if ($arrow_mobile) : ?>
-                <img class="marcan-site-footer-brand-arrow" src="<?php echo esc_url($arrow_mobile); ?>" alt="" aria-hidden="true">
-            <?php endif; ?>
-        </div>
+        <div class="marcan-site-footer-brand-block">
+            <div class="marcan-site-footer-brand marcan-site-footer-brand-mobile">
+                <?php if ($brand_mobile) : ?>
+                    <img class="marcan-site-footer-brand-desktop" src="<?php echo esc_url($brand_mobile); ?>" alt="" aria-hidden="true">
+                <?php endif; ?>
+                <?php if ($arrow_mobile) : ?>
+                    <img class="marcan-site-footer-brand-arrow" src="<?php echo esc_url($arrow_mobile); ?>" alt="" aria-hidden="true">
+                <?php endif; ?>
+            </div>
 
-        <p class="marcan-site-footer-legal"><?php echo esc_html($footer_legal); ?></p>
+            <p class="marcan-site-footer-legal"><?php echo esc_html($footer_legal); ?></p>
+        </div>
     </div>
 </footer>

@@ -1119,7 +1119,7 @@ img {
 
 .marcan-home-delivered {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 757px 755px;
     min-height: 750px;
     overflow: hidden;
     position: relative;
@@ -1127,7 +1127,7 @@ img {
 
 .marcan-home-delivered-media {
     background: #e4e3df;
-    min-height: 500px;
+    height: 750px;
     overflow: hidden;
     position: relative;
 }
@@ -1154,8 +1154,9 @@ img {
     color: var(--marcan-delivered-text, #4f4f4f);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 31px 31px 31px 31px;
+    justify-content: flex-start;
+    padding: 31px;
+    position: relative;
 }
 
 .marcan-home-delivered-copy h2 {
@@ -1164,8 +1165,11 @@ img {
     font-weight: 300;
     letter-spacing: 0.01em;
     line-height: 1.1;
-    margin: 0 0 32px;
+    left: 31px;
+    margin: 0;
     max-width: 591px;
+    position: absolute;
+    top: 31px;
 }
 
 .marcan-home-delivered-button {
@@ -1177,9 +1181,13 @@ img {
     font-size: 12px;
     font-weight: 400;
     justify-content: center;
-    min-height: 33px;
+    height: 33px;
+    left: 31px;
     padding: 8px 16px;
+    position: absolute;
+    top: 229px;
     white-space: nowrap;
+    width: 192px;
 }
 
 .marcan-site-footer {
@@ -1323,19 +1331,25 @@ img {
 }
 
 .marcan-site-footer-brand {
-    bottom: 92px;
-    left: 30px;
+    bottom: auto;
+    height: 188px;
+    left: 153px;
     position: absolute;
-    right: 30px;
+    right: auto;
+    top: 572px;
+    width: 422px;
 }
 
 .marcan-site-footer-brand-desktop {
-    height: auto;
-    width: 242.242px;
+    height: 125px;
+    left: 0;
+    position: absolute;
+    top: 63px;
+    width: 10px;
 }
 
 .marcan-site-footer-brand-arrow {
-    left: 446px;
+    left: 293px;
     width: 129px;
     height: 188px;
     position: absolute;
@@ -1469,12 +1483,13 @@ img {
         font-size: 32px;
         margin: 0 auto 30px;
         max-width: 362px;
+        position: static;
         text-align: center;
     }
 
     .marcan-home-delivered-button {
         margin: 0 auto;
-        min-height: 33px;
+        position: static;
         width: 192px;
     }
 
@@ -1701,9 +1716,12 @@ img {
     }
 
     .marcan-site-footer-mobile {
-        display: grid;
+        display: flex;
+        flex-direction: column;
         gap: 48px;
+        height: 859px;
         min-height: 859px;
+        overflow: hidden;
         padding: 56px 16px 24px;
     }
 
@@ -1715,8 +1733,32 @@ img {
     .marcan-site-footer-links a,
     .marcan-site-footer-contact-line,
     .marcan-site-footer-legal {
+        font-size: 14px;
+        line-height: 1.4;
+        margin: 0;
+    }
+
+    .marcan-site-footer-nav-title {
+        font-family: Roboto, Inter, Arial, Helvetica, sans-serif;
         font-size: 16px;
-        line-height: 1.5;
+        font-weight: 400;
+        line-height: normal;
+        margin: 0;
+    }
+
+    .marcan-site-footer-links {
+        gap: 8px;
+    }
+
+    .marcan-site-footer-links a {
+        font-family: Roboto, Inter, Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 21px;
+    }
+
+    .marcan-site-footer-button {
+        margin-top: 0;
     }
 
     .marcan-site-footer-socials-mobile {
@@ -1752,11 +1794,17 @@ img {
         display: flex;
         gap: 8.756px;
         justify-content: flex-start;
-        margin-top: 12px;
-        position: relative;
+        height: 56.78px;
+        margin-top: 0;
+        position: static;
+        width: 290px;
     }
 
     .marcan-site-footer-brand-mobile .marcan-site-footer-brand-desktop {
+        height: 37.676px;
+        left: auto;
+        position: static;
+        top: auto;
         width: 242.242px;
     }
 
@@ -1767,8 +1815,16 @@ img {
         width: 39.003px;
     }
 
+    .marcan-site-footer-brand-block {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 342px;
+    }
+
     .marcan-site-footer-legal {
         position: static;
+        width: 342px;
     }
 }
 
