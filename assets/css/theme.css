@@ -11,9 +11,12 @@
 }
 
 .marcan-site-header {
-    background: #ffffff;
+    -webkit-backdrop-filter: blur(70px);
+    backdrop-filter: blur(70px);
+    background: rgba(255, 255, 255, 0.25);
     height: 67px;
     left: 0;
+    overflow: hidden;
     position: fixed;
     right: 0;
     top: 0;
