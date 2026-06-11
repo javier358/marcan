@@ -77,7 +77,7 @@
     color: var(--marcan-delivered-btn-text, #fbfafa);
     display: inline-flex;
     font-family: Inter, Arial, Helvetica, sans-serif;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 400;
     justify-content: center;
     height: 33px;
@@ -145,7 +145,7 @@
 
     .marcan-home-projects-heading-button,
     .marcan-home-project-card-cta {
-        font-size: calc(12px * var(--marcan-home-wide-scale));
+        font-size: calc(15px * var(--marcan-home-wide-scale));
         height: calc(33px * var(--marcan-home-wide-scale));
         padding: calc(8px * var(--marcan-home-wide-scale)) calc(16px * var(--marcan-home-wide-scale));
     }
@@ -254,7 +254,7 @@
     }
 
     .marcan-home-delivered-button {
-        font-size: calc(12px * var(--marcan-home-wide-scale));
+        font-size: calc(15px * var(--marcan-home-wide-scale));
         height: calc(33px * var(--marcan-home-wide-scale));
         left: calc(31px * var(--marcan-home-wide-scale));
         padding: calc(8px * var(--marcan-home-wide-scale)) calc(16px * var(--marcan-home-wide-scale));
