@@ -3084,15 +3084,15 @@ img {
     }
 
     .marcan-home-hero-slider {
-        height: 580px;
+        height: auto;
     }
 
     .marcan-home-hero-slide {
-        height: 580px;
+        height: auto;
     }
 
     .marcan-home-hero-media {
-        height: 580px;
+        height: auto;
         width: 100%;
     }
 
@@ -3130,7 +3130,7 @@ img {
         box-sizing: border-box;
         display: block;
         min-height: auto;
-        padding: 80px 16px 40px;
+        padding: 80px 16px 80px;
         position: relative;
     }
 
@@ -3347,7 +3347,7 @@ img {
         flex-direction: column;
         gap: 38px;
         height: auto;
-        min-height: auto;
+        min-height: 100dvh;
         overflow: visible;
         padding: 44px 24px 48px;
     }
