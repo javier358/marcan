@@ -1,0 +1,1260 @@
+.marcan-about-promise {
+    left: 0;
+    min-height: 707px;
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+
+.marcan-about-promise-image {
+    height: 707px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.marcan-about-promise-image-mobile {
+    display: none;
+}
+
+.marcan-about-promise-image img {
+    object-fit: cover;
+}
+
+.marcan-about-promise-card {
+    background: #ffcb05;
+    height: 522px;
+    left: 0;
+    position: absolute;
+    top: 185px;
+    width: 522px;
+    z-index: 2;
+}
+
+.marcan-about-promise-card-inner {
+    color: var(--marcan-ink);
+    display: flex;
+    flex-direction: column;
+    gap: 29px;
+    left: 30px;
+    position: absolute;
+    top: 119px;
+    width: 345px;
+}
+
+.marcan-about-promise-card-inner h2 {
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.marcan-about-promise-card-inner p {
+    font-family: Roboto, Inter, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.35;
+    margin: 0;
+}
+
+.marcan-about-awards {
+    margin-top: 30px;
+    position: relative;
+    width: 100%;
+}
+
+.marcan-about-section-title--light {
+    color: #ffffff;
+}
+
+.marcan-about-awards .marcan-about-section-title {
+    left: 27px;
+    position: absolute;
+    top: 0;
+}
+
+.marcan-about-awards-grid {
+    display: grid;
+    gap: 0 24px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    left: calc(50% + 12px);
+    position: relative;
+    top: 0;
+    width: calc(50% - 42px);
+}
+
+.marcan-about-award {
+    color: #ffffff;
+    display: grid;
+    gap: 18px;
+}
+
+.marcan-about-award-logo {
+    height: 62px;
+    width: 56px;
+}
+
+.marcan-about-award-logo img {
+    object-fit: cover;
+}
+
+.marcan-about-award-content {
+    color: #a5a5a3;
+    font-family: Roboto, Inter, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+.marcan-about-award-content h3 {
+    color: #ffffff;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0 0 8px;
+}
+
+.marcan-about-award-content p {
+    margin: 0 0 12px;
+}
+
+.marcan-about-award-content a {
+    color: #ffcb05;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.marcan-about-team {
+    margin-top: 96px;
+    padding-top: 64px;
+    position: relative;
+    width: 100%;
+}
+
+.marcan-about-team .marcan-about-section-title {
+    left: 30px;
+    position: absolute;
+    top: 0;
+}
+
+.marcan-about-team-track {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    left: 30px;
+    position: relative;
+    top: 0;
+    width: calc(100% - 60px);
+}
+
+.marcan-about-team-card {
+    color: #ffffff;
+}
+
+.marcan-about-team-photo {
+    background: #a5a5a3;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.marcan-about-team-photo .marcan-about-team-photo-mobile {
+    display: none;
+}
+
+.marcan-about-team-photo img {
+    filter: grayscale(1);
+    height: auto;
+    transition: filter 450ms var(--marcan-ease), transform 650ms var(--marcan-ease);
+    width: 100%;
+    will-change: filter, transform;
+}
+
+.marcan-about-team-card:hover .marcan-about-team-photo img,
+.marcan-about-team-card:focus-within .marcan-about-team-photo img {
+    filter: grayscale(0);
+}
+
+.marcan-about-team-meta {
+    color: #a5a5a3;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding-top: 8px;
+}
+
+.marcan-about-team-meta h3 {
+    color: #ffffff;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.marcan-about-team-meta p,
+.marcan-about-team-meta a {
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.marcan-about-team-meta a {
+    color: #a5a5a3;
+    text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+    body.home {
+        background: #ffffff;
+    }
+
+    .marcan-about-hero {
+        min-height: 1090px;
+    }
+
+    .marcan-about-hero-copy {
+        left: 16px;
+        max-width: calc(100vw - 32px);
+        top: 210px;
+        width: 370px;
+    }
+
+    .marcan-about-hero-copy p {
+        font-size: 32px;
+        max-width: 370px;
+    }
+
+    .marcan-about-hero-image-desktop {
+        display: none;
+    }
+
+    .marcan-about-hero-image-mobile {
+        display: block;
+        height: 450px;
+        top: 640px;
+    }
+
+    .marcan-about-reasons {
+        min-height: 480px;
+    }
+
+    .marcan-about-reasons-inner {
+        min-height: 480px;
+    }
+
+    .marcan-about-reasons .marcan-about-section-title {
+        left: 16px;
+        top: 40px;
+    }
+
+    .marcan-about-section-title {
+        font-size: 24px;
+    }
+
+    .marcan-about-reasons-grid {
+        gap: 20px 16px;
+        left: 16px;
+        right: 16px;
+        top: 114px;
+        width: auto;
+    }
+
+    .marcan-about-reason-number {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    .marcan-about-reason-text {
+        font-size: 16px;
+        line-height: 1.35;
+    }
+
+    .marcan-about-iconic {
+        min-height: 793px;
+        padding-bottom: 59px;
+    }
+
+    .marcan-about-iconic-heading {
+        padding: 76px 16px 0;
+    }
+
+    .marcan-about-iconic-actions {
+        gap: 7px;
+    }
+
+    .marcan-about-slider-button {
+        height: 41px;
+        width: 41px;
+    }
+
+    .marcan-about-timeline {
+        margin-top: 16px;
+    }
+
+    .marcan-about-timeline-track {
+        padding-left: 16px;
+    }
+
+    .marcan-about-timeline-track::after {
+        left: 16px;
+        top: 460px;
+        width: calc(100% - 32px);
+    }
+
+    .marcan-about-timeline-item {
+        flex-basis: 335px;
+        height: 560px;
+        width: 315px;
+    }
+
+    .marcan-about-timeline-item::after {
+        top: 460px;
+    }
+
+    .marcan-about-timeline-card {
+        height: 445px;
+        width: 315px;
+    }
+
+    .marcan-about-timeline-card-bg-desktop {
+        display: none;
+    }
+
+    .marcan-about-timeline-card-bg-mobile {
+        display: block;
+    }
+
+    .marcan-about-timeline-card-bg-canson {
+        display: block;
+    }
+
+    .marcan-about-timeline-item.is-active .marcan-about-timeline-card.has-canson .marcan-about-timeline-card-bg-mobile {
+        opacity: 1;
+    }
+
+    .marcan-about-timeline-card-arrow {
+        height: 42px;
+        transform: translate(0, 0);
+        width: 42px;
+    }
+
+    .marcan-about-timeline-info {
+        gap: 0;
+        grid-template-columns: 315px;
+        margin-top: 45px;
+        width: 315px;
+    }
+
+    .marcan-about-timeline-info-title {
+        font-size: 20px;
+    }
+
+    .marcan-about-timeline-info-district {
+        font-size: 16px;
+    }
+
+    .marcan-about-timeline-info-year {
+        font-size: 18px;
+    }
+
+    .marcan-about-promise-image {
+        height: 540px;
+    }
+
+    .marcan-about-promise-image-desktop {
+        display: none;
+    }
+
+    .marcan-about-promise-image-mobile {
+        display: block;
+    }
+
+    .marcan-about-promise-card {
+        height: 520px;
+        left: 0;
+        top: 323px;
+        width: 353px;
+    }
+
+    .marcan-about-promise-card-inner {
+        left: 25px;
+        top: 90px;
+        width: 303px;
+    }
+
+    .marcan-about-promise-card-inner h2 {
+        font-size: 30px;
+    }
+
+    .marcan-about-promise-card-inner p {
+        font-size: 18px;
+        line-height: 1.35;
+    }
+
+    .marcan-about-awards {
+        margin-top: 30px;
+        top: auto;
+    }
+
+    .marcan-about-awards .marcan-about-section-title {
+        left: 16px;
+    }
+
+    .marcan-about-awards-grid {
+        gap: 80px 16px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        left: 16px;
+        margin-top: 79px;
+        right: 16px;
+        top: 0;
+        width: auto;
+    }
+
+    .marcan-about-award {
+        gap: 46px;
+    }
+
+    .marcan-about-award-content h3,
+    .marcan-about-award-content p,
+    .marcan-about-award-content a {
+        font-size: 16px;
+    }
+
+    .marcan-about-team {
+        margin-top: 104px;
+        top: auto;
+    }
+
+    .marcan-about-team .marcan-about-section-title {
+        left: 16px;
+    }
+
+    .marcan-about-team-track {
+        display: flex;
+        gap: 10px;
+        left: 16px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding-bottom: 4px;
+        position: relative;
+        scrollbar-width: none;
+        margin-top: 79px;
+        top: 0;
+        width: calc(100% - 32px);
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .marcan-about-team-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .marcan-about-team-card {
+        flex: 0 0 315px;
+        width: 315px;
+    }
+
+    .marcan-about-team-photo .marcan-about-team-photo-desktop {
+        display: none;
+    }
+
+    .marcan-about-team-photo .marcan-about-team-photo-mobile {
+        display: block;
+    }
+
+}
+
+@media (max-width: 900px) {
+    .marcan-site-header {
+        height: 54px;
+    }
+
+    .marcan-site-header::before {
+        height: 54px;
+    }
+
+    .marcan-site-header.is-menu-open::before {
+        height: 230px;
+    }
+
+    .marcan-header-logo {
+        height: 20px;
+        left: 20px;
+        top: 17px;
+        width: 100px;
+    }
+
+    .marcan-logo-desktop {
+        display: none;
+    }
+
+    .marcan-logo-mobile {
+        display: block;
+    }
+
+    .marcan-menu-button {
+        color: var(--marcan-logo);
+        font-weight: 400;
+        height: 34px;
+        justify-content: flex-start;
+        letter-spacing: 0;
+        line-height: 26px;
+        right: 16px;
+        top: 9px;
+        width: 94px;
+    }
+
+    .marcan-menu-icon {
+        display: block;
+        height: 34px;
+        margin-left: 0;
+        width: 34px;
+    }
+
+    .marcan-primary-nav {
+        height: 176px;
+        left: 0;
+        right: 0;
+        top: 54px;
+        width: 100vw;
+    }
+
+    .marcan-menu-list {
+        right: 16px;
+        top: 0;
+        width: 168px;
+    }
+
+    .marcan-menu-list a {
+        color: var(--marcan-logo);
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .primary-nav {
+        background: var(--marcan-surface);
+        display: none;
+        left: 0;
+        padding: 96px 24px 32px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: -1;
+    }
+
+    .primary-nav.is-open {
+        display: block;
+    }
+
+    .primary-menu,
+    .footer-nav {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .marcan-home-delivered {
+        display: block;
+        min-height: 1000px;
+    }
+
+    .marcan-home-delivered-media {
+        height: 500px;
+        min-height: 500px;
+        width: 100%;
+    }
+
+    .marcan-home-delivered-copy {
+        height: 500px;
+        justify-content: center;
+        padding: 40px 20px;
+        width: 100%;
+    }
+
+    .marcan-home-delivered-copy h2 {
+        font-size: 32px;
+        margin: 0 auto 30px;
+        max-width: 362px;
+        position: static;
+        text-align: center;
+        width: min(362px, 100%);
+    }
+
+    .marcan-home-delivered-button {
+        margin: 0 auto;
+        position: static;
+        width: 192px;
+    }
+
+    .marcan-home-hero {
+        background: #ffffff;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        padding-top: 54px;
+    }
+
+    .marcan-home-hero-slider {
+        height: 580px;
+    }
+
+    .marcan-home-hero-slide {
+        height: 580px;
+    }
+
+    .marcan-home-hero-media {
+        height: 580px;
+        width: 100%;
+    }
+
+    .marcan-home-hero-media-desktop {
+        display: none;
+    }
+
+    .marcan-home-hero-media-mobile {
+        display: block;
+    }
+
+    .marcan-home-hero-mobile-copy {
+        display: block;
+        min-height: 161px;
+        padding: 0 16px 24px;
+        width: 100%;
+    }
+
+    .marcan-home-hero-mobile-copy p {
+        color: var(--marcan-ink);
+        font-family: Inter, Arial, Helvetica, sans-serif;
+        font-size: 19px;
+        font-weight: 300;
+        letter-spacing: 0;
+        line-height: 1.28;
+        margin: 0;
+        width: 272px;
+    }
+
+    .marcan-home-projects {
+        padding-bottom: 40px;
+    }
+
+    .marcan-home-projects-intro {
+        box-sizing: border-box;
+        display: block;
+        min-height: auto;
+        padding: 80px 16px 40px;
+        position: relative;
+    }
+
+    .marcan-home-projects-intro-copy {
+        display: none;
+    }
+
+    .marcan-home-projects-intro-title {
+        font-family: Bitter, Georgia, serif;
+        font-weight: 400;
+        font-size: 32px;
+        letter-spacing: 0.01em;
+        line-height: 1;
+        margin: 0 auto 20px;
+        max-width: 370px;
+        text-align: center;
+        position: static;
+        width: calc(100% - 32px);
+    }
+
+    .marcan-home-projects-intro-button {
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        position: static;
+        width: 273px;
+        margin-top: 0;
+    }
+
+    .marcan-home-projects-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 0 16px 10px;
+    }
+
+    .marcan-home-projects-heading h2 {
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 1;
+    }
+
+    .marcan-home-projects-heading-button {
+        height: 33px;
+    }
+
+    .marcan-home-project-slider {
+        margin-top: 9px;
+        scroll-snap-type: none;
+    }
+
+    .marcan-home-project-slider-track {
+        gap: 10px;
+        padding-left: 16px;
+    }
+
+    .marcan-home-project-card {
+        height: auto;
+        width: 315px;
+    }
+
+    .marcan-home-project-card[data-reveal] {
+        opacity: 1;
+    }
+
+    .marcan-home-project-card-media {
+        height: 390px;
+    }
+
+    .marcan-home-project-card-image {
+        height: 100%;
+        left: 0;
+        object-fit: cover;
+        top: 0;
+        width: 100%;
+    }
+
+    .marcan-home-project-card-arrow {
+        height: 42px;
+        transform: translate(0, 0);
+        width: 42px;
+    }
+
+    .marcan-home-project-card-body {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        height: auto;
+        min-height: 203px;
+        padding-bottom: 0;
+        padding-top: 30px;
+    }
+
+    .marcan-home-project-card-main {
+        display: contents;
+    }
+
+    .marcan-home-project-card-actions {
+        order: 3;
+        margin-top: 0;
+        position: static;
+    }
+
+    .marcan-home-project-card-heading {
+        gap: 5px;
+        order: 1;
+    }
+
+    .marcan-home-project-card-title-row {
+        gap: 12px;
+        min-height: 26px;
+    }
+
+    .marcan-home-project-card-title-row h3 {
+        font-size: 20px;
+    }
+
+    .marcan-home-project-card-location {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .marcan-home-project-card-side {
+        display: grid;
+        gap: 0;
+        grid-template-columns: 136px 1fr;
+        order: 2;
+        padding-right: 0;
+        position: static;
+        width: 100%;
+    }
+
+    .marcan-home-project-card-price {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .marcan-home-project-card-price span {
+        font-size: 14px;
+    }
+
+    .marcan-home-project-card-price strong {
+        font-size: 20px;
+    }
+
+    .marcan-home-project-card-specs {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .marcan-home-project-card-spec {
+        gap: 10px;
+    }
+
+    .marcan-home-project-card-spec-icon {
+        width: 18px;
+    }
+
+    .marcan-home-project-card-badge {
+        padding: 3px 8px;
+    }
+
+    .marcan-home-desktop-text {
+        display: none;
+    }
+
+    .marcan-home-mobile-text {
+        display: inline;
+    }
+
+    .marcan-home-projects-group-offices {
+        margin-top: 105px;
+        margin-bottom: 54px;
+    }
+
+    .property-grid,
+    .property-detail,
+    .project-grid-2,
+    .project-grid-3,
+    .about-band,
+    .delivered-band {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-panel {
+        bottom: 74px;
+        left: 0;
+        max-width: none;
+        min-height: 260px;
+        position: absolute;
+        right: 0;
+        width: auto;
+    }
+
+    .about-band,
+    .about-card {
+        min-height: 0;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .intro-hero {
+        min-height: 560px;
+    }
+
+    .marcan-site-footer-desktop {
+        display: none;
+    }
+
+    .marcan-site-footer-mobile {
+        display: flex;
+        flex-direction: column;
+        gap: 38px;
+        height: auto;
+        min-height: auto;
+        overflow: visible;
+        padding: 44px 24px 48px;
+    }
+
+    .marcan-site-footer-mobile-group {
+        display: grid;
+        gap: 8px;
+    }
+
+    .marcan-site-footer-mobile > .marcan-site-footer-mobile-group:nth-child(2) .marcan-site-footer-nav-title {
+        display: none;
+    }
+
+    .marcan-site-footer-mobile > .marcan-site-footer-mobile-group:nth-child(5) {
+        gap: 4px;
+    }
+
+    .marcan-site-footer-links a,
+    .marcan-site-footer-contact-line,
+    .marcan-site-footer-legal {
+        font-size: 14px;
+        line-height: 1.4;
+        margin: 0;
+    }
+
+    .marcan-site-footer-nav-title {
+        font-family: Roboto, Inter, Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: normal;
+        margin: 0;
+    }
+
+    .marcan-site-footer-links {
+        gap: 8px;
+    }
+
+    .marcan-site-footer-links li {
+        line-height: 21px;
+    }
+
+    .marcan-site-footer-links a {
+        font-family: Roboto, Inter, Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 21px;
+    }
+
+    .marcan-site-footer-button {
+        justify-self: start;
+        margin-top: 0;
+    }
+
+    .marcan-site-footer-socials-mobile {
+        gap: 16px;
+        margin-top: 0;
+    }
+
+    .marcan-site-footer-social {
+        height: 25px;
+        width: 25px;
+    }
+
+    .marcan-site-footer-members-logos {
+        gap: 11px;
+    }
+
+    .marcan-site-footer-members-title {
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.12px;
+        line-height: 1.4;
+        margin-bottom: 0;
+    }
+
+    .marcan-site-footer-member:nth-child(1) {
+        width: 88px;
+        height: 26px;
+    }
+
+    .marcan-site-footer-member:nth-child(2) {
+        width: 55px;
+        height: 26px;
+    }
+
+    .marcan-site-footer-member:nth-child(3) {
+        width: 44px;
+        height: 26px;
+    }
+
+    .marcan-site-footer-brand-mobile {
+        align-items: flex-end;
+        display: flex;
+        gap: 3.02%;
+        justify-content: flex-start;
+        height: 56.78px;
+        margin-top: 0;
+        position: static;
+        width: min(290px, 100%);
+    }
+
+    .marcan-site-footer-brand-mobile .marcan-site-footer-brand-desktop {
+        height: 37.676px;
+        left: auto;
+        position: static;
+        top: auto;
+        width: 83.53%;
+    }
+
+    .marcan-site-footer-brand-mobile .marcan-site-footer-brand-arrow {
+        left: auto;
+        position: static;
+        height: 56.78px;
+        width: 13.45%;
+    }
+
+    .marcan-site-footer-brand-block {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+        max-width: 342px;
+        width: 100%;
+    }
+
+    .marcan-site-footer-legal {
+        position: static;
+        width: 342px;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1439px) {
+    .marcan-site-footer-brand {
+        height: 12.434vw;
+        top: calc(728px - 12.434vw);
+        width: 61.508vw;
+    }
+
+    .marcan-site-footer-brand-desktop {
+        height: 8.267vw;
+        top: 4.167vw;
+        width: 52.976vw;
+    }
+
+    .marcan-site-footer-brand-arrow {
+        height: 5.519vw;
+        left: 54.101vw;
+        width: 8.532vw;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1199px) {
+    .marcan-about-reasons {
+        min-height: 550px;
+    }
+
+    .marcan-about-reasons-inner {
+        min-height: 550px;
+    }
+
+    .marcan-about-reasons .marcan-about-section-title {
+        left: 30px;
+        top: 76px;
+    }
+
+    .marcan-about-reasons-grid {
+        gap: 44px 36px;
+        left: 30px;
+        right: 30px;
+        top: 153px;
+        width: auto;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+    .marcan-about-hero-copy {
+        left: 24px;
+        width: min(620px, calc(100% - 48px));
+    }
+
+    .marcan-about-hero-copy p {
+        max-width: 620px;
+    }
+
+    .marcan-about-reasons {
+        min-height: 550px;
+    }
+
+    .marcan-about-reasons-inner {
+        min-height: 550px;
+    }
+
+    .marcan-about-reasons .marcan-about-section-title {
+        left: 24px;
+        top: 72px;
+    }
+
+    .marcan-about-reasons-grid {
+        gap: 36px 28px;
+        left: 24px;
+        right: 24px;
+        top: 140px;
+        width: auto;
+    }
+
+    .marcan-about-facts {
+        min-height: 2110px;
+    }
+
+    .marcan-about-facts-inner {
+        min-height: 2110px;
+    }
+
+    .marcan-about-promise-image {
+        height: 620px;
+    }
+
+    .marcan-about-promise-image img {
+        object-position: center center;
+    }
+
+    .marcan-about-promise-card {
+        height: 440px;
+        top: 180px;
+        width: 440px;
+    }
+
+    .marcan-about-promise-card-inner {
+        left: 30px;
+        top: 88px;
+        width: 360px;
+    }
+
+    .marcan-about-awards {
+        top: 680px;
+    }
+
+    .marcan-about-awards .marcan-about-section-title {
+        left: 24px;
+    }
+
+    .marcan-about-awards-grid {
+        gap: 34px;
+        grid-template-columns: 1fr;
+        left: 24px;
+        top: 72px;
+        width: calc(100% - 48px);
+    }
+
+    .marcan-about-award {
+        align-items: start;
+        gap: 24px;
+        grid-template-columns: 72px minmax(0, 1fr);
+    }
+
+    .marcan-about-team {
+        top: 1400px;
+    }
+
+    .marcan-about-team .marcan-about-section-title {
+        left: 24px;
+    }
+
+    .marcan-about-team-track {
+        left: 24px;
+        width: calc(100% - 48px);
+    }
+
+    .marcan-site-footer-mobile {
+        gap: 42px;
+        height: auto;
+        min-height: 940px;
+        padding: 52px 24px 28px;
+    }
+
+    .marcan-site-footer-mobile-group {
+        gap: 10px;
+    }
+
+    .marcan-site-footer-links a,
+    .marcan-site-footer-contact-line,
+    .marcan-site-footer-legal {
+        font-size: 16px;
+        line-height: 1.45;
+    }
+
+    .marcan-site-footer-nav-title {
+        font-size: 18px;
+    }
+
+    .marcan-site-footer-links li,
+    .marcan-site-footer-links a {
+        line-height: 23px;
+    }
+
+    .marcan-site-footer-socials-mobile {
+        gap: 19px;
+    }
+
+    .marcan-site-footer-social {
+        height: 28px;
+        width: 28px;
+    }
+
+    .marcan-site-footer-members-title {
+        font-size: 14px;
+    }
+
+    .marcan-site-footer-member:nth-child(1) {
+        height: 30px;
+        width: 102px;
+    }
+
+    .marcan-site-footer-member:nth-child(2) {
+        height: 30px;
+        width: 63px;
+    }
+
+    .marcan-site-footer-member:nth-child(3) {
+        height: 30px;
+        width: 51px;
+    }
+
+    .marcan-site-footer-brand-mobile {
+        gap: 10px;
+        height: 68px;
+        width: 347px;
+    }
+
+    .marcan-site-footer-brand-mobile .marcan-site-footer-brand-desktop {
+        height: 45px;
+        width: 290px;
+    }
+
+    .marcan-site-footer-brand-mobile .marcan-site-footer-brand-arrow {
+        height: 68px;
+        width: 47px;
+    }
+
+    .marcan-site-footer-brand-block,
+    .marcan-site-footer-legal {
+        width: 100%;
+    }
+
+    .marcan-home-hero-slider,
+    .marcan-home-hero-slide,
+    .marcan-home-hero-media {
+        height: calc(100vw * 1160 / 804);
+    }
+
+    .marcan-home-hero-media img {
+        object-fit: contain;
+    }
+
+    .marcan-home-hero-mobile-copy p {
+        width: 360px;
+    }
+
+    .marcan-home-project-card {
+        height: auto;
+        width: calc((100vw - 42px) / 2);
+    }
+
+    .marcan-home-project-card-media {
+        aspect-ratio: 315 / 390;
+        height: auto;
+    }
+
+    .marcan-home-project-card-body {
+        height: 203px;
+    }
+}
+
+@media (max-width: 599px) {
+    .marcan-about-hero {
+        min-height: 980px;
+    }
+
+    .marcan-about-hero-copy {
+        top: 150px;
+    }
+
+    .marcan-about-hero-image-mobile {
+        top: 530px;
+    }
+
+    .marcan-about-reasons,
+    .marcan-about-reasons-inner {
+        min-height: 665px;
+    }
+}
+
+.marcan-property-archive,
