@@ -80,10 +80,10 @@
     font-size: 15px;
     font-weight: 400;
     justify-content: center;
-    height: 33px;
+    height: 41px;
     left: 31px;
     overflow: hidden;
-    padding: 8px 16px;
+    padding: 10px 20px;
     position: absolute;
     text-overflow: ellipsis;
     top: 229px;
@@ -146,8 +146,8 @@
     .marcan-home-projects-heading-button,
     .marcan-home-project-card-cta {
         font-size: calc(15px * var(--marcan-home-wide-scale));
-        height: calc(33px * var(--marcan-home-wide-scale));
-        padding: calc(8px * var(--marcan-home-wide-scale)) calc(16px * var(--marcan-home-wide-scale));
+        height: calc(41px * var(--marcan-home-wide-scale));
+        padding: calc(10px * var(--marcan-home-wide-scale)) calc(20px * var(--marcan-home-wide-scale));
     }
 
     .marcan-home-project-slider {
@@ -255,9 +255,9 @@
 
     .marcan-home-delivered-button {
         font-size: calc(15px * var(--marcan-home-wide-scale));
-        height: calc(33px * var(--marcan-home-wide-scale));
+        height: calc(41px * var(--marcan-home-wide-scale));
         left: calc(31px * var(--marcan-home-wide-scale));
-        padding: calc(8px * var(--marcan-home-wide-scale)) calc(16px * var(--marcan-home-wide-scale));
+        padding: calc(10px * var(--marcan-home-wide-scale)) calc(20px * var(--marcan-home-wide-scale));
         top: calc(229px * var(--marcan-home-wide-scale));
         width: calc(192px * var(--marcan-home-wide-scale));
     }

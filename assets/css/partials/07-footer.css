@@ -75,12 +75,12 @@
     color: #fbfafa;
     display: inline-flex;
     font-family: Inter, Arial, Helvetica, sans-serif;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 400;
     justify-content: center;
     margin-top: 24px;
-    min-height: 33px;
-    padding: 8px 16px;
+    min-height: 41px;
+    padding: 10px 20px;
 }
 
 .marcan-site-footer-contact {

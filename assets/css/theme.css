@@ -889,7 +889,7 @@ img {
     justify-content: center;
     line-height: 1.43;
     overflow: hidden;
-    padding: 8px 16px;
+    padding: 10px 20px;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
@@ -926,8 +926,8 @@ img {
 }
 
 .marcan-home-projects-heading-button {
-    height: 33px;
-    padding: 8px 16px;
+    height: 41px;
+    padding: 10px 20px;
 }
 
 .marcan-home-project-slider {
@@ -1135,7 +1135,7 @@ img {
 
 .marcan-home-project-card-cta {
     height: auto;
-    min-height: 33px;
+    min-height: 41px;
 }
 
 .marcan-home-project-card-side {
@@ -1771,10 +1771,10 @@ img {
     font-size: 15px;
     font-weight: 400;
     justify-content: center;
-    height: 33px;
+    height: 41px;
     left: 31px;
     overflow: hidden;
-    padding: 8px 16px;
+    padding: 10px 20px;
     position: absolute;
     text-overflow: ellipsis;
     top: 229px;
@@ -1837,8 +1837,8 @@ img {
     .marcan-home-projects-heading-button,
     .marcan-home-project-card-cta {
         font-size: calc(15px * var(--marcan-home-wide-scale));
-        height: calc(33px * var(--marcan-home-wide-scale));
-        padding: calc(8px * var(--marcan-home-wide-scale)) calc(16px * var(--marcan-home-wide-scale));
+        height: calc(41px * var(--marcan-home-wide-scale));
+        padding: calc(10px * var(--marcan-home-wide-scale)) calc(20px * var(--marcan-home-wide-scale));
     }
 
     .marcan-home-project-slider {
@@ -1946,9 +1946,9 @@ img {
 
     .marcan-home-delivered-button {
         font-size: calc(15px * var(--marcan-home-wide-scale));
-        height: calc(33px * var(--marcan-home-wide-scale));
+        height: calc(41px * var(--marcan-home-wide-scale));
         left: calc(31px * var(--marcan-home-wide-scale));
-        padding: calc(8px * var(--marcan-home-wide-scale)) calc(16px * var(--marcan-home-wide-scale));
+        padding: calc(10px * var(--marcan-home-wide-scale)) calc(20px * var(--marcan-home-wide-scale));
         top: calc(229px * var(--marcan-home-wide-scale));
         width: calc(192px * var(--marcan-home-wide-scale));
     }
@@ -2031,12 +2031,12 @@ img {
     color: #fbfafa;
     display: inline-flex;
     font-family: Inter, Arial, Helvetica, sans-serif;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 400;
     justify-content: center;
     margin-top: 24px;
-    min-height: 33px;
-    padding: 8px 16px;
+    min-height: 41px;
+    padding: 10px 20px;
 }
 
 .marcan-site-footer-contact {

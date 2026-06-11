@@ -64,7 +64,7 @@
     justify-content: center;
     line-height: 1.43;
     overflow: hidden;
-    padding: 8px 16px;
+    padding: 10px 20px;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
@@ -101,8 +101,8 @@
 }
 
 .marcan-home-projects-heading-button {
-    height: 33px;
-    padding: 8px 16px;
+    height: 41px;
+    padding: 10px 20px;
 }
 
 .marcan-home-project-slider {
@@ -310,7 +310,7 @@
 
 .marcan-home-project-card-cta {
     height: auto;
-    min-height: 33px;
+    min-height: 41px;
 }
 
 .marcan-home-project-card-side {
