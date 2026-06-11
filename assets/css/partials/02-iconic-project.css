@@ -1,0 +1,450 @@
+.marcan-iconic-single {
+    background: #ffffff;
+    color: #4f4f4f;
+    overflow: hidden;
+    position: relative;
+}
+
+.marcan-iconic-back {
+    background: currentColor;
+    display: block;
+    height: 20px;
+    left: 16px;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='black' d='M8.3 4.7 3 10l5.3 5.3 1.1-1.1-3.4-3.4h11V9.2H6l3.4-3.4-1.1-1.1Z'/%3E%3C/svg%3E") center / contain no-repeat;
+    position: absolute;
+    top: 83px;
+    width: 20px;
+    z-index: 5;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='black' d='M8.3 4.7 3 10l5.3 5.3 1.1-1.1-3.4-3.4h11V9.2H6l3.4-3.4-1.1-1.1Z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.marcan-iconic-hero {
+    height: 788px;
+    margin-top: 32px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.marcan-iconic-hero picture,
+.marcan-iconic-hero img {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.marcan-iconic-hero img {
+    object-fit: cover;
+    object-position: center center;
+}
+
+.marcan-iconic-intro {
+    display: grid;
+    gap: 26px;
+    grid-template-columns: minmax(0, 1fr);
+    margin: 30px 30px 0;
+}
+
+.marcan-iconic-title-block {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.marcan-iconic-title-block h1 {
+    font-family: Bitter, Georgia, serif;
+    font-size: 45px;
+    font-weight: 400;
+    letter-spacing: 0.45px;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.marcan-iconic-title-block p,
+.marcan-iconic-summary {
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.35;
+    margin: 0;
+}
+
+.marcan-iconic-pill {
+    background: #fffcf2;
+    border: 1px solid #ffcb05;
+    border-radius: 61px;
+    color: #997a03;
+    display: inline-flex;
+    font-family: Inter, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    padding: 3px 8px;
+}
+
+.marcan-iconic-summary p {
+    margin: 0;
+}
+
+.marcan-iconic-summary {
+    max-width: 468px;
+}
+
+.marcan-iconic-wide-image {
+    height: 745px;
+    margin: 120px 30px 0;
+    overflow: hidden;
+}
+
+.marcan-iconic-wide-image img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.marcan-iconic-concept {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: 468px 221.5px;
+    justify-content: space-between;
+    margin: 30px 30px 0;
+}
+
+.marcan-iconic-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 29px;
+}
+
+.marcan-iconic-copy h2,
+.marcan-iconic-facade-card h2,
+.marcan-iconic-details h2 {
+    font-family: Inter, Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.marcan-iconic-copy div,
+.marcan-iconic-facade-card p,
+.marcan-iconic-details p {
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.35;
+}
+
+.marcan-iconic-copy p,
+.marcan-iconic-facade-card p,
+.marcan-iconic-details p {
+    margin: 0 0 1.35em;
+}
+
+.marcan-iconic-copy p:last-child,
+.marcan-iconic-facade-card p:last-child,
+.marcan-iconic-details p:last-child {
+    margin-bottom: 0;
+}
+
+.marcan-iconic-designer img {
+    display: block;
+    height: 221.5px;
+    object-fit: cover;
+    width: 221.5px;
+}
+
+.marcan-iconic-designer-name {
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 10px 0 0;
+}
+
+.marcan-iconic-designer-role {
+    font-family: Inter, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.marcan-iconic-facade {
+    height: 918px;
+    margin-top: 120px;
+    overflow: hidden;
+    position: relative;
+}
+
+.marcan-iconic-facade > img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.marcan-iconic-facade-card {
+    background: #ffcb05;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 29px;
+    left: 0;
+    min-height: 522px;
+    padding: 119px 30px 30px;
+    position: absolute;
+    width: 522px;
+}
+
+.marcan-iconic-gallery {
+    padding: 80px 0;
+    width: 100%;
+}
+
+.marcan-iconic-gallery-track {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 30px 4px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.marcan-iconic-gallery-track::-webkit-scrollbar {
+    display: none;
+}
+
+.marcan-iconic-gallery-track figure {
+    flex-shrink: 0;
+    height: 639px;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    width: 468px;
+}
+
+.marcan-iconic-gallery-button {
+    appearance: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+.marcan-iconic-gallery-button img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    width: 100%;
+}
+
+.marcan-iconic-gallery-button:hover img {
+    transform: scale(1.04);
+}
+
+.marcan-iconic-gallery .marcan-property-gallery-image-button span {
+    left: auto;
+    right: 10px;
+}
+
+.marcan-iconic-gallery-track figcaption {
+    color: #838382;
+    font-family: Inter, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    margin-top: 8px;
+    padding: 0 4px;
+    text-align: left;
+}
+
+.marcan-iconic-details {
+    display: flex;
+    flex-direction: column;
+    gap: 29px;
+    margin: 40px 0 0 30px;
+    width: 345px;
+}
+
+.marcan-iconic-related {
+    margin: 140px 0 0;
+}
+
+.marcan-iconic-related .marcan-about-iconic-heading {
+    padding-top: 0;
+}
+
+.marcan-iconic-cta {
+    align-items: center;
+    background: #4f4f4f;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 58px;
+    justify-content: center;
+    margin: 50px 24px 0;
+    min-height: 539px;
+    text-align: center;
+}
+
+.marcan-iconic-cta h2 {
+    font-family: Bitter, Georgia, serif;
+    font-size: 45px;
+    font-weight: 400;
+    letter-spacing: 0.45px;
+    line-height: 1.1;
+    margin: 0;
+    max-width: 546px;
+}
+
+.marcan-iconic-cta div {
+    display: flex;
+    gap: 15px;
+}
+
+.marcan-iconic-cta-button {
+    align-items: center;
+    color: #4f4f4f;
+    display: inline-flex;
+    font-family: Inter, Arial, sans-serif;
+    font-size: 17px;
+    height: 51px;
+    justify-content: center;
+    line-height: 1.45;
+    padding: 0 26px;
+    text-decoration: none;
+    width: 272px;
+}
+
+.marcan-iconic-cta-button.is-yellow {
+    background: #ffcb05;
+}
+
+.marcan-iconic-cta-button.is-white {
+    background: #ffffff;
+}
+
+@media (max-width: 900px) {
+    .marcan-iconic-back {
+        top: 126px;
+    }
+
+    .marcan-iconic-hero {
+        height: 580px;
+        margin-top: 110px;
+    }
+
+    .marcan-iconic-intro {
+        display: flex;
+        flex-direction: column;
+        gap: 29px;
+        margin: 30px 16px 0;
+    }
+
+    .marcan-iconic-title-block h1 {
+        font-size: 32px;
+        letter-spacing: 0.32px;
+        line-height: 1;
+        white-space: normal;
+    }
+
+    .marcan-iconic-wide-image {
+        height: 580px;
+        margin: 80px 16px 0;
+    }
+
+    .marcan-iconic-concept {
+        display: flex;
+        flex-direction: column;
+        gap: 64px;
+        margin: 30px 16px 0;
+    }
+
+    .marcan-iconic-designer {
+        margin: 0 auto;
+        width: 220px;
+    }
+
+    .marcan-iconic-designer img {
+        height: 220px;
+        width: 220px;
+    }
+
+    .marcan-iconic-designer-name {
+        font-size: 16px;
+    }
+
+    .marcan-iconic-facade {
+        height: 800px;
+        margin-top: 80px;
+    }
+
+    .marcan-iconic-facade-card {
+        bottom: auto;
+        left: 0;
+        min-height: 0;
+        padding: 100px 16px 20px;
+        top: 273px;
+        width: min(347px, 92vw);
+    }
+
+    .marcan-iconic-gallery {
+        padding: 50px 0;
+    }
+
+    .marcan-iconic-gallery-track {
+        padding: 0 16px 4px;
+    }
+
+    .marcan-iconic-gallery-track figure {
+        height: 408px;
+        width: 315px;
+    }
+
+    .marcan-iconic-details {
+        margin: 50px 16px 0;
+        width: min(329px, calc(100vw - 32px));
+    }
+
+    .marcan-iconic-details h2 {
+        font-size: 24px;
+        line-height: 1;
+    }
+
+    .marcan-iconic-details p {
+        font-size: 16px;
+        line-height: 21px;
+    }
+
+    .marcan-iconic-related {
+        margin-top: 90px;
+    }
+
+    .marcan-iconic-cta {
+        gap: 30px;
+        margin: 80px 16px 0;
+        min-height: 780px;
+    }
+
+    .marcan-iconic-cta h2 {
+        font-size: 32px;
+        max-width: 314px;
+    }
+
+    .marcan-iconic-cta div {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .marcan-iconic-cta-button {
+        width: 255px;
+    }
+}
+

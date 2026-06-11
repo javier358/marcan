@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@300;400;700&family=Inter:wght@300;400;500;700&family=Roboto:wght@300;400;500&display=swap');
+
+body.ml-loading .marcan-global-whatsapp { opacity: 0; pointer-events: none; transition: opacity 0.4s; }
+
+:root {
+    --marcan-yellow: #ffcb05;
+    --marcan-ink: #4f4f4f;
+    --marcan-logo: #4f4f4f;
+    --marcan-glass: rgba(255, 255, 255, 0.74);
+    --marcan-black: #111111;
+    --marcan-surface: #ffffff;
+    --marcan-muted: #b9b9b7;
+    --marcan-white: #ffffff;
+    --marcan-max: 1180px;
+    --marcan-radius: 8px;
+    --marcan-ease: cubic-bezier(0.19, 1, 0.22, 1);
+    --marcan-type-title: clamp(42px, 5vw, 80px);
+    --marcan-type-subtitle: clamp(24px, 2.6vw, 42px);
+    --marcan-type-description: 18px;
+}
+

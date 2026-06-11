@@ -6,3 +6,9 @@ vendor/
 *.log
 dist/
 build/
+package-lock.json
+.cache/
+.vscode/
+.idea/
+*.zip
+theme-backup.css

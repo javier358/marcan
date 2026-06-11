@@ -1,0 +1,317 @@
+.marcan-about-hero {
+    background: #d9d9d6;
+    min-height: 1200px;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
+.marcan-about-hero-copy {
+    left: 30px;
+    max-width: 1168px;
+    position: absolute;
+    top: 239px;
+    width: calc(100% - 60px);
+    z-index: 2;
+}
+
+.marcan-about-hero-copy p {
+    color: var(--marcan-ink);
+    font-family: Bitter, Georgia, serif;
+    font-size: 45px;
+    font-weight: 300;
+    line-height: 1.1;
+    margin: 0;
+    max-width: 1168px;
+}
+
+.marcan-about-hero-image {
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+}
+
+.marcan-about-hero-image-desktop {
+    height: 730px;
+    top: 470px;
+}
+
+.marcan-about-hero-image-mobile {
+    display: none;
+}
+
+.marcan-about-hero-image img {
+    object-fit: cover;
+}
+
+.marcan-about-reasons {
+    background: #d9d9d6;
+    min-height: 555px;
+}
+
+.marcan-about-reasons-inner {
+    min-height: 555px;
+}
+
+.marcan-about-section-title {
+    color: var(--marcan-ink);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.marcan-about-reasons .marcan-about-section-title {
+    left: 30px;
+    position: absolute;
+    top: 229px;
+}
+
+.marcan-about-reasons-grid {
+    display: grid;
+    gap: 58px 37px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    position: absolute;
+    right: 76px;
+    top: 79px;
+    width: 668px;
+}
+
+.marcan-about-reason-number {
+    color: var(--marcan-ink);
+    font-family: Bitter, Georgia, serif;
+    font-size: 45px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+    margin: 0 0 10px;
+}
+
+.marcan-about-reason-text {
+    color: var(--marcan-ink);
+    font-family: Roboto, Inter, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.35;
+    margin: 0;
+}
+
+.marcan-about-iconic {
+    background: #ffffff;
+    min-height: 1205px;
+    padding-bottom: 126px;
+}
+
+.marcan-about-iconic-heading {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 142px 30px 0;
+}
+
+.marcan-about-section-title--iconic {
+    color: var(--marcan-ink);
+}
+
+.marcan-about-iconic-actions {
+    display: flex;
+    gap: 16px;
+}
+
+.marcan-about-slider-button {
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid transparent;
+    color: var(--marcan-ink);
+    cursor: pointer;
+    display: inline-flex;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    height: 51px;
+    justify-content: center;
+    padding: 0;
+    width: 51px;
+}
+
+.marcan-about-timeline {
+    cursor: grab;
+    margin-top: 33px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    user-select: none;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+.marcan-about-timeline::-webkit-scrollbar {
+    display: none;
+}
+
+.marcan-about-timeline.is-dragging {
+    cursor: grabbing;
+}
+
+.marcan-about-timeline-track {
+    display: flex;
+    gap: 0;
+    padding-left: 30px;
+    position: relative;
+    width: max-content;
+}
+
+.marcan-about-timeline-track::after {
+    background: #d9d9d6;
+    content: "";
+    height: 1px;
+    left: 30px;
+    position: absolute;
+    top: 608px;
+    width: calc(100% - 60px);
+}
+
+.marcan-about-timeline-item {
+    flex: 0 0 684px;
+    height: 723px;
+    position: relative;
+    width: 660px;
+}
+
+.marcan-about-timeline-item::after {
+    background: #d9d9d6;
+    content: "";
+    height: 15px;
+    left: 0;
+    position: absolute;
+    top: 608px;
+    width: 1px;
+    z-index: 1;
+}
+
+.marcan-about-timeline-card {
+    background: #f3f2f1;
+    clip-path: inset(0);
+    display: block;
+    height: 584px;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    width: 660px;
+}
+
+.marcan-about-timeline-item.is-active .marcan-about-timeline-card {
+    background: #eaeae8;
+}
+
+.marcan-about-timeline-card-bg {
+    display: block;
+    height: 100%;
+    inset: 0;
+    max-width: none;
+    object-fit: cover;
+    object-position: center center;
+    position: absolute;
+    transform: translateZ(0) scale(1);
+    transform-origin: center center;
+    transition: transform 650ms var(--marcan-ease);
+    width: 100%;
+    will-change: transform;
+}
+
+.marcan-about-timeline-card-bg-mobile {
+    display: none;
+}
+
+.marcan-about-timeline-card.has-canson .marcan-about-timeline-card-bg-desktop,
+.marcan-about-timeline-card.has-canson .marcan-about-timeline-card-bg-mobile {
+    opacity: 0;
+    transition: opacity 450ms var(--marcan-ease), transform 650ms var(--marcan-ease);
+    z-index: 2;
+}
+
+.marcan-about-timeline-card-bg-canson {
+    opacity: 1;
+    transition: transform 650ms var(--marcan-ease);
+    z-index: 1;
+}
+
+.marcan-about-timeline-card-arrow {
+    bottom: 0;
+    height: 51px;
+    left: 0;
+    position: absolute;
+    transform: translate(-100%, 100%);
+    transition: transform 450ms var(--marcan-ease);
+    width: 51px;
+    z-index: 2;
+}
+
+.marcan-about-timeline-card-arrow img {
+    display: block;
+    height: 100%;
+    object-fit: contain;
+    width: 100%;
+}
+
+.marcan-about-timeline-card:hover .marcan-about-timeline-card-bg,
+.marcan-about-timeline-card:focus-within .marcan-about-timeline-card-bg {
+    transform: translateZ(0) scale(1.045);
+}
+
+.marcan-about-timeline-card.has-canson:hover .marcan-about-timeline-card-bg-desktop,
+.marcan-about-timeline-card.has-canson:focus-within .marcan-about-timeline-card-bg-desktop {
+    opacity: 1;
+}
+
+.marcan-about-timeline-card:hover .marcan-about-timeline-card-arrow,
+.marcan-about-timeline-card:focus-within .marcan-about-timeline-card-arrow {
+    transform: translate(0, 0);
+}
+
+.marcan-about-timeline-info {
+    display: grid;
+    gap: 0;
+    grid-template-columns: 230px 230px 1fr;
+    margin-top: 53px;
+    padding-left: 0;
+    width: 100%;
+}
+
+.marcan-about-timeline-info-title {
+    color: var(--marcan-ink);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+}
+
+.marcan-about-timeline-info-district {
+    color: var(--marcan-ink);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+}
+
+.marcan-about-timeline-info-year {
+    color: var(--marcan-ink);
+    font-family: Roboto, Inter, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.marcan-about-facts {
+    background: #4f4f4f;
+    overflow: visible;
+    padding-bottom: 96px;
+}
+
+.marcan-about-facts-inner {
+    position: relative;
+}
+

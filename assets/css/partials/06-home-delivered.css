@@ -1,0 +1,265 @@
+.marcan-home-delivered {
+    display: grid;
+    grid-template-columns: 757px 755px;
+    min-height: 750px;
+    overflow-x: hidden;
+    overflow-y: visible;
+    position: relative;
+    z-index: 2;
+}
+
+.marcan-home-delivered-media {
+    background: #e4e3df;
+    aspect-ratio: 1577 / 1563;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.marcan-home-delivered-media picture {
+    inset: 0;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.marcan-home-delivered-image {
+    inset: 0;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    object-position: center bottom;
+    width: 100%;
+}
+
+@media (min-width: 901px) {
+    .marcan-home-delivered {
+        grid-template-columns: 50.066% 49.934%;
+        height: clamp(560px, calc(100svh - 80px), 750px);
+        min-height: 0;
+        width: 100%;
+    }
+
+    .marcan-home-delivered-media {
+        aspect-ratio: auto;
+        height: 100%;
+    }
+}
+
+.marcan-home-delivered-copy {
+    align-items: flex-start;
+    background: var(--marcan-delivered-bg, #f3f2f1);
+    color: var(--marcan-delivered-text, #4f4f4f);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 31px;
+    position: relative;
+}
+
+.marcan-home-delivered-copy h2 {
+    font-family: Bitter, Georgia, serif;
+    font-size: 45px;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+    left: 31px;
+    margin: 0;
+    max-width: 591px;
+    position: absolute;
+    top: 31px;
+}
+
+.marcan-home-delivered-button {
+    align-items: center;
+    background: var(--marcan-delivered-btn-bg, #4f4f4f);
+    color: var(--marcan-delivered-btn-text, #fbfafa);
+    display: inline-flex;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    justify-content: center;
+    height: 33px;
+    left: 31px;
+    overflow: hidden;
+    padding: 8px 16px;
+    position: absolute;
+    text-overflow: ellipsis;
+    top: 229px;
+    white-space: nowrap;
+    width: 192px;
+}
+
+@media (min-width: 1537px) {
+    :root {
+        --marcan-home-wide-scale: clamp(1, calc(100vw / 1512px), 1.12);
+        --marcan-home-wide-layout-scale: clamp(1, calc(100vw / 1512px), 1.27);
+    }
+
+    .marcan-home-projects {
+        padding-bottom: calc(72px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-projects-intro {
+        height: calc(752px * var(--marcan-home-wide-scale));
+        padding: calc(30px * var(--marcan-home-wide-scale)) calc(30px * var(--marcan-home-wide-scale)) 0;
+    }
+
+    .marcan-home-projects-intro-copy {
+        left: calc(30px * var(--marcan-home-wide-scale));
+        max-width: calc(591px * var(--marcan-home-wide-scale));
+        top: calc(30px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-projects-intro-copy p {
+        font-size: calc(18px * var(--marcan-home-wide-scale));
+        max-width: calc(592px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-projects-intro-title {
+        font-size: calc(45px * var(--marcan-home-wide-scale));
+        left: calc(30px * var(--marcan-home-wide-scale));
+        max-width: calc(591px * var(--marcan-home-wide-scale));
+        top: calc(341px * var(--marcan-home-wide-scale));
+        width: calc(591px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-projects-intro-button {
+        font-size: calc(15px * var(--marcan-home-wide-scale));
+        height: calc(41px * var(--marcan-home-wide-scale));
+        left: calc(30px * var(--marcan-home-wide-scale));
+        padding: calc(10px * var(--marcan-home-wide-scale)) calc(20px * var(--marcan-home-wide-scale));
+        top: calc(471px * var(--marcan-home-wide-scale));
+        width: calc(239px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-projects-heading {
+        gap: calc(24px * var(--marcan-home-wide-scale));
+        padding: 0 calc(30px * var(--marcan-home-wide-scale)) calc(10px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-projects-heading h2 {
+        font-size: calc(28px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-projects-heading-button,
+    .marcan-home-project-card-cta {
+        font-size: calc(12px * var(--marcan-home-wide-scale));
+        height: calc(33px * var(--marcan-home-wide-scale));
+        padding: calc(8px * var(--marcan-home-wide-scale)) calc(16px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-project-slider {
+        margin-top: calc(26px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-project-slider-track {
+        gap: calc(10px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-project-card {
+        height: auto;
+    }
+
+    .marcan-home-project-card-arrow {
+        height: calc(100px * var(--marcan-home-wide-scale));
+        width: calc(100px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-project-card-body {
+        grid-template-columns: minmax(0, 1fr) calc(222px * var(--marcan-home-wide-scale));
+        padding-top: calc(15px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-project-card-main {
+        gap: calc(14px * var(--marcan-home-wide-scale));
+        padding-left: calc(30px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-project-card-heading {
+        gap: calc(5px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-project-card-title-row {
+        gap: calc(6px * var(--marcan-home-wide-scale)) calc(16px * var(--marcan-home-wide-scale));
+        min-height: calc(29px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-project-card-title-row h3 {
+        font-size: calc(22px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-project-card-divider {
+        height: calc(19px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-project-card-badge {
+        border-radius: calc(61px * var(--marcan-home-wide-scale));
+        font-size: calc(14px * var(--marcan-home-wide-scale));
+        padding: calc(3px * var(--marcan-home-wide-scale)) calc(15px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-project-card-location,
+    .marcan-home-project-card-price span,
+    .marcan-home-project-card-spec {
+        font-size: calc(14px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-project-card-side {
+        gap: calc(23px * var(--marcan-home-wide-scale));
+        padding-right: calc(30px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-project-card-price {
+        gap: calc(5px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-project-card-price strong {
+        font-size: calc(22px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-project-card-specs {
+        gap: calc(5px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-project-card-spec {
+        gap: calc(10px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-project-card-spec-icon {
+        height: calc(13px * var(--marcan-home-wide-scale));
+        width: calc(18px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-projects-group-offices {
+        margin-bottom: calc(157px * var(--marcan-home-wide-scale));
+        margin-top: calc(222px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-delivered {
+        grid-template-columns: 50.066% 49.934%;
+        min-height: 0;
+    }
+
+    .marcan-home-delivered-copy {
+        padding: calc(31px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-delivered-copy h2 {
+        font-size: calc(45px * var(--marcan-home-wide-scale));
+        left: calc(31px * var(--marcan-home-wide-scale));
+        max-width: calc(591px * var(--marcan-home-wide-scale));
+        top: calc(31px * var(--marcan-home-wide-scale));
+    }
+
+    .marcan-home-delivered-button {
+        font-size: calc(12px * var(--marcan-home-wide-scale));
+        height: calc(33px * var(--marcan-home-wide-scale));
+        left: calc(31px * var(--marcan-home-wide-scale));
+        padding: calc(8px * var(--marcan-home-wide-scale)) calc(16px * var(--marcan-home-wide-scale));
+        top: calc(229px * var(--marcan-home-wide-scale));
+        width: calc(192px * var(--marcan-home-wide-scale));
+    }
+}
+

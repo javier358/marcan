@@ -1,0 +1,943 @@
+.marcan-property-listing-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1073fr) 369fr;
+    min-height: 651px;
+    width: 100%;
+}
+
+.marcan-property-listing-card.is-info-left {
+    grid-template-columns: 369fr minmax(0, 1073fr);
+}
+
+.marcan-property-listing-card.is-info-left .marcan-property-listing-info {
+    order: 1;
+}
+
+.marcan-property-listing-card.is-info-left .marcan-property-listing-media {
+    order: 2;
+}
+
+.marcan-property-listing-media {
+    background: #deded8;
+    display: block;
+    height: 651px;
+    min-height: 651px;
+    overflow: hidden;
+    position: relative;
+}
+
+.marcan-property-listing-info,
+.marcan-property-listing-media {
+    min-width: 0;
+}
+
+.marcan-property-listing-media picture {
+    display: block;
+    height: 100%;
+}
+
+.marcan-property-listing-image {
+    object-position: center center;
+    transition: transform 650ms var(--marcan-ease);
+}
+
+.marcan-property-archive-oficina .marcan-property-listing-image {
+    object-position: center 42%;
+}
+
+.marcan-property-listing-media:hover .marcan-property-listing-image {
+    transform: scale(1.045);
+}
+
+.marcan-property-listing-media::after {
+    background: url("../images/figma-arrow-departments.svg") center / cover no-repeat;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 100px;
+    left: 0;
+    opacity: 1;
+    position: absolute;
+    transform: translate(-100%, 100%);
+    transition: transform 450ms var(--marcan-ease);
+    width: 100px;
+    z-index: 2;
+}
+
+.marcan-property-listing-media:hover::after,
+.marcan-property-listing-media:focus-visible::after {
+    transform: translate(0, 0);
+}
+
+.marcan-property-listing-info {
+    background: #f3f2f1;
+    min-height: 651px;
+    padding: 30px;
+    position: relative;
+}
+
+.marcan-property-badge {
+    border: 1px solid #ffcb05;
+    border-radius: 999px;
+    color: #9a7a00;
+    display: inline-flex;
+    font-family: Inter, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    padding: 0 14px;
+    text-align: center;
+}
+
+.marcan-property-listing-title {
+    margin-top: 20px;
+}
+
+.marcan-property-listing-title h2 {
+    font-family: Inter, Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0 0 6px;
+    overflow-wrap: anywhere;
+}
+
+.marcan-property-listing-title p,
+.marcan-property-listing-specs {
+    font-family: Inter, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.marcan-property-listing-title p {
+    font-family: Roboto, Inter, Arial, sans-serif;
+    font-size: 22px;
+    line-height: 1.32;
+    overflow-wrap: anywhere;
+}
+
+.marcan-property-listing-price {
+    margin-top: 78px;
+}
+
+.marcan-property-listing-price span {
+    display: block;
+    font-family: Inter, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.25;
+}
+
+.marcan-property-listing-price strong {
+    display: block;
+    font-family: Inter, Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-top: 4px;
+    overflow-wrap: anywhere;
+}
+
+.marcan-property-listing-specs {
+    display: grid;
+    gap: 7px;
+    margin-top: 22px;
+}
+
+.marcan-property-listing-spec {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    overflow-wrap: anywhere;
+}
+
+.marcan-property-listing-spec::before {
+    background: #838382;
+    content: "";
+    display: block;
+    flex: 0 0 auto;
+    height: 13px;
+    width: 18px;
+}
+
+.marcan-property-listing-spec-bedrooms::before {
+    mask: url("../images/figma-bedrooms-departments.svg") center / contain no-repeat;
+    -webkit-mask: url("../images/figma-bedrooms-departments.svg") center / contain no-repeat;
+}
+
+.marcan-property-listing-spec-area::before {
+    mask: url("../images/figma-area-departments.svg") center / contain no-repeat;
+    -webkit-mask: url("../images/figma-area-departments.svg") center / contain no-repeat;
+}
+
+.marcan-property-listing-spec-bathrooms::before,
+.marcan-property-listing-spec-parking::before,
+.marcan-property-listing-spec-delivery::before,
+.marcan-property-listing-spec-default::before {
+    border: 1px solid currentColor;
+    border-radius: 2px;
+    height: 12px;
+    width: 16px;
+}
+
+.marcan-property-listing-copy {
+    bottom: 116px;
+    left: 30px;
+    position: absolute;
+    right: 30px;
+}
+
+.marcan-property-listing-copy h3 {
+    color: #838382;
+    font-family: Inter, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin: 0 0 10px;
+}
+
+.marcan-property-listing-copy p {
+    color: #838382;
+    font-family: Inter, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.43;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.marcan-property-listing-actions {
+    bottom: 30px;
+    display: grid;
+    gap: 7px;
+    left: 30px;
+    position: absolute;
+    right: 30px;
+}
+
+@media (min-width: 901px) {
+    .marcan-property-archive-list .marcan-property-listing-card {
+        margin-inline: auto;
+        min-height: max(560px, calc(100svh - 190px));
+        width: min(100%, calc(max(560px, calc(100svh - 190px)) * 2063 / 1432 * 1442 / 1073));
+    }
+
+    .marcan-property-archive-departamento .marcan-property-archive-list .marcan-property-listing-media,
+    .marcan-property-archive-oficina .marcan-property-archive-list .marcan-property-listing-media {
+        align-self: stretch;
+        aspect-ratio: auto;
+        height: auto;
+    }
+
+    .marcan-property-archive-list .marcan-property-listing-info {
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        padding: 24px;
+    }
+
+    .marcan-property-archive-list .marcan-property-listing-price {
+        margin-top: 24px;
+    }
+
+    .marcan-property-archive-list .marcan-property-listing-specs {
+        margin-top: 16px;
+    }
+
+    .marcan-property-archive-list .marcan-property-listing-copy {
+        bottom: auto;
+        left: auto;
+        margin-top: 14px;
+        position: static;
+        right: auto;
+    }
+
+    .marcan-property-archive-list .marcan-property-listing-actions {
+        bottom: auto;
+        left: auto;
+        margin-top: auto;
+        padding-top: 14px;
+        position: static;
+        right: auto;
+    }
+}
+
+.marcan-button-dark,
+.marcan-button-line {
+    align-items: center;
+    display: inline-flex;
+    font-family: Inter, Arial, sans-serif;
+    font-size: 14px;
+    height: 33px;
+    justify-content: center;
+    line-height: 1;
+    text-decoration: none;
+    transition: background-color 220ms ease, border-color 220ms ease, color 220ms ease, transform 220ms var(--marcan-ease);
+}
+
+.marcan-button-icon {
+    gap: 10px;
+    padding: 0 14px;
+}
+
+.marcan-button-icon::after {
+    content: "";
+    display: block;
+    flex: 0 0 auto;
+    height: 14px;
+    width: 14px;
+}
+
+.marcan-button-icon-arrow::after {
+    background: currentColor;
+    height: 12px;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 12'%3E%3Cpath fill='black' d='M9.2.95 13.25 6 9.2 11.05l-.94-.74 2.8-3.51H.75V5.2h10.31l-2.8-3.51.94-.74Z'/%3E%3C/svg%3E") center / contain no-repeat;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 12'%3E%3Cpath fill='black' d='M9.2.95 13.25 6 9.2 11.05l-.94-.74 2.8-3.51H.75V5.2h10.31l-2.8-3.51.94-.74Z'/%3E%3C/svg%3E") center / contain no-repeat;
+    width: 14px;
+}
+
+.marcan-button-icon-download::after {
+    background: currentColor;
+    height: 11px;
+    mask: url("../images/figma-download.svg") center / contain no-repeat;
+    -webkit-mask: url("../images/figma-download.svg") center / contain no-repeat;
+    width: 11px;
+}
+
+.marcan-button-dark {
+    appearance: none;
+    background: #4f4f4f;
+    border: 0;
+    color: #ffffff;
+}
+
+.marcan-button-dark:hover,
+.marcan-button-dark:focus-visible {
+    background: #3f3f3f;
+    transform: translateY(-1px);
+}
+
+.marcan-button-line {
+    border: 1px solid #4f4f4f;
+    color: #4f4f4f;
+}
+
+.marcan-button-line:hover,
+.marcan-button-line:focus-visible {
+    background: rgba(79, 79, 79, 0.06);
+    transform: translateY(-1px);
+}
+
+.marcan-property-empty {
+    min-height: 420px;
+    padding: 80px 0;
+}
+
+@media (min-width: 901px) and (max-width: 1280px) {
+    .marcan-property-listing-card,
+    .marcan-property-listing-card.is-info-left {
+        grid-template-columns: minmax(0, 3fr) 2fr;
+        min-height: max(560px, calc(100svh - 190px));
+    }
+
+    .marcan-property-listing-card.is-info-left {
+        grid-template-columns: 2fr minmax(0, 3fr);
+    }
+
+    .marcan-property-listing-info {
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        padding: 20px;
+    }
+
+    .marcan-property-listing-price {
+        margin-top: 20px;
+    }
+
+    .marcan-property-listing-copy {
+        bottom: auto;
+        flex: 1;
+        left: auto;
+        margin-top: 16px;
+        position: static;
+        right: auto;
+    }
+
+    .marcan-property-listing-actions {
+        bottom: auto;
+        left: auto;
+        margin-top: 16px;
+        position: static;
+        right: auto;
+    }
+
+    .marcan-property-listing-media {
+        align-self: stretch;
+        aspect-ratio: auto;
+        height: auto;
+        min-height: 0;
+    }
+
+    .marcan-property-archive-departamento .marcan-property-listing-media,
+    .marcan-property-archive-oficina .marcan-property-listing-media {
+        aspect-ratio: auto;
+        height: auto;
+    }
+
+    .marcan-property-listing-media picture {
+        inset: 0;
+        position: absolute;
+    }
+
+    .marcan-property-listing-image {
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .marcan-property-archive-reasons ol {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .marcan-property-archive-hero-content {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 60px 30px 60px;
+    }
+
+    .marcan-property-archive-copy,
+    .marcan-property-archive-reasons,
+    .marcan-property-archive-search-copy {
+        left: auto;
+        position: static;
+        right: auto;
+        top: auto;
+        width: auto;
+    }
+
+    .marcan-property-archive-search-copy p {
+        max-width: 420px;
+    }
+}
+
+.marcan-property-single-hero {
+    background: #f3f2f1;
+    overflow: hidden;
+    width: 100%;
+}
+
+.marcan-property-single-hero-image {
+    aspect-ratio: 2560 / 1334;
+    display: block;
+    height: auto;
+    object-fit: cover;
+    object-position: center center;
+    width: 100%;
+}
+
+@media (min-width: 1921px) {
+    .marcan-property-single-hero {
+        max-width: 1920px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.marcan-property-sticky-quote {
+    align-items: flex-start;
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    min-height: 142px;
+    padding: 35px 30px 22px;
+    position: sticky;
+    top: 67px;
+    z-index: 980;
+}
+
+.marcan-property-sticky-quote h1 {
+    font-family: Bitter, Georgia, serif;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.marcan-property-sticky-meta {
+    align-items: center;
+    display: flex;
+    gap: 12px;
+    font-family: Inter, Arial, sans-serif;
+    margin: 6px 0 0;
+}
+
+.marcan-property-sticky-subtitle {
+    font-size: 22px;
+    line-height: 1.3;
+    white-space: nowrap;
+}
+
+.marcan-property-sticky-divider {
+    border-left: 1px solid #4f4f4f;
+    display: block;
+    flex: 0 0 auto;
+    height: 19px;
+}
+
+.marcan-property-status-pill {
+    align-items: center;
+    background: #fffcf2;
+    border: 1px solid #ffcb05;
+    border-radius: 61px;
+    color: #997a03;
+    display: inline-flex;
+    flex: 0 0 auto;
+    font-size: 14px;
+    font-weight: 500;
+    justify-content: center;
+    line-height: 1.4;
+    min-height: 26px;
+    padding: 3px 15px;
+    white-space: nowrap;
+}
+
+.marcan-property-sticky-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.marcan-property-sticky-actions a {
+    height: 38px;
+    padding: 0 22px;
+}
+
+.marcan-property-single-content {
+    background: #ffffff;
+    padding: 42px 30px 0;
+}
+
+.marcan-property-single-summary {
+    border-top: 1px solid #4f4f4f;
+    display: grid;
+    grid-template-columns: 222px minmax(0, 1fr);
+    min-height: 392px;
+    margin-bottom: 96px;
+    padding-top: 33px;
+}
+
+.marcan-property-delivery,
+.marcan-property-intro {
+    font-family: Inter, Arial, sans-serif;
+    font-size: 24px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.marcan-property-delivery {
+    font-size: 30px;
+    grid-column: 1 / -1;
+    line-height: 1.2;
+    white-space: nowrap;
+    width: min(591px, 100%);
+}
+
+.marcan-property-price-block {
+    grid-column: 1;
+    margin-top: 26px;
+}
+
+.marcan-property-price-block span,
+.marcan-property-price-block small {
+    display: block;
+    font-family: Inter, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.marcan-property-price-block strong {
+    display: block;
+    font-family: Inter, Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    margin: 4px 0 14px;
+}
+
+.marcan-property-price-spec {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    line-height: 1.43;
+    margin-top: 6px;
+    white-space: nowrap;
+}
+
+.marcan-property-price-block .marcan-property-price-spec {
+    display: flex;
+}
+
+.marcan-property-price-spec::before {
+    background: #838382;
+    content: "";
+    display: block;
+    flex: 0 0 auto;
+    height: 13px;
+    width: 18px;
+}
+
+.marcan-property-price-spec-bedrooms::before {
+    mask: url("../images/figma-bedrooms-departments.svg") center / contain no-repeat;
+    -webkit-mask: url("../images/figma-bedrooms-departments.svg") center / contain no-repeat;
+}
+
+.marcan-property-price-spec-area::before {
+    mask: url("../images/figma-area-departments.svg") center / contain no-repeat;
+    -webkit-mask: url("../images/figma-area-departments.svg") center / contain no-repeat;
+}
+
+.marcan-property-intro {
+    grid-column: 1 / span 2;
+    margin-top: 36px;
+    max-width: 654px;
+}
+
+.marcan-property-single-wide-image {
+    overflow: hidden;
+    width: 100%;
+}
+
+.marcan-property-single-wide-image img {
+    aspect-ratio: 2560 / 1334;
+    display: block;
+    height: auto;
+    object-fit: cover;
+    width: 100%;
+}
+
+.marcan-property-concept {
+    display: grid;
+    grid-template-columns: minmax(468px, 620px) minmax(40px, 1fr) 221.5px;
+    min-height: 624px;
+    padding-top: 30px;
+}
+
+.marcan-property-concept-copy {
+    grid-column: 1;
+}
+
+.marcan-property-designer {
+    align-self: start;
+    grid-column: 3;
+}
+
+.marcan-property-concept h2,
+.marcan-property-tour h2,
+.marcan-property-gallery-row h2 {
+    font-family: Inter, Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0 0 29px;
+}
+
+.marcan-property-concept p {
+    font-family: Roboto, Inter, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.35;
+    margin: 0 0 24px;
+}
+
+.marcan-property-concept p:last-child {
+    margin-bottom: 0;
+}
+
+.marcan-property-designer-photo {
+    height: 221.5px;
+    margin: 0 0 10px;
+    overflow: hidden;
+    width: 221.5px;
+}
+
+.marcan-property-designer-photo img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.marcan-property-designer-info h3 {
+    color: #4f4f4f;
+    font-family: Roboto, Inter, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.marcan-property-designer-info p {
+    color: #4f4f4f;
+    font-family: Inter, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.marcan-property-tour {
+    margin-top: 90px;
+}
+
+.marcan-property-tour-shell {
+    background: #ffffff;
+    display: grid;
+    grid-template-columns: 401px minmax(0, 1fr);
+    height: min(800px, var(--marcan-tour-available-height, 100vh));
+    margin-left: -30px;
+    max-height: var(--marcan-tour-available-height, 100vh);
+    overflow: hidden;
+    position: relative;
+    transition: grid-template-columns 320ms var(--marcan-ease);
+    width: calc(100% + 60px);
+    z-index: 950;
+}
+
+.marcan-property-tour-shell.is-menu-collapsed {
+    grid-template-columns: 80px minmax(0, 1fr);
+}
+
+.marcan-property-tour-menu {
+    background: #ffcb05;
+    overflow: hidden;
+    position: relative;
+}
+
+.marcan-property-tour-title {
+    color: #4f4f4f;
+    font-family: Inter, Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    left: 30px;
+    line-height: 1.2;
+    margin: 0;
+    position: absolute;
+    top: 40px;
+    white-space: nowrap;
+    width: 329px;
+    z-index: 1;
+}
+
+.marcan-property-tour-nav {
+    height: calc(100% - 200px);
+    left: 30px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 104px;
+    transition: opacity 180ms ease, transform 320ms var(--marcan-ease);
+    width: 329px;
+}
+
+.marcan-property-tour-shell.is-menu-collapsed .marcan-property-tour-title,
+.marcan-property-tour-shell.is-menu-collapsed .marcan-property-tour-nav {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-360px);
+}
+
+.marcan-property-tour-collapse {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    bottom: 20px;
+    cursor: pointer;
+    height: 51px;
+    left: 20px;
+    padding: 0;
+    position: absolute;
+    width: 51px;
+    z-index: 3;
+}
+
+.marcan-property-tour-arrow {
+    height: 24px;
+    left: 8px;
+    object-fit: contain;
+    position: absolute;
+    top: 13px;
+    transition: transform 320ms var(--marcan-ease);
+    width: 35px;
+}
+
+.marcan-property-tour-shell.is-menu-collapsed .marcan-property-tour-arrow {
+    transform: rotate(180deg);
+}
+
+.marcan-property-tour-group-toggle {
+    align-items: center;
+    appearance: none;
+    background: #ffd845;
+    border: 0;
+    color: #4f4f4f;
+    cursor: pointer;
+    display: flex;
+    font-family: Roboto, Inter, Arial, sans-serif;
+    font-size: 18px;
+    justify-content: space-between;
+    line-height: 1.5;
+    margin: 0;
+    min-height: 53px;
+    padding: 13px 26px;
+    text-align: left;
+    width: 100%;
+}
+
+.marcan-property-tour-group-toggle > span:last-child {
+    border-bottom: 1px solid #4f4f4f;
+    border-right: 1px solid #4f4f4f;
+    height: 8px;
+    transform: rotate(45deg) translateY(-3px);
+    transition: transform 180ms ease;
+    width: 8px;
+}
+
+.marcan-property-tour-group.is-collapsed .marcan-property-tour-group-toggle > span:last-child {
+    transform: rotate(-45deg);
+}
+
+.marcan-property-tour-group.is-collapsed .marcan-property-tour-group-items {
+    display: none;
+}
+
+.marcan-property-tour-button {
+    appearance: none;
+    background: #ffeead;
+    border: 0;
+    border-bottom: 1px solid rgba(79, 79, 79, 0.16);
+    color: #4f4f4f;
+    cursor: pointer;
+    display: block;
+    font-family: Roboto, Inter, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    min-height: 53px;
+    padding: 13px 26px;
+    text-align: left;
+    transition: background-color 160ms ease, color 160ms ease;
+    width: 100%;
+    z-index: 1;
+}
+
+.marcan-property-tour-button:hover,
+.marcan-property-tour-button:focus-visible,
+.marcan-property-tour-button.is-active {
+    background: #ffd845;
+}
+
+.marcan-property-tour-button:focus-visible {
+    outline: 2px solid #4f4f4f;
+    outline-offset: -2px;
+}
+
+.marcan-property-tour-frame {
+    align-items: center;
+    background: #d9d9d6;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.marcan-property-tour-poster {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.marcan-property-tour-poster[hidden] {
+    display: none;
+}
+
+.marcan-property-tour-preload-frame {
+    border: 0;
+    height: 1px;
+    left: -9999px;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: -9999px;
+    width: 1px;
+}
+
+.marcan-property-tour-frame iframe {
+    border: 0;
+    display: block;
+    flex: 0 0 100%;
+    height: 100%;
+    width: 100%;
+}
+
+.marcan-property-tour-frame iframe[hidden],
+.marcan-property-tour-loading[hidden] {
+    display: none;
+}
+
+.marcan-property-tour-loading {
+    align-items: center;
+    background: #d9d9d6;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    inset: 0;
+    justify-content: center;
+    position: absolute;
+    z-index: 2;
+}
+
+.marcan-property-tour-loading span {
+    animation: marcanTourSpin 720ms linear infinite;
+    border: 3px solid rgba(79, 79, 79, 0.18);
+    border-radius: 999px;
+    border-top-color: #4f4f4f;
+    height: 42px;
+    width: 42px;
+}
+
+.marcan-property-tour-loading p {
+    color: #4f4f4f;
+    font-family: Inter, Arial, sans-serif;
+    font-size: 16px;
+    margin: 0;
+}
+
+@keyframes marcanTourSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.marcan-property-tour-external {
+    background: rgba(255, 255, 255, 0.92);
+    bottom: 24px;
+    color: #4f4f4f;
+    font-family: Inter, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.43;
+    padding: 10px 20px;
+    position: absolute;
+    right: 24px;
+    text-decoration: none;
+}
+
+.marcan-property-tour-external:hover,
+.marcan-property-tour-external:focus-visible {
+    background: #ffcb05;
+}
+

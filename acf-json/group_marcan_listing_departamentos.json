@@ -1,0 +1,92 @@
+{
+    "key": "group_marcan_listing_departamentos",
+    "title": "Departamentos - Contenido",
+    "fields": [
+        {
+            "key": "field_marcan_tab_dep_hero",
+            "label": "1. Hero",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_dep_hero_image",
+            "label": "Imagen hero",
+            "name": "listing_hero_image",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "large",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 3150x1263 px. Peso maximo recomendado: 550 KB."
+        },
+        {
+            "key": "field_marcan_dep_hero_image_mobile",
+            "label": "Imagen hero vertical",
+            "name": "listing_hero_image_mobile",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "large",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 800x1100 px. Peso maximo recomendado: 350 KB."
+        },
+        {
+            "key": "field_marcan_tab_dep_text",
+            "label": "2. Textos",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_dep_title",
+            "label": "Titulo",
+            "name": "listing_title",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_dep_intro",
+            "label": "Texto introductorio",
+            "name": "listing_intro",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_dep_search_title",
+            "label": "Titulo busqueda",
+            "name": "listing_search_title",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_dep_search_copy",
+            "label": "Texto busqueda",
+            "name": "listing_search_copy",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-departamentos.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+}

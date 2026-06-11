@@ -1,0 +1,27 @@
+@keyframes introLogo {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.marcan-about-page {
+    background: #ffffff;
+    color: var(--marcan-ink);
+    overflow-x: clip;
+}
+
+.marcan-about-page img {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.marcan-about-hero,
+.marcan-about-reasons,
+.marcan-about-iconic,
+.marcan-about-facts {
+    position: relative;
+    width: 100%;
+}
+

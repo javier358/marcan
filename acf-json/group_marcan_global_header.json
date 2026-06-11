@@ -1,16 +1,102 @@
 {
-  "key": "group_marcan_global_header",
-  "title": "Global - Header",
-  "fields": [
-    {"key": "field_marcan_header_logo_desktop", "label": "Logo desktop", "name": "header_logo_desktop", "type": "image", "return_format": "id", "preview_size": "medium", "library": "all"},
-    {"key": "field_marcan_header_logo_mobile", "label": "Logo movil", "name": "header_logo_mobile", "type": "image", "return_format": "id", "preview_size": "medium", "library": "all"},
-    {"key": "field_marcan_header_menu_label", "label": "Etiqueta menu", "name": "header_menu_label", "type": "text", "default_value": "MENU"},
-    {"key": "field_marcan_header_background_color", "label": "Color fondo", "name": "header_background_color", "type": "text", "default_value": "rgba(234,234,232,0.72)"},
-    {"key": "field_marcan_header_text_color", "label": "Color texto", "name": "header_text_color", "type": "text", "default_value": "#4f4f4f"},
-    {"key": "field_marcan_header_blur_amount", "label": "Blur", "name": "header_blur_amount", "type": "number", "default_value": 70, "min": 0, "step": 1},
-    {"key": "field_marcan_header_dropdown_background_color", "label": "Color dropdown", "name": "header_dropdown_background_color", "type": "text", "default_value": "rgba(234,234,232,0.72)"}
-  ],
-  "location": [[{"param": "options_page", "operator": "==", "value": "marcan-global-settings"}]],
-  "active": true,
-  "modified": 1778598000
+    "key": "group_marcan_global_header",
+    "title": "Global - Header",
+    "fields": [
+        {
+            "key": "field_marcan_tab_header_logos",
+            "label": "1. Logos",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_header_logo_desktop",
+            "label": "Logo desktop",
+            "name": "header_logo_desktop",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "instructions": "PNG transparente o SVG. Sugerido: 220×44 px."
+        },
+        {
+            "key": "field_marcan_header_logo_mobile",
+            "label": "Logo movil",
+            "name": "header_logo_mobile",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "instructions": "PNG transparente o SVG. Sugerido: 140×30 px."
+        },
+        {
+            "key": "field_marcan_tab_header_style",
+            "label": "2. Estilo",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_header_menu_label",
+            "label": "Etiqueta menu",
+            "name": "header_menu_label",
+            "type": "text",
+            "default_value": "MENU",
+            "instructions": "Texto del boton que abre el menu."
+        },
+        {
+            "key": "field_marcan_header_background_color",
+            "label": "Color fondo",
+            "name": "header_background_color",
+            "type": "text",
+            "default_value": "rgba(255,255,255,0.74)",
+            "instructions": "Color CSS o rgba(). Ej: rgba(255,255,255,0.74)."
+        },
+        {
+            "key": "field_marcan_header_text_color",
+            "label": "Color texto",
+            "name": "header_text_color",
+            "type": "text",
+            "default_value": "#4f4f4f",
+            "instructions": "Color HEX. Ej: #4f4f4f."
+        },
+        {
+            "key": "field_marcan_header_blur_amount",
+            "label": "Blur",
+            "name": "header_blur_amount",
+            "type": "number",
+            "default_value": 70,
+            "min": 0,
+            "step": 1,
+            "instructions": "Desenfoque del fondo en px."
+        },
+        {
+            "key": "field_marcan_header_dropdown_background_color",
+            "label": "Color dropdown",
+            "name": "header_dropdown_background_color",
+            "type": "text",
+            "default_value": "rgba(255,255,255,0.74)",
+            "instructions": "Fondo del menu desplegable. Color CSS o rgba()."
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "marcan-global-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
 }

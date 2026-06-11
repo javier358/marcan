@@ -1,0 +1,74 @@
+.marcan-home-hero {
+    background: #eaeae8;
+    display: block;
+    position: relative;
+}
+
+.marcan-home-hero-slider {
+    overflow: hidden;
+    position: relative;
+}
+
+.marcan-home-hero-slide {
+    background: #eaeae8;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transition: opacity 900ms var(--marcan-ease), transform 900ms var(--marcan-ease);
+}
+
+.marcan-home-hero-slide.is-active {
+    opacity: 1;
+    pointer-events: auto;
+    position: relative;
+    transform: none;
+    z-index: 1;
+}
+
+.marcan-home-hero-slide.is-zooming {
+    transform: scale(1.02);
+}
+
+.marcan-home-hero-media {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.marcan-home-hero-media-mobile {
+    display: none;
+}
+
+.marcan-home-hero-media img {
+    display: block;
+    height: auto;
+    width: 100%;
+}
+
+@media (min-width: 901px) {
+    .marcan-home-hero-slider {
+        height: min(calc(100vw * 982 / 1512), 982px);
+    }
+
+    .marcan-home-hero-slide {
+        height: 100%;
+    }
+
+    .marcan-home-hero-media img {
+        height: 100%;
+        object-fit: cover;
+        object-position: center bottom;
+    }
+}
+
+.marcan-home-hero-mobile-copy {
+    display: none;
+}
+
+.marcan-home-hero-slide-label,
+.marcan-home-hero-slide-link {
+    display: none;
+}
+

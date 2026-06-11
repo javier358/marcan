@@ -1,0 +1,209 @@
+.marcan-site-footer {
+    background: var(--marcan-footer-bg, #ffcb05);
+    color: var(--marcan-footer-text, #4f4f4f);
+    overflow-x: clip;
+    overflow-y: visible;
+    position: relative;
+    z-index: 2;
+}
+
+.marcan-site-footer-desktop,
+.marcan-site-footer-mobile {
+    position: relative;
+}
+
+.marcan-site-footer-desktop {
+    display: grid;
+    column-gap: 56px;
+    grid-template-columns: 190px 220px minmax(330px, 1fr);
+    min-height: 852px;
+    padding: 30px 30px 24px;
+}
+
+.marcan-site-footer-mobile {
+    display: none;
+}
+
+.marcan-site-footer-left,
+.marcan-site-footer-center,
+.marcan-site-footer-right {
+    position: relative;
+}
+
+.marcan-site-footer-center {
+    justify-self: stretch;
+}
+
+.marcan-site-footer-right {
+    justify-self: end;
+    min-width: 330px;
+    width: max-content;
+}
+
+.marcan-site-footer-nav-title,
+.marcan-site-footer-members-title {
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 0 8px;
+}
+
+.marcan-site-footer-links {
+    display: grid;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.marcan-site-footer-links li + li {
+    margin-top: 0;
+}
+
+.marcan-site-footer-links a,
+.marcan-site-footer-contact p,
+.marcan-site-footer-legal {
+    color: inherit;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+.marcan-site-footer-button {
+    background: #4f4f4f;
+    color: #fbfafa;
+    display: inline-flex;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    justify-content: center;
+    margin-top: 24px;
+    min-height: 33px;
+    padding: 8px 16px;
+}
+
+.marcan-site-footer-contact {
+    display: grid;
+    gap: 10px;
+    margin-top: 0;
+}
+
+.marcan-site-footer-contact p {
+    margin: 0;
+}
+
+.marcan-site-footer-phone-lines,
+.marcan-site-footer-email {
+    white-space: nowrap;
+}
+
+.marcan-site-footer-socials {
+    align-items: center;
+    display: flex;
+    gap: 22px;
+    margin-top: 42px;
+}
+
+.marcan-site-footer-social {
+    display: block;
+    height: 22px;
+    width: 22px;
+}
+
+.marcan-site-footer-social img,
+.marcan-site-footer-member img {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.marcan-site-footer-members {
+    margin-top: 52px;
+}
+
+.marcan-site-footer-members-logos {
+    align-items: center;
+    display: flex;
+    gap: 11px;
+}
+
+.marcan-site-footer-member {
+    display: block;
+}
+
+.marcan-site-footer-member:nth-child(1) {
+    width: 105.311px;
+    height: 31.037px;
+}
+
+.marcan-site-footer-member:nth-child(2) {
+    width: 89px;
+    height: 42px;
+}
+
+.marcan-site-footer-member:nth-child(3) {
+    width: 75.379px;
+    height: 44.921px;
+}
+
+.marcan-site-footer-brand {
+    bottom: auto;
+    height: 188px;
+    left: 57px;
+    position: absolute;
+    right: auto;
+    top: 540px;
+    width: 930px;
+}
+
+.marcan-site-footer-brand-desktop {
+    height: 125px;
+    left: 0;
+    max-width: none;
+    position: absolute;
+    top: 63px;
+    width: 801px;
+}
+
+.marcan-site-footer-brand-arrow {
+    height: 83.442px;
+    left: 818px;
+    width: 129px;
+    max-width: none;
+    position: absolute;
+    top: 0;
+}
+
+.marcan-site-footer-brand[data-footer-animation] {
+    overflow: visible;
+}
+
+.marcan-site-footer-brand[data-footer-animation] .marcan-site-footer-brand-desktop {
+    opacity: 0;
+    transform: translateX(35vw);
+    transition: opacity 220ms ease, transform 1100ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.marcan-site-footer-brand[data-footer-animation] .marcan-site-footer-brand-arrow {
+    opacity: 0;
+    transform: translateY(130%);
+    transition: opacity 280ms ease 850ms, transform 700ms cubic-bezier(0.34, 1.56, 0.64, 1) 850ms;
+    will-change: opacity, transform;
+}
+
+.marcan-site-footer-brand[data-footer-animation].is-footer-animated .marcan-site-footer-brand-desktop,
+.marcan-site-footer-brand[data-footer-animation].is-footer-animated .marcan-site-footer-brand-arrow {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.marcan-site-footer-legal {
+    bottom: 30px;
+    left: 57px;
+    margin: 0;
+    position: absolute;
+    right: 57px;
+}
+

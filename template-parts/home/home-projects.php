@@ -12,52 +12,46 @@ if (!defined('ABSPATH')) {
 $project_settings = marcan_get_home_projects_settings();
 $departments_query = marcan_get_project_sections('departamentos');
 $offices_query = marcan_get_project_sections('oficinas');
+$departments_slider_class = $departments_query->post_count === 1 ? ' has-one-card' : ($departments_query->post_count === 2 ? ' has-two-cards' : '');
+$offices_slider_class = $offices_query->post_count === 1 ? ' has-one-card' : ($offices_query->post_count === 2 ? ' has-two-cards' : '');
 
 function marcan_render_home_project_card(WP_Post $post, string $section_class = ''): void
 {
     $post_id = (int) $post->ID;
-    $badge = trim((string) get_field('home_badge_label', $post_id));
-    $location = trim((string) get_field('home_location', $post_id));
+    $badge = trim((string) (get_field('home_badge_label', $post_id) ?: get_field('estado', $post_id)));
+    $location = trim((string) (get_field('home_location', $post_id) ?: get_field('ubicacion', $post_id)));
     $price_label = trim((string) get_field('home_price_label', $post_id));
-    $price = trim((string) get_field('home_price', $post_id));
-    $bedrooms = trim((string) get_field('home_bedrooms_text', $post_id));
-    $area = trim((string) get_field('home_area_text', $post_id));
+    $price = trim((string) (get_field('home_price', $post_id) ?: get_field('precio', $post_id)));
+    $bedrooms = trim((string) (get_field('home_bedrooms_text', $post_id) ?: get_field('dormitorios', $post_id)));
+    $area = marcan_get_home_area_display($post_id);
     $cta_label = trim((string) get_field('home_cta_label', $post_id));
     $cta_link = get_field('home_cta_link', $post_id);
-    $desktop_image_id = (int) get_field('home_desktop_image', $post_id);
-    $mobile_image_id = (int) get_field('home_mobile_image', $post_id);
-    $image_left = is_numeric(get_field('home_image_left', $post_id)) ? (float) get_field('home_image_left', $post_id) : 0;
-    $image_top = is_numeric(get_field('home_image_top', $post_id)) ? (float) get_field('home_image_top', $post_id) : 0;
-    $image_width = is_numeric(get_field('home_image_width', $post_id)) ? (float) get_field('home_image_width', $post_id) : 100;
-    $image_height = is_numeric(get_field('home_image_height', $post_id)) ? (float) get_field('home_image_height', $post_id) : 100;
-    $image_fit = get_field('home_image_fit', $post_id) === 'fill' ? 'fill' : 'cover';
-    $image_style = sprintf(
-        '--project-image-left:%s%%;--project-image-top:%s%%;--project-image-width:%s%%;--project-image-height:%s%%;--project-image-fit:%s;',
-        esc_attr((string) $image_left),
-        esc_attr((string) $image_top),
-        esc_attr((string) $image_width),
-        esc_attr((string) $image_height),
-        esc_attr($image_fit)
-    );
+    $desktop_image_id = (int) (get_field('home_desktop_image', $post_id) ?: get_field('listado_hero_imagen', $post_id) ?: get_post_thumbnail_id($post_id));
+    $mobile_image_id = (int) (get_field('home_mobile_image', $post_id) ?: $desktop_image_id);
+    $desktop_image = $desktop_image_id ? wp_get_attachment_image_src($desktop_image_id, 'full') : false;
+    $mobile_image_url = $mobile_image_id ? wp_get_attachment_image_url($mobile_image_id, 'full') : '';
+    $image_style = '--project-image-left:0%;--project-image-top:0%;--project-image-width:100%;--project-image-height:100%;--project-image-fit:cover;';
     $arrow_id = (int) get_option('marcan_project_icon_arrow_id');
     $divider_id = (int) get_option('marcan_project_icon_divider_id');
     $bedrooms_icon_id = (int) get_option('marcan_project_icon_bedrooms_id');
     $area_icon_id = (int) get_option('marcan_project_icon_area_id');
-    $title = get_the_title($post_id);
+    $title = trim((string) get_field('home_title', $post_id));
+    $title = $title !== '' ? $title : get_the_title($post_id);
+    $title_plain = wp_strip_all_tags($title);
     $default_price_label = $price_label !== '' ? $price_label : __('Desde:', 'marcan');
     $default_cta_label = $cta_label !== '' ? $cta_label : html_entity_decode('Ver m&aacute;s', ENT_QUOTES, 'UTF-8');
     ?>
-    <article class="marcan-home-project-card <?php echo esc_attr($section_class); ?>" data-reveal>
+    <article class="marcan-home-project-card <?php echo esc_attr($section_class); ?>">
         <a class="marcan-home-project-card-link" href="<?php echo esc_url($cta_link && is_array($cta_link) && !empty($cta_link['url']) ? $cta_link['url'] : get_permalink($post_id)); ?>" target="<?php echo esc_attr($cta_link && is_array($cta_link) && !empty($cta_link['target']) ? $cta_link['target'] : '_self'); ?>">
             <div class="marcan-home-project-card-media" style="<?php echo esc_attr($image_style); ?>">
                 <picture>
-                    <?php if ($mobile_image_id) : ?>
-                        <source media="(max-width: 900px)" srcset="<?php echo esc_url(wp_get_attachment_image_url($mobile_image_id, 'full')); ?>">
+                    <?php if ($mobile_image_url !== '') : ?>
+                        <source media="(max-width: 900px)" srcset="<?php echo esc_url($mobile_image_url); ?>">
                     <?php endif; ?>
-                    <?php if ($desktop_image_id) : ?>
-                        <?php echo wp_get_attachment_image($desktop_image_id, 'full', false, array('class' => 'marcan-home-project-card-image', 'alt' => esc_attr($title), 'sizes' => '(max-width: 900px) 315px, 990px')); ?>
-                    <?php elseif ($mobile_image_id) : ?>
-                        <?php echo wp_get_attachment_image($mobile_image_id, 'full', false, array('class' => 'marcan-home-project-card-image', 'alt' => esc_attr($title), 'sizes' => '(max-width: 900px) 315px, 990px')); ?>
+                    <?php if ($desktop_image) : ?>
+                        <img class="marcan-home-project-card-image" src="<?php echo esc_url($desktop_image[0]); ?>" width="<?php echo esc_attr((string) $desktop_image[1]); ?>" height="<?php echo esc_attr((string) $desktop_image[2]); ?>" alt="<?php echo esc_attr($title_plain); ?>" loading="eager" decoding="async">
+                    <?php elseif ($mobile_image_url !== '') : ?>
+                        <img class="marcan-home-project-card-image" src="<?php echo esc_url($mobile_image_url); ?>" alt="<?php echo esc_attr($title_plain); ?>" loading="eager" decoding="async">
                     <?php endif; ?>
                 </picture>
                 <?php if ($arrow_id) : ?>
@@ -70,25 +64,25 @@ function marcan_render_home_project_card(WP_Post $post, string $section_class = 
                 <div class="marcan-home-project-card-main">
                     <div class="marcan-home-project-card-heading">
                         <div class="marcan-home-project-card-title-row">
-                            <h3><?php echo esc_html($title); ?></h3>
+                            <h3><?php echo marcan_rich_inline($title); ?></h3>
                             <?php if ($divider_id) : ?>
                                 <span class="marcan-home-project-card-divider" aria-hidden="true"><?php echo wp_get_attachment_image($divider_id, 'full', false, array('alt' => '')); ?></span>
                             <?php endif; ?>
                             <?php if ($badge !== '') : ?>
-                                <span class="marcan-home-project-card-badge"><?php echo esc_html($badge); ?></span>
+                                <span class="marcan-home-project-card-badge"><?php echo marcan_rich_inline($badge); ?></span>
                             <?php endif; ?>
                         </div>
                         <?php if ($location !== '') : ?>
-                            <p class="marcan-home-project-card-location"><?php echo esc_html($location); ?></p>
+                            <p class="marcan-home-project-card-location"><?php echo marcan_rich_inline($location); ?></p>
                         <?php endif; ?>
                     </div>
                     <div class="marcan-home-project-card-actions">
-                        <span class="marcan-home-project-card-cta"><?php echo esc_html($default_cta_label); ?></span>
+                        <span class="marcan-home-project-card-cta"><?php echo marcan_rich_inline($default_cta_label); ?></span>
                     </div>
                 </div>
                 <div class="marcan-home-project-card-side">
                     <div class="marcan-home-project-card-price">
-                        <span><?php echo esc_html($default_price_label); ?></span>
+                        <span><?php echo marcan_rich_inline($default_price_label); ?></span>
                         <?php if ($price !== '') : ?>
                             <strong><?php echo esc_html($price); ?></strong>
                         <?php endif; ?>
@@ -99,7 +93,7 @@ function marcan_render_home_project_card(WP_Post $post, string $section_class = 
                                 <?php if ($bedrooms_icon_id) : ?>
                                     <span class="marcan-home-project-card-spec-icon"><?php echo wp_get_attachment_image($bedrooms_icon_id, 'full', false, array('alt' => '')); ?></span>
                                 <?php endif; ?>
-                                <span><?php echo esc_html($bedrooms); ?></span>
+                                <span><?php echo marcan_rich_inline($bedrooms); ?></span>
                             </div>
                         <?php endif; ?>
                         <?php if ($area !== '') : ?>
@@ -119,26 +113,69 @@ function marcan_render_home_project_card(WP_Post $post, string $section_class = 
 }
 ?>
 
+<?php if ($departments_query->have_posts() || $offices_query->have_posts()) : ?>
 <section class="marcan-home-projects" aria-label="<?php esc_attr_e('Proyectos destacados', 'marcan'); ?>">
-    <div class="marcan-home-projects-intro">
-        <div class="marcan-home-projects-intro-copy">
-            <h2><?php echo esc_html($project_settings['intro_title']); ?></h2>
-            <p><?php echo esc_html($project_settings['intro_copy']); ?></p>
+    <?php $has_intro = !empty($project_settings['intro_title']) || !empty($project_settings['intro_mobile_title']) || !empty($project_settings['intro_copy']) || (!empty($project_settings['intro_button_url']) && (!empty($project_settings['intro_button_label']) || !empty($project_settings['intro_mobile_button_label']))); ?>
+    <?php if ($has_intro) : ?>
+        <div class="marcan-home-projects-intro">
+            <?php if (!empty($project_settings['intro_title']) || !empty($project_settings['intro_copy'])) : ?>
+                <div class="marcan-home-projects-intro-copy">
+                    <?php if (!empty($project_settings['intro_title'])) : ?>
+                        <h2><?php echo marcan_rich_inline($project_settings['intro_title']); ?></h2>
+                    <?php endif; ?>
+                    <?php if (!empty($project_settings['intro_copy'])) : ?>
+                        <div><?php echo marcan_rich_block($project_settings['intro_copy']); ?></div>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
+            <?php if (!empty($project_settings['intro_title']) || !empty($project_settings['intro_mobile_title'])) : ?>
+                <h2 class="marcan-home-projects-intro-title">
+                    <?php if (!empty($project_settings['intro_title'])) : ?>
+                        <span class="marcan-home-desktop-text"><?php echo marcan_rich_inline($project_settings['intro_title']); ?></span>
+                    <?php endif; ?>
+                    <?php if (!empty($project_settings['intro_mobile_title'])) : ?>
+                        <span class="marcan-home-mobile-text"><?php echo marcan_rich_inline($project_settings['intro_mobile_title']); ?></span>
+                    <?php endif; ?>
+                </h2>
+            <?php endif; ?>
+            <?php if (!empty($project_settings['intro_button_url']) && (!empty($project_settings['intro_button_label']) || !empty($project_settings['intro_mobile_button_label']))) : ?>
+                <a class="marcan-home-projects-intro-button" href="<?php echo esc_url($project_settings['intro_button_url']); ?>">
+                    <?php if (!empty($project_settings['intro_button_label'])) : ?>
+                        <span class="marcan-home-desktop-text"><?php echo marcan_rich_inline($project_settings['intro_button_label']); ?></span>
+                    <?php endif; ?>
+                    <?php if (!empty($project_settings['intro_mobile_button_label'])) : ?>
+                        <span class="marcan-home-mobile-text"><?php echo marcan_rich_inline($project_settings['intro_mobile_button_label']); ?></span>
+                    <?php endif; ?>
+                </a>
+            <?php endif; ?>
         </div>
-        <h2 class="marcan-home-projects-intro-title"><?php echo esc_html($project_settings['intro_title']); ?></h2>
-        <a class="marcan-home-projects-intro-button" href="<?php echo esc_url($project_settings['intro_button_url']); ?>">
-            <?php echo esc_html($project_settings['intro_button_label']); ?>
-        </a>
-    </div>
+    <?php endif; ?>
 
+    <?php if ($departments_query->have_posts()) : ?>
     <div class="marcan-home-projects-group">
         <div class="marcan-home-projects-heading">
-            <h2><?php echo esc_html($project_settings['departments_title']); ?></h2>
-            <a class="marcan-home-projects-heading-button" href="<?php echo esc_url($project_settings['departments_button_url']); ?>">
-                <?php echo esc_html($project_settings['departments_button_label']); ?>
-            </a>
+            <?php if (!empty($project_settings['departments_title']) || !empty($project_settings['departments_mobile_title'])) : ?>
+                <h2>
+                    <?php if (!empty($project_settings['departments_title'])) : ?>
+                        <span class="marcan-home-desktop-text"><?php echo marcan_rich_inline($project_settings['departments_title']); ?></span>
+                    <?php endif; ?>
+                    <?php if (!empty($project_settings['departments_mobile_title'])) : ?>
+                        <span class="marcan-home-mobile-text"><?php echo marcan_rich_inline($project_settings['departments_mobile_title']); ?></span>
+                    <?php endif; ?>
+                </h2>
+            <?php endif; ?>
+            <?php if (!empty($project_settings['departments_button_url']) && (!empty($project_settings['departments_button_label']) || !empty($project_settings['departments_mobile_button_label']))) : ?>
+                <a class="marcan-home-projects-heading-button" href="<?php echo esc_url($project_settings['departments_button_url']); ?>">
+                    <?php if (!empty($project_settings['departments_button_label'])) : ?>
+                        <span class="marcan-home-desktop-text"><?php echo marcan_rich_inline($project_settings['departments_button_label']); ?></span>
+                    <?php endif; ?>
+                    <?php if (!empty($project_settings['departments_mobile_button_label'])) : ?>
+                        <span class="marcan-home-mobile-text"><?php echo marcan_rich_inline($project_settings['departments_mobile_button_label']); ?></span>
+                    <?php endif; ?>
+                </a>
+            <?php endif; ?>
         </div>
-        <div class="marcan-home-project-slider" data-project-slider data-project-section="departamentos">
+        <div class="marcan-home-project-slider<?php echo esc_attr($departments_slider_class); ?>" data-project-slider data-project-section="departamentos">
             <div class="marcan-home-project-slider-track">
                 <?php if ($departments_query->have_posts()) : ?>
                     <?php while ($departments_query->have_posts()) : ?>
@@ -150,15 +187,33 @@ function marcan_render_home_project_card(WP_Post $post, string $section_class = 
             </div>
         </div>
     </div>
+    <?php endif; ?>
 
+    <?php if ($offices_query->have_posts()) : ?>
     <div class="marcan-home-projects-group marcan-home-projects-group-offices">
         <div class="marcan-home-projects-heading">
-            <h2><?php echo esc_html($project_settings['offices_title']); ?></h2>
-            <a class="marcan-home-projects-heading-button" href="<?php echo esc_url($project_settings['offices_button_url']); ?>">
-                <?php echo esc_html($project_settings['offices_button_label']); ?>
-            </a>
+            <?php if (!empty($project_settings['offices_title']) || !empty($project_settings['offices_mobile_title'])) : ?>
+                <h2>
+                    <?php if (!empty($project_settings['offices_title'])) : ?>
+                        <span class="marcan-home-desktop-text"><?php echo marcan_rich_inline($project_settings['offices_title']); ?></span>
+                    <?php endif; ?>
+                    <?php if (!empty($project_settings['offices_mobile_title'])) : ?>
+                        <span class="marcan-home-mobile-text"><?php echo marcan_rich_inline($project_settings['offices_mobile_title']); ?></span>
+                    <?php endif; ?>
+                </h2>
+            <?php endif; ?>
+            <?php if (!empty($project_settings['offices_button_url']) && (!empty($project_settings['offices_button_label']) || !empty($project_settings['offices_mobile_button_label']))) : ?>
+                <a class="marcan-home-projects-heading-button" href="<?php echo esc_url($project_settings['offices_button_url']); ?>">
+                    <?php if (!empty($project_settings['offices_button_label'])) : ?>
+                        <span class="marcan-home-desktop-text"><?php echo marcan_rich_inline($project_settings['offices_button_label']); ?></span>
+                    <?php endif; ?>
+                    <?php if (!empty($project_settings['offices_mobile_button_label'])) : ?>
+                        <span class="marcan-home-mobile-text"><?php echo marcan_rich_inline($project_settings['offices_mobile_button_label']); ?></span>
+                    <?php endif; ?>
+                </a>
+            <?php endif; ?>
         </div>
-        <div class="marcan-home-project-slider" data-project-slider data-project-section="oficinas">
+        <div class="marcan-home-project-slider<?php echo esc_attr($offices_slider_class); ?>" data-project-slider data-project-section="oficinas">
             <div class="marcan-home-project-slider-track">
                 <?php if ($offices_query->have_posts()) : ?>
                     <?php while ($offices_query->have_posts()) : ?>
@@ -170,4 +225,6 @@ function marcan_render_home_project_card(WP_Post $post, string $section_class = 
             </div>
         </div>
     </div>
+    <?php endif; ?>
 </section>
+<?php endif; ?>

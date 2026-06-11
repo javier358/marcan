@@ -1,0 +1,247 @@
+.marcan-site-header {
+    background: transparent;
+    height: 67px;
+    isolation: isolate;
+    left: 0;
+    overflow: visible;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.marcan-site-header::before {
+    -webkit-backdrop-filter: blur(calc(var(--marcan-header-blur, 70px) * 1.35)) saturate(1.42) contrast(0.94);
+    backdrop-filter: blur(calc(var(--marcan-header-blur, 70px) * 1.35)) saturate(1.42) contrast(0.94);
+    background: rgba(255, 255, 255, 0.28);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.14)), color-mix(in srgb, var(--marcan-header-bg, var(--marcan-glass)) 38%, transparent);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.68), inset 0 -1px 0 rgba(255, 255, 255, 0.3), 0 5px 18px rgba(79, 79, 79, 0.08);
+    content: "";
+    height: 67px;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: height 320ms var(--marcan-ease), opacity 320ms ease;
+    z-index: -1;
+}
+
+.marcan-site-header.is-menu-open::before {
+    background: rgba(255, 255, 255, 0.36);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.36), rgba(255, 255, 255, 0.2)), color-mix(in srgb, var(--marcan-header-bg, var(--marcan-glass)) 48%, transparent);
+    height: 240px;
+}
+
+.marcan-header-logo {
+    display: block;
+    height: 22px;
+    left: 23px;
+    line-height: 0;
+    position: absolute;
+    top: 21px;
+    width: 110px;
+}
+
+.marcan-header-logo svg {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.marcan-logo-mobile {
+    display: none;
+}
+
+.marcan-menu-button {
+    align-items: center;
+    background: transparent;
+    border: 0;
+    color: var(--marcan-header-text, var(--marcan-logo));
+    cursor: pointer;
+    display: flex;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    height: 30px;
+    justify-content: center;
+    letter-spacing: 0.01em;
+    line-height: 30px;
+    padding: 0;
+    position: absolute;
+    right: 23px;
+    text-transform: uppercase;
+    top: 19px;
+    width: 61px;
+}
+
+.marcan-menu-icon {
+    display: none;
+    flex: 0 0 auto;
+}
+
+.marcan-primary-nav {
+    background: transparent;
+    display: none;
+    height: 176px;
+    overflow-y: auto;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 64px;
+    width: 100vw;
+}
+
+.marcan-primary-nav.is-open {
+    display: block;
+}
+
+.marcan-menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 23px;
+    top: 0;
+    width: 168px;
+}
+
+.marcan-menu-list li {
+    display: block;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.marcan-menu-list a {
+    color: var(--marcan-header-text, var(--marcan-logo));
+    display: block;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    height: 30px;
+    letter-spacing: 0.01em;
+    line-height: 30px;
+    overflow: hidden;
+    text-align: right;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--marcan-surface);
+    color: var(--marcan-black);
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+.site-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    left: 0;
+    padding: 24px clamp(20px, 4vw, 64px);
+    position: fixed;
+    right: 0;
+    top: 0;
+    transform: translateY(-100%);
+    transition: transform 500ms var(--marcan-ease), background 300ms ease;
+    z-index: 20;
+}
+
+.site-header.is-visible {
+    transform: translateY(0);
+}
+
+.site-header.is-scrolled {
+    background: rgba(245, 245, 242, 0.92);
+    backdrop-filter: blur(18px);
+}
+
+.site-logo,
+.footer-logo {
+    color: var(--marcan-ink);
+    font-size: clamp(32px, 5vw, 72px);
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 0.9;
+}
+
+.custom-logo {
+    max-height: 68px;
+    width: auto;
+}
+
+.primary-menu,
+.footer-nav {
+    align-items: center;
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.primary-menu a,
+.footer-nav a {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.menu-toggle {
+    background: transparent;
+    border: 0;
+    display: none;
+    height: 40px;
+    padding: 0;
+    width: 40px;
+}
+
+.menu-toggle span {
+    background: var(--marcan-black);
+    display: block;
+    height: 2px;
+    margin: 8px 0;
+    width: 28px;
+}
+
+.intro-hero,
+.marcan-hero {
+    align-items: center;
+    background: var(--marcan-yellow);
+    display: flex;
+    height: 100svh;
+    justify-content: center;
+    min-height: 640px;
+    overflow: hidden;
+    position: relative;
+}
+

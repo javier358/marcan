@@ -1,0 +1,10 @@
+.marcan-property-single {
+    background: #ffffff;
+    color: var(--marcan-ink);
+    overflow-x: clip;
+}
+
+.marcan-property-archive-departamento {
+    background: #ffffff;
+}
+

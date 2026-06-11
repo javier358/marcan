@@ -1,0 +1,330 @@
+{
+    "key": "group_marcan_iconic_project",
+    "title": "Proyecto iconico - Detalle",
+    "fields": [
+        {
+            "key": "field_marcan_iconic_tab_hero",
+            "label": "1. Hero",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_iconic_hero_desktop",
+            "label": "Hero desktop",
+            "name": "iconic_hero_desktop",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "large",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 3150x1642 px. Peso maximo recomendado: 650 KB."
+        },
+        {
+            "key": "field_marcan_iconic_hero_mobile",
+            "label": "Hero mobile",
+            "name": "iconic_hero_mobile",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "large",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 900x1200 px. Peso maximo recomendado: 350 KB."
+        },
+        {
+            "key": "field_marcan_iconic_lineal_image",
+            "label": "Imagen lineal / Canson",
+            "name": "iconic_lineal_image",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "medium_large",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 1627x1457 px. Peso maximo recomendado: 450 KB."
+        },
+        {
+            "key": "field_marcan_iconic_tab_header",
+            "label": "2. Cabecera",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_iconic_district",
+            "label": "Distrito / ubicacion corta",
+            "name": "iconic_district",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_iconic_address",
+            "label": "Direccion",
+            "name": "iconic_address",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_iconic_year",
+            "label": "Ano",
+            "name": "iconic_year",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_iconic_status",
+            "label": "Estado",
+            "name": "iconic_status",
+            "type": "text",
+            "default_value": "Entregado"
+        },
+        {
+            "key": "field_marcan_iconic_summary",
+            "label": "Texto breve",
+            "name": "iconic_summary",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_iconic_tab_detail",
+            "label": "3. Imagen secundaria",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_iconic_detail_image",
+            "label": "Imagen secundaria",
+            "name": "iconic_detail_image",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "large",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 3025x1552 px. Peso maximo recomendado: 650 KB."
+        },
+        {
+            "key": "field_marcan_iconic_tab_concept",
+            "label": "4. Concepto",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_show_concept_iconic",
+            "label": "Mostrar seccion",
+            "name": "mostrar_concepto_iconico",
+            "type": "true_false",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_marcan_iconic_concept_title",
+            "label": "Titulo concepto",
+            "name": "iconic_concept_title",
+            "type": "text",
+            "default_value": "Concepto"
+        },
+        {
+            "key": "field_marcan_iconic_concept_text",
+            "label": "Texto concepto",
+            "name": "iconic_concept_text",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_iconic_tab_designer",
+            "label": "5. Disenador",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_show_designer_iconic",
+            "label": "Mostrar seccion",
+            "name": "mostrar_disenador_iconico",
+            "type": "true_false",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_marcan_iconic_designer_photo",
+            "label": "Foto",
+            "name": "iconic_designer_photo",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 600x600 px. Peso maximo recomendado: 220 KB."
+        },
+        {
+            "key": "field_marcan_iconic_designer_name",
+            "label": "Nombre",
+            "name": "iconic_designer_name",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_iconic_designer_role",
+            "label": "Cargo",
+            "name": "iconic_designer_role",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_iconic_tab_facade",
+            "label": "6. Fachada",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_show_facade",
+            "label": "Mostrar seccion",
+            "name": "mostrar_fachada",
+            "type": "true_false",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_marcan_iconic_facade_image",
+            "label": "Imagen",
+            "name": "iconic_facade_image",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "large",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 3024x1836 px. Peso maximo recomendado: 650 KB."
+        },
+        {
+            "key": "field_marcan_iconic_facade_title",
+            "label": "Titulo",
+            "name": "iconic_facade_title",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_iconic_facade_text",
+            "label": "Texto",
+            "name": "iconic_facade_text",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_iconic_tab_gallery",
+            "label": "7. Galeria",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_show_gallery_iconic",
+            "label": "Mostrar seccion",
+            "name": "mostrar_galeria_iconica",
+            "type": "true_false",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_marcan_iconic_gallery",
+            "label": "Galeria areas comunes",
+            "name": "iconic_gallery",
+            "type": "gallery",
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 2609x1832 px. Peso maximo recomendado: 500 KB por imagen."
+        },
+        {
+            "key": "field_marcan_iconic_tab_details",
+            "label": "8. Detalles",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_show_details",
+            "label": "Mostrar seccion",
+            "name": "mostrar_detalles",
+            "type": "true_false",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_marcan_iconic_details_title",
+            "label": "Titulo",
+            "name": "iconic_details_title",
+            "type": "text",
+            "default_value": "Detalles que marcan"
+        },
+        {
+            "key": "field_marcan_iconic_details_text",
+            "label": "Texto",
+            "name": "iconic_details_text",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_iconic_tab_cta",
+            "label": "9. CTA",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_show_cta_iconic",
+            "label": "Mostrar seccion",
+            "name": "mostrar_cta_iconico",
+            "type": "true_false",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_marcan_iconic_cta_title",
+            "label": "Titulo",
+            "name": "iconic_cta_title",
+            "type": "text",
+            "default_value": "Creamos proyectos que marcan"
+        },
+        {
+            "key": "field_marcan_iconic_cta_departments",
+            "label": "Enlace departamentos",
+            "name": "iconic_cta_departments",
+            "type": "link"
+        },
+        {
+            "key": "field_marcan_iconic_cta_offices",
+            "label": "Enlace oficinas",
+            "name": "iconic_cta_offices",
+            "type": "link"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "iconic_project"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+}

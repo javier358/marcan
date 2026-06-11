@@ -1,0 +1,243 @@
+.marcan-property-archive-hero {
+    background: #f3f2f1;
+    min-height: 1075px;
+    position: relative;
+}
+
+.marcan-property-archive-departamento .marcan-property-archive-hero {
+    background: #ffcb05;
+}
+
+.marcan-property-archive-oficina .marcan-property-archive-hero {
+    background: #d9d9d6;
+}
+
+.marcan-property-archive-hero-media {
+    height: 606px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.marcan-property-archive-hero-image,
+.marcan-property-listing-image,
+.marcan-property-single-hero-image,
+.marcan-property-single-wide-image img,
+.marcan-property-gallery-row img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.marcan-property-archive-departamento .marcan-property-archive-hero-image {
+    object-position: center center;
+}
+
+.marcan-property-archive-hero-content {
+    display: contents;
+}
+
+
+@media (min-width: 901px) {
+    .marcan-property-archive-departamento .marcan-property-listing-media,
+    .marcan-property-archive-oficina .marcan-property-listing-media {
+        aspect-ratio: 2063 / 1432;
+        height: auto;
+        min-height: 0;
+    }
+}
+
+@media (min-width: 901px) {
+    .marcan-property-archive-departamento .marcan-property-archive-hero,
+    .marcan-property-archive-oficina .marcan-property-archive-hero {
+        min-height: 0;
+    }
+
+    .marcan-property-archive-departamento .marcan-property-archive-hero-media,
+    .marcan-property-archive-oficina .marcan-property-archive-hero-media {
+        aspect-ratio: 2560 / 1026;
+        height: auto;
+        position: static;
+    }
+
+    .marcan-property-archive-departamento .marcan-property-archive-hero-image {
+        object-fit: cover;
+        object-position: center center;
+    }
+}
+
+@media (min-width: 1281px) {
+    .marcan-property-archive-departamento .marcan-property-archive-hero-content,
+    .marcan-property-archive-oficina .marcan-property-archive-hero-content {
+        display: block;
+        position: relative;
+    }
+
+    .marcan-property-archive-departamento .marcan-property-archive-hero-content {
+        min-height: 469px;
+    }
+
+    .marcan-property-archive-departamento .marcan-property-archive-copy {
+        top: 40px;
+    }
+
+    .marcan-property-archive-departamento .marcan-property-archive-search-copy {
+        top: 270px;
+    }
+
+    .marcan-property-archive-oficina .marcan-property-archive-hero {
+        min-height: 1390px;
+    }
+
+    .marcan-property-archive-oficina .marcan-property-archive-hero-content {
+        min-height: 784px;
+        padding-bottom: 60px;
+    }
+
+    .marcan-property-archive-oficina .marcan-property-archive-copy {
+        top: 40px;
+    }
+
+    .marcan-property-archive-oficina .marcan-property-archive-reasons {
+        top: 270px;
+    }
+
+    .marcan-property-archive-oficina .marcan-property-archive-hero-content .marcan-property-archive-search-copy {
+        top: 642px;
+    }
+}
+
+.marcan-property-archive-copy {
+    left: 30px;
+    position: absolute;
+    top: 646px;
+    width: 651px;
+}
+
+.marcan-property-archive-copy h1 {
+    font-family: Bitter, Georgia, serif;
+    font-size: 45px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 0 0 20px;
+}
+
+.marcan-property-archive-copy p,
+.marcan-property-archive-search-copy h2 {
+    font-family: Roboto, Inter, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.35;
+    margin: 0;
+}
+
+.marcan-property-archive-search-copy {
+    left: 30px;
+    position: absolute;
+    top: 933px;
+    width: 492px;
+}
+
+.marcan-property-archive-search-copy p {
+    font-family: Inter, Arial, sans-serif;
+    font-size: 30px;
+    line-height: 1.2;
+    margin: 7px 0 0;
+    max-width: 510px;
+}
+
+.marcan-property-archive-whatsapp {
+    align-items: center;
+    background: #262626;
+    border-radius: 999px;
+    bottom: 24px;
+    display: flex;
+    height: 45px;
+    justify-content: center;
+    position: fixed;
+    right: 30px;
+    text-decoration: none;
+    top: auto;
+    width: 45px;
+    z-index: 99998;
+}
+
+.marcan-property-archive-whatsapp span {
+    background: #ffffff;
+    display: block;
+    height: 21px;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='black' d='M16.04 2.67A13.25 13.25 0 0 0 4.56 22.56L3 29l6.6-1.5A13.25 13.25 0 1 0 16.04 2.67Zm0 2.4a10.85 10.85 0 1 1-5.55 20.17l-.42-.25-3.66.83.86-3.53-.27-.45A10.85 10.85 0 0 1 16.04 5.07Zm-5.1 5.82c-.25 0-.66.09-1 .46-.35.38-1.32 1.29-1.32 3.14s1.35 3.64 1.54 3.89c.19.25 2.6 4.16 6.44 5.66 3.2 1.26 3.85 1.01 4.54.95.7-.06 2.25-.92 2.57-1.81.32-.89.32-1.65.22-1.81-.1-.16-.35-.25-.73-.44-.38-.19-2.25-1.11-2.6-1.24-.35-.13-.6-.19-.86.19-.25.38-.98 1.24-1.2 1.49-.22.25-.44.29-.82.1-.38-.19-1.6-.59-3.04-1.88-1.12-1-1.88-2.24-2.1-2.62-.22-.38-.02-.59.17-.78.17-.17.38-.44.57-.66.19-.22.25-.38.38-.63.13-.25.06-.48-.03-.66-.1-.19-.86-2.07-1.18-2.83-.31-.75-.63-.65-.86-.66h-.75Z'/%3E%3C/svg%3E") center / contain no-repeat;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='black' d='M16.04 2.67A13.25 13.25 0 0 0 4.56 22.56L3 29l6.6-1.5A13.25 13.25 0 1 0 16.04 2.67Zm0 2.4a10.85 10.85 0 1 1-5.55 20.17l-.42-.25-3.66.83.86-3.53-.27-.45A10.85 10.85 0 0 1 16.04 5.07Zm-5.1 5.82c-.25 0-.66.09-1 .46-.35.38-1.32 1.29-1.32 3.14s1.35 3.64 1.54 3.89c.19.25 2.6 4.16 6.44 5.66 3.2 1.26 3.85 1.01 4.54.95.7-.06 2.25-.92 2.57-1.81.32-.89.32-1.65.22-1.81-.1-.16-.35-.25-.73-.44-.38-.19-2.25-1.11-2.6-1.24-.35-.13-.6-.19-.86.19-.25.38-.98 1.24-1.2 1.49-.22.25-.44.29-.82.1-.38-.19-1.6-.59-3.04-1.88-1.12-1-1.88-2.24-2.1-2.62-.22-.38-.02-.59.17-.78.17-.17.38-.44.57-.66.19-.22.25-.38.38-.63.13-.25.06-.48-.03-.66-.1-.19-.86-2.07-1.18-2.83-.31-.75-.63-.65-.86-.66h-.75Z'/%3E%3C/svg%3E") center / contain no-repeat;
+    width: 21px;
+}
+
+@media (min-width: 901px) {
+    .marcan-property-archive-whatsapp {
+        height: 58px;
+        width: 58px;
+    }
+
+    .marcan-property-archive-whatsapp span {
+        height: 28px;
+        width: 28px;
+    }
+}
+
+.marcan-property-archive-reasons {
+    left: 30px;
+    position: absolute;
+    top: 932px;
+    width: calc(100% - 60px);
+}
+
+.marcan-property-archive-reasons h2 {
+    font-family: Inter, Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.3;
+    margin: 0 0 20px;
+}
+
+.marcan-property-archive-reasons ol {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.marcan-property-archive-reasons span {
+    display: block;
+    font-family: Bitter, Georgia, serif;
+    font-size: 45px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.marcan-property-archive-reasons p {
+    font-family: Inter, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.marcan-property-archive-oficina .marcan-property-archive-search-copy {
+    top: 1248px;
+}
+
+.marcan-property-archive-list {
+    background: #ffffff;
+    display: grid;
+    gap: 30px;
+    padding: 30px 30px 30px;
+}
+
+.marcan-property-archive-departamento .marcan-property-archive-list {
+    margin-top: 0;
+}
+

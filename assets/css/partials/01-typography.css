@@ -1,0 +1,33 @@
+.marcan-property-archive-copy h1,
+.marcan-property-sticky-quote h1,
+.marcan-iconic-title-block h1,
+.marcan-about-section-title {
+    font-size: var(--marcan-type-title);
+}
+
+.marcan-property-archive-search-copy h2,
+.marcan-property-related h2,
+.marcan-property-concept-copy h2,
+.marcan-property-architecture-copy h2,
+.marcan-iconic-copy h2,
+.marcan-iconic-facade-card h2,
+.marcan-iconic-details h2,
+.marcan-about-promise-card h2 {
+    font-size: var(--marcan-type-subtitle);
+}
+
+.marcan-property-archive-copy,
+.marcan-property-archive-search-copy,
+.marcan-property-intro,
+.marcan-property-concept-copy,
+.marcan-property-architecture-copy,
+.marcan-iconic-summary,
+.marcan-iconic-copy,
+.marcan-iconic-facade-card,
+.marcan-iconic-details,
+.marcan-about-hero-copy,
+.marcan-about-reason-text,
+.marcan-about-promise-card {
+    font-size: var(--marcan-type-description);
+}
+

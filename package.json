@@ -1,0 +1,10 @@
+{
+    "name": "marcan-theme",
+    "version": "0.2.0",
+    "private": true,
+    "scripts": {
+        "build:css": "node build-css.js build",
+        "split:css": "node build-css.js split",
+        "verify:css": "node build-css.js verify"
+    }
+}

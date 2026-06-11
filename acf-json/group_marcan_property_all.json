@@ -1,0 +1,811 @@
+{
+    "key": "group_marcan_property_all",
+    "title": "Datos del inmueble",
+    "fields": [
+        {
+            "key": "field_marcan_tab_prop_media",
+            "label": "1. Hero",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_detail_hero_desktop",
+            "label": "Detalle - hero desktop",
+            "name": "detalle_hero_desktop",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "large",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 3150x1642 px. Peso maximo recomendado: 650 KB."
+        },
+        {
+            "key": "field_marcan_detail_hero_mobile",
+            "label": "Detalle - hero vertical",
+            "name": "detalle_hero_movil",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "large",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 828x1025 px. Peso maximo recomendado: 350 KB."
+        },
+        {
+            "key": "field_marcan_detail_wide_image",
+            "label": "Detalle - imagen ancha",
+            "name": "detalle_imagen_ancha",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "large",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 3025x1552 px. Peso maximo recomendado: 650 KB."
+        },
+        {
+            "key": "field_marcan_listing_hero_image",
+            "label": "Listado - imagen hero",
+            "name": "listado_hero_imagen",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "large",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 2236x1357 px. Peso maximo recomendado: 450 KB."
+        },
+        {
+            "key": "field_marcan_tab_prop_identity",
+            "label": "2. Identidad",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_commercial_title",
+            "label": "Titulo comercial",
+            "name": "titulo_comercial",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_subtitle",
+            "label": "Subtitulo",
+            "name": "subtitulo",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_short_description",
+            "label": "Descripcion corta",
+            "name": "descripcion_corta",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_status",
+            "label": "Estado",
+            "name": "estado",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_delivery_date",
+            "label": "Fecha de entrega",
+            "name": "fecha_entrega",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_property_kind",
+            "label": "Tipo de inmueble",
+            "name": "tipo_inmueble",
+            "type": "select",
+            "choices": {
+                "departamento": "Departamento",
+                "oficina": "Oficina"
+            },
+            "default_value": "departamento",
+            "ui": 1,
+            "return_format": "value"
+        },
+        {
+            "key": "field_marcan_tab_prop_specs",
+            "label": "3. Ficha tecnica",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_show_specs",
+            "label": "Mostrar seccion",
+            "name": "mostrar_ficha_tecnica",
+            "type": "true_false",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_marcan_price",
+            "label": "Precio",
+            "name": "precio",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_location",
+            "label": "Ubicacion",
+            "name": "ubicacion",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_area_number",
+            "label": "Area",
+            "name": "area_numero",
+            "type": "number",
+            "step": "0.01"
+        },
+        {
+            "key": "field_marcan_area_unit",
+            "label": "Unidad de area",
+            "name": "area_unidad",
+            "type": "select",
+            "choices": {
+                "m2": "m2",
+                "m lineal": "m lineal",
+                "ha": "ha"
+            },
+            "default_value": "m2",
+            "ui": 1,
+            "return_format": "value"
+        },
+        {
+            "key": "field_marcan_bedrooms",
+            "label": "Dormitorios",
+            "name": "dormitorios",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_bathrooms",
+            "label": "Banos",
+            "name": "banos",
+            "type": "number"
+        },
+        {
+            "key": "field_marcan_parking",
+            "label": "Estacionamientos",
+            "name": "estacionamientos",
+            "type": "number"
+        },
+        {
+            "key": "field_marcan_tab_prop_concept",
+            "label": "4. Concepto",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_show_concept",
+            "label": "Mostrar seccion",
+            "name": "mostrar_concepto",
+            "type": "true_false",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_marcan_concept_title",
+            "label": "Titulo concepto",
+            "name": "concepto_titulo",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_concept_text",
+            "label": "Texto concepto",
+            "name": "concepto_texto",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_quote_text",
+            "label": "Frase del proyecto",
+            "name": "frase_proyecto",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_quote_author",
+            "label": "Autor frase",
+            "name": "autor_frase",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_tab_prop_designer",
+            "label": "5. Disenador",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_show_designer",
+            "label": "Mostrar seccion",
+            "name": "mostrar_disenador",
+            "type": "true_false",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_marcan_interior_designer_name",
+            "label": "Nombre del disenador",
+            "name": "disenador_interiores_nombre",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_interior_designer_role",
+            "label": "Cargo del disenador",
+            "name": "disenador_interiores_cargo",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_interior_designer_photo",
+            "label": "Foto del disenador",
+            "name": "disenador_interiores_foto",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 600x600 px. Peso maximo recomendado: 220 KB."
+        },
+        {
+            "key": "field_marcan_tab_prop_units",
+            "label": "6. Unidades",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_show_units",
+            "label": "Mostrar seccion",
+            "name": "mostrar_unidades",
+            "type": "true_false",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_marcan_units",
+            "label": "Unidades",
+            "name": "unidades",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Agregar unidad",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_unit_code",
+                    "label": "Nombre",
+                    "name": "codigo",
+                    "type": "text"
+                },
+                {
+                    "key": "field_marcan_unit_floor",
+                    "label": "Piso",
+                    "name": "piso",
+                    "type": "text"
+                },
+                {
+                    "key": "field_marcan_unit_bedrooms",
+                    "label": "dormitorios",
+                    "name": "habitaciones",
+                    "type": "text"
+                },
+                {
+                    "key": "field_marcan_unit_bathrooms",
+                    "label": "Banos",
+                    "name": "banos",
+                    "type": "text"
+                },
+                {
+                    "key": "field_marcan_unit_area",
+                    "label": "Area Total",
+                    "name": "area_m2",
+                    "type": "number",
+                    "step": "0.01"
+                },
+                {
+                    "key": "field_marcan_unit_area_unit",
+                    "label": "Medida",
+                    "name": "area_unidad",
+                    "type": "select",
+                    "choices": {
+                        "m2": "m2",
+                        "m lineal": "m lineal",
+                        "ha": "ha"
+                    },
+                    "default_value": "m2",
+                    "return_format": "value"
+                },
+                {
+                    "key": "field_marcan_unit_price",
+                    "label": "Precio Actual",
+                    "name": "precio",
+                    "type": "text"
+                },
+                {
+                    "key": "field_marcan_unit_status",
+                    "label": "Tipologia",
+                    "name": "estado",
+                    "type": "text",
+                    "instructions": "Excel: Tipologia en departamentos; Tipo de Unidad en oficinas."
+                },
+                {
+                    "key": "field_marcan_unit_plan",
+                    "label": "Plano",
+                    "name": "plano",
+                    "type": "image",
+                    "return_format": "id",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 934x1027 px o 1867x1027 px. Peso maximo recomendado: 350 KB."
+                },
+                {
+                    "key": "field_marcan_unit_quote_pdf",
+                    "label": "PDF cotizacion",
+                    "name": "cotizacion_pdf",
+                    "type": "file",
+                    "return_format": "id",
+                    "library": "all",
+                    "mime_types": "pdf",
+                    "instructions": "PDF especifico para el boton Descargar cotizacion de esta unidad."
+                }
+            ]
+        },
+        {
+            "key": "field_marcan_tab_prop_tours",
+            "label": "7. Tours Virtuales",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_show_tours",
+            "label": "Mostrar seccion",
+            "name": "mostrar_tours",
+            "type": "true_false",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_marcan_virtual_tours",
+            "label": "Recorridos virtuales",
+            "name": "recorridos_virtuales",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Agregar recorrido",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_virtual_tour_title",
+                    "label": "Titulo",
+                    "name": "titulo",
+                    "type": "text"
+                },
+                {
+                    "key": "field_marcan_virtual_tour_group",
+                    "label": "Grupo",
+                    "name": "grupo",
+                    "type": "text",
+                    "instructions": "Ejemplo: Areas comunes o Departamentos. Se muestra como encabezado cuando cambia el grupo."
+                },
+                {
+                    "key": "field_marcan_virtual_tour_url",
+                    "label": "URL externa",
+                    "name": "url",
+                    "type": "url"
+                },
+                {
+                    "key": "field_marcan_virtual_tour_active",
+                    "label": "Activo",
+                    "name": "activo",
+                    "type": "true_false",
+                    "default_value": 1,
+                    "ui": 1
+                }
+            ]
+        },
+        {
+            "key": "field_marcan_tab_prop_map",
+            "label": "8. Ubicacion",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_show_map",
+            "label": "Mostrar seccion",
+            "name": "mostrar_ubicacion",
+            "type": "true_false",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_marcan_video",
+            "label": "Video",
+            "name": "video",
+            "type": "url"
+        },
+        {
+            "key": "field_marcan_map_google_url",
+            "label": "Link Google Maps",
+            "name": "google_maps_url",
+            "type": "url",
+            "instructions": "URL directa para abrir la ubicacion en Google Maps."
+        },
+        {
+            "key": "field_marcan_map_waze_url",
+            "label": "Link Waze",
+            "name": "waze_url",
+            "type": "url",
+            "instructions": "URL directa para abrir la ubicacion en Waze."
+        },
+        {
+            "key": "field_marcan_map_heading",
+            "label": "Titulo de la seccion",
+            "name": "ubicacion_titulo",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_map_nearby_title",
+            "label": "Titulo lugares cercanos",
+            "name": "lugares_cercanos_titulo",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_map_nearby",
+            "label": "Lugares cercanos",
+            "name": "lugares_cercanos",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Agregar categoria",
+            "instructions": "Cada fila es una categoria. Los items van uno por linea.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_map_nearby_cat",
+                    "label": "Categoria",
+                    "name": "categoria",
+                    "type": "text"
+                },
+                {
+                    "key": "field_marcan_map_nearby_items",
+                    "label": "Items (uno por linea)",
+                    "name": "items",
+                    "type": "textarea",
+                    "rows": 4
+                }
+            ]
+        },
+        {
+            "key": "field_marcan_map_description",
+            "label": "Descripcion ubicacion",
+            "name": "ubicacion_descripcion",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_tab_prop_gallery",
+            "label": "9. Galeria",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_show_gallery",
+            "label": "Mostrar seccion",
+            "name": "mostrar_galeria",
+            "type": "true_false",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_marcan_common_areas",
+            "label": "Areas comunes (PC)",
+            "name": "areas_comunes",
+            "type": "gallery",
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 2609x1832 px. Peso maximo recomendado: 500 KB por imagen."
+        },
+        {
+            "key": "field_marcan_common_areas_mobile",
+            "label": "Areas comunes (vertical)",
+            "name": "areas_comunes_mobile",
+            "type": "gallery",
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 975x1330 px. Peso maximo recomendado: 350 KB por imagen. Debe tener el mismo numero de imagenes que la galeria horizontal."
+        },
+        {
+            "key": "field_marcan_internal_areas",
+            "label": "Areas internas (PC)",
+            "name": "areas_internas",
+            "type": "gallery",
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 2609x1832 px. Peso maximo recomendado: 500 KB por imagen."
+        },
+        {
+            "key": "field_marcan_internal_areas_mobile",
+            "label": "Areas internas (vertical)",
+            "name": "areas_internas_mobile",
+            "type": "gallery",
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 975x1330 px. Peso maximo recomendado: 350 KB por imagen. Debe tener el mismo numero de imagenes que la galeria horizontal."
+        },
+        {
+            "key": "field_marcan_tab_prop_architecture",
+            "label": "10. Arquitectura",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_show_architecture",
+            "label": "Mostrar seccion",
+            "name": "mostrar_arquitectura",
+            "type": "true_false",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_marcan_architecture_section_title",
+            "label": "Titulo de la seccion",
+            "name": "arquitectura_titulo",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_architecture_section_text",
+            "label": "Texto de la seccion",
+            "name": "arquitectura_texto",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_architecture_section_image",
+            "label": "Imagen principal",
+            "name": "arquitectura_imagen",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "large",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 1627x1457 px. Peso maximo recomendado: 450 KB."
+        },
+        {
+            "key": "field_marcan_architecture_studio_name",
+            "label": "Nombre del estudio",
+            "name": "arquitectura_estudio_nombre",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_architecture_studio_role",
+            "label": "Descripcion del estudio",
+            "name": "arquitectura_estudio_cargo",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_architecture_studio_photo",
+            "label": "Foto del estudio",
+            "name": "arquitectura_estudio_foto",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 600x600 px. Peso maximo recomendado: 220 KB."
+        },
+        {
+            "key": "field_marcan_show_brochure",
+            "label": "Mostrar seccion",
+            "name": "mostrar_brochure",
+            "type": "true_false",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_marcan_brochure",
+            "label": "Brochure",
+            "name": "brochure",
+            "type": "file",
+            "return_format": "id",
+            "library": "all",
+            "instructions": "PDF del brochure."
+        },
+        {
+            "key": "field_marcan_project_home_section",
+            "label": "Seccion home",
+            "name": "home_section",
+            "type": "select",
+            "choices": {
+                "departamentos": "Departamentos",
+                "oficinas": "Oficinas"
+            },
+            "default_value": "departamentos",
+            "ui": 1,
+            "return_format": "value"
+        },
+        {
+            "key": "field_marcan_project_home_price_label",
+            "label": "Etiqueta de precio",
+            "name": "home_price_label",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0,
+            "instructions": "Ejemplo: \"Desde:\". Si se deja vacio se muestra \"Desde:\"."
+        },
+        {
+            "key": "field_marcan_project_home_cta_label",
+            "label": "Etiqueta CTA",
+            "name": "home_cta_label",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0,
+            "instructions": "Ejemplo: \"Ver mas\". Si se deja vacio se muestra \"Ver mas\"."
+        },
+        {
+            "key": "field_marcan_project_home_cta_link",
+            "label": "Enlace CTA (opcional)",
+            "name": "home_cta_link",
+            "type": "link",
+            "instructions": "Opcional. Si se deja vacio enlaza a la pagina de detalle del inmueble."
+        },
+        {
+            "key": "field_marcan_project_home_desktop_image",
+            "label": "Imagen desktop",
+            "name": "home_desktop_image",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "medium_large",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 2063x1432 px. Peso maximo recomendado: 450 KB."
+        },
+        {
+            "key": "field_marcan_project_home_mobile_image",
+            "label": "Imagen vertical",
+            "name": "home_mobile_image",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "medium_large",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 630x780 px. Peso maximo recomendado: 280 KB."
+        },
+        {
+            "key": "field_marcan_related_intro_text",
+            "label": "Texto antes de relacionados (opcional)",
+            "name": "relacionados_intro_texto",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0,
+            "instructions": "Opcional. Si se deja vacio se usa el texto por defecto del tipo de inmueble."
+        },
+        {
+            "key": "field_marcan_show_listing",
+            "label": "Mostrar en listados",
+            "name": "mostrar_en_listado",
+            "type": "true_false",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_marcan_featured_home",
+            "label": "Mostrar en Home",
+            "name": "destacado_home",
+            "type": "true_false",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_marcan_listing_order",
+            "label": "Orden de listado",
+            "name": "orden_listado",
+            "type": "number",
+            "default_value": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "property"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+}

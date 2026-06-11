@@ -1,0 +1,46 @@
+{
+    "key": "group_marcan_context_whatsapp",
+    "title": "WhatsApp flotante",
+    "fields": [
+        {
+            "key": "field_marcan_context_whatsapp_contact",
+            "label": "WhatsApp especifico",
+            "name": "whatsapp_contacto",
+            "type": "text",
+            "default_value": "51919490440",
+            "instructions": "Opcional. Si se deja vacio usa el WhatsApp global. Formato internacional sin signos. Ejemplo: 51919490440"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "property"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "iconic_project"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+}

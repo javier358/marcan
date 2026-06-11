@@ -18,5 +18,54 @@ function marcan_enqueue_assets(): void
 
     wp_enqueue_style('marcan-theme', marcan_asset_uri('css/theme.css'), array(), $css_version);
     wp_enqueue_script('marcan-theme', marcan_asset_uri('js/theme.js'), array(), $js_version, true);
+    wp_localize_script('marcan-theme', 'marcanContactForm', array(
+        'ajaxUrl' => admin_url('admin-ajax.php'),
+        'nonce'   => wp_create_nonce('marcan_contact_form'),
+    ));
 }
 add_action('wp_enqueue_scripts', 'marcan_enqueue_assets');
+
+function marcan_preload_home_project_images(): void
+{
+    if (!is_front_page() || !function_exists('get_field')) {
+        return;
+    }
+
+    $project_ids = get_posts(array(
+        'post_type'      => 'property',
+        'post_status'    => 'publish',
+        'posts_per_page' => -1,
+        'fields'         => 'ids',
+        'orderby'        => array('menu_order' => 'ASC', 'date' => 'ASC'),
+        'meta_query'     => array(
+            array(
+                'relation' => 'OR',
+                array(
+                    'key'     => 'mostrar_en_listado',
+                    'value'   => '0',
+                    'compare' => '!=',
+                ),
+                array(
+                    'key'     => 'mostrar_en_listado',
+                    'compare' => 'NOT EXISTS',
+                ),
+            ),
+        ),
+    ));
+
+    foreach ($project_ids as $project_id) {
+        $desktop_image_id = (int) (get_field('home_desktop_image', $project_id) ?: get_field('listado_hero_imagen', $project_id) ?: get_post_thumbnail_id($project_id));
+        $mobile_image_id = (int) (get_field('home_mobile_image', $project_id) ?: $desktop_image_id);
+        $desktop_image_url = $desktop_image_id ? wp_get_attachment_image_url($desktop_image_id, 'full') : '';
+        $mobile_image_url = $mobile_image_id ? wp_get_attachment_image_url($mobile_image_id, 'full') : '';
+
+        if ($desktop_image_url !== '') {
+            printf('<link rel="preload" as="image" href="%s" media="(min-width: 901px)">' . "\n", esc_url($desktop_image_url));
+        }
+
+        if ($mobile_image_url !== '') {
+            printf('<link rel="preload" as="image" href="%s" media="(max-width: 900px)">' . "\n", esc_url($mobile_image_url));
+        }
+    }
+}
+add_action('wp_head', 'marcan_preload_home_project_images', 3);

@@ -18,6 +18,10 @@ $marcan_includes = array(
     'inc/setup.php',
     'inc/enqueue.php',
     'inc/cpt.php',
+    'inc/contact.php',
+    'inc/about.php',
+    'inc/iconic-projects.php',
+    'inc/blog.php',
     'inc/acf.php',
 );
 

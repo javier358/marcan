@@ -1,0 +1,335 @@
+{
+    "key": "group_marcan_home_page",
+    "title": "Inicio - Contenido",
+    "fields": [
+        {
+            "key": "field_marcan_tab_home_hero",
+            "label": "1. Hero",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_hero_mobile_copy",
+            "label": "Texto movil",
+            "name": "hero_mobile_copy",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0,
+            "instructions": "Texto introductorio que aparece bajo el slider en movil."
+        },
+        {
+            "key": "field_marcan_hero_autoplay",
+            "label": "Autoplay",
+            "name": "hero_autoplay",
+            "type": "true_false",
+            "ui": 1,
+            "default_value": 1,
+            "instructions": "Reproducir el slider automaticamente."
+        },
+        {
+            "key": "field_marcan_hero_interval",
+            "label": "Intervalo",
+            "name": "hero_interval",
+            "type": "number",
+            "default_value": 5000,
+            "min": 1000,
+            "step": 500,
+            "instructions": "Milisegundos entre slides (1000 = 1 segundo)."
+        },
+        {
+            "key": "field_marcan_hero_effect",
+            "label": "Efecto",
+            "name": "hero_effect",
+            "type": "select",
+            "choices": {
+                "fade": "Fade",
+                "zoom": "Zoom"
+            },
+            "default_value": "fade",
+            "return_format": "value"
+        },
+        {
+            "key": "field_marcan_home_hero_slides",
+            "label": "Slides del hero",
+            "name": "hero_slides",
+            "type": "repeater",
+            "layout": "row",
+            "button_label": "Agregar slide",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_home_hero_slide_desktop",
+                    "label": "Imagen desktop",
+                    "name": "imagen_desktop",
+                    "type": "image",
+                    "return_format": "id",
+                    "preview_size": "large",
+                    "library": "all",
+                    "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 3150x2046 px. Peso maximo recomendado: 550 KB."
+                },
+                {
+                    "key": "field_marcan_home_hero_slide_mobile",
+                    "label": "Imagen vertical",
+                    "name": "imagen_movil",
+                    "type": "image",
+                    "return_format": "id",
+                    "preview_size": "large",
+                    "library": "all",
+                    "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 900x1200 px. Peso maximo recomendado: 350 KB. Si se deja vacio usa la imagen horizontal."
+                },
+                {
+                    "key": "field_marcan_home_hero_slide_label",
+                    "label": "Etiqueta",
+                    "name": "etiqueta",
+                    "type": "text"
+                },
+                {
+                    "key": "field_marcan_home_hero_slide_link",
+                    "label": "Enlace",
+                    "name": "enlace",
+                    "type": "link"
+                },
+                {
+                    "key": "field_marcan_home_hero_slide_duration",
+                    "label": "Duracion",
+                    "name": "duracion",
+                    "type": "number",
+                    "default_value": 5000,
+                    "min": 1000,
+                    "step": 500,
+                    "instructions": "Milisegundos que dura este slide."
+                },
+                {
+                    "key": "field_marcan_home_hero_slide_effect",
+                    "label": "Efecto de transicion",
+                    "name": "efecto_transicion",
+                    "type": "select",
+                    "choices": {
+                        "fade": "Fade",
+                        "zoom": "Zoom"
+                    },
+                    "default_value": "fade"
+                }
+            ]
+        },
+        {
+            "key": "field_marcan_tab_home_projects",
+            "label": "2. Seccion Proyectos",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_home_intro_title",
+            "label": "Titulo introductorio",
+            "name": "home_intro_title",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_home_intro_mobile_title",
+            "label": "Titulo introductorio movil",
+            "name": "home_intro_mobile_title",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_home_intro_copy",
+            "label": "Texto introductorio",
+            "name": "home_intro_copy",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_marcan_home_intro_button_label",
+            "label": "Etiqueta boton introductorio",
+            "name": "home_intro_button_label",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_home_intro_mobile_button_label",
+            "label": "Etiqueta boton introductorio movil",
+            "name": "home_intro_mobile_button_label",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_home_intro_button",
+            "label": "Enlace boton introductorio",
+            "name": "home_intro_button",
+            "type": "link"
+        },
+        {
+            "key": "field_marcan_home_departments_title",
+            "label": "Titulo departamentos",
+            "name": "home_departments_title",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_home_departments_mobile_title",
+            "label": "Titulo departamentos movil",
+            "name": "home_departments_mobile_title",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_home_departments_button_label",
+            "label": "Etiqueta boton departamentos",
+            "name": "home_departments_button_label",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_home_departments_mobile_button_label",
+            "label": "Etiqueta boton departamentos movil",
+            "name": "home_departments_mobile_button_label",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_home_departments_button",
+            "label": "Enlace boton departamentos",
+            "name": "home_departments_button",
+            "type": "link"
+        },
+        {
+            "key": "field_marcan_home_offices_title",
+            "label": "Titulo oficinas",
+            "name": "home_offices_title",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_home_offices_mobile_title",
+            "label": "Titulo oficinas movil",
+            "name": "home_offices_mobile_title",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_home_offices_button_label",
+            "label": "Etiqueta boton oficinas",
+            "name": "home_offices_button_label",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_home_offices_mobile_button_label",
+            "label": "Etiqueta boton oficinas movil",
+            "name": "home_offices_mobile_button_label",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_home_offices_button",
+            "label": "Enlace boton oficinas",
+            "name": "home_offices_button",
+            "type": "link"
+        },
+        {
+            "key": "field_marcan_tab_home_delivered",
+            "label": "3. Proyectos Entregados",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_home_delivered_title",
+            "label": "Titulo",
+            "name": "home_delivered_title",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_home_delivered_mobile_title",
+            "label": "Titulo movil",
+            "name": "home_delivered_mobile_title",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_home_delivered_button_label",
+            "label": "Etiqueta boton",
+            "name": "home_delivered_button_label",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_home_delivered_mobile_button_label",
+            "label": "Etiqueta boton movil",
+            "name": "home_delivered_mobile_button_label",
+            "type": "text"
+        },
+        {
+            "key": "field_marcan_home_delivered_button",
+            "label": "Enlace boton",
+            "name": "home_delivered_button",
+            "type": "link"
+        },
+        {
+            "key": "field_marcan_home_delivered_image_desktop",
+            "label": "Imagen desktop",
+            "name": "home_delivered_image_desktop",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "large",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 1577x1563 px. Peso maximo recomendado: 450 KB."
+        },
+        {
+            "key": "field_marcan_home_delivered_image_mobile",
+            "label": "Imagen vertical",
+            "name": "home_delivered_image_mobile",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "large",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 720x900 px. Peso maximo recomendado: 300 KB."
+        },
+        {
+            "key": "field_marcan_home_delivered_background_color",
+            "label": "Color fondo",
+            "name": "home_delivered_background_color",
+            "type": "text",
+            "default_value": "#f3f2f1",
+            "instructions": "Color HEX."
+        },
+        {
+            "key": "field_marcan_home_delivered_text_color",
+            "label": "Color texto",
+            "name": "home_delivered_text_color",
+            "type": "text",
+            "default_value": "#4f4f4f",
+            "instructions": "Color HEX."
+        },
+        {
+            "key": "field_marcan_home_delivered_button_background",
+            "label": "Color boton",
+            "name": "home_delivered_button_background",
+            "type": "text",
+            "default_value": "#4f4f4f",
+            "instructions": "Color HEX."
+        },
+        {
+            "key": "field_marcan_home_delivered_button_text_color",
+            "label": "Color texto boton",
+            "name": "home_delivered_button_text_color",
+            "type": "text",
+            "default_value": "#fbfafa",
+            "instructions": "Color HEX."
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "front_page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+}
