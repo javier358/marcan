@@ -510,6 +510,7 @@
 
     .marcan-menu-button {
         color: var(--marcan-logo);
+        font-size: 18px;
         font-weight: 400;
         height: 34px;
         justify-content: flex-start;
@@ -543,6 +544,8 @@
 
     .marcan-menu-list a {
         color: var(--marcan-logo);
+        font-size: 16px;
+        font-weight: 300;
     }
 
     .menu-toggle {
@@ -589,7 +592,7 @@
     }
 
     .marcan-home-delivered-copy h2 {
-        font-size: 32px;
+        font-size: 26px;
         margin: 0 auto 30px;
         max-width: 362px;
         position: static;
@@ -636,7 +639,7 @@
     .marcan-home-hero-mobile-copy p {
         color: var(--marcan-ink);
         font-family: Inter, Arial, Helvetica, sans-serif;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 300;
         letter-spacing: 0;
         line-height: 1.28;
@@ -663,7 +666,7 @@
     .marcan-home-projects-intro-title {
         font-family: Bitter, Georgia, serif;
         font-weight: 400;
-        font-size: 32px;
+        font-size: 26px;
         letter-spacing: 0.01em;
         line-height: 1;
         margin: 0 auto 20px;
@@ -675,6 +678,7 @@
 
     .marcan-home-projects-intro-button {
         display: flex;
+        font-size: 14px;
         margin-left: auto;
         margin-right: auto;
         position: static;
@@ -689,7 +693,7 @@
     }
 
     .marcan-home-projects-heading h2 {
-        font-size: 24px;
+        font-size: 21px;
         font-weight: 400;
         line-height: 1;
     }
@@ -769,7 +773,7 @@
     }
 
     .marcan-home-project-card-title-row h3 {
-        font-size: 20px;
+        font-size: 21px;
     }
 
     .marcan-home-project-card-location {
@@ -797,7 +801,8 @@
     }
 
     .marcan-home-project-card-price strong {
-        font-size: 20px;
+        font-size: 21px;
+        font-weight: 300;
     }
 
     .marcan-home-project-card-specs {
@@ -807,6 +812,8 @@
 
     .marcan-home-project-card-spec {
         gap: 10px;
+        font-size: 14px;
+        font-weight: 300;
     }
 
     .marcan-home-project-card-spec-icon {

@@ -60,8 +60,8 @@
 
 .marcan-home-delivered-copy h2 {
     font-family: Bitter, Georgia, serif;
-    font-size: 45px;
-    font-weight: 300;
+    font-size: 40px;
+    font-weight: 400;
     letter-spacing: 0.01em;
     line-height: 1.1;
     left: 31px;
@@ -117,12 +117,12 @@
     }
 
     .marcan-home-projects-intro-copy p {
-        font-size: calc(18px * var(--marcan-home-wide-scale));
+        font-size: calc(24px * var(--marcan-home-wide-scale));
         max-width: calc(592px * var(--marcan-home-wide-scale));
     }
 
     .marcan-home-projects-intro-title {
-        font-size: calc(45px * var(--marcan-home-wide-scale));
+        font-size: calc(40px * var(--marcan-home-wide-scale));
         left: calc(30px * var(--marcan-home-wide-scale));
         max-width: calc(591px * var(--marcan-home-wide-scale));
         top: calc(341px * var(--marcan-home-wide-scale));
@@ -145,7 +145,7 @@
     }
 
     .marcan-home-projects-heading h2 {
-        font-size: calc(28px * var(--marcan-home-wide-scale));
+        font-size: calc(26px * var(--marcan-home-wide-scale));
     }
 
     .marcan-home-projects-heading-button,
@@ -192,7 +192,7 @@
     }
 
     .marcan-home-project-card-title-row h3 {
-        font-size: calc(22px * var(--marcan-home-wide-scale));
+        font-size: calc(25px * var(--marcan-home-wide-scale));
     }
 
     .marcan-home-project-card-divider {
@@ -206,8 +206,7 @@
     }
 
     .marcan-home-project-card-location,
-    .marcan-home-project-card-price span,
-    .marcan-home-project-card-spec {
+    .marcan-home-project-card-price span {
         font-size: calc(14px * var(--marcan-home-wide-scale));
     }
 
@@ -221,7 +220,7 @@
     }
 
     .marcan-home-project-card-price strong {
-        font-size: calc(22px * var(--marcan-home-wide-scale));
+        font-size: calc(25px * var(--marcan-home-wide-scale));
     }
 
     .marcan-home-project-card-specs {
@@ -229,6 +228,7 @@
     }
 
     .marcan-home-project-card-spec {
+        font-size: calc(21px * var(--marcan-home-wide-scale));
         gap: calc(10px * var(--marcan-home-wide-scale));
     }
 
@@ -252,7 +252,7 @@
     }
 
     .marcan-home-delivered-copy h2 {
-        font-size: calc(45px * var(--marcan-home-wide-scale));
+        font-size: calc(40px * var(--marcan-home-wide-scale));
         left: calc(31px * var(--marcan-home-wide-scale));
         max-width: calc(591px * var(--marcan-home-wide-scale));
         top: calc(31px * var(--marcan-home-wide-scale));
