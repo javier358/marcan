@@ -31,7 +31,7 @@
 
 .marcan-home-projects-intro-copy p {
     color: var(--marcan-ink);
-    font-size: 24px;
+    font-size: var(--mt-subtitulo-d);
     font-weight: 300;
     line-height: 1.38;
     margin: 0;
@@ -41,7 +41,7 @@
 .marcan-home-projects-intro-title {
     font-family: Bitter, Georgia, serif;
     color: var(--marcan-ink);
-    font-size: 40px;
+    font-size: var(--mt-titular-d);
     font-weight: 400;
     letter-spacing: 0.01em;
     line-height: 1.2;
@@ -97,7 +97,7 @@
 
 .marcan-home-projects-heading h2 {
     color: var(--marcan-ink);
-    font-size: 26px;
+    font-size: var(--mt-seccion-d);
     font-weight: 400;
     letter-spacing: 0.01em;
     line-height: 1.2;
@@ -271,7 +271,7 @@
 .marcan-home-project-card-title-row h3 {
     color: var(--marcan-ink);
     font-family: Bitter, Georgia, serif;
-    font-size: 25px;
+    font-size: var(--mt-card-d);
     font-weight: 400;
     line-height: 1.3;
     margin: 0;
@@ -341,7 +341,7 @@
 
 .marcan-home-project-card-price strong {
     color: #838382;
-    font-size: 25px;
+    font-size: var(--mt-precio-d);
     font-weight: 400;
     line-height: 1.3;
     overflow-wrap: anywhere;
@@ -358,7 +358,7 @@
     color: #838382;
     display: flex;
     gap: 10px;
-    font-size: 21px;
+    font-size: var(--mt-datos-d);
     font-weight: 300;
     line-height: 1.4;
     overflow-wrap: anywhere;

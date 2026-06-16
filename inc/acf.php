@@ -395,6 +395,38 @@ function marcan_register_field_groups(): void
     ));
 
     acf_add_local_field_group(array(
+        'key' => 'group_marcan_home_typography',
+        'title' => 'Global - Tipografia Home',
+        'fields' => array(
+            marcan_acf_tab('field_marcan_tab_mt_desktop', 'Escritorio'),
+            array('key' => 'field_marcan_mt_titular_d', 'label' => 'Titular — Escritorio', 'name' => 'mt_titular_d', 'type' => 'text', 'default_value' => '40px', 'instructions' => 'Título grande serif del home: «Hacemos las cosas diferente» y el título de «Proyectos entregados». Vista escritorio. Ej: 40px.'),
+            array('key' => 'field_marcan_mt_subtitulo_d', 'label' => 'Bajada / subtítulo — Escritorio', 'name' => 'mt_subtitulo_d', 'type' => 'text', 'default_value' => '24px', 'instructions' => 'Texto de introducción que va bajo el titular del home. Vista escritorio. Ej: 24px.'),
+            array('key' => 'field_marcan_mt_seccion_d', 'label' => 'Título de sección — Escritorio', 'name' => 'mt_seccion_d', 'type' => 'text', 'default_value' => '26px', 'instructions' => 'Títulos «Departamentos en venta» y «Oficinas en venta». Vista escritorio. Ej: 26px.'),
+            array('key' => 'field_marcan_mt_card_d', 'label' => 'Título de tarjeta — Escritorio', 'name' => 'mt_card_d', 'type' => 'text', 'default_value' => '25px', 'instructions' => 'Nombre del proyecto en las tarjetas (ej. «Llano Zapata 430»). Vista escritorio. Ej: 25px.'),
+            array('key' => 'field_marcan_mt_precio_d', 'label' => 'Precio — Escritorio', 'name' => 'mt_precio_d', 'type' => 'text', 'default_value' => '25px', 'instructions' => 'Precio en las tarjetas (ej. «S/ 965,000»). Vista escritorio. Ej: 25px.'),
+            array('key' => 'field_marcan_mt_datos_d', 'label' => 'Datos / características — Escritorio', 'name' => 'mt_datos_d', 'type' => 'text', 'default_value' => '21px', 'instructions' => 'Características de la tarjeta: dormitorios, m², etc. Vista escritorio. Ej: 21px.'),
+            array('key' => 'field_marcan_mt_menu_d', 'label' => 'Botón MENÚ — Escritorio', 'name' => 'mt_menu_d', 'type' => 'text', 'default_value' => '20px', 'instructions' => 'Texto del botón «MENÚ» del encabezado. Vista escritorio. Ej: 20px.'),
+            array('key' => 'field_marcan_mt_menuitem_d', 'label' => 'Ítems del menú — Escritorio', 'name' => 'mt_menuitem_d', 'type' => 'text', 'default_value' => '20px', 'instructions' => 'Enlaces del menú desplegable (Quiénes somos, Departamentos, etc.). Vista escritorio. Ej: 20px.'),
+            marcan_acf_tab('field_marcan_tab_mt_mobile', 'Móvil'),
+            array('key' => 'field_marcan_mt_titular_m', 'label' => 'Titular — Móvil', 'name' => 'mt_titular_m', 'type' => 'text', 'default_value' => '26px', 'instructions' => 'Título grande serif del home en celular. Ej: 26px.'),
+            array('key' => 'field_marcan_mt_subtitulo_m', 'label' => 'Bajada / subtítulo — Móvil', 'name' => 'mt_subtitulo_m', 'type' => 'text', 'default_value' => '16px', 'instructions' => 'Texto de introducción del hero en celular. Ej: 16px.'),
+            array('key' => 'field_marcan_mt_seccion_m', 'label' => 'Título de sección — Móvil', 'name' => 'mt_seccion_m', 'type' => 'text', 'default_value' => '21px', 'instructions' => 'Títulos «Departamentos en venta» / «Oficinas en venta» en celular. Ej: 21px.'),
+            array('key' => 'field_marcan_mt_card_m', 'label' => 'Título de tarjeta — Móvil', 'name' => 'mt_card_m', 'type' => 'text', 'default_value' => '21px', 'instructions' => 'Nombre del proyecto en las tarjetas en celular. Ej: 21px.'),
+            array('key' => 'field_marcan_mt_precio_m', 'label' => 'Precio — Móvil', 'name' => 'mt_precio_m', 'type' => 'text', 'default_value' => '21px', 'instructions' => 'Precio en las tarjetas en celular. Ej: 21px.'),
+            array('key' => 'field_marcan_mt_datos_m', 'label' => 'Datos / características — Móvil', 'name' => 'mt_datos_m', 'type' => 'text', 'default_value' => '14px', 'instructions' => 'Características de la tarjeta (dormitorios, m²) en celular. Ej: 14px.'),
+            array('key' => 'field_marcan_mt_menu_m', 'label' => 'Botón MENÚ — Móvil', 'name' => 'mt_menu_m', 'type' => 'text', 'default_value' => '18px', 'instructions' => 'Texto del botón «MENÚ» del encabezado en celular. Ej: 18px.'),
+            array('key' => 'field_marcan_mt_menuitem_m', 'label' => 'Ítems del menú — Móvil', 'name' => 'mt_menuitem_m', 'type' => 'text', 'default_value' => '16px', 'instructions' => 'Enlaces del menú desplegable en celular. Ej: 16px.'),
+        ),
+        'location' => array(
+            array(
+                array('param' => 'options_page', 'operator' => '==', 'value' => 'marcan-global-settings'),
+            ),
+        ),
+        'menu_order' => 3,
+        'active' => true,
+    ));
+
+    acf_add_local_field_group(array(
         'key' => 'group_marcan_home_page',
         'title' => 'Inicio - Contenido',
         'fields' => array(

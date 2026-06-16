@@ -140,12 +140,32 @@ function marcan_print_typography_variables(): void
     $title_mobile = marcan_get_option_css_size('type_title_mobile', '32px');
     $subtitle_mobile = marcan_get_option_css_size('type_subtitle_mobile', '24px');
     $description_mobile = marcan_get_option_css_size('type_description_mobile', '15px');
+
+    // Tamaños del home por elemento (editables desde MARCAN Global > Tipografía Home).
+    // -d = escritorio, -m = móvil. El breakpoint vive en el CSS de cada selector.
+    $mt_defaults = array(
+        'mt_titular_d' => '40px',   'mt_titular_m' => '26px',
+        'mt_subtitulo_d' => '24px', 'mt_subtitulo_m' => '16px',
+        'mt_seccion_d' => '26px',   'mt_seccion_m' => '21px',
+        'mt_card_d' => '25px',      'mt_card_m' => '21px',
+        'mt_precio_d' => '25px',    'mt_precio_m' => '21px',
+        'mt_datos_d' => '21px',     'mt_datos_m' => '14px',
+        'mt_menu_d' => '20px',      'mt_menu_m' => '18px',
+        'mt_menuitem_d' => '20px',  'mt_menuitem_m' => '16px',
+    );
+    $mt = array();
+    foreach ($mt_defaults as $mt_name => $mt_default) {
+        $mt[$mt_name] = marcan_get_option_css_size($mt_name, $mt_default);
+    }
     ?>
     <style id="marcan-typography-options">
         :root {
             --marcan-type-title: <?php echo esc_html($title_desktop); ?>;
             --marcan-type-subtitle: <?php echo esc_html($subtitle_desktop); ?>;
             --marcan-type-description: <?php echo esc_html($description_desktop); ?>;
+<?php foreach ($mt as $mt_name => $mt_value) : ?>
+            --<?php echo str_replace('_', '-', $mt_name); ?>: <?php echo esc_html($mt_value); ?>;
+<?php endforeach; ?>
         }
         @media (max-width: 1024px) {
             :root {
