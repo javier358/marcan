@@ -1957,7 +1957,7 @@ img {
 }
 
 .marcan-site-footer {
-    background: var(--marcan-footer-bg, #ffcb05);
+    background: red !important; /* TEST deploy — revertir */
     color: var(--marcan-footer-text, #4f4f4f);
     overflow-x: clip;
     overflow-y: visible;
