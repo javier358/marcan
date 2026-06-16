@@ -14,8 +14,9 @@ Pipeline:
 4. `git add` + `git commit` (mensajes pequenos y claros).
 5. `git push origin main`.
 6. GitHub Actions (`.github/workflows/deploy-staging.yml`) entra por SSH al server cPanel y hace
-   `git fetch origin main && git reset --hard origin/main` dentro de la carpeta del theme en vivo
-   → staging `https://new.marcan.com.pe/` queda actualizado.
+   `git fetch origin main && git checkout -f -B main origin/main` dentro de la carpeta del theme en
+   vivo → staging `https://new.marcan.com.pe/` queda actualizado. (El `checkout -f -B main`
+   auto-corrige la rama del server si quedo en otra.)
 
 ### Infra del deploy
 

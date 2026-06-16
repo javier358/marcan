@@ -22,7 +22,9 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Pull en el server (deploy)
+        # checkout -f -B main: deja el working tree (theme en vivo) exactamente en origin/main,
+        # auto-corrigiendo aunque el server este en otra rama. No toca uploads ni la DB.
         run: |
           ssh -p 55222 -o StrictHostKeyChecking=accept-new \
             newmarcancom@new.marcan.com.pe \
-            "cd /home/newmarcancom/public_html/wp-content/themes/marcan-theme && git fetch origin main && git reset --hard origin/main"
+            "cd /home/newmarcancom/public_html/wp-content/themes/marcan-theme && git fetch origin main && git checkout -f -B main origin/main"
