@@ -1,5 +1,5 @@
 .marcan-site-footer {
-    background: red !important; /* TEST deploy — revertir */
+    background: var(--marcan-footer-bg, #ffcb05);
     color: var(--marcan-footer-text, #4f4f4f);
     overflow-x: clip;
     overflow-y: visible;
