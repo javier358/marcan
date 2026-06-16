@@ -68,7 +68,8 @@ $members = array(
     marcan_get_option_media_attachment_url('footer_member_2'),
     marcan_get_option_media_attachment_url('footer_member_3'),
 );
-$complaint_url = marcan_page_url('libro-de-reclamaciones');
+$complaint_page = get_page_by_path('libro-de-reclamaciones');
+$complaint_url = $complaint_page instanceof WP_Post ? get_permalink($complaint_page) : home_url('/libro-de-reclamaciones/');
 $complaint_icon = marcan_get_option_media_attachment_url('footer_complaint_icon');
 if ($complaint_icon === '') {
     $complaint_icon = marcan_asset_uri('images/libro-reclamaciones.svg');
