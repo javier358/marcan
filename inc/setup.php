@@ -45,6 +45,7 @@ function marcan_required_pages(): array
         'oficinas' => array('title' => 'Oficinas', 'template' => 'page-oficinas.php'),
         'blog' => array('title' => 'Blog', 'template' => 'page-blog.php'),
         'politicas-de-privacidad' => array('title' => 'Políticas de privacidad', 'template' => 'page-politicas-privacidad.php'),
+        'libro-de-reclamaciones' => array('title' => 'Libro de Reclamaciones', 'template' => 'page-libro-reclamaciones.php'),
     );
 }
 

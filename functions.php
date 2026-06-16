@@ -19,6 +19,7 @@ $marcan_includes = array(
     'inc/enqueue.php',
     'inc/cpt.php',
     'inc/contact.php',
+    'inc/reclamaciones.php',
     'inc/about.php',
     'inc/iconic-projects.php',
     'inc/blog.php',

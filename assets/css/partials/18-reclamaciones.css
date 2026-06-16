@@ -1,0 +1,204 @@
+.marcan-page-shell-complaint {
+    background: #ffffff;
+    color: var(--marcan-ink);
+}
+
+.marcan-complaint-body {
+    padding: 40px 16px 90px;
+}
+
+.marcan-complaint-inner {
+    margin: 0 auto;
+    max-width: 880px;
+}
+
+.marcan-complaint-provider {
+    border: 1px solid #e6e4df;
+    border-radius: var(--marcan-radius);
+    color: var(--marcan-ink);
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 18px 22px;
+}
+
+.marcan-complaint-provider p {
+    margin: 0;
+}
+
+.marcan-complaint-provider .marcan-complaint-date {
+    color: #838382;
+    margin-top: 6px;
+}
+
+.marcan-complaint-intro {
+    color: #5b5b5b;
+    font-size: 15px;
+    line-height: 1.55;
+    margin: 22px 0 32px;
+}
+
+.marcan-complaint-fieldset {
+    border: none;
+    border-top: 1px solid #e6e4df;
+    margin: 0 0 8px;
+    padding: 24px 0 8px;
+}
+
+.marcan-complaint-fieldset legend {
+    color: var(--marcan-ink);
+    font-family: Bitter, Georgia, serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.2;
+    padding: 0;
+}
+
+.marcan-complaint-grid {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 20px;
+}
+
+.marcan-complaint-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+}
+
+.marcan-complaint-field-wide {
+    grid-column: 1 / -1;
+}
+
+.marcan-complaint-field > span,
+.marcan-complaint-label {
+    color: var(--marcan-ink);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.marcan-complaint-field input,
+.marcan-complaint-field select,
+.marcan-complaint-field textarea {
+    background: #fbfaf8;
+    border: 1px solid #d8d5cf;
+    border-radius: 6px;
+    box-sizing: border-box;
+    color: var(--marcan-ink);
+    font-family: inherit;
+    font-size: 15px;
+    padding: 11px 14px;
+    width: 100%;
+}
+
+.marcan-complaint-field textarea {
+    resize: vertical;
+}
+
+.marcan-complaint-field input:focus,
+.marcan-complaint-field select:focus,
+.marcan-complaint-field textarea:focus {
+    border-color: var(--marcan-yellow);
+    outline: none;
+}
+
+.marcan-complaint-radios {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-top: 4px;
+}
+
+.marcan-complaint-radios label {
+    align-items: center;
+    color: var(--marcan-ink);
+    display: inline-flex;
+    font-size: 15px;
+    gap: 8px;
+}
+
+.marcan-complaint-hint {
+    color: #838382;
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 8px 0 0;
+}
+
+.marcan-complaint-check {
+    align-items: flex-start;
+    color: #5b5b5b;
+    display: flex;
+    font-size: 13px;
+    gap: 10px;
+    line-height: 1.5;
+    margin: 18px 0;
+}
+
+.marcan-complaint-check input {
+    flex: 0 0 auto;
+    margin-top: 2px;
+}
+
+.marcan-complaint-actions {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 12px;
+}
+
+.marcan-complaint-submit {
+    background: var(--marcan-ink);
+    border: none;
+    border-radius: 0;
+    color: var(--marcan-white);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 13px 28px;
+    transition: opacity 0.2s var(--marcan-ease);
+}
+
+.marcan-complaint-submit:hover {
+    opacity: 0.88;
+}
+
+.marcan-complaint-submit:disabled {
+    cursor: default;
+    opacity: 0.6;
+}
+
+.marcan-complaint-feedback {
+    font-size: 14px;
+    line-height: 1.45;
+    margin: 0;
+}
+
+.marcan-complaint-feedback.is-ok {
+    color: #1f7a3d;
+}
+
+.marcan-complaint-feedback.is-error {
+    color: #c0392b;
+}
+
+@media (max-width: 900px) {
+    .marcan-complaint-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .marcan-complaint-fieldset legend {
+        font-size: 20px;
+    }
+
+    .marcan-complaint-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .marcan-complaint-submit {
+        width: 100%;
+    }
+}

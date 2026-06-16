@@ -47,6 +47,7 @@ $footer_company_fallback = array(
     array('label' => 'Proyectos icónicos', 'url' => marcan_page_url('quienes-somos')),
     array('label' => 'Blog', 'url' => marcan_page_url('blog')),
     array('label' => 'Políticas de privacidad', 'url' => marcan_page_url('politicas-de-privacidad')),
+    array('label' => 'Libro de Reclamaciones', 'url' => marcan_page_url('libro-de-reclamaciones')),
     array('label' => 'Contáctanos', 'url' => '#contacto'),
 );
 if (is_array($projects_button) && !empty($projects_button['url'])) {
