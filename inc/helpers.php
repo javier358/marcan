@@ -131,8 +131,8 @@ function marcan_get_option_css_size(string $field_name, string $fallback): strin
 
 function marcan_print_typography_variables(): void
 {
-    $title_desktop = marcan_get_option_css_size('type_title_desktop', 'clamp(42px, 5vw, 80px)');
-    $subtitle_desktop = marcan_get_option_css_size('type_subtitle_desktop', 'clamp(24px, 2.6vw, 42px)');
+    $title_desktop = marcan_get_option_css_size('type_title_desktop', '40px');
+    $subtitle_desktop = marcan_get_option_css_size('type_subtitle_desktop', '24px');
     $description_desktop = marcan_get_option_css_size('type_description_desktop', '18px');
     $title_tablet = marcan_get_option_css_size('type_title_tablet', '40px');
     $subtitle_tablet = marcan_get_option_css_size('type_subtitle_tablet', '30px');
@@ -150,6 +150,7 @@ function marcan_print_typography_variables(): void
         'mt_card_d' => '25px',      'mt_card_m' => '21px',
         'mt_precio_d' => '25px',    'mt_precio_m' => '21px',
         'mt_datos_d' => '21px',     'mt_datos_m' => '14px',
+        'mt_texto_d' => '18px',     'mt_texto_m' => '16px',
         'mt_menu_d' => '20px',      'mt_menu_m' => '18px',
         'mt_menuitem_d' => '20px',  'mt_menuitem_m' => '16px',
     );

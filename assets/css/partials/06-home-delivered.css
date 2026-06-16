@@ -117,12 +117,12 @@
     }
 
     .marcan-home-projects-intro-copy p {
-        font-size: calc(var(--mt-subtitulo-d) * var(--marcan-home-wide-scale));
+        font-size: var(--mt-subtitulo-d);
         max-width: calc(592px * var(--marcan-home-wide-scale));
     }
 
     .marcan-home-projects-intro-title {
-        font-size: calc(var(--mt-titular-d) * var(--marcan-home-wide-scale));
+        font-size: var(--mt-titular-d);
         left: calc(30px * var(--marcan-home-wide-scale));
         max-width: calc(591px * var(--marcan-home-wide-scale));
         top: calc(341px * var(--marcan-home-wide-scale));
@@ -145,7 +145,7 @@
     }
 
     .marcan-home-projects-heading h2 {
-        font-size: calc(var(--mt-seccion-d) * var(--marcan-home-wide-scale));
+        font-size: var(--mt-seccion-d);
     }
 
     .marcan-home-projects-heading-button,
@@ -192,7 +192,7 @@
     }
 
     .marcan-home-project-card-title-row h3 {
-        font-size: calc(var(--mt-card-d) * var(--marcan-home-wide-scale));
+        font-size: var(--mt-card-d);
     }
 
     .marcan-home-project-card-divider {
@@ -220,7 +220,7 @@
     }
 
     .marcan-home-project-card-price strong {
-        font-size: calc(var(--mt-precio-d) * var(--marcan-home-wide-scale));
+        font-size: var(--mt-precio-d);
     }
 
     .marcan-home-project-card-specs {
@@ -228,7 +228,7 @@
     }
 
     .marcan-home-project-card-spec {
-        font-size: calc(var(--mt-datos-d) * var(--marcan-home-wide-scale));
+        font-size: var(--mt-datos-d);
         gap: calc(10px * var(--marcan-home-wide-scale));
     }
 
@@ -252,7 +252,7 @@
     }
 
     .marcan-home-delivered-copy h2 {
-        font-size: calc(var(--mt-titular-d) * var(--marcan-home-wide-scale));
+        font-size: var(--mt-titular-d);
         left: calc(31px * var(--marcan-home-wide-scale));
         max-width: calc(591px * var(--marcan-home-wide-scale));
         top: calc(31px * var(--marcan-home-wide-scale));

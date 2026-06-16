@@ -14,17 +14,18 @@ body.ml-loading .marcan-global-whatsapp { opacity: 0; pointer-events: none; tran
     --marcan-max: 1180px;
     --marcan-radius: 8px;
     --marcan-ease: cubic-bezier(0.19, 1, 0.22, 1);
-    --marcan-type-title: clamp(42px, 5vw, 80px);
-    --marcan-type-subtitle: clamp(24px, 2.6vw, 42px);
+    --marcan-type-title: 40px;
+    --marcan-type-subtitle: 24px;
     --marcan-type-description: 18px;
 
-    /* Tipografía del home editable desde MARCAN Global (px). -d = desktop, -m = móvil. */
+    /* Tipografía global editable desde MARCAN Global (px). -d = desktop, -m = móvil. */
     --mt-titular-d: 40px;   --mt-titular-m: 26px;
     --mt-subtitulo-d: 24px; --mt-subtitulo-m: 16px;
     --mt-seccion-d: 26px;   --mt-seccion-m: 21px;
     --mt-card-d: 25px;      --mt-card-m: 21px;
     --mt-precio-d: 25px;    --mt-precio-m: 21px;
     --mt-datos-d: 21px;     --mt-datos-m: 14px;
+    --mt-texto-d: 18px;     --mt-texto-m: 16px;
     --mt-menu-d: 20px;      --mt-menu-m: 18px;
     --mt-menuitem-d: 20px;  --mt-menuitem-m: 16px;
 }
@@ -1817,12 +1818,12 @@ img {
     }
 
     .marcan-home-projects-intro-copy p {
-        font-size: calc(var(--mt-subtitulo-d) * var(--marcan-home-wide-scale));
+        font-size: var(--mt-subtitulo-d);
         max-width: calc(592px * var(--marcan-home-wide-scale));
     }
 
     .marcan-home-projects-intro-title {
-        font-size: calc(var(--mt-titular-d) * var(--marcan-home-wide-scale));
+        font-size: var(--mt-titular-d);
         left: calc(30px * var(--marcan-home-wide-scale));
         max-width: calc(591px * var(--marcan-home-wide-scale));
         top: calc(341px * var(--marcan-home-wide-scale));
@@ -1845,7 +1846,7 @@ img {
     }
 
     .marcan-home-projects-heading h2 {
-        font-size: calc(var(--mt-seccion-d) * var(--marcan-home-wide-scale));
+        font-size: var(--mt-seccion-d);
     }
 
     .marcan-home-projects-heading-button,
@@ -1892,7 +1893,7 @@ img {
     }
 
     .marcan-home-project-card-title-row h3 {
-        font-size: calc(var(--mt-card-d) * var(--marcan-home-wide-scale));
+        font-size: var(--mt-card-d);
     }
 
     .marcan-home-project-card-divider {
@@ -1920,7 +1921,7 @@ img {
     }
 
     .marcan-home-project-card-price strong {
-        font-size: calc(var(--mt-precio-d) * var(--marcan-home-wide-scale));
+        font-size: var(--mt-precio-d);
     }
 
     .marcan-home-project-card-specs {
@@ -1928,7 +1929,7 @@ img {
     }
 
     .marcan-home-project-card-spec {
-        font-size: calc(var(--mt-datos-d) * var(--marcan-home-wide-scale));
+        font-size: var(--mt-datos-d);
         gap: calc(10px * var(--marcan-home-wide-scale));
     }
 
@@ -1952,7 +1953,7 @@ img {
     }
 
     .marcan-home-delivered-copy h2 {
-        font-size: calc(var(--mt-titular-d) * var(--marcan-home-wide-scale));
+        font-size: var(--mt-titular-d);
         left: calc(31px * var(--marcan-home-wide-scale));
         max-width: calc(591px * var(--marcan-home-wide-scale));
         top: calc(31px * var(--marcan-home-wide-scale));
@@ -10336,4 +10337,289 @@ body.has-unit-share-sheet {
 .marcan-about-facts {
     position: relative;
     width: 100%;
+}
+
+/*
+ * Roles tipográficos globales — fuente única de verdad.
+ * Aplica los tamaños editables (--mt-*) del acta a TODA la web bajo la misma
+ * lógica que el home. Carga al final para sobrescribir los px sueltos de cada
+ * partial. Solo toca font-size (no familia/peso). Todo en px, sin clamp.
+ * -d = escritorio (>900px), -m = móvil (<=900px). Editable en MARCAN Global.
+ */
+
+/* ===== TITULAR (Bitter) ===== */
+.marcan-property-archive-copy h1,
+.marcan-property-sticky-quote h1,
+.marcan-property-map-info h2,
+.marcan-property-quote blockquote,
+.marcan-about-hero-copy p,
+.marcan-iconic-title-block h1,
+.marcan-iconic-cta h2,
+.marcan-blog-hero-title,
+.marcan-single-hero h1,
+.marcan-blog-about-copy h2,
+.marcan-blog-cta h2,
+.marcan-single-contact-form-area h2,
+.marcan-privacy-hero h1,
+.marcan-property-plan-lightbox-unit-title {
+    font-size: var(--mt-titular-d);
+}
+
+/* ===== TÍTULO DE SECCIÓN ===== */
+.marcan-property-archive-search-copy h2,
+.marcan-property-archive-reasons h2,
+.marcan-property-concept h2,
+.marcan-property-tour h2,
+.marcan-property-gallery-row h2,
+.marcan-property-delivery,
+.marcan-property-units h2,
+.marcan-property-gallery-side h2,
+.marcan-property-related h2,
+.marcan-property-related-intro h2,
+.marcan-property-architecture-copy h2,
+.marcan-about-section-title,
+.marcan-about-promise-card-inner h2,
+.marcan-iconic-copy h2,
+.marcan-iconic-facade-card h2,
+.marcan-iconic-details h2,
+.marcan-blog-main-text h2,
+.marcan-single-content h2,
+.marcan-single-sidebar-group h2,
+.marcan-single-contact-info h3,
+.marcan-blog-content-labels,
+.marcan-blog-about-stat-label,
+.marcan-privacy-content h2,
+.marcan-privacy-section h2,
+.marcan-privacy-prose h2,
+.marcan-privacy-prose h3,
+.marcan-privacy-contact-card h2,
+.marcan-property-plan-lightbox-legend-heading {
+    font-size: var(--mt-seccion-d);
+}
+
+/* ===== TÍTULO DE TARJETA (nombre de proyecto/propiedad/post) ===== */
+.marcan-property-listing-title h2,
+.marcan-property-related-grid .marcan-property-listing-title h2,
+.marcan-property-pricing-row,
+.marcan-property-unit-info h3,
+.marcan-about-timeline-info-title,
+.marcan-blog-placeholder-card h2,
+.marcan-single-sidebar-card-name {
+    font-size: var(--mt-card-d);
+}
+
+/* ===== PRECIO ===== */
+.marcan-property-listing-price strong,
+.marcan-property-price-block strong,
+.marcan-property-related-grid .marcan-property-listing-price strong {
+    font-size: var(--mt-precio-d);
+}
+
+/* ===== DATOS / CARACTERÍSTICAS / METADATA ===== */
+.marcan-property-archive-reasons p,
+.marcan-property-listing-price span,
+.marcan-property-listing-spec,
+.marcan-property-listing-specs,
+.marcan-property-sticky-subtitle,
+.marcan-property-price-block span,
+.marcan-property-price-block small,
+.marcan-property-pricing-head,
+.marcan-property-unit-features dt,
+.marcan-property-unit-features dd,
+.marcan-property-map-nearby-group strong,
+.marcan-property-quote cite,
+.marcan-property-related-grid .marcan-property-listing-title p,
+.marcan-property-related-grid .marcan-property-listing-price span,
+.marcan-property-related-grid .marcan-property-listing-specs,
+.marcan-about-timeline-info-district,
+.marcan-about-timeline-info-year,
+.marcan-about-team-meta p,
+.marcan-iconic-title-block p,
+.marcan-iconic-designer-role,
+.marcan-iconic-gallery-track figcaption,
+.marcan-blog-placeholder-card time,
+.marcan-post-placeholder time,
+.marcan-single-hero-top time,
+.marcan-single-sidebar-card-district,
+.marcan-single-contact-field label,
+.marcan-single-contact-info-details p,
+.marcan-property-plan-lightbox-legend-cols ol,
+.marcan-property-plan-lightbox-legend-group strong {
+    font-size: var(--mt-datos-d);
+}
+
+/* ===== SUBTÍTULO / BAJADA / INTRO ===== */
+.marcan-property-archive-copy p,
+.marcan-property-archive-search-copy p,
+.marcan-property-listing-title p,
+.marcan-property-intro,
+.marcan-property-map-nearby p,
+.marcan-iconic-summary,
+.marcan-single-content > p:first-child,
+.marcan-single-content > p:nth-child(2),
+.marcan-blog-about-copy p:last-child {
+    font-size: var(--mt-subtitulo-d);
+}
+
+/* ===== TEXTO / CUERPO ===== */
+.marcan-property-listing-copy p,
+.marcan-property-concept p,
+.marcan-property-map-description,
+.marcan-property-map-nearby-group ol,
+.marcan-property-map-nearby-group li,
+.marcan-property-architecture-copy p,
+.marcan-property-unit-plan-modal p,
+.marcan-about-reason-text,
+.marcan-about-promise-card-inner p,
+.marcan-about-award-content,
+.marcan-iconic-copy div,
+.marcan-iconic-facade-card p,
+.marcan-iconic-details p,
+.marcan-blog-placeholder-card p,
+.marcan-post-placeholder-content,
+.marcan-single-content p,
+.marcan-privacy-content,
+.marcan-privacy-intro p,
+.marcan-privacy-section p,
+.marcan-privacy-prose p,
+.marcan-privacy-prose li,
+.marcan-privacy-contact-card p,
+.marcan-property-plan-lightbox-legend-group ul {
+    font-size: var(--mt-texto-d);
+}
+
+@media (max-width: 900px) {
+    .marcan-property-archive-copy h1,
+    .marcan-property-sticky-quote h1,
+    .marcan-property-map-info h2,
+    .marcan-property-quote blockquote,
+    .marcan-about-hero-copy p,
+    .marcan-iconic-title-block h1,
+    .marcan-iconic-cta h2,
+    .marcan-blog-hero-title,
+    .marcan-single-hero h1,
+    .marcan-blog-about-copy h2,
+    .marcan-blog-cta h2,
+    .marcan-single-contact-form-area h2,
+    .marcan-privacy-hero h1,
+    .marcan-property-plan-lightbox-unit-title {
+        font-size: var(--mt-titular-m);
+    }
+
+    .marcan-property-archive-search-copy h2,
+    .marcan-property-archive-reasons h2,
+    .marcan-property-concept h2,
+    .marcan-property-tour h2,
+    .marcan-property-gallery-row h2,
+    .marcan-property-delivery,
+    .marcan-property-units h2,
+    .marcan-property-gallery-side h2,
+    .marcan-property-related h2,
+    .marcan-property-related-intro h2,
+    .marcan-property-architecture-copy h2,
+    .marcan-about-section-title,
+    .marcan-about-promise-card-inner h2,
+    .marcan-iconic-copy h2,
+    .marcan-iconic-facade-card h2,
+    .marcan-iconic-details h2,
+    .marcan-blog-main-text h2,
+    .marcan-single-content h2,
+    .marcan-single-sidebar-group h2,
+    .marcan-single-contact-info h3,
+    .marcan-blog-content-labels,
+    .marcan-blog-about-stat-label,
+    .marcan-privacy-content h2,
+    .marcan-privacy-section h2,
+    .marcan-privacy-prose h2,
+    .marcan-privacy-prose h3,
+    .marcan-privacy-contact-card h2,
+    .marcan-property-plan-lightbox-legend-heading {
+        font-size: var(--mt-seccion-m);
+    }
+
+    .marcan-property-listing-title h2,
+    .marcan-property-related-grid .marcan-property-listing-title h2,
+    .marcan-property-pricing-row,
+    .marcan-property-unit-info h3,
+    .marcan-about-timeline-info-title,
+    .marcan-blog-placeholder-card h2,
+    .marcan-single-sidebar-card-name {
+        font-size: var(--mt-card-m);
+    }
+
+    .marcan-property-listing-price strong,
+    .marcan-property-price-block strong,
+    .marcan-property-related-grid .marcan-property-listing-price strong {
+        font-size: var(--mt-precio-m);
+    }
+
+    .marcan-property-archive-reasons p,
+    .marcan-property-listing-price span,
+    .marcan-property-listing-spec,
+    .marcan-property-listing-specs,
+    .marcan-property-sticky-subtitle,
+    .marcan-property-price-block span,
+    .marcan-property-price-block small,
+    .marcan-property-pricing-head,
+    .marcan-property-unit-features dt,
+    .marcan-property-unit-features dd,
+    .marcan-property-map-nearby-group strong,
+    .marcan-property-quote cite,
+    .marcan-property-related-grid .marcan-property-listing-title p,
+    .marcan-property-related-grid .marcan-property-listing-price span,
+    .marcan-property-related-grid .marcan-property-listing-specs,
+    .marcan-about-timeline-info-district,
+    .marcan-about-timeline-info-year,
+    .marcan-about-team-meta p,
+    .marcan-iconic-title-block p,
+    .marcan-iconic-designer-role,
+    .marcan-iconic-gallery-track figcaption,
+    .marcan-blog-placeholder-card time,
+    .marcan-post-placeholder time,
+    .marcan-single-hero-top time,
+    .marcan-single-sidebar-card-district,
+    .marcan-single-contact-field label,
+    .marcan-single-contact-info-details p,
+    .marcan-property-plan-lightbox-legend-cols ol,
+    .marcan-property-plan-lightbox-legend-group strong {
+        font-size: var(--mt-datos-m);
+    }
+
+    .marcan-property-archive-copy p,
+    .marcan-property-archive-search-copy p,
+    .marcan-property-listing-title p,
+    .marcan-property-intro,
+    .marcan-property-map-nearby p,
+    .marcan-iconic-summary,
+    .marcan-single-content > p:first-child,
+    .marcan-single-content > p:nth-child(2),
+    .marcan-blog-about-copy p:last-child {
+        font-size: var(--mt-subtitulo-m);
+    }
+
+    .marcan-property-listing-copy p,
+    .marcan-property-concept p,
+    .marcan-property-map-description,
+    .marcan-property-map-nearby-group ol,
+    .marcan-property-map-nearby-group li,
+    .marcan-property-architecture-copy p,
+    .marcan-property-unit-plan-modal p,
+    .marcan-about-reason-text,
+    .marcan-about-promise-card-inner p,
+    .marcan-about-award-content,
+    .marcan-iconic-copy div,
+    .marcan-iconic-facade-card p,
+    .marcan-iconic-details p,
+    .marcan-blog-placeholder-card p,
+    .marcan-post-placeholder-content,
+    .marcan-single-content p,
+    .marcan-privacy-content,
+    .marcan-privacy-intro p,
+    .marcan-privacy-section p,
+    .marcan-privacy-prose p,
+    .marcan-privacy-prose li,
+    .marcan-privacy-contact-card p,
+    .marcan-property-plan-lightbox-legend-group ul {
+        font-size: var(--mt-texto-m);
+    }
 }
