@@ -1,0 +1,28 @@
+name: Deploy theme to staging (new.marcan.com.pe)
+
+# Despliega el theme en staging haciendo `git pull` por SSH en el server cPanel.
+# El working tree de git en el server ES la carpeta del theme en vivo, asi que el
+# pull actualiza los archivos directamente. NO toca uploads ni la base de datos.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+concurrency:
+  group: deploy-staging
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cargar clave SSH de deploy
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Pull en el server (deploy)
+        run: |
+          ssh -p 55222 -o StrictHostKeyChecking=accept-new \
+            newmarcancom@new.marcan.com.pe \
+            "cd /home/newmarcancom/public_html/wp-content/themes/marcan-theme && git fetch origin main && git reset --hard origin/main"

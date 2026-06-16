@@ -1,5 +1,45 @@
 # Deployment Notes
 
+## Flujo de deploy automatico (staging)
+
+Solo se versiona y despliega el **theme** (`marcan-theme`). La base de datos y
+`wp-content/uploads` (contenido e imagenes del cliente) **nunca** se tocan: viven fuera del repo.
+Regla de alcance: **solo estructura y CSS** (PHP de templates, CSS/JS, `acf-json`, `assets/images`).
+
+Pipeline:
+
+1. Editar en local (`C:\Users\USUARIO\Local Sites\marcan-web`, theme `marcan-theme`).
+2. Si se tocaron partials CSS, recompilar: `node build-css.js build`.
+3. Validar: `php -l` de los `.php` tocados, `node --check assets/js/theme.js`, `git diff --check`.
+4. `git add` + `git commit` (mensajes pequenos y claros).
+5. `git push origin main`.
+6. GitHub Actions (`.github/workflows/deploy-staging.yml`) entra por SSH al server cPanel y hace
+   `git fetch origin main && git reset --hard origin/main` dentro de la carpeta del theme en vivo
+   → staging `https://new.marcan.com.pe/` queda actualizado.
+
+### Infra del deploy
+
+- **Server cPanel:** usuario `newmarcancom`, SSH `new.marcan.com.pe:55222`.
+- **Repo en el server = carpeta del theme en vivo:** `/home/newmarcancom/public_html/wp-content/themes/marcan-theme`
+  (cPanel Git Version Control, branch checked-out = `main`).
+- **Secret de GitHub:** `SSH_PRIVATE_KEY` (clave privada dedicada; la publica va a
+  `~/.ssh/authorized_keys` del usuario `newmarcancom`).
+- El workflow tambien se puede disparar a mano desde GitHub → Actions → "Run workflow"
+  (`workflow_dispatch`).
+
+### Rollback
+
+- Opcion A: `git revert <commit>` en local + push a `main` (re-deploya el estado corregido).
+- Opcion B: desde cPanel → Git Version Control → Pull or Deploy, checkout de un commit anterior.
+- El `reset --hard` del deploy solo afecta archivos versionados del theme; uploads y DB quedan intactos.
+
+### Reglas operativas
+
+- **No editar archivos del theme directamente en el server** (file manager/SSH). El deploy hace
+  `reset --hard`, asi que cualquier cambio manual en el server se pierde en el siguiente push.
+- Nunca commitear: `wp-content/uploads`, dumps de DB, credenciales, `wp-config.php`, capturas QA
+  (`docs/*.png`) ni scripts puntuales (`tools/`). Ya estan en `.gitignore`.
+
 ## Requirements
 
 - WordPress 6.4 or newer.
