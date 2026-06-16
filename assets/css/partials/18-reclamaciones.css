@@ -184,6 +184,24 @@
     color: #c0392b;
 }
 
+.marcan-site-footer-complaint {
+    display: inline-block;
+    line-height: 0;
+    margin-top: 16px;
+    transition: opacity 0.2s var(--marcan-ease);
+    width: 62px;
+}
+
+.marcan-site-footer-complaint:hover {
+    opacity: 0.85;
+}
+
+.marcan-site-footer-complaint img {
+    display: block;
+    height: auto;
+    width: 100%;
+}
+
 @media (max-width: 900px) {
     .marcan-complaint-grid {
         grid-template-columns: 1fr;

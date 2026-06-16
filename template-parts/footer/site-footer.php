@@ -47,7 +47,6 @@ $footer_company_fallback = array(
     array('label' => 'Proyectos icónicos', 'url' => marcan_page_url('quienes-somos')),
     array('label' => 'Blog', 'url' => marcan_page_url('blog')),
     array('label' => 'Políticas de privacidad', 'url' => marcan_page_url('politicas-de-privacidad')),
-    array('label' => 'Libro de Reclamaciones', 'url' => marcan_page_url('libro-de-reclamaciones')),
     array('label' => 'Contáctanos', 'url' => '#contacto'),
 );
 if (is_array($projects_button) && !empty($projects_button['url'])) {
@@ -69,6 +68,11 @@ $members = array(
     marcan_get_option_media_attachment_url('footer_member_2'),
     marcan_get_option_media_attachment_url('footer_member_3'),
 );
+$complaint_url = marcan_page_url('libro-de-reclamaciones');
+$complaint_icon = marcan_get_option_media_attachment_url('footer_complaint_icon');
+if ($complaint_icon === '') {
+    $complaint_icon = marcan_asset_uri('images/libro-reclamaciones.svg');
+}
 
 $render_links = static function (string $theme_location, array $fallback_items): void {
     if (has_nav_menu($theme_location)) {
@@ -126,6 +130,11 @@ $render_links = static function (string $theme_location, array $fallback_items):
                         <?php endif; ?>
                     <?php endforeach; ?>
                 </div>
+                <?php if ($complaint_icon) : ?>
+                    <a class="marcan-site-footer-complaint" href="<?php echo esc_url($complaint_url); ?>" aria-label="<?php esc_attr_e('Libro de Reclamaciones', 'marcan'); ?>">
+                        <img src="<?php echo esc_url($complaint_icon); ?>" alt="<?php esc_attr_e('Libro de Reclamaciones', 'marcan'); ?>">
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
 
@@ -176,6 +185,11 @@ $render_links = static function (string $theme_location, array $fallback_items):
                     <?php endif; ?>
                 <?php endforeach; ?>
             </div>
+            <?php if ($complaint_icon) : ?>
+                <a class="marcan-site-footer-complaint" href="<?php echo esc_url($complaint_url); ?>" aria-label="<?php esc_attr_e('Libro de Reclamaciones', 'marcan'); ?>">
+                    <img src="<?php echo esc_url($complaint_icon); ?>" alt="<?php esc_attr_e('Libro de Reclamaciones', 'marcan'); ?>">
+                </a>
+            <?php endif; ?>
         </div>
 
         <div class="marcan-site-footer-brand-block">
