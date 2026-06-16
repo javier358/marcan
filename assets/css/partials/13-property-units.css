@@ -147,7 +147,7 @@ body.is-shared-unit-scrolling::after {
     color: #4f4f4f;
     display: flex;
     font-family: Roboto, Inter, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 300;
     justify-content: space-between;
     line-height: 1.2;
@@ -219,7 +219,7 @@ body.is-shared-unit-scrolling::after {
     color: #4f4f4f;
     cursor: pointer;
     font-family: Inter, Arial, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.43;
     padding: 0;
 }
@@ -345,7 +345,7 @@ body.is-shared-unit-scrolling::after {
 
 .marcan-property-unit-plan {
     align-items: center;
-    background: #f0f4f7;
+    background: #ffffff;
     border-radius: 1px;
     display: flex;
     height: 560px;
@@ -365,7 +365,85 @@ body.is-shared-unit-scrolling::after {
 }
 
 .marcan-property-unit-plan[data-unit-plan-zoom] > img {
+    cursor: default;
+}
+
+.marcan-property-unit-plan.is-zoom-enabled > img {
     cursor: none;
+}
+
+.marcan-property-unit-plan-controls {
+    display: flex;
+    gap: 10px;
+    bottom: 14px;
+    position: absolute;
+    right: 14px;
+    z-index: 5;
+}
+
+.marcan-property-unit-plan-action {
+    align-items: center;
+    appearance: none;
+    background: transparent;
+    border: 0;
+    color: #4f4f4f;
+    cursor: pointer;
+    display: inline-flex;
+    height: 30px;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    transition: color 220ms ease, opacity 220ms ease, transform 220ms var(--marcan-ease);
+    width: 30px;
+}
+
+.marcan-property-unit-plan-action:hover,
+.marcan-property-unit-plan-action:focus-visible {
+    color: #262626;
+    opacity: 0.84;
+    transform: translateY(-1px) scale(1.04);
+}
+
+.marcan-property-unit-plan-action.is-zoom[aria-pressed="true"] {
+    color: #997a03;
+}
+
+.marcan-property-unit-plan-action svg {
+    display: block;
+    height: 21px;
+    stroke: currentColor;
+    width: 21px;
+}
+
+.marcan-property-unit-plan-action.is-expand span {
+    height: 22px;
+    position: relative;
+    width: 22px;
+}
+
+.marcan-property-unit-plan-action.is-expand span::before,
+.marcan-property-unit-plan-action.is-expand span::after {
+    border: 1.5px solid currentColor;
+    content: "";
+    display: block;
+    height: 6px;
+    position: absolute;
+    width: 6px;
+}
+
+.marcan-property-unit-plan-action.is-expand span::before {
+    border-bottom: 0;
+    border-right: 0;
+    left: 2px;
+    top: 2px;
+}
+
+.marcan-property-unit-plan-action.is-expand span::after {
+    border-left: 0;
+    border-top: 0;
+    bottom: 2px;
+    right: 2px;
 }
 
 .marcan-property-unit-plan-lens {
@@ -401,7 +479,87 @@ body.is-shared-unit-scrolling::after {
     width: 100%;
 }
 
-.marcan-property-unit-plan span {
+.marcan-property-unit-plan-modal {
+    background: transparent;
+    border: 0;
+    margin: auto;
+    max-height: 94svh;
+    max-width: 94vw;
+    padding: 0;
+    width: min(1200px, 94vw);
+}
+
+.marcan-property-unit-plan-modal::backdrop {
+    background: rgba(0, 0, 0, 0.72);
+}
+
+.marcan-property-unit-plan-modal-inner {
+    background: #ffffff;
+    box-sizing: border-box;
+    display: grid;
+    gap: 14px;
+    grid-template-rows: minmax(0, 1fr) auto;
+    max-height: 94svh;
+    padding: 24px;
+    position: relative;
+}
+
+.marcan-property-unit-plan-modal img {
+    background: #f0f4f7;
+    display: block;
+    height: auto;
+    max-height: calc(94svh - 96px);
+    max-width: 100%;
+    object-fit: contain;
+    width: 100%;
+}
+
+.marcan-property-unit-plan-modal p {
+    color: #4f4f4f;
+    font-family: Inter, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.35;
+    margin: 0;
+    text-align: center;
+}
+
+.marcan-property-unit-plan-modal-close {
+    appearance: none;
+    background: #ffffff;
+    border: 0;
+    border-radius: 999px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    cursor: pointer;
+    height: 42px;
+    padding: 0;
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    width: 42px;
+    z-index: 2;
+}
+
+.marcan-property-unit-plan-modal-close::before,
+.marcan-property-unit-plan-modal-close::after {
+    background: #2c2a30;
+    content: "";
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform-origin: center;
+    width: 18px;
+}
+
+.marcan-property-unit-plan-modal-close::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.marcan-property-unit-plan-modal-close::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.marcan-property-unit-plan > span {
     color: #838382;
     font-family: Inter, Arial, sans-serif;
     font-size: 14px;
@@ -472,5 +630,46 @@ body.is-shared-unit-scrolling::after {
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M18 16.08a2.91 2.91 0 0 0-1.96.77L8.91 12.7a3.27 3.27 0 0 0 0-1.39l7.05-4.11A3 3 0 1 0 15 5c0 .23.03.46.08.68L8.03 9.8a3 3 0 1 0 0 4.4l7.12 4.15A3 3 0 1 0 18 16.08Z'/%3E%3C/svg%3E") center / contain no-repeat;
     width: 17px;
     -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M18 16.08a2.91 2.91 0 0 0-1.96.77L8.91 12.7a3.27 3.27 0 0 0 0-1.39l7.05-4.11A3 3 0 1 0 15 5c0 .23.03.46.08.68L8.03 9.8a3 3 0 1 0 0 4.4l7.12 4.15A3 3 0 1 0 18 16.08Z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+@media (max-width: 900px) {
+    .marcan-property-unit-plan-controls {
+        bottom: 12px;
+        right: 12px;
+    }
+
+    .marcan-property-unit-plan-action {
+        height: 30px;
+        width: 30px;
+    }
+
+    .marcan-property-unit-plan-action.is-zoom {
+        display: none;
+    }
+
+    .marcan-property-unit-plan-modal {
+        border-radius: 0;
+        height: 100svh;
+        max-height: none;
+        max-width: none;
+        width: 100vw;
+    }
+
+    .marcan-property-unit-plan-modal-inner {
+        height: 100%;
+        max-height: none;
+        padding: 64px 16px 20px;
+    }
+
+    .marcan-property-unit-plan-modal img {
+        height: 100%;
+        max-height: calc(100svh - 118px);
+        width: 100%;
+    }
+
+    .marcan-property-unit-plan-modal-close {
+        right: 12px;
+        top: 12px;
+    }
 }
 

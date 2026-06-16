@@ -18,8 +18,7 @@ $hero_slides = marcan_get_home_hero_slides();
         <?php if (!empty($hero_slides)) : ?>
             <?php foreach ($hero_slides as $index => $slide) : ?>
                 <?php
-                $desktop_image_id = (int) ($slide['imagen_desktop'] ?? 0);
-                $mobile_image_id = (int) ($slide['imagen_movil'] ?? 0);
+                $slide_images = $slide['hero_imagenes'] ?? array();
                 $slide_label = (string) ($slide['etiqueta'] ?? '');
                 $slide_link = $slide['enlace'] ?? array();
                 $slide_duration = (int) ($slide['duracion'] ?? 0);
@@ -29,28 +28,12 @@ $hero_slides = marcan_get_home_hero_slides();
                 $slide_title_plain = wp_strip_all_tags($slide_title);
                 ?>
                 <article class="marcan-home-hero-slide<?php echo $is_active ? ' is-active' : ''; ?>" data-hero-slide data-hero-duration="<?php echo esc_attr($slide_duration > 0 ? $slide_duration : $hero_settings['interval']); ?>" data-hero-effect="<?php echo esc_attr($slide_effect ?: $hero_settings['effect']); ?>">
-                    <div class="marcan-home-hero-media marcan-home-hero-media-desktop">
-                        <?php
-                        if ($desktop_image_id) {
-                            echo wp_get_attachment_image($desktop_image_id, 'full', false, array(
-                                'alt' => esc_attr($slide_title_plain),
-                            ));
-                        }
-                        ?>
-                    </div>
-                    <div class="marcan-home-hero-media marcan-home-hero-media-mobile">
-                        <?php
-                        if ($mobile_image_id) {
-                            echo wp_get_attachment_image($mobile_image_id, 'full', false, array(
-                                'alt' => esc_attr($slide_title_plain),
-                            ));
-                        } elseif ($desktop_image_id) {
-                            echo wp_get_attachment_image($desktop_image_id, 'full', false, array(
-                                'alt' => esc_attr($slide_title_plain),
-                            ));
-                        }
-                        ?>
-                    </div>
+                    <?php
+                    echo marcan_render_hero_picture(is_array($slide_images) ? $slide_images : array(), $slide_title_plain, array(
+                        'picture_class' => 'marcan-home-hero-media',
+                        'eager' => $is_active,
+                    ));
+                    ?>
                     <?php if ($slide_label !== '') : ?>
                         <div class="marcan-home-hero-slide-label"><?php echo marcan_rich_inline($slide_label); ?></div>
                     <?php endif; ?>
@@ -63,10 +46,7 @@ $hero_slides = marcan_get_home_hero_slides();
             <?php endforeach; ?>
         <?php else : ?>
             <article class="marcan-home-hero-slide is-active" data-hero-slide data-hero-duration="<?php echo esc_attr($hero_settings['interval']); ?>" data-hero-effect="<?php echo esc_attr($hero_settings['effect']); ?>">
-                <div class="marcan-home-hero-media marcan-home-hero-media-desktop">
-                    <?php echo esc_html__('No hero slides configured.', 'marcan'); ?>
-                </div>
-                <div class="marcan-home-hero-media marcan-home-hero-media-mobile">
+                <div class="marcan-home-hero-media">
                     <?php echo esc_html__('No hero slides configured.', 'marcan'); ?>
                 </div>
             </article>

@@ -4,7 +4,12 @@ if (!defined('ABSPATH')) {
 }
 
 $about = marcan_get_about_settings();
-$has_hero = !empty($about['hero_intro']) || !empty($about['hero_image_desktop']) || !empty($about['hero_image_mobile']);
+$hero_images = is_array($about['hero_images'] ?? null) ? $about['hero_images'] : array();
+$hero_picture = marcan_render_hero_picture($hero_images, '', array(
+    'picture_class' => 'marcan-about-hero-image',
+    'eager' => true,
+));
+$has_hero = !empty($about['hero_intro']) || $hero_picture !== '';
 ?>
 
 <?php if ($has_hero) : ?>
@@ -14,15 +19,6 @@ $has_hero = !empty($about['hero_intro']) || !empty($about['hero_image_desktop'])
                 <div><?php echo wp_kses_post(wpautop((string) $about['hero_intro'])); ?></div>
             </div>
         <?php endif; ?>
-        <?php if (!empty($about['hero_image_desktop'])) : ?>
-            <div class="marcan-about-hero-image marcan-about-hero-image-desktop">
-                <img src="<?php echo esc_url($about['hero_image_desktop']); ?>" alt="">
-            </div>
-        <?php endif; ?>
-        <?php if (!empty($about['hero_image_mobile'])) : ?>
-            <div class="marcan-about-hero-image marcan-about-hero-image-mobile">
-                <img src="<?php echo esc_url($about['hero_image_mobile']); ?>" alt="">
-            </div>
-        <?php endif; ?>
+        <?php echo $hero_picture; ?>
     </section>
 <?php endif; ?>

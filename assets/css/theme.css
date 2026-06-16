@@ -73,7 +73,6 @@ body.ml-loading .marcan-global-whatsapp { opacity: 0; pointer-events: none; tran
 }
 
 .marcan-iconic-hero {
-    height: 788px;
     margin-top: 32px;
     overflow: hidden;
     width: 100%;
@@ -82,13 +81,8 @@ body.ml-loading .marcan-global-whatsapp { opacity: 0; pointer-events: none; tran
 .marcan-iconic-hero picture,
 .marcan-iconic-hero img {
     display: block;
-    height: 100%;
+    height: auto;
     width: 100%;
-}
-
-.marcan-iconic-hero img {
-    object-fit: cover;
-    object-position: center center;
 }
 
 .marcan-iconic-intro {
@@ -312,7 +306,7 @@ body.ml-loading .marcan-global-whatsapp { opacity: 0; pointer-events: none; tran
 .marcan-iconic-gallery-track figcaption {
     color: #838382;
     font-family: Inter, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 300;
     margin-top: 8px;
     padding: 0 4px;
@@ -368,7 +362,7 @@ body.ml-loading .marcan-global-whatsapp { opacity: 0; pointer-events: none; tran
     color: #4f4f4f;
     display: inline-flex;
     font-family: Inter, Arial, sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     height: 51px;
     justify-content: center;
     line-height: 1.45;
@@ -387,12 +381,12 @@ body.ml-loading .marcan-global-whatsapp { opacity: 0; pointer-events: none; tran
 
 @media (max-width: 900px) {
     .marcan-iconic-back {
-        top: 126px;
+        top: 83px;
     }
 
     .marcan-iconic-hero {
-        height: 580px;
-        margin-top: 110px;
+        height: auto;
+        margin-top: 67px;
     }
 
     .marcan-iconic-intro {
@@ -409,15 +403,26 @@ body.ml-loading .marcan-global-whatsapp { opacity: 0; pointer-events: none; tran
         white-space: normal;
     }
 
+    .marcan-iconic-title-block p {
+        font-family: Inter, Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.4;
+    }
+
+    .marcan-iconic-summary {
+        max-width: 332px;
+    }
+
     .marcan-iconic-wide-image {
-        height: 580px;
-        margin: 80px 16px 0;
+        height: min(580px, 150vw);
+        margin: 50px 16px 0;
     }
 
     .marcan-iconic-concept {
         display: flex;
         flex-direction: column;
-        gap: 64px;
+        gap: clamp(80px, 35vw, 140px);
         margin: 30px 16px 0;
     }
 
@@ -450,7 +455,7 @@ body.ml-loading .marcan-global-whatsapp { opacity: 0; pointer-events: none; tran
     }
 
     .marcan-iconic-gallery {
-        padding: 50px 0;
+        padding: 10px 0 0;
     }
 
     .marcan-iconic-gallery-track {
@@ -458,8 +463,8 @@ body.ml-loading .marcan-global-whatsapp { opacity: 0; pointer-events: none; tran
     }
 
     .marcan-iconic-gallery-track figure {
-        height: 408px;
-        width: 315px;
+        height: min(580px, 150vw);
+        width: min(315px, 82vw);
     }
 
     .marcan-iconic-details {
@@ -478,17 +483,18 @@ body.ml-loading .marcan-global-whatsapp { opacity: 0; pointer-events: none; tran
     }
 
     .marcan-iconic-related {
-        margin-top: 90px;
+        margin-top: 106px;
     }
 
     .marcan-iconic-cta {
         gap: 30px;
         margin: 80px 16px 0;
-        min-height: 780px;
+        min-height: min(780px, 100svh);
+        padding: 60px 18px;
     }
 
     .marcan-iconic-cta h2 {
-        font-size: 32px;
+        font-size: 45px;
         max-width: 314px;
     }
 
@@ -752,16 +758,20 @@ img {
 .marcan-home-hero {
     background: #eaeae8;
     display: block;
+    padding-top: var(--marcan-header-height, 0px);
     position: relative;
 }
 
 .marcan-home-hero-slider {
+    height: calc(100vh - var(--marcan-header-height, 0px));
+    height: calc(100svh - var(--marcan-header-height, 0px));
     overflow: hidden;
     position: relative;
 }
 
 .marcan-home-hero-slide {
     background: #eaeae8;
+    height: 100%;
     inset: 0;
     opacity: 0;
     pointer-events: none;
@@ -782,36 +792,19 @@ img {
 }
 
 .marcan-home-hero-media {
+    display: block;
     height: 100%;
     overflow: hidden;
-    position: relative;
     width: 100%;
-}
-
-.marcan-home-hero-media-mobile {
-    display: none;
 }
 
 .marcan-home-hero-media img {
     display: block;
-    height: auto;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center bottom;
     width: 100%;
-}
-
-@media (min-width: 901px) {
-    .marcan-home-hero-slider {
-        height: min(calc(100vw * 982 / 1512), 982px);
-    }
-
-    .marcan-home-hero-slide {
-        height: 100%;
-    }
-
-    .marcan-home-hero-media img {
-        height: 100%;
-        object-fit: cover;
-        object-position: center bottom;
-    }
 }
 
 .marcan-home-hero-mobile-copy {
@@ -882,12 +875,13 @@ img {
 .marcan-home-project-card-cta {
     align-items: center;
     background: var(--marcan-ink);
+    box-sizing: border-box;
     color: var(--marcan-white);
     display: inline-flex;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 400;
     justify-content: center;
-    line-height: 1.43;
+    line-height: 1.25;
     overflow: hidden;
     padding: 10px 20px;
     text-overflow: ellipsis;
@@ -897,11 +891,13 @@ img {
 .marcan-home-projects-intro-button {
     left: 30px;
     height: 41px;
+    max-width: calc(100% - 60px);
+    min-width: 239px;
     position: absolute;
     top: 471px;
-    width: 239px;
+    width: auto;
     padding: 10px 20px;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .marcan-home-projects-group {
@@ -938,7 +934,7 @@ img {
     cursor: grab;
     -webkit-overflow-scrolling: touch;
     margin-top: 26px;
-    touch-action: pan-y pan-x;
+    touch-action: pan-x pan-y;
     user-select: none;
 }
 
@@ -1335,7 +1331,7 @@ img {
 .section-heading p,
 .eyebrow {
     color: var(--marcan-yellow);
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 800;
     letter-spacing: 0;
     margin: 0 0 14px;
@@ -1486,7 +1482,7 @@ img {
 .project-card-top span {
     background: var(--marcan-yellow);
     border-radius: 999px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 800;
     padding: 7px 10px;
     white-space: nowrap;
@@ -1634,7 +1630,7 @@ img {
 .property-facts span {
     background: var(--marcan-surface);
     border-radius: 999px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 800;
     padding: 7px 10px;
 }
@@ -1765,21 +1761,25 @@ img {
 .marcan-home-delivered-button {
     align-items: center;
     background: var(--marcan-delivered-btn-bg, #4f4f4f);
+    box-sizing: border-box;
     color: var(--marcan-delivered-btn-text, #fbfafa);
     display: inline-flex;
     font-family: Inter, Arial, Helvetica, sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 400;
     justify-content: center;
     height: 41px;
+    line-height: 1.25;
     left: 31px;
+    max-width: calc(100% - 62px);
+    min-width: 192px;
     overflow: hidden;
     padding: 10px 20px;
     position: absolute;
     text-overflow: ellipsis;
     top: 229px;
     white-space: nowrap;
-    width: 192px;
+    width: auto;
 }
 
 @media (min-width: 1537px) {
@@ -1820,9 +1820,10 @@ img {
         font-size: calc(15px * var(--marcan-home-wide-scale));
         height: calc(41px * var(--marcan-home-wide-scale));
         left: calc(30px * var(--marcan-home-wide-scale));
+        min-width: calc(239px * var(--marcan-home-wide-scale));
         padding: calc(10px * var(--marcan-home-wide-scale)) calc(20px * var(--marcan-home-wide-scale));
         top: calc(471px * var(--marcan-home-wide-scale));
-        width: calc(239px * var(--marcan-home-wide-scale));
+        width: auto;
     }
 
     .marcan-home-projects-heading {
@@ -1948,9 +1949,10 @@ img {
         font-size: calc(15px * var(--marcan-home-wide-scale));
         height: calc(41px * var(--marcan-home-wide-scale));
         left: calc(31px * var(--marcan-home-wide-scale));
+        min-width: calc(192px * var(--marcan-home-wide-scale));
         padding: calc(10px * var(--marcan-home-wide-scale)) calc(20px * var(--marcan-home-wide-scale));
         top: calc(229px * var(--marcan-home-wide-scale));
-        width: calc(192px * var(--marcan-home-wide-scale));
+        width: auto;
     }
 }
 
@@ -2031,7 +2033,7 @@ img {
     color: #fbfafa;
     display: inline-flex;
     font-family: Inter, Arial, Helvetica, sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 400;
     justify-content: center;
     margin-top: 24px;
@@ -2190,23 +2192,18 @@ img {
 }
 
 .marcan-about-hero-image {
+    display: block;
     left: 0;
     overflow: hidden;
     position: absolute;
+    top: 470px;
     width: 100%;
 }
 
-.marcan-about-hero-image-desktop {
-    height: 730px;
-    top: 470px;
-}
-
-.marcan-about-hero-image-mobile {
-    display: none;
-}
-
 .marcan-about-hero-image img {
-    object-fit: cover;
+    display: block;
+    height: auto;
+    width: 100%;
 }
 
 .marcan-about-reasons {
@@ -2553,7 +2550,7 @@ img {
 .marcan-about-awards .marcan-about-section-title {
     left: 27px;
     position: absolute;
-    top: 0;
+    top: -60px;
 }
 
 .marcan-about-awards-grid {
@@ -2574,11 +2571,14 @@ img {
 
 .marcan-about-award-logo {
     height: 62px;
+    overflow: hidden;
     width: 56px;
 }
 
 .marcan-about-award-logo img {
+    height: 100%;
     object-fit: cover;
+    width: 100%;
 }
 
 .marcan-about-award-content {
@@ -2681,7 +2681,7 @@ img {
 .marcan-about-team-meta p,
 .marcan-about-team-meta a {
     font-family: Inter, Arial, Helvetica, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 300;
     line-height: 1.4;
     margin: 0;
@@ -2698,14 +2698,20 @@ img {
     }
 
     .marcan-about-hero {
-        min-height: 1090px;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        overflow: hidden;
+        padding-top: clamp(150px, 25vw, 210px);
     }
 
     .marcan-about-hero-copy {
-        left: 16px;
+        left: auto;
+        margin: 0 16px clamp(28px, 8vw, 48px);
         max-width: calc(100vw - 32px);
-        top: 210px;
-        width: 370px;
+        position: relative;
+        top: auto;
+        width: auto;
     }
 
     .marcan-about-hero-copy p {
@@ -2713,14 +2719,10 @@ img {
         max-width: 370px;
     }
 
-    .marcan-about-hero-image-desktop {
-        display: none;
-    }
-
-    .marcan-about-hero-image-mobile {
-        display: block;
-        height: 450px;
-        top: 640px;
+    .marcan-about-hero-image {
+        left: auto;
+        position: relative;
+        top: auto;
     }
 
     .marcan-about-reasons {
@@ -2881,16 +2883,17 @@ img {
     }
 
     .marcan-about-awards {
-        margin-top: 30px;
+        margin-top: 280px;
         top: auto;
     }
 
     .marcan-about-awards .marcan-about-section-title {
         left: 16px;
+        z-index: 1;
     }
 
     .marcan-about-awards-grid {
-        gap: 80px 16px;
+        gap: 48px 16px;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         left: 16px;
         margin-top: 79px;
@@ -2916,6 +2919,10 @@ img {
 
     .marcan-about-team .marcan-about-section-title {
         left: 16px;
+    }
+
+    .marcan-about-team-photo img {
+        filter: grayscale(0);
     }
 
     .marcan-about-team-track {
@@ -3071,8 +3078,9 @@ img {
 
     .marcan-home-delivered-button {
         margin: 0 auto;
+        overflow: visible;
         position: static;
-        width: 192px;
+        width: auto;
     }
 
     .marcan-home-hero {
@@ -3080,28 +3088,21 @@ img {
         display: flex;
         flex-direction: column;
         gap: 25px;
-        padding-top: 54px;
+        padding-top: var(--marcan-header-height, 0px);
     }
 
     .marcan-home-hero-slider {
-        height: auto;
+        height: calc(100vh - var(--marcan-header-height, 0px));
+        height: calc(100svh - var(--marcan-header-height, 0px));
     }
 
     .marcan-home-hero-slide {
-        height: auto;
+        height: 100%;
     }
 
     .marcan-home-hero-media {
-        height: auto;
+        height: 100%;
         width: 100%;
-    }
-
-    .marcan-home-hero-media-desktop {
-        display: none;
-    }
-
-    .marcan-home-hero-media-mobile {
-        display: block;
     }
 
     .marcan-home-hero-mobile-copy {
@@ -3114,7 +3115,7 @@ img {
     .marcan-home-hero-mobile-copy p {
         color: var(--marcan-ink);
         font-family: Inter, Arial, Helvetica, sans-serif;
-        font-size: 19px;
+        font-size: 18px;
         font-weight: 300;
         letter-spacing: 0;
         line-height: 1.28;
@@ -3130,7 +3131,7 @@ img {
         box-sizing: border-box;
         display: block;
         min-height: auto;
-        padding: 80px 16px 80px;
+        padding: 80px 16px 90px;
         position: relative;
     }
 
@@ -3163,7 +3164,7 @@ img {
     .marcan-home-projects-heading {
         align-items: flex-start;
         flex-direction: column;
-        padding: 0 16px 10px;
+        padding: 0 16px 50px;
     }
 
     .marcan-home-projects-heading h2 {
@@ -3174,6 +3175,8 @@ img {
 
     .marcan-home-projects-heading-button {
         height: 33px;
+        padding-bottom: 6px;
+        padding-top: 6px;
     }
 
     .marcan-home-project-slider {
@@ -3188,7 +3191,7 @@ img {
 
     .marcan-home-project-card {
         height: auto;
-        width: 315px;
+        width: 345px;
     }
 
     .marcan-home-project-card[data-reveal] {
@@ -3239,6 +3242,7 @@ img {
     }
 
     .marcan-home-project-card-title-row {
+        align-items: center;
         gap: 12px;
         min-height: 26px;
     }
@@ -3347,7 +3351,7 @@ img {
         flex-direction: column;
         gap: 38px;
         height: auto;
-        min-height: 100dvh;
+        min-height: 100svh;
         overflow: visible;
         padding: 44px 24px 48px;
     }
@@ -3416,7 +3420,7 @@ img {
     }
 
     .marcan-site-footer-members-title {
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 500;
         letter-spacing: 0.12px;
         line-height: 1.4;
@@ -3476,6 +3480,10 @@ img {
         position: static;
         width: 342px;
     }
+
+    html {
+        background: var(--marcan-footer-bg, #ffcb05);
+    }
 }
 
 @media (min-width: 901px) and (max-width: 1439px) {
@@ -3523,7 +3531,10 @@ img {
 
 @media (min-width: 600px) and (max-width: 900px) {
     .marcan-about-hero-copy {
-        left: 24px;
+        left: auto;
+        margin-left: 24px;
+        margin-right: 24px;
+        max-width: 620px;
         width: min(620px, calc(100% - 48px));
     }
 
@@ -3694,11 +3705,13 @@ img {
     .marcan-home-hero-slider,
     .marcan-home-hero-slide,
     .marcan-home-hero-media {
-        height: calc(100vw * 1160 / 804);
+        height: calc(100vh - var(--marcan-header-height, 0px));
+        height: calc(100svh - var(--marcan-header-height, 0px));
     }
 
-    .marcan-home-hero-media img {
-        object-fit: contain;
+    .marcan-home-hero-slide,
+    .marcan-home-hero-media {
+        height: 100%;
     }
 
     .marcan-home-hero-mobile-copy p {
@@ -3722,15 +3735,11 @@ img {
 
 @media (max-width: 599px) {
     .marcan-about-hero {
-        min-height: 980px;
+        padding-top: 150px;
     }
 
     .marcan-about-hero-copy {
-        top: 150px;
-    }
-
-    .marcan-about-hero-image-mobile {
-        top: 530px;
+        margin-bottom: 32px;
     }
 
     .marcan-about-reasons,
@@ -3766,7 +3775,6 @@ img {
 }
 
 .marcan-property-archive-hero-media {
-    height: 606px;
     left: 0;
     overflow: hidden;
     position: absolute;
@@ -3774,7 +3782,11 @@ img {
     width: 100%;
 }
 
-.marcan-property-archive-hero-image,
+.marcan-property-archive-hero-media picture {
+    display: block;
+    width: 100%;
+}
+
 .marcan-property-listing-image,
 .marcan-property-single-hero-image,
 .marcan-property-single-wide-image img,
@@ -3785,8 +3797,10 @@ img {
     width: 100%;
 }
 
-.marcan-property-archive-departamento .marcan-property-archive-hero-image {
-    object-position: center center;
+.marcan-property-archive-hero-image {
+    display: block;
+    height: auto;
+    width: 100%;
 }
 
 .marcan-property-archive-hero-content {
@@ -3811,14 +3825,8 @@ img {
 
     .marcan-property-archive-departamento .marcan-property-archive-hero-media,
     .marcan-property-archive-oficina .marcan-property-archive-hero-media {
-        aspect-ratio: 2560 / 1026;
         height: auto;
         position: static;
-    }
-
-    .marcan-property-archive-departamento .marcan-property-archive-hero-image {
-        object-fit: cover;
-        object-position: center center;
     }
 }
 
@@ -4426,12 +4434,14 @@ img {
     width: 100%;
 }
 
+.marcan-property-single-hero picture {
+    display: block;
+    width: 100%;
+}
+
 .marcan-property-single-hero-image {
-    aspect-ratio: 2560 / 1334;
     display: block;
     height: auto;
-    object-fit: cover;
-    object-position: center center;
     width: 100%;
 }
 
@@ -4691,9 +4701,9 @@ img {
     background: #ffffff;
     display: grid;
     grid-template-columns: 401px minmax(0, 1fr);
-    height: min(800px, var(--marcan-tour-available-height, 100vh));
+    height: min(800px, var(--marcan-tour-available-height, 100svh));
     margin-left: -30px;
-    max-height: var(--marcan-tour-available-height, 100vh);
+    max-height: var(--marcan-tour-available-height, 100svh);
     overflow: hidden;
     position: relative;
     transition: grid-template-columns 320ms var(--marcan-ease);
@@ -4924,7 +4934,7 @@ img {
     bottom: 24px;
     color: #4f4f4f;
     font-family: Inter, Arial, sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.43;
     padding: 10px 20px;
     position: absolute;
@@ -5086,7 +5096,7 @@ body.is-shared-unit-scrolling::after {
     color: #4f4f4f;
     display: flex;
     font-family: Roboto, Inter, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 300;
     justify-content: space-between;
     line-height: 1.2;
@@ -5158,7 +5168,7 @@ body.is-shared-unit-scrolling::after {
     color: #4f4f4f;
     cursor: pointer;
     font-family: Inter, Arial, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.43;
     padding: 0;
 }
@@ -5284,7 +5294,7 @@ body.is-shared-unit-scrolling::after {
 
 .marcan-property-unit-plan {
     align-items: center;
-    background: #f0f4f7;
+    background: #ffffff;
     border-radius: 1px;
     display: flex;
     height: 560px;
@@ -5304,7 +5314,85 @@ body.is-shared-unit-scrolling::after {
 }
 
 .marcan-property-unit-plan[data-unit-plan-zoom] > img {
+    cursor: default;
+}
+
+.marcan-property-unit-plan.is-zoom-enabled > img {
     cursor: none;
+}
+
+.marcan-property-unit-plan-controls {
+    display: flex;
+    gap: 10px;
+    bottom: 14px;
+    position: absolute;
+    right: 14px;
+    z-index: 5;
+}
+
+.marcan-property-unit-plan-action {
+    align-items: center;
+    appearance: none;
+    background: transparent;
+    border: 0;
+    color: #4f4f4f;
+    cursor: pointer;
+    display: inline-flex;
+    height: 30px;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    transition: color 220ms ease, opacity 220ms ease, transform 220ms var(--marcan-ease);
+    width: 30px;
+}
+
+.marcan-property-unit-plan-action:hover,
+.marcan-property-unit-plan-action:focus-visible {
+    color: #262626;
+    opacity: 0.84;
+    transform: translateY(-1px) scale(1.04);
+}
+
+.marcan-property-unit-plan-action.is-zoom[aria-pressed="true"] {
+    color: #997a03;
+}
+
+.marcan-property-unit-plan-action svg {
+    display: block;
+    height: 21px;
+    stroke: currentColor;
+    width: 21px;
+}
+
+.marcan-property-unit-plan-action.is-expand span {
+    height: 22px;
+    position: relative;
+    width: 22px;
+}
+
+.marcan-property-unit-plan-action.is-expand span::before,
+.marcan-property-unit-plan-action.is-expand span::after {
+    border: 1.5px solid currentColor;
+    content: "";
+    display: block;
+    height: 6px;
+    position: absolute;
+    width: 6px;
+}
+
+.marcan-property-unit-plan-action.is-expand span::before {
+    border-bottom: 0;
+    border-right: 0;
+    left: 2px;
+    top: 2px;
+}
+
+.marcan-property-unit-plan-action.is-expand span::after {
+    border-left: 0;
+    border-top: 0;
+    bottom: 2px;
+    right: 2px;
 }
 
 .marcan-property-unit-plan-lens {
@@ -5340,7 +5428,87 @@ body.is-shared-unit-scrolling::after {
     width: 100%;
 }
 
-.marcan-property-unit-plan span {
+.marcan-property-unit-plan-modal {
+    background: transparent;
+    border: 0;
+    margin: auto;
+    max-height: 94svh;
+    max-width: 94vw;
+    padding: 0;
+    width: min(1200px, 94vw);
+}
+
+.marcan-property-unit-plan-modal::backdrop {
+    background: rgba(0, 0, 0, 0.72);
+}
+
+.marcan-property-unit-plan-modal-inner {
+    background: #ffffff;
+    box-sizing: border-box;
+    display: grid;
+    gap: 14px;
+    grid-template-rows: minmax(0, 1fr) auto;
+    max-height: 94svh;
+    padding: 24px;
+    position: relative;
+}
+
+.marcan-property-unit-plan-modal img {
+    background: #f0f4f7;
+    display: block;
+    height: auto;
+    max-height: calc(94svh - 96px);
+    max-width: 100%;
+    object-fit: contain;
+    width: 100%;
+}
+
+.marcan-property-unit-plan-modal p {
+    color: #4f4f4f;
+    font-family: Inter, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.35;
+    margin: 0;
+    text-align: center;
+}
+
+.marcan-property-unit-plan-modal-close {
+    appearance: none;
+    background: #ffffff;
+    border: 0;
+    border-radius: 999px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    cursor: pointer;
+    height: 42px;
+    padding: 0;
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    width: 42px;
+    z-index: 2;
+}
+
+.marcan-property-unit-plan-modal-close::before,
+.marcan-property-unit-plan-modal-close::after {
+    background: #2c2a30;
+    content: "";
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform-origin: center;
+    width: 18px;
+}
+
+.marcan-property-unit-plan-modal-close::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.marcan-property-unit-plan-modal-close::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.marcan-property-unit-plan > span {
     color: #838382;
     font-family: Inter, Arial, sans-serif;
     font-size: 14px;
@@ -5413,6 +5581,47 @@ body.is-shared-unit-scrolling::after {
     -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M18 16.08a2.91 2.91 0 0 0-1.96.77L8.91 12.7a3.27 3.27 0 0 0 0-1.39l7.05-4.11A3 3 0 1 0 15 5c0 .23.03.46.08.68L8.03 9.8a3 3 0 1 0 0 4.4l7.12 4.15A3 3 0 1 0 18 16.08Z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
+@media (max-width: 900px) {
+    .marcan-property-unit-plan-controls {
+        bottom: 12px;
+        right: 12px;
+    }
+
+    .marcan-property-unit-plan-action {
+        height: 30px;
+        width: 30px;
+    }
+
+    .marcan-property-unit-plan-action.is-zoom {
+        display: none;
+    }
+
+    .marcan-property-unit-plan-modal {
+        border-radius: 0;
+        height: 100svh;
+        max-height: none;
+        max-width: none;
+        width: 100vw;
+    }
+
+    .marcan-property-unit-plan-modal-inner {
+        height: 100%;
+        max-height: none;
+        padding: 64px 16px 20px;
+    }
+
+    .marcan-property-unit-plan-modal img {
+        height: 100%;
+        max-height: calc(100svh - 118px);
+        width: 100%;
+    }
+
+    .marcan-property-unit-plan-modal-close {
+        right: 12px;
+        top: 12px;
+    }
+}
+
 .marcan-property-map {
     margin: 150px 0 120px;
 }
@@ -5472,7 +5681,7 @@ body.is-shared-unit-scrolling::after {
     align-items: center;
     display: inline-flex;
     font-family: Inter, Arial, sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
     height: 51px;
     justify-content: center;
@@ -5516,7 +5725,7 @@ body.is-shared-unit-scrolling::after {
     color: #ffffff;
     display: block;
     font-family: Inter, Arial, sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 600;
     letter-spacing: 0.01em;
     margin-bottom: 10px;
@@ -5616,7 +5825,7 @@ body.is-shared-unit-scrolling::after {
     overflow-x: auto;
     overflow-y: hidden;
     scrollbar-width: none;
-    touch-action: pan-y;
+    touch-action: pan-x pan-y;
     user-select: none;
     width: 100%;
     -webkit-overflow-scrolling: touch;
@@ -5716,7 +5925,7 @@ body.is-shared-unit-scrolling::after {
 .marcan-property-gallery-lightbox {
     background: transparent;
     border: 0;
-    max-height: 92vh;
+    max-height: 92svh;
     max-width: 92vw;
     padding: 0;
 }
@@ -5734,7 +5943,7 @@ body.is-shared-unit-scrolling::after {
 
 .marcan-property-gallery-lightbox img {
     display: block;
-    max-height: 76vh;
+    max-height: 76svh;
     object-fit: contain;
     width: 100%;
 }
@@ -5805,7 +6014,7 @@ body.is-shared-unit-scrolling::after {
 .marcan-property-quote cite {
     align-self: start;
     font-family: Inter, Arial, sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     grid-area: cite;
@@ -5856,7 +6065,7 @@ body.is-shared-unit-scrolling::after {
 .marcan-property-related {
     background: #ffffff;
     min-height: 839px;
-    padding: 80px 30px;
+    padding: 80px 20px;
     position: relative;
     z-index: 990;
 }
@@ -5906,7 +6115,7 @@ body.is-shared-unit-scrolling::after {
     color: #4f4f4f;
     cursor: pointer;
     font-family: Inter, Arial, sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 1.45;
     padding: 13px 26px;
@@ -5918,6 +6127,10 @@ body.is-shared-unit-scrolling::after {
     grid-template-columns: 345px minmax(0, 781px);
     justify-content: start;
     padding: 80px 0 0;
+}
+
+.marcan-property-architecture--no-image {
+    padding-bottom: 80px;
 }
 
 .marcan-property-architecture-info {
@@ -6170,7 +6383,7 @@ body.is-shared-unit-scrolling::after {
     flex-direction: column;
     gap: 12px;
     min-height: 0;
-    padding: 15px 0 20px;
+    padding: 15px 10px 20px;
     position: relative;
 }
 
@@ -6287,6 +6500,10 @@ body.is-shared-unit-scrolling::after {
         padding-top: 48px;
     }
 
+    .marcan-property-architecture--no-image {
+        padding-bottom: 48px;
+    }
+
     .marcan-property-architecture-info {
         gap: 28px;
     }
@@ -6371,7 +6588,7 @@ body.is-shared-unit-scrolling::after {
     }
 
     .marcan-page-hero-simple p {
-        font-size: 19px;
+        font-size: 18px;
     }
 
     .marcan-property-archive-hero {
@@ -6379,14 +6596,15 @@ body.is-shared-unit-scrolling::after {
     }
 
     .marcan-property-archive-hero-media {
-        height: 360px;
+        height: auto;
+        position: static;
     }
 
     .marcan-property-archive-hero-content {
         display: flex;
         flex-direction: column;
         gap: 24px;
-        padding: 375px 16px 40px;
+        padding: 40px 16px;
     }
 
     .marcan-property-archive-copy,
@@ -6405,7 +6623,7 @@ body.is-shared-unit-scrolling::after {
 
     .marcan-property-archive-copy p,
     .marcan-property-archive-search-copy h2 {
-        font-size: 15px;
+        font-size: 16px;
     }
 
     .marcan-property-archive-search-copy p {
@@ -6414,7 +6632,7 @@ body.is-shared-unit-scrolling::after {
     }
 
     .marcan-property-archive-whatsapp {
-        bottom: 20px;
+        bottom: 40px;
         right: 16px;
     }
 
@@ -6510,7 +6728,7 @@ body.is-shared-unit-scrolling::after {
     }
 
     .marcan-property-listing-price span {
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .marcan-property-listing-price strong {
@@ -6519,16 +6737,12 @@ body.is-shared-unit-scrolling::after {
 
     .marcan-property-listing-copy h3,
     .marcan-property-listing-copy p {
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .marcan-button-dark,
     .marcan-button-line {
-        font-size: 13px;
-    }
-
-    .marcan-property-single-hero-image {
-        aspect-ratio: 630 / 780;
+        font-size: 14px;
     }
 
     .marcan-property-sticky-quote {
@@ -6548,7 +6762,19 @@ body.is-shared-unit-scrolling::after {
 
     .marcan-property-sticky-meta {
         align-items: flex-start;
+        flex-direction: column;
         flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .marcan-property-sticky-divider {
+        display: none;
+    }
+
+    .marcan-property-status-pill {
+        font-size: 16px;
+        min-height: 30px;
+        padding: 4px 18px;
     }
 
     .marcan-property-sticky-subtitle {
@@ -6601,9 +6827,9 @@ body.is-shared-unit-scrolling::after {
     .marcan-property-tour-shell {
         display: grid;
         grid-template-columns: min(320px, 82vw) minmax(0, 1fr);
-        height: min(800px, var(--marcan-tour-available-height, 100vh));
+        height: min(800px, var(--marcan-tour-available-height, 100svh));
         margin-left: -16px;
-        max-height: var(--marcan-tour-available-height, 100vh);
+        max-height: var(--marcan-tour-available-height, 100svh);
         transition: grid-template-columns 320ms var(--marcan-ease);
         width: calc(100% + 32px);
     }
@@ -6690,7 +6916,7 @@ body.is-shared-unit-scrolling::after {
         justify-content: space-between;
         left: 50%;
         margin: 0;
-        max-height: calc(100vh - 32px);
+        max-height: calc(100svh - 32px);
         overflow-y: auto;
         padding: 20px;
         position: fixed;
@@ -6822,7 +7048,7 @@ body.is-shared-unit-scrolling::after {
         cursor: pointer;
         flex: 1;
         font-family: Inter, Arial, sans-serif;
-        font-size: 17px;
+        font-size: 16px;
         font-weight: 400;
         min-height: 52px;
         padding: 12px;
@@ -6879,6 +7105,10 @@ body.is-shared-unit-scrolling::after {
         min-height: 32px;
     }
 
+    .marcan-property-unit-card.is-expanded .marcan-property-unit-mobile-summary {
+        display: none;
+    }
+
     .marcan-property-unit-desktop-value {
         display: none;
     }
@@ -6892,7 +7122,7 @@ body.is-shared-unit-scrolling::after {
         display: flex;
         flex-direction: column;
         font-family: Inter, Arial, sans-serif;
-        font-size: 14px;
+        font-size: 18px;
         font-weight: 400;
         gap: 8px;
         line-height: 1.4;
@@ -6943,7 +7173,7 @@ body.is-shared-unit-scrolling::after {
     }
 
     .marcan-property-unit-info h3 {
-        font-size: 14px;
+        font-size: 18px;
         line-height: 1.4;
         margin: 0 0 7px;
         padding-right: 48px;
@@ -6961,7 +7191,7 @@ body.is-shared-unit-scrolling::after {
 
     .marcan-property-unit-features dt,
     .marcan-property-unit-features dd {
-        font-size: 14px;
+        font-size: 18px;
     }
 
     .marcan-property-unit-actions {
@@ -6971,10 +7201,11 @@ body.is-shared-unit-scrolling::after {
 
     .marcan-property-unit-actions .marcan-button-line,
     .marcan-property-unit-actions .marcan-button-dark {
-        font-size: 12px;
+        flex: 1 1 0;
+        font-size: 14px;
         justify-content: center;
-        min-height: 33px;
-        padding: 8px 10px;
+        min-height: 44px;
+        padding: 10px 12px;
         text-align: center;
     }
 
@@ -6989,7 +7220,7 @@ body.is-shared-unit-scrolling::after {
     }
 
     .marcan-property-map-canvas {
-        height: clamp(360px, 62vh, 520px);
+        height: clamp(360px, 62svh, 520px);
         min-height: 0;
         width: 100%;
     }
@@ -7096,216 +7327,6 @@ body.is-shared-unit-scrolling::after {
         height: 100%;
         object-fit: cover;
         width: 100%;
-    }
-
-    .marcan-property-plan-lightbox,
-    .marcan-property-contact-modal,
-    .marcan-property-contact-modal.is-contact-sent,
-    .marcan-property-contact-modal-general.is-contact-sent {
-        border-radius: 0;
-        height: 100dvh;
-        margin: 0;
-        max-height: none;
-        max-width: none;
-        width: 100vw;
-    }
-
-    .marcan-property-plan-lightbox[open],
-    .marcan-property-contact-modal[open] {
-        animation: marcanResponsiveModalFromRight 360ms cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .marcan-property-plan-lightbox-inner {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        height: 100%;
-        max-height: none;
-        overflow-x: hidden;
-        overflow-y: auto;
-        padding: 74px 16px 24px;
-    }
-
-    .marcan-property-plan-lightbox-unit-title {
-        font-size: 34px;
-        left: auto;
-        line-height: 1.1;
-        position: static;
-        top: auto;
-    }
-
-    .marcan-property-plan-lightbox-plan {
-        flex: 0 0 auto;
-        height: min(54vh, 510px);
-        left: auto;
-        position: static;
-        top: auto;
-        width: 100%;
-    }
-
-    .marcan-property-plan-lightbox-legend {
-        flex: 0 0 auto;
-        height: auto;
-        left: auto;
-        min-height: 0;
-        overflow: visible;
-        padding: 22px 18px;
-        position: static;
-        right: auto;
-        top: auto;
-    }
-
-    .marcan-property-plan-lightbox-legend-heading {
-        font-size: 24px;
-        margin-bottom: 18px;
-    }
-
-    .marcan-property-plan-lightbox-legend-cols {
-        bottom: auto;
-        flex-direction: column;
-        gap: 18px;
-        left: auto;
-        position: static;
-        right: auto;
-    }
-
-    .marcan-property-plan-lightbox-legend-group strong {
-        font-size: 18px;
-    }
-
-    .marcan-property-plan-lightbox-legend-group ul,
-    .marcan-property-plan-lightbox-legend-cols ol {
-        font-size: 16px;
-    }
-
-    .marcan-property-plan-lightbox-footer {
-        align-items: stretch;
-        bottom: auto;
-        display: grid;
-        gap: 10px;
-        grid-template-columns: 1fr 1fr 45px;
-        position: static;
-        right: auto;
-        top: auto;
-    }
-
-    .marcan-property-plan-lightbox-footer .marcan-button-line,
-    .marcan-property-plan-lightbox-footer .marcan-button-dark {
-        align-items: center;
-        display: flex;
-        font-size: 14px;
-        justify-content: center;
-        padding: 12px 10px;
-        text-align: center;
-    }
-
-    .marcan-property-plan-lightbox-close {
-        position: fixed;
-        right: 16px;
-        top: 16px;
-        z-index: 3;
-    }
-
-    .marcan-property-contact-modal {
-        overflow-x: hidden;
-        overflow-y: auto;
-    }
-
-    .marcan-property-contact-modal-inner {
-        display: block;
-        min-height: 100%;
-    }
-
-    .marcan-property-contact-modal-form-area {
-        min-height: 100dvh;
-        padding: 72px 20px 32px;
-    }
-
-    .marcan-property-contact-modal-form-area > h2 {
-        font-size: 36px;
-        margin-bottom: 34px;
-    }
-
-    .marcan-property-contact-modal-fields,
-    .marcan-property-contact-modal-checks,
-    .marcan-property-contact-modal-submit,
-    .marcan-property-contact-modal-message {
-        max-width: none;
-    }
-
-    .marcan-property-contact-modal-fields {
-        gap: 18px;
-    }
-
-    .marcan-property-contact-check span {
-        font-size: 13px;
-    }
-
-    .marcan-property-contact-modal-sidebar {
-        background: transparent;
-        inset: 0 0 auto auto;
-        overflow: visible;
-        padding: 0;
-        position: absolute;
-        z-index: 10;
-    }
-
-    .marcan-property-contact-modal-sidebar-content {
-        display: none;
-    }
-
-    .marcan-property-contact-modal-close {
-        height: 52px;
-        position: fixed;
-        right: 8px;
-        top: 8px;
-        width: 52px;
-    }
-
-    .marcan-property-contact-modal-thanks {
-        min-height: 100dvh;
-    }
-
-    .marcan-property-contact-modal-thanks img {
-        height: 56%;
-        left: 0;
-        object-fit: cover;
-        top: 0;
-        width: 100%;
-    }
-
-    .marcan-property-contact-modal-thanks-yellow {
-        bottom: 0;
-        height: 48%;
-        left: 0;
-        padding: 28px 24px;
-        top: auto;
-        width: 100%;
-    }
-
-    .marcan-property-contact-modal-thanks-arrow {
-        left: 24px;
-        top: 28px;
-    }
-
-    .marcan-property-contact-modal-thanks-yellow p {
-        bottom: 36px;
-        font-size: 34px;
-        left: 24px;
-        top: auto;
-    }
-
-    .marcan-property-contact-modal-thanks-close {
-        right: 8px;
-        top: 8px;
-    }
-
-    .marcan-property-contact-modal-general .marcan-property-contact-modal-thanks-yellow {
-        width: calc(100% - 48px);
-    }
-
-    .marcan-property-contact-modal-general .marcan-property-contact-modal-thanks-yellow p {
-        font-size: 34px;
     }
 }
 
@@ -7677,7 +7698,7 @@ body:has(.marcan-single) {
     color: #a5a5a3;
     display: block;
     font-family: Inter, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.4;
     padding-left: 3px;
 }
@@ -7749,7 +7770,7 @@ body:has(.marcan-single) {
     cursor: pointer;
     display: flex;
     font-family: Inter, Arial, sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     gap: 8px;
     justify-content: center;
     margin-top: 40px;
@@ -7964,7 +7985,7 @@ body:has(.marcan-single) {
     border: 1px solid #4f4f4f;
     display: inline-flex;
     font-family: Inter, Arial, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     justify-content: center;
     line-height: 1.43;
     min-height: 34px;
@@ -8152,7 +8173,7 @@ body:has(.marcan-single) {
 .marcan-blog-cta {
     background: #4f4f4f;
     color: #ffffff;
-    margin: 13px 30px 0;
+    margin: 40px 30px 0;
     min-height: 539px;
 }
 
@@ -8184,7 +8205,7 @@ body:has(.marcan-single) {
     color: #4f4f4f !important;
     display: flex;
     font-family: Inter, Arial, sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     justify-content: center;
     min-height: 51px;
     padding: 13px 26px;
@@ -8215,95 +8236,143 @@ body:has(.marcan-single) {
 
 @media (max-width: 900px) {
     .marcan-blog {
-        padding-top: 54px;
+        padding-top: 67px;
     }
 
     .marcan-blog-hero {
+        --marcan-blog-hero-img: min(813px, calc(100svh - 67px));
         display: block;
         height: auto;
+        position: relative;
     }
 
     .marcan-blog-hero-bg {
-        height: 330px;
+        height: var(--marcan-blog-hero-img);
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
     }
 
     .marcan-blog-hero-panel {
+        margin: calc(var(--marcan-blog-hero-img) * 0.44) 16px 0;
         min-height: 0;
-        padding: 30px 16px 0;
+        padding: 20px 0 0;
+    }
+
+    .marcan-blog-hero-new {
+        font-size: 16px;
+        margin: 0 30px;
     }
 
     .marcan-blog-hero-title {
-        font-size: 36px;
-        max-width: 560px;
+        font-size: 32px;
+        letter-spacing: 0.01em;
+        margin: 4px 30px 30px;
+        max-width: none;
     }
 
     .marcan-blog-hero-card {
         bottom: auto;
         height: auto;
         left: auto;
-        margin-left: -16px;
-        margin-top: 24px;
-        min-height: 210px;
+        min-height: 278px;
         position: relative;
-        width: min(345px, calc(100% + 16px));
+        width: 100%;
     }
 
     .marcan-blog-hero-card-inner {
-        gap: 14px;
-        padding: 24px 20px;
+        gap: 16px;
+        padding: 70px 30px 30px;
+    }
+
+    .marcan-blog-hero-card p {
+        font-size: 16px;
+        max-width: 263px;
+    }
+
+    .marcan-blog-read-btn,
+    .marcan-blog-more-btn {
+        font-size: 16px;
+        min-height: 41px;
+        padding: 10px 20px;
     }
 
     .marcan-blog-content {
+        display: flex;
+        flex-direction: column;
         padding: 56px 16px 72px;
     }
 
-    .marcan-blog-content-labels {
-        display: block;
+    .marcan-blog-content-labels,
+    .marcan-blog-content-grid {
+        display: contents;
+    }
+
+    .marcan-blog-content-labels span {
+        color: #262626;
         font-size: 20px;
-        margin-bottom: 20px;
+        line-height: 1.3;
+    }
+
+    .marcan-blog-content-labels span:first-child {
+        margin-bottom: 24px;
+        order: 1;
+    }
+
+    .marcan-blog-main {
+        order: 2;
     }
 
     .marcan-blog-content-labels span:last-child {
-        display: block;
-        margin-top: 48px;
-    }
-
-    .marcan-blog-content-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 28px;
-        min-height: 0;
-    }
-
-    .marcan-blog-main-image {
-        height: auto;
-        aspect-ratio: 861 / 373;
+        font-size: 22px;
+        margin: 56px 0 24px;
+        order: 3;
     }
 
     .marcan-blog-divider {
-        height: 1px;
-        min-height: 1px;
-        width: 100%;
+        display: none;
+    }
+
+    .marcan-blog-sidebar {
+        order: 4;
+    }
+
+    .marcan-blog-main-image {
+        aspect-ratio: 370 / 373;
+        height: auto;
+    }
+
+    .marcan-blog-main-text h2 {
+        font-size: 20px;
+        line-height: normal;
+    }
+
+    .marcan-blog-main-text p {
+        font-size: 16px;
+        line-height: 1.31;
     }
 
     .marcan-blog-sidebar-card {
         min-height: 0;
+        padding: 24px;
     }
 
     .marcan-blog-more-btn {
-        margin-top: 8px;
+        align-self: flex-start;
+        margin-top: 48px;
     }
 
     .marcan-blog-about {
         margin: 0 16px;
         min-height: 0;
-        padding: 48px 20px 54px;
+        padding: 51px 26px 100px;
     }
 
     .marcan-blog-about-grid {
         display: flex;
         flex-direction: column;
-        gap: 54px;
+        gap: 100px;
     }
 
     .marcan-blog-about-block {
@@ -8311,53 +8380,213 @@ body:has(.marcan-single) {
     }
 
     .marcan-blog-about-photo {
-        aspect-ratio: 1;
-        height: auto;
-        width: 100%;
+        display: none;
     }
 
     .marcan-blog-about-copy {
-        gap: 16px;
-        padding-top: 22px;
+        gap: 30px;
+        padding: 28px 28px 32px 0;
     }
 
     .marcan-blog-about-copy h2 {
-        font-size: 36px;
+        font-size: 32px;
+        letter-spacing: 0.01em;
+        line-height: normal;
     }
 
     .marcan-blog-about-copy p:last-child {
-        font-size: 18px;
+        font-family: Inter, Arial, sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: normal;
     }
 
     .marcan-blog-about-stats {
-        gap: 28px;
-        margin-top: 54px;
+        display: flex;
+        flex-direction: column;
+        gap: 90px;
+        margin-top: 100px;
     }
 
-    .marcan-blog-about-stat-number {
-        font-size: 58px;
-    }
-
-    .marcan-blog-about-stat-label {
-        font-size: 15px;
+    .marcan-blog-about-stat {
+        align-items: flex-start;
+        gap: 2px;
+        text-align: left;
     }
 
     .marcan-blog-cta {
-        margin: 12px 16px 0;
-        min-height: 390px;
+        margin: 20px 16px 0;
+        min-height: min(780px, 100svh);
     }
 
     .marcan-blog-cta-inner {
-        padding: 88px 18px 0;
+        justify-content: center;
+        min-height: min(780px, 100svh);
+        padding: 60px 18px;
     }
 
     .marcan-blog-cta h2 {
-        font-size: 38px;
+        font-size: 45px;
+        letter-spacing: 0.01em;
+        max-width: 314px;
     }
 
     .marcan-blog-cta-actions {
+        align-items: center;
         flex-direction: column;
-        margin-top: 48px;
+        gap: 16px;
+        margin-top: 30px;
+    }
+
+    .marcan-blog-cta-btn {
+        min-width: 255px;
+    }
+
+    .marcan-single-hero {
+        padding: 87px 16px 0;
+    }
+
+    .marcan-single-hero-top {
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .marcan-single-back {
+        align-self: flex-start;
+        height: 51px;
+        position: static;
+        width: 51px;
+    }
+
+    .marcan-single-hero h1 {
+        font-size: 32px;
+        letter-spacing: 0.32px;
+        line-height: normal;
+        margin-top: 20px;
+    }
+
+    .marcan-single-hero-image {
+        height: min(580px, 150vw);
+        margin-top: 50px;
+    }
+
+    .marcan-single-body {
+        display: flex;
+        flex-direction: column;
+        padding: 40px 16px 60px;
+    }
+
+    .marcan-single-content > p:first-child,
+    .marcan-single-content > h2:first-child {
+        font-family: Inter, Arial, sans-serif;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .marcan-single-content > p:nth-child(2) {
+        font-family: Inter, Arial, sans-serif;
+        font-size: 18px;
+        font-weight: 300;
+        line-height: normal;
+    }
+
+    .marcan-single-content h2 {
+        font-size: 20px;
+        line-height: normal;
+        margin: 40px 0 14px;
+    }
+
+    .marcan-single-content p,
+    .marcan-single-content ul,
+    .marcan-single-content ol {
+        font-size: 16px;
+        line-height: 21px;
+    }
+
+    .marcan-single-sidebar {
+        gap: 56px;
+        margin-top: 56px;
+    }
+
+    .marcan-single-sidebar-group h2 {
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+
+    .marcan-single-sidebar-cards {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .marcan-single-sidebar-cards::-webkit-scrollbar {
+        display: none;
+    }
+
+    .marcan-single-sidebar-card {
+        flex: 0 0 min(315px, 82vw);
+        margin-bottom: 0;
+    }
+
+    .marcan-single-sidebar-card-image {
+        height: min(390px, 100vw);
+    }
+
+    .marcan-single-sidebar-card-meta {
+        flex-wrap: nowrap;
+        margin-top: 30px;
+    }
+
+    .marcan-single-sidebar-card-name {
+        font-family: Inter, Arial, sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: normal;
+        white-space: nowrap;
+    }
+
+    .marcan-single-sidebar-card-badge {
+        background: #fffcf2;
+        border-color: #ffcb05;
+        color: #997a03;
+        padding: 3px 8px;
+        white-space: nowrap;
+    }
+
+    .marcan-single-sidebar-card-district {
+        font-weight: 400;
+        margin-top: 5px;
+    }
+
+    .marcan-single-contact-form-area {
+        padding: 60px 16px 48px;
+    }
+
+    .marcan-single-contact-form-area h2 {
+        font-size: 32px;
+        letter-spacing: 0.32px;
+        margin-bottom: 46px;
+    }
+
+    .marcan-single-contact-checks {
+        margin-top: 65px;
+    }
+
+    .marcan-single-contact-check input {
+        height: 26px;
+        width: 26px;
+    }
+
+    .marcan-single-contact-submit {
+        margin-top: 65px;
+    }
+
+    .marcan-single-contact-info {
+        padding: 70px 42px;
     }
 }
 
@@ -8443,7 +8672,7 @@ body:has(.marcan-single) {
 }
 
 .marcan-privacy-intro p {
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.65;
     margin: 0 0 14px;
 }
@@ -8540,7 +8769,7 @@ body:has(.marcan-single) {
     cursor: pointer;
     display: inline-flex;
     font-family: Inter, Arial, sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 500;
     justify-content: center;
     min-height: 44px;
@@ -8647,7 +8876,7 @@ body:has(.marcan-single) {
 .marcan-unit-share-sheet-panel h3 {
     color: #1c1c1e;
     font-family: Inter, Arial, sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     line-height: 1.25;
     margin: 0 0 14px;
@@ -8676,7 +8905,7 @@ body:has(.marcan-single) {
     flex: 0 0 92px;
     flex-direction: column;
     font-family: Inter, Arial, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     gap: 8px;
     justify-content: flex-start;
@@ -8791,7 +9020,7 @@ body:has(.marcan-single) {
     cursor: pointer;
     display: block;
     font-family: Inter, Arial, sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 600;
     height: 56px;
     margin-top: 10px;
@@ -8829,7 +9058,7 @@ body.has-unit-share-sheet {
 
 .marcan-property-plan-lightbox-inner {
     height: 818px;
-    max-height: 85vh;
+    max-height: 85svh;
     overflow: hidden;
     position: relative;
     width: 100%;
@@ -8943,7 +9172,7 @@ body.has-unit-share-sheet {
 
 .marcan-property-plan-lightbox-footer .marcan-button-line,
 .marcan-property-plan-lightbox-footer .marcan-button-dark {
-    font-size: 17px;
+    font-size: 16px;
     height: auto;
     line-height: 1.45;
     padding: 13px 26px;
@@ -9016,7 +9245,7 @@ body.has-unit-share-sheet {
 }
 
 .marcan-property-contact-modal.is-contact-sent {
-    height: min(86vh, 879px);
+    height: min(86svh, 879px);
     max-width: 1151px;
     width: min(96vw, 1151px);
 }
@@ -9073,7 +9302,7 @@ body.has-unit-share-sheet {
 .marcan-property-contact-field label {
     color: #a5a5a3;
     font-family: Inter, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 400;
     padding-left: 3px;
 }
@@ -9147,7 +9376,7 @@ body.has-unit-share-sheet {
     cursor: pointer;
     display: flex;
     font-family: Inter, Arial, sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
     gap: 8px;
     justify-content: center;
@@ -9165,7 +9394,7 @@ body.has-unit-share-sheet {
 .marcan-property-contact-modal-message {
     color: #4f4f4f;
     font-family: Inter, Arial, sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.35;
     margin: 0 0 18px;
     max-width: 740px;
@@ -9265,31 +9494,19 @@ body.has-unit-share-sheet {
     left: -0.49%;
     max-width: none;
     object-fit: cover;
-    opacity: 0;
     position: absolute;
     top: -2.19%;
-    transform: scale(1.025);
     width: 148.18%;
-}
-
-.marcan-property-contact-modal.is-contact-sent .marcan-property-contact-modal-thanks img {
-    animation: marcanContactThanksImage 1200ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .marcan-property-contact-modal-thanks-yellow {
     background: #ffcb05;
     height: 500px;
     left: 0;
-    opacity: 0;
     overflow: hidden;
     position: absolute;
     top: 379px;
-    transform: translateY(42px);
     width: 540px;
-}
-
-.marcan-property-contact-modal.is-contact-sent .marcan-property-contact-modal-thanks-yellow {
-    animation: marcanContactThanksYellow 1100ms cubic-bezier(0.22, 1, 0.36, 1) 820ms forwards;
 }
 
 .marcan-property-contact-modal-thanks-arrow {
@@ -9301,12 +9518,12 @@ body.has-unit-share-sheet {
     opacity: 0;
     position: absolute;
     top: 38px;
-    transform: rotate(45deg) translateY(16px);
+    transform: rotate(45deg) translateY(130%);
     width: 36px;
 }
 
 .marcan-property-contact-modal.is-contact-sent .marcan-property-contact-modal-thanks-arrow {
-    animation: marcanContactThanksText 860ms ease 1440ms forwards;
+    animation: marcanContactThanksText 700ms cubic-bezier(0.34, 1.56, 0.64, 1) 700ms forwards;
 }
 
 .marcan-property-contact-modal-thanks-yellow p {
@@ -9321,11 +9538,11 @@ body.has-unit-share-sheet {
     opacity: 0;
     position: absolute;
     top: 206px;
-    transform: translateY(18px);
+    transform: translateY(40px);
 }
 
 .marcan-property-contact-modal.is-contact-sent .marcan-property-contact-modal-thanks-yellow p {
-    animation: marcanContactThanksText 860ms ease 1540ms forwards;
+    animation: marcanContactThanksCopy 900ms cubic-bezier(0.22, 1, 0.36, 1) 300ms forwards;
 }
 
 .marcan-property-contact-modal-thanks-close {
@@ -9630,11 +9847,225 @@ body.has-unit-share-sheet {
     color: #4f4f4f;
     display: inline-flex;
     font-family: Inter, Arial, sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     height: 51px;
     justify-content: center;
     padding: 0 24px;
     text-decoration: none;
+}
+
+
+/* ── Contact Modal / Plan Lightbox — mobile (debe ir después de los estilos base) ── */
+@media (max-width: 900px) {
+    .marcan-property-plan-lightbox,
+    .marcan-property-contact-modal,
+    .marcan-property-contact-modal.is-contact-sent,
+    .marcan-property-contact-modal-general.is-contact-sent {
+        border-radius: 0;
+        height: 100svh;
+        margin: 0;
+        max-height: none;
+        max-width: none;
+        width: 100vw;
+    }
+
+    .marcan-property-plan-lightbox[open],
+    .marcan-property-contact-modal[open] {
+        animation: marcanResponsiveModalFromRight 360ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .marcan-property-plan-lightbox-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        height: 100%;
+        max-height: none;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 74px 16px 24px;
+    }
+
+    .marcan-property-plan-lightbox-unit-title {
+        font-size: 34px;
+        left: auto;
+        line-height: 1.1;
+        position: static;
+        top: auto;
+    }
+
+    .marcan-property-plan-lightbox-plan {
+        flex: 0 0 auto;
+        height: min(54svh, 510px);
+        left: auto;
+        position: static;
+        top: auto;
+        width: 100%;
+    }
+
+    .marcan-property-plan-lightbox-legend {
+        flex: 0 0 auto;
+        height: auto;
+        left: auto;
+        min-height: 0;
+        overflow: visible;
+        padding: 22px 18px;
+        position: static;
+        right: auto;
+        top: auto;
+    }
+
+    .marcan-property-plan-lightbox-legend-heading {
+        font-size: 24px;
+        margin-bottom: 18px;
+    }
+
+    .marcan-property-plan-lightbox-legend-cols {
+        bottom: auto;
+        flex-direction: column;
+        gap: 18px;
+        left: auto;
+        position: static;
+        right: auto;
+    }
+
+    .marcan-property-plan-lightbox-legend-group strong {
+        font-size: 18px;
+    }
+
+    .marcan-property-plan-lightbox-legend-group ul,
+    .marcan-property-plan-lightbox-legend-cols ol {
+        font-size: 16px;
+    }
+
+    .marcan-property-plan-lightbox-footer {
+        align-items: stretch;
+        bottom: auto;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr 1fr 45px;
+        position: static;
+        right: auto;
+        top: auto;
+    }
+
+    .marcan-property-plan-lightbox-footer .marcan-button-line,
+    .marcan-property-plan-lightbox-footer .marcan-button-dark {
+        align-items: center;
+        display: flex;
+        font-size: 14px;
+        justify-content: center;
+        padding: 12px 10px;
+        text-align: center;
+    }
+
+    .marcan-property-plan-lightbox-close {
+        position: fixed;
+        right: 16px;
+        top: 16px;
+        z-index: 3;
+    }
+
+    .marcan-property-contact-modal {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .marcan-property-contact-modal-inner {
+        display: block;
+        min-height: 100%;
+    }
+
+    .marcan-property-contact-modal-form-area {
+        min-height: 100svh;
+        padding: 72px 20px 32px;
+    }
+
+    .marcan-property-contact-modal-form-area > h2 {
+        font-size: 36px;
+        margin-bottom: 34px;
+    }
+
+    .marcan-property-contact-modal-fields,
+    .marcan-property-contact-modal-checks,
+    .marcan-property-contact-modal-submit,
+    .marcan-property-contact-modal-message {
+        max-width: none;
+    }
+
+    .marcan-property-contact-modal-fields {
+        gap: 18px;
+    }
+
+    .marcan-property-contact-check span {
+        font-size: 14px;
+    }
+
+    .marcan-property-contact-modal-sidebar {
+        background: transparent;
+        inset: 0 0 auto auto;
+        overflow: visible;
+        padding: 0;
+        position: absolute;
+        z-index: 10;
+    }
+
+    .marcan-property-contact-modal-sidebar-content {
+        display: none;
+    }
+
+    .marcan-property-contact-modal-close {
+        height: 52px;
+        position: fixed;
+        right: 8px;
+        top: 8px;
+        width: 52px;
+    }
+
+    .marcan-property-contact-modal-thanks {
+        min-height: 100svh;
+    }
+
+    .marcan-property-contact-modal-thanks img {
+        height: 56%;
+        left: 0;
+        object-fit: cover;
+        top: 0;
+        width: 100%;
+    }
+
+    .marcan-property-contact-modal-thanks-yellow {
+        bottom: 0;
+        height: 48%;
+        left: 0;
+        padding: 28px 24px;
+        top: auto;
+        width: 100%;
+    }
+
+    .marcan-property-contact-modal-thanks-arrow {
+        left: 24px;
+        top: 28px;
+    }
+
+    .marcan-property-contact-modal-thanks-yellow p {
+        bottom: 36px;
+        font-size: 34px;
+        left: 24px;
+        top: auto;
+    }
+
+    .marcan-property-contact-modal-thanks-close {
+        right: 8px;
+        top: 8px;
+    }
+
+    .marcan-property-contact-modal-general .marcan-property-contact-modal-thanks-yellow {
+        width: calc(100% - 48px);
+    }
+
+    .marcan-property-contact-modal-general .marcan-property-contact-modal-thanks-yellow p {
+        font-size: 34px;
+    }
 }
 
 @keyframes introLogo {

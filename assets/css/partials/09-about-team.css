@@ -71,7 +71,7 @@
 .marcan-about-awards .marcan-about-section-title {
     left: 27px;
     position: absolute;
-    top: 0;
+    top: -60px;
 }
 
 .marcan-about-awards-grid {
@@ -92,11 +92,14 @@
 
 .marcan-about-award-logo {
     height: 62px;
+    overflow: hidden;
     width: 56px;
 }
 
 .marcan-about-award-logo img {
+    height: 100%;
     object-fit: cover;
+    width: 100%;
 }
 
 .marcan-about-award-content {
@@ -199,7 +202,7 @@
 .marcan-about-team-meta p,
 .marcan-about-team-meta a {
     font-family: Inter, Arial, Helvetica, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 300;
     line-height: 1.4;
     margin: 0;
@@ -216,14 +219,20 @@
     }
 
     .marcan-about-hero {
-        min-height: 1090px;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        overflow: hidden;
+        padding-top: clamp(150px, 25vw, 210px);
     }
 
     .marcan-about-hero-copy {
-        left: 16px;
+        left: auto;
+        margin: 0 16px clamp(28px, 8vw, 48px);
         max-width: calc(100vw - 32px);
-        top: 210px;
-        width: 370px;
+        position: relative;
+        top: auto;
+        width: auto;
     }
 
     .marcan-about-hero-copy p {
@@ -231,14 +240,10 @@
         max-width: 370px;
     }
 
-    .marcan-about-hero-image-desktop {
-        display: none;
-    }
-
-    .marcan-about-hero-image-mobile {
-        display: block;
-        height: 450px;
-        top: 640px;
+    .marcan-about-hero-image {
+        left: auto;
+        position: relative;
+        top: auto;
     }
 
     .marcan-about-reasons {
@@ -399,16 +404,17 @@
     }
 
     .marcan-about-awards {
-        margin-top: 30px;
+        margin-top: 280px;
         top: auto;
     }
 
     .marcan-about-awards .marcan-about-section-title {
         left: 16px;
+        z-index: 1;
     }
 
     .marcan-about-awards-grid {
-        gap: 80px 16px;
+        gap: 48px 16px;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         left: 16px;
         margin-top: 79px;
@@ -434,6 +440,10 @@
 
     .marcan-about-team .marcan-about-section-title {
         left: 16px;
+    }
+
+    .marcan-about-team-photo img {
+        filter: grayscale(0);
     }
 
     .marcan-about-team-track {
@@ -589,8 +599,9 @@
 
     .marcan-home-delivered-button {
         margin: 0 auto;
+        overflow: visible;
         position: static;
-        width: 192px;
+        width: auto;
     }
 
     .marcan-home-hero {
@@ -598,28 +609,21 @@
         display: flex;
         flex-direction: column;
         gap: 25px;
-        padding-top: 54px;
+        padding-top: var(--marcan-header-height, 0px);
     }
 
     .marcan-home-hero-slider {
-        height: auto;
+        height: calc(100vh - var(--marcan-header-height, 0px));
+        height: calc(100svh - var(--marcan-header-height, 0px));
     }
 
     .marcan-home-hero-slide {
-        height: auto;
+        height: 100%;
     }
 
     .marcan-home-hero-media {
-        height: auto;
+        height: 100%;
         width: 100%;
-    }
-
-    .marcan-home-hero-media-desktop {
-        display: none;
-    }
-
-    .marcan-home-hero-media-mobile {
-        display: block;
     }
 
     .marcan-home-hero-mobile-copy {
@@ -632,7 +636,7 @@
     .marcan-home-hero-mobile-copy p {
         color: var(--marcan-ink);
         font-family: Inter, Arial, Helvetica, sans-serif;
-        font-size: 19px;
+        font-size: 18px;
         font-weight: 300;
         letter-spacing: 0;
         line-height: 1.28;
@@ -648,7 +652,7 @@
         box-sizing: border-box;
         display: block;
         min-height: auto;
-        padding: 80px 16px 80px;
+        padding: 80px 16px 90px;
         position: relative;
     }
 
@@ -681,7 +685,7 @@
     .marcan-home-projects-heading {
         align-items: flex-start;
         flex-direction: column;
-        padding: 0 16px 10px;
+        padding: 0 16px 50px;
     }
 
     .marcan-home-projects-heading h2 {
@@ -692,6 +696,8 @@
 
     .marcan-home-projects-heading-button {
         height: 33px;
+        padding-bottom: 6px;
+        padding-top: 6px;
     }
 
     .marcan-home-project-slider {
@@ -706,7 +712,7 @@
 
     .marcan-home-project-card {
         height: auto;
-        width: 315px;
+        width: 345px;
     }
 
     .marcan-home-project-card[data-reveal] {
@@ -757,6 +763,7 @@
     }
 
     .marcan-home-project-card-title-row {
+        align-items: center;
         gap: 12px;
         min-height: 26px;
     }
@@ -865,7 +872,7 @@
         flex-direction: column;
         gap: 38px;
         height: auto;
-        min-height: 100dvh;
+        min-height: 100svh;
         overflow: visible;
         padding: 44px 24px 48px;
     }
@@ -934,7 +941,7 @@
     }
 
     .marcan-site-footer-members-title {
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 500;
         letter-spacing: 0.12px;
         line-height: 1.4;
@@ -994,6 +1001,10 @@
         position: static;
         width: 342px;
     }
+
+    html {
+        background: var(--marcan-footer-bg, #ffcb05);
+    }
 }
 
 @media (min-width: 901px) and (max-width: 1439px) {
@@ -1041,7 +1052,10 @@
 
 @media (min-width: 600px) and (max-width: 900px) {
     .marcan-about-hero-copy {
-        left: 24px;
+        left: auto;
+        margin-left: 24px;
+        margin-right: 24px;
+        max-width: 620px;
         width: min(620px, calc(100% - 48px));
     }
 
@@ -1212,11 +1226,13 @@
     .marcan-home-hero-slider,
     .marcan-home-hero-slide,
     .marcan-home-hero-media {
-        height: calc(100vw * 1160 / 804);
+        height: calc(100vh - var(--marcan-header-height, 0px));
+        height: calc(100svh - var(--marcan-header-height, 0px));
     }
 
-    .marcan-home-hero-media img {
-        object-fit: contain;
+    .marcan-home-hero-slide,
+    .marcan-home-hero-media {
+        height: 100%;
     }
 
     .marcan-home-hero-mobile-copy p {
@@ -1240,15 +1256,11 @@
 
 @media (max-width: 599px) {
     .marcan-about-hero {
-        min-height: 980px;
+        padding-top: 150px;
     }
 
     .marcan-about-hero-copy {
-        top: 150px;
-    }
-
-    .marcan-about-hero-image-mobile {
-        top: 530px;
+        margin-bottom: 32px;
     }
 
     .marcan-about-reasons,
@@ -1258,3 +1270,4 @@
 }
 
 .marcan-property-archive,
+

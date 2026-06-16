@@ -430,12 +430,14 @@
     width: 100%;
 }
 
+.marcan-property-single-hero picture {
+    display: block;
+    width: 100%;
+}
+
 .marcan-property-single-hero-image {
-    aspect-ratio: 2560 / 1334;
     display: block;
     height: auto;
-    object-fit: cover;
-    object-position: center center;
     width: 100%;
 }
 
@@ -695,9 +697,9 @@
     background: #ffffff;
     display: grid;
     grid-template-columns: 401px minmax(0, 1fr);
-    height: min(800px, var(--marcan-tour-available-height, 100vh));
+    height: min(800px, var(--marcan-tour-available-height, 100svh));
     margin-left: -30px;
-    max-height: var(--marcan-tour-available-height, 100vh);
+    max-height: var(--marcan-tour-available-height, 100svh);
     overflow: hidden;
     position: relative;
     transition: grid-template-columns 320ms var(--marcan-ease);
@@ -928,7 +930,7 @@
     bottom: 24px;
     color: #4f4f4f;
     font-family: Inter, Arial, sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.43;
     padding: 10px 20px;
     position: absolute;

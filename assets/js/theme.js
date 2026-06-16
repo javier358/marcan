@@ -159,71 +159,100 @@
                 message.textContent = '';
             }
 
-            const request = new XMLHttpRequest();
-            request.open('POST', window.marcanContactForm.ajaxUrl, true);
-            request.onload = function () {
-                let payload = {};
-                try {
-                    payload = JSON.parse(request.responseText || '{}');
-                } catch (error) {
-                    payload = {};
-                }
-
-                if (request.status >= 200 && request.status < 300 && payload.success) {
-                    form.classList.remove('is-sending');
-                    form.classList.add('is-sent');
-                    if (contactModal) {
-                        contactModal.classList.add('is-contact-sent');
-                        thanksCloseTimer = window.setTimeout(function () {
-                            if (typeof contactModal.close === 'function') {
-                                contactModal.close();
-                            } else {
-                                contactModal.removeAttribute('open');
-                            }
-                            contactModal.classList.remove('is-contact-sent');
-                            form.classList.remove('is-sent');
-                            thanksCloseTimer = null;
-                        }, 5000);
+            function sendRequest() {
+                const request = new XMLHttpRequest();
+                request.open('POST', window.marcanContactForm.ajaxUrl, true);
+                request.onload = function () {
+                    let payload = {};
+                    try {
+                        payload = JSON.parse(request.responseText || '{}');
+                    } catch (error) {
+                        payload = {};
                     }
-                    form.reset();
-                    if (message) {
-                        message.hidden = false;
-                        message.textContent = payload.data && payload.data.message ? payload.data.message : 'Gracias. Hemos recibido tus datos.';
+    
+                    if (request.status >= 200 && request.status < 300 && payload.success) {
+                        form.classList.remove('is-sending');
+                        form.classList.add('is-sent');
+                        if (contactModal) {
+                            contactModal.classList.add('is-contact-sent');
+                            thanksCloseTimer = window.setTimeout(function () {
+                                if (typeof contactModal.close === 'function') {
+                                    contactModal.close();
+                                } else {
+                                    contactModal.removeAttribute('open');
+                                }
+                                contactModal.classList.remove('is-contact-sent');
+                                form.classList.remove('is-sent');
+                                thanksCloseTimer = null;
+                            }, 5000);
+                        }
+                        form.reset();
+                        if (message) {
+                            message.hidden = false;
+                            message.textContent = payload.data && payload.data.message ? payload.data.message : 'Gracias. Hemos recibido tus datos.';
+                        }
+                    } else {
+                        form.classList.remove('is-sending');
+                        form.classList.add('is-error');
+                        if (message) {
+                            message.hidden = false;
+                            message.textContent = payload && payload.data && payload.data.message ? payload.data.message : 'No se pudo enviar el formulario. Inténtalo nuevamente.';
+                        }
                     }
-                } else {
+    
+                    if (submit) {
+                        submit.disabled = false;
+                    }
+                };
+                request.onerror = function () {
                     form.classList.remove('is-sending');
                     form.classList.add('is-error');
                     if (message) {
                         message.hidden = false;
-                        message.textContent = payload && payload.data && payload.data.message ? payload.data.message : 'No se pudo enviar el formulario. Inténtalo nuevamente.';
+                        message.textContent = 'No se pudo enviar el formulario. Inténtalo nuevamente.';
                     }
-                }
+                    if (submit) {
+                        submit.disabled = false;
+                    }
+                };
+                request.send(data);
+            }
 
-                if (submit) {
-                    submit.disabled = false;
-                }
-            };
-            request.onerror = function () {
-                form.classList.remove('is-sending');
-                form.classList.add('is-error');
-                if (message) {
-                    message.hidden = false;
-                    message.textContent = 'No se pudo enviar el formulario. Inténtalo nuevamente.';
-                }
-                if (submit) {
-                    submit.disabled = false;
-                }
-            };
-            request.send(data);
+            const recaptchaKey = window.marcanContactForm.recaptchaSiteKey || '';
+            if (recaptchaKey && window.grecaptcha && typeof window.grecaptcha.ready === 'function') {
+                window.grecaptcha.ready(function () {
+                    window.grecaptcha.execute(recaptchaKey, { action: 'marcan_contact' }).then(function (token) {
+                        data.append('recaptcha_token', token);
+                        sendRequest();
+                    }).catch(function () {
+                        sendRequest();
+                    });
+                });
+            } else {
+                sendRequest();
+            }
         });
     }
 
     initContactForm();
 
+    function syncHeaderHeight() {
+        if (!header) {
+            return;
+        }
+
+        const height = header.getBoundingClientRect().height;
+        document.documentElement.style.setProperty('--marcan-header-height', height.toFixed(2) + 'px');
+    }
+
+    syncHeaderHeight();
+
     function syncHeader() {
         if (!header) {
             return;
         }
+
+        syncHeaderHeight();
 
         const scrolled = window.scrollY > 24;
 
@@ -571,6 +600,8 @@
         const collapse = tour.querySelector('[data-tour-collapse]');
         const groupToggles = Array.prototype.slice.call(tour.querySelectorAll('[data-tour-group-toggle]'));
         const loading = tour.querySelector('[data-tour-loading]');
+        let stableViewportWidth = 0;
+        let stableViewportHeight = 0;
 
         if (!buttons.length || !frame) {
             return;
@@ -581,7 +612,16 @@
             const quote = document.querySelector('.marcan-property-sticky-quote');
             const headerHeight = header ? header.getBoundingClientRect().height : 0;
             const quoteHeight = quote ? quote.getBoundingClientRect().height : 0;
-            tour.style.setProperty('--marcan-tour-available-height', Math.max(360, window.innerHeight - headerHeight - quoteHeight) + 'px');
+            const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+            const isMobile = window.matchMedia('(max-width: 900px)').matches;
+
+            if (!isMobile || stableViewportHeight <= 0 || Math.abs(viewportWidth - stableViewportWidth) > 1) {
+                stableViewportWidth = viewportWidth;
+                stableViewportHeight = viewportHeight;
+            }
+
+            tour.style.setProperty('--marcan-tour-available-height', Math.max(360, stableViewportHeight - headerHeight - quoteHeight) + 'px');
         }
 
         function warmTourConnection() {
@@ -605,14 +645,6 @@
 
         syncTourHeight();
         window.addEventListener('resize', syncTourHeight);
-
-        if (window.matchMedia('(max-width: 900px)').matches) {
-            tour.classList.add('is-menu-collapsed');
-            if (collapse) {
-                collapse.setAttribute('aria-expanded', 'false');
-                collapse.setAttribute('aria-label', 'Expandir selector de recorridos');
-            }
-        }
 
         if ('IntersectionObserver' in window) {
             const preloadObserver = new IntersectionObserver(function (entries) {
@@ -1122,7 +1154,87 @@
 
     function initUnitPlanZoom(plan) {
         const image = plan.querySelector('img');
+        const zoomButton = plan.querySelector('[data-unit-plan-zoom-toggle]');
+        const expandButton = plan.querySelector('[data-unit-plan-expand]');
+        let zoomEnabled = false;
         if (!image) {
+            return;
+        }
+
+        function resetZoomState() {
+            zoomEnabled = false;
+            plan.classList.remove('is-zoom-enabled', 'is-lens-active');
+            if (zoomButton) {
+                zoomButton.setAttribute('aria-pressed', 'false');
+                zoomButton.setAttribute('aria-label', 'Activar lupa del plano');
+            }
+        }
+
+        function getUnitPlanDialog() {
+            let dialog = document.querySelector('[data-unit-plan-modal]');
+            if (dialog) {
+                return dialog;
+            }
+
+            dialog = document.createElement('dialog');
+            dialog.className = 'marcan-property-unit-plan-modal';
+            dialog.setAttribute('data-unit-plan-modal', '');
+            dialog.setAttribute('aria-label', 'Plano completo');
+            dialog.innerHTML = '<div class="marcan-property-unit-plan-modal-inner"><button class="marcan-property-unit-plan-modal-close" type="button" data-unit-plan-modal-close aria-label="Cerrar plano"></button><img data-unit-plan-modal-image alt=""><p data-unit-plan-modal-title></p></div>';
+            document.body.appendChild(dialog);
+
+            dialog.addEventListener('click', function (event) {
+                if (event.target === dialog) {
+                    dialog.close();
+                }
+            });
+
+            const close = dialog.querySelector('[data-unit-plan-modal-close]');
+            if (close) {
+                close.addEventListener('click', function () {
+                    dialog.close();
+                });
+            }
+
+            return dialog;
+        }
+
+        function openUnitPlanDialog() {
+            const src = plan.getAttribute('data-unit-plan-full-src') || image.currentSrc || image.src;
+            const title = plan.getAttribute('data-unit-plan-title') || image.getAttribute('alt') || '';
+            if (!src) {
+                return;
+            }
+
+            const dialog = getUnitPlanDialog();
+            const dialogImage = dialog.querySelector('[data-unit-plan-modal-image]');
+            const dialogTitle = dialog.querySelector('[data-unit-plan-modal-title]');
+            if (dialogImage) {
+                dialogImage.setAttribute('src', src);
+                dialogImage.setAttribute('alt', title);
+            }
+            if (dialogTitle) {
+                dialogTitle.textContent = title;
+                dialogTitle.hidden = title === '';
+            }
+
+            if (typeof dialog.showModal === 'function') {
+                dialog.showModal();
+            } else {
+                window.open(src, '_blank', 'noopener');
+            }
+        }
+
+        if (expandButton) {
+            expandButton.addEventListener('click', function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                resetZoomState();
+                openUnitPlanDialog();
+            });
+        }
+
+        if (!zoomButton || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
             return;
         }
 
@@ -1136,7 +1248,24 @@
         lens.appendChild(lensImage);
         plan.appendChild(lens);
 
+        function hideLens() {
+            plan.classList.remove('is-lens-active');
+        }
+
+        function setZoomEnabled(enabled) {
+            zoomEnabled = enabled;
+            plan.classList.toggle('is-zoom-enabled', zoomEnabled);
+            zoomButton.setAttribute('aria-pressed', String(zoomEnabled));
+            zoomButton.setAttribute('aria-label', zoomEnabled ? 'Desactivar lupa del plano' : 'Activar lupa del plano');
+            if (!zoomEnabled) {
+                hideLens();
+            }
+        }
+
         function updateLens(event) {
+            if (!zoomEnabled) {
+                return;
+            }
             plan.classList.add('is-lens-active');
             const planRect = plan.getBoundingClientRect();
             const imageRect = image.getBoundingClientRect();
@@ -1163,26 +1292,25 @@
         }
 
         function showLens(event) {
-            plan.classList.add('is-lens-active');
+            if (!zoomEnabled) {
+                return;
+            }
             updateLens(event);
         }
+
+        zoomButton.addEventListener('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            setZoomEnabled(!zoomEnabled);
+        });
 
         image.addEventListener('pointerenter', showLens);
         image.addEventListener('pointermove', updateLens);
         image.addEventListener('pointerdown', showLens);
-        image.addEventListener('pointerup', function () {
-            if (window.matchMedia('(hover: none)').matches) {
-                plan.classList.remove('is-lens-active');
-            }
-        });
-        image.addEventListener('pointerleave', function () {
-            plan.classList.remove('is-lens-active');
-        });
+        image.addEventListener('pointerleave', hideLens);
         image.addEventListener('mouseenter', showLens);
         image.addEventListener('mousemove', updateLens);
-        image.addEventListener('mouseleave', function () {
-            plan.classList.remove('is-lens-active');
-        });
+        image.addEventListener('mouseleave', hideLens);
     }
 
     function initPropertyGallery(gallery) {
@@ -1205,6 +1333,10 @@
 
         track.addEventListener('pointerdown', function (event) {
             if (event.pointerType === 'mouse' && event.button !== 0) {
+                return;
+            }
+
+            if (event.pointerType !== 'mouse') {
                 return;
             }
 
@@ -1365,6 +1497,11 @@
     }
 
     window.addEventListener('scroll', syncHeader, { passive: true });
+    window.addEventListener('resize', syncHeaderHeight);
+    if (header && 'ResizeObserver' in window) {
+        const headerResizeObserver = new ResizeObserver(syncHeaderHeight);
+        headerResizeObserver.observe(header);
+    }
     window.addEventListener('load', function () {
         syncHeader();
         if (primaryNav) {

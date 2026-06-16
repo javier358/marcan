@@ -19,7 +19,6 @@
 }
 
 .marcan-iconic-hero {
-    height: 788px;
     margin-top: 32px;
     overflow: hidden;
     width: 100%;
@@ -28,13 +27,8 @@
 .marcan-iconic-hero picture,
 .marcan-iconic-hero img {
     display: block;
-    height: 100%;
+    height: auto;
     width: 100%;
-}
-
-.marcan-iconic-hero img {
-    object-fit: cover;
-    object-position: center center;
 }
 
 .marcan-iconic-intro {
@@ -258,7 +252,7 @@
 .marcan-iconic-gallery-track figcaption {
     color: #838382;
     font-family: Inter, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 300;
     margin-top: 8px;
     padding: 0 4px;
@@ -314,7 +308,7 @@
     color: #4f4f4f;
     display: inline-flex;
     font-family: Inter, Arial, sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     height: 51px;
     justify-content: center;
     line-height: 1.45;
@@ -333,12 +327,12 @@
 
 @media (max-width: 900px) {
     .marcan-iconic-back {
-        top: 126px;
+        top: 83px;
     }
 
     .marcan-iconic-hero {
-        height: 580px;
-        margin-top: 110px;
+        height: auto;
+        margin-top: 67px;
     }
 
     .marcan-iconic-intro {
@@ -355,15 +349,26 @@
         white-space: normal;
     }
 
+    .marcan-iconic-title-block p {
+        font-family: Inter, Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.4;
+    }
+
+    .marcan-iconic-summary {
+        max-width: 332px;
+    }
+
     .marcan-iconic-wide-image {
-        height: 580px;
-        margin: 80px 16px 0;
+        height: min(580px, 150vw);
+        margin: 50px 16px 0;
     }
 
     .marcan-iconic-concept {
         display: flex;
         flex-direction: column;
-        gap: 64px;
+        gap: clamp(80px, 35vw, 140px);
         margin: 30px 16px 0;
     }
 
@@ -396,7 +401,7 @@
     }
 
     .marcan-iconic-gallery {
-        padding: 50px 0;
+        padding: 10px 0 0;
     }
 
     .marcan-iconic-gallery-track {
@@ -404,8 +409,8 @@
     }
 
     .marcan-iconic-gallery-track figure {
-        height: 408px;
-        width: 315px;
+        height: min(580px, 150vw);
+        width: min(315px, 82vw);
     }
 
     .marcan-iconic-details {
@@ -424,17 +429,18 @@
     }
 
     .marcan-iconic-related {
-        margin-top: 90px;
+        margin-top: 106px;
     }
 
     .marcan-iconic-cta {
         gap: 30px;
         margin: 80px 16px 0;
-        min-height: 780px;
+        min-height: min(780px, 100svh);
+        padding: 60px 18px;
     }
 
     .marcan-iconic-cta h2 {
-        font-size: 32px;
+        font-size: 45px;
         max-width: 314px;
     }
 

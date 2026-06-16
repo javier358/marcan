@@ -35,8 +35,16 @@ while (have_posts()) :
     $architecture_studio_role = marcan_get_property_field($post_id, 'arquitectura_estudio_cargo');
     $architecture_studio_photo_value = function_exists('get_field') ? get_field('arquitectura_estudio_foto', $post_id) : get_post_meta($post_id, 'arquitectura_estudio_foto', true);
     $architecture_studio_photo_id = is_array($architecture_studio_photo_value) ? (int) ($architecture_studio_photo_value['ID'] ?? 0) : (int) $architecture_studio_photo_value;
-    $hero_id = marcan_get_property_image_id($post_id, 'detalle_hero_desktop', 'home_desktop_image');
-    $hero_mobile_id = marcan_get_property_image_id($post_id, 'detalle_hero_mobile', 'detalle_hero_desktop');
+    $hero_rows = function_exists('get_field') ? get_field('detalle_hero_imagenes', $post_id) : array();
+    $hero_rows = is_array($hero_rows) ? $hero_rows : array();
+    $hero_id = marcan_hero_primary_image_id($hero_rows);
+    if (!$hero_id) {
+        $hero_id = marcan_get_property_image_id($post_id, 'home_desktop_image');
+    }
+    $hero_picture = marcan_render_hero_picture($hero_rows, '', array(
+        'img_class' => 'marcan-property-single-hero-image',
+        'eager' => true,
+    ));
     $hero_original_url = $hero_id ? wp_get_original_image_url($hero_id) : '';
     if ($hero_original_url === '' && $hero_id) {
         $hero_original_url = (string) wp_get_attachment_image_url($hero_id, 'full');
@@ -209,11 +217,10 @@ while (have_posts()) :
 
     <main class="marcan-property-single marcan-property-single-<?php echo esc_attr($kind); ?>">
         <section class="marcan-property-single-hero">
-            <?php if ($hero_id) : ?>
+            <?php if ($hero_picture !== '') : ?>
+                <?php echo $hero_picture; ?>
+            <?php elseif ($hero_id) : ?>
                 <picture>
-                    <?php if ($hero_mobile_id) : ?>
-                        <source media="(max-width: 900px)" srcset="<?php echo esc_url(wp_get_attachment_image_url($hero_mobile_id, 'full')); ?>">
-                    <?php endif; ?>
                     <img class="marcan-property-single-hero-image" src="<?php echo esc_url($hero_original_url); ?>" alt="" decoding="async" fetchpriority="high">
                 </picture>
             <?php endif; ?>
@@ -464,6 +471,8 @@ while (have_posts()) :
                             }
                             $used_unit_slugs[$unit_slug] = true;
                             $unit_share_url = add_query_arg('tipologia', $unit_slug, get_permalink($post_id)) . '#tipologia-' . rawurlencode($unit_slug);
+                            $unit_plan_full_url = $unit_plan_id ? wp_get_attachment_image_url($unit_plan_id, 'full') : '';
+                            $unit_plan_title = $unit_code !== '' ? sprintf(__('Tipologia %s', 'marcan'), $unit_code) : sprintf(__('Tipologia %d', 'marcan'), $unit_index + 1);
                             ?>
                             <article
                                 class="marcan-property-unit-card<?php echo $unit_expanded ? ' is-expanded' : ''; ?>"
@@ -501,9 +510,20 @@ while (have_posts()) :
                                 </button>
                                 <div class="marcan-property-unit-detail" data-unit-detail <?php echo $unit_expanded ? '' : 'hidden'; ?>>
                                     <div class="marcan-property-unit-plan-layout">
-                                        <figure class="marcan-property-unit-plan" <?php echo $unit_plan_id ? 'data-unit-plan-zoom' : ''; ?>>
+                                        <figure
+                                            class="marcan-property-unit-plan"
+                                            <?php echo $unit_plan_id ? 'data-unit-plan-zoom data-unit-plan-full-src="' . esc_url($unit_plan_full_url) . '" data-unit-plan-title="' . esc_attr($unit_plan_title) . '"' : ''; ?>
+                                        >
                                             <?php if ($unit_plan_id) : ?>
                                                 <?php echo wp_get_attachment_image($unit_plan_id, 'large', false, array('alt' => esc_attr($unit_code))); ?>
+                                                <div class="marcan-property-unit-plan-controls" aria-label="<?php esc_attr_e('Controles del plano', 'marcan'); ?>">
+                                                    <button class="marcan-property-unit-plan-action is-zoom" type="button" data-unit-plan-zoom-toggle aria-label="<?php esc_attr_e('Activar lupa del plano', 'marcan'); ?>" aria-pressed="false">
+                                                        <?php echo marcan_svg('lucide-search'); ?>
+                                                    </button>
+                                                    <button class="marcan-property-unit-plan-action is-expand" type="button" data-unit-plan-expand aria-label="<?php esc_attr_e('Ver plano completo', 'marcan'); ?>">
+                                                        <span aria-hidden="true"></span>
+                                                    </button>
+                                                </div>
                                             <?php else : ?>
                                                 <span><?php esc_html_e('Plano no disponible', 'marcan'); ?></span>
                                             <?php endif; ?>
@@ -681,7 +701,7 @@ while (have_posts()) :
             </section>
 
             <?php if ($architecture_title !== '' || $architecture_text !== '' || $architecture_image_id) : ?>
-                <section class="marcan-property-architecture">
+                <section class="marcan-property-architecture<?php echo $architecture_image_id ? '' : ' marcan-property-architecture--no-image'; ?>">
                     <div class="marcan-property-architecture-info">
                         <div class="marcan-property-architecture-copy">
                             <?php if ($architecture_title !== '') : ?>

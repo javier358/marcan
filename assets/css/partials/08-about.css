@@ -25,23 +25,18 @@
 }
 
 .marcan-about-hero-image {
+    display: block;
     left: 0;
     overflow: hidden;
     position: absolute;
+    top: 470px;
     width: 100%;
 }
 
-.marcan-about-hero-image-desktop {
-    height: 730px;
-    top: 470px;
-}
-
-.marcan-about-hero-image-mobile {
-    display: none;
-}
-
 .marcan-about-hero-image img {
-    object-fit: cover;
+    display: block;
+    height: auto;
+    width: 100%;
 }
 
 .marcan-about-reasons {

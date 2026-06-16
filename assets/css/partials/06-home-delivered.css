@@ -74,21 +74,25 @@
 .marcan-home-delivered-button {
     align-items: center;
     background: var(--marcan-delivered-btn-bg, #4f4f4f);
+    box-sizing: border-box;
     color: var(--marcan-delivered-btn-text, #fbfafa);
     display: inline-flex;
     font-family: Inter, Arial, Helvetica, sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 400;
     justify-content: center;
     height: 41px;
+    line-height: 1.25;
     left: 31px;
+    max-width: calc(100% - 62px);
+    min-width: 192px;
     overflow: hidden;
     padding: 10px 20px;
     position: absolute;
     text-overflow: ellipsis;
     top: 229px;
     white-space: nowrap;
-    width: 192px;
+    width: auto;
 }
 
 @media (min-width: 1537px) {
@@ -129,9 +133,10 @@
         font-size: calc(15px * var(--marcan-home-wide-scale));
         height: calc(41px * var(--marcan-home-wide-scale));
         left: calc(30px * var(--marcan-home-wide-scale));
+        min-width: calc(239px * var(--marcan-home-wide-scale));
         padding: calc(10px * var(--marcan-home-wide-scale)) calc(20px * var(--marcan-home-wide-scale));
         top: calc(471px * var(--marcan-home-wide-scale));
-        width: calc(239px * var(--marcan-home-wide-scale));
+        width: auto;
     }
 
     .marcan-home-projects-heading {
@@ -257,9 +262,10 @@
         font-size: calc(15px * var(--marcan-home-wide-scale));
         height: calc(41px * var(--marcan-home-wide-scale));
         left: calc(31px * var(--marcan-home-wide-scale));
+        min-width: calc(192px * var(--marcan-home-wide-scale));
         padding: calc(10px * var(--marcan-home-wide-scale)) calc(20px * var(--marcan-home-wide-scale));
         top: calc(229px * var(--marcan-home-wide-scale));
-        width: calc(192px * var(--marcan-home-wide-scale));
+        width: auto;
     }
 }
 

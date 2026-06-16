@@ -305,7 +305,7 @@ body:has(.marcan-single) {
     color: #a5a5a3;
     display: block;
     font-family: Inter, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.4;
     padding-left: 3px;
 }
@@ -377,7 +377,7 @@ body:has(.marcan-single) {
     cursor: pointer;
     display: flex;
     font-family: Inter, Arial, sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     gap: 8px;
     justify-content: center;
     margin-top: 40px;
@@ -592,7 +592,7 @@ body:has(.marcan-single) {
     border: 1px solid #4f4f4f;
     display: inline-flex;
     font-family: Inter, Arial, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     justify-content: center;
     line-height: 1.43;
     min-height: 34px;
@@ -780,7 +780,7 @@ body:has(.marcan-single) {
 .marcan-blog-cta {
     background: #4f4f4f;
     color: #ffffff;
-    margin: 13px 30px 0;
+    margin: 40px 30px 0;
     min-height: 539px;
 }
 
@@ -812,7 +812,7 @@ body:has(.marcan-single) {
     color: #4f4f4f !important;
     display: flex;
     font-family: Inter, Arial, sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     justify-content: center;
     min-height: 51px;
     padding: 13px 26px;
@@ -843,95 +843,143 @@ body:has(.marcan-single) {
 
 @media (max-width: 900px) {
     .marcan-blog {
-        padding-top: 54px;
+        padding-top: 67px;
     }
 
     .marcan-blog-hero {
+        --marcan-blog-hero-img: min(813px, calc(100svh - 67px));
         display: block;
         height: auto;
+        position: relative;
     }
 
     .marcan-blog-hero-bg {
-        height: 330px;
+        height: var(--marcan-blog-hero-img);
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
     }
 
     .marcan-blog-hero-panel {
+        margin: calc(var(--marcan-blog-hero-img) * 0.44) 16px 0;
         min-height: 0;
-        padding: 30px 16px 0;
+        padding: 20px 0 0;
+    }
+
+    .marcan-blog-hero-new {
+        font-size: 16px;
+        margin: 0 30px;
     }
 
     .marcan-blog-hero-title {
-        font-size: 36px;
-        max-width: 560px;
+        font-size: 32px;
+        letter-spacing: 0.01em;
+        margin: 4px 30px 30px;
+        max-width: none;
     }
 
     .marcan-blog-hero-card {
         bottom: auto;
         height: auto;
         left: auto;
-        margin-left: -16px;
-        margin-top: 24px;
-        min-height: 210px;
+        min-height: 278px;
         position: relative;
-        width: min(345px, calc(100% + 16px));
+        width: 100%;
     }
 
     .marcan-blog-hero-card-inner {
-        gap: 14px;
-        padding: 24px 20px;
+        gap: 16px;
+        padding: 70px 30px 30px;
+    }
+
+    .marcan-blog-hero-card p {
+        font-size: 16px;
+        max-width: 263px;
+    }
+
+    .marcan-blog-read-btn,
+    .marcan-blog-more-btn {
+        font-size: 16px;
+        min-height: 41px;
+        padding: 10px 20px;
     }
 
     .marcan-blog-content {
+        display: flex;
+        flex-direction: column;
         padding: 56px 16px 72px;
     }
 
-    .marcan-blog-content-labels {
-        display: block;
+    .marcan-blog-content-labels,
+    .marcan-blog-content-grid {
+        display: contents;
+    }
+
+    .marcan-blog-content-labels span {
+        color: #262626;
         font-size: 20px;
-        margin-bottom: 20px;
+        line-height: 1.3;
+    }
+
+    .marcan-blog-content-labels span:first-child {
+        margin-bottom: 24px;
+        order: 1;
+    }
+
+    .marcan-blog-main {
+        order: 2;
     }
 
     .marcan-blog-content-labels span:last-child {
-        display: block;
-        margin-top: 48px;
-    }
-
-    .marcan-blog-content-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 28px;
-        min-height: 0;
-    }
-
-    .marcan-blog-main-image {
-        height: auto;
-        aspect-ratio: 861 / 373;
+        font-size: 22px;
+        margin: 56px 0 24px;
+        order: 3;
     }
 
     .marcan-blog-divider {
-        height: 1px;
-        min-height: 1px;
-        width: 100%;
+        display: none;
+    }
+
+    .marcan-blog-sidebar {
+        order: 4;
+    }
+
+    .marcan-blog-main-image {
+        aspect-ratio: 370 / 373;
+        height: auto;
+    }
+
+    .marcan-blog-main-text h2 {
+        font-size: 20px;
+        line-height: normal;
+    }
+
+    .marcan-blog-main-text p {
+        font-size: 16px;
+        line-height: 1.31;
     }
 
     .marcan-blog-sidebar-card {
         min-height: 0;
+        padding: 24px;
     }
 
     .marcan-blog-more-btn {
-        margin-top: 8px;
+        align-self: flex-start;
+        margin-top: 48px;
     }
 
     .marcan-blog-about {
         margin: 0 16px;
         min-height: 0;
-        padding: 48px 20px 54px;
+        padding: 51px 26px 100px;
     }
 
     .marcan-blog-about-grid {
         display: flex;
         flex-direction: column;
-        gap: 54px;
+        gap: 100px;
     }
 
     .marcan-blog-about-block {
@@ -939,53 +987,213 @@ body:has(.marcan-single) {
     }
 
     .marcan-blog-about-photo {
-        aspect-ratio: 1;
-        height: auto;
-        width: 100%;
+        display: none;
     }
 
     .marcan-blog-about-copy {
-        gap: 16px;
-        padding-top: 22px;
+        gap: 30px;
+        padding: 28px 28px 32px 0;
     }
 
     .marcan-blog-about-copy h2 {
-        font-size: 36px;
+        font-size: 32px;
+        letter-spacing: 0.01em;
+        line-height: normal;
     }
 
     .marcan-blog-about-copy p:last-child {
-        font-size: 18px;
+        font-family: Inter, Arial, sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: normal;
     }
 
     .marcan-blog-about-stats {
-        gap: 28px;
-        margin-top: 54px;
+        display: flex;
+        flex-direction: column;
+        gap: 90px;
+        margin-top: 100px;
     }
 
-    .marcan-blog-about-stat-number {
-        font-size: 58px;
-    }
-
-    .marcan-blog-about-stat-label {
-        font-size: 15px;
+    .marcan-blog-about-stat {
+        align-items: flex-start;
+        gap: 2px;
+        text-align: left;
     }
 
     .marcan-blog-cta {
-        margin: 12px 16px 0;
-        min-height: 390px;
+        margin: 20px 16px 0;
+        min-height: min(780px, 100svh);
     }
 
     .marcan-blog-cta-inner {
-        padding: 88px 18px 0;
+        justify-content: center;
+        min-height: min(780px, 100svh);
+        padding: 60px 18px;
     }
 
     .marcan-blog-cta h2 {
-        font-size: 38px;
+        font-size: 45px;
+        letter-spacing: 0.01em;
+        max-width: 314px;
     }
 
     .marcan-blog-cta-actions {
+        align-items: center;
         flex-direction: column;
-        margin-top: 48px;
+        gap: 16px;
+        margin-top: 30px;
+    }
+
+    .marcan-blog-cta-btn {
+        min-width: 255px;
+    }
+
+    .marcan-single-hero {
+        padding: 87px 16px 0;
+    }
+
+    .marcan-single-hero-top {
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .marcan-single-back {
+        align-self: flex-start;
+        height: 51px;
+        position: static;
+        width: 51px;
+    }
+
+    .marcan-single-hero h1 {
+        font-size: 32px;
+        letter-spacing: 0.32px;
+        line-height: normal;
+        margin-top: 20px;
+    }
+
+    .marcan-single-hero-image {
+        height: min(580px, 150vw);
+        margin-top: 50px;
+    }
+
+    .marcan-single-body {
+        display: flex;
+        flex-direction: column;
+        padding: 40px 16px 60px;
+    }
+
+    .marcan-single-content > p:first-child,
+    .marcan-single-content > h2:first-child {
+        font-family: Inter, Arial, sans-serif;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .marcan-single-content > p:nth-child(2) {
+        font-family: Inter, Arial, sans-serif;
+        font-size: 18px;
+        font-weight: 300;
+        line-height: normal;
+    }
+
+    .marcan-single-content h2 {
+        font-size: 20px;
+        line-height: normal;
+        margin: 40px 0 14px;
+    }
+
+    .marcan-single-content p,
+    .marcan-single-content ul,
+    .marcan-single-content ol {
+        font-size: 16px;
+        line-height: 21px;
+    }
+
+    .marcan-single-sidebar {
+        gap: 56px;
+        margin-top: 56px;
+    }
+
+    .marcan-single-sidebar-group h2 {
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+
+    .marcan-single-sidebar-cards {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .marcan-single-sidebar-cards::-webkit-scrollbar {
+        display: none;
+    }
+
+    .marcan-single-sidebar-card {
+        flex: 0 0 min(315px, 82vw);
+        margin-bottom: 0;
+    }
+
+    .marcan-single-sidebar-card-image {
+        height: min(390px, 100vw);
+    }
+
+    .marcan-single-sidebar-card-meta {
+        flex-wrap: nowrap;
+        margin-top: 30px;
+    }
+
+    .marcan-single-sidebar-card-name {
+        font-family: Inter, Arial, sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: normal;
+        white-space: nowrap;
+    }
+
+    .marcan-single-sidebar-card-badge {
+        background: #fffcf2;
+        border-color: #ffcb05;
+        color: #997a03;
+        padding: 3px 8px;
+        white-space: nowrap;
+    }
+
+    .marcan-single-sidebar-card-district {
+        font-weight: 400;
+        margin-top: 5px;
+    }
+
+    .marcan-single-contact-form-area {
+        padding: 60px 16px 48px;
+    }
+
+    .marcan-single-contact-form-area h2 {
+        font-size: 32px;
+        letter-spacing: 0.32px;
+        margin-bottom: 46px;
+    }
+
+    .marcan-single-contact-checks {
+        margin-top: 65px;
+    }
+
+    .marcan-single-contact-check input {
+        height: 26px;
+        width: 26px;
+    }
+
+    .marcan-single-contact-submit {
+        margin-top: 65px;
+    }
+
+    .marcan-single-contact-info {
+        padding: 70px 42px;
     }
 }
 
@@ -1071,7 +1279,7 @@ body:has(.marcan-single) {
 }
 
 .marcan-privacy-intro p {
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.65;
     margin: 0 0 14px;
 }
@@ -1168,7 +1376,7 @@ body:has(.marcan-single) {
     cursor: pointer;
     display: inline-flex;
     font-family: Inter, Arial, sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 500;
     justify-content: center;
     min-height: 44px;

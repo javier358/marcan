@@ -41,7 +41,7 @@
 .marcan-unit-share-sheet-panel h3 {
     color: #1c1c1e;
     font-family: Inter, Arial, sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     line-height: 1.25;
     margin: 0 0 14px;
@@ -70,7 +70,7 @@
     flex: 0 0 92px;
     flex-direction: column;
     font-family: Inter, Arial, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     gap: 8px;
     justify-content: flex-start;
@@ -185,7 +185,7 @@
     cursor: pointer;
     display: block;
     font-family: Inter, Arial, sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 600;
     height: 56px;
     margin-top: 10px;
@@ -223,7 +223,7 @@ body.has-unit-share-sheet {
 
 .marcan-property-plan-lightbox-inner {
     height: 818px;
-    max-height: 85vh;
+    max-height: 85svh;
     overflow: hidden;
     position: relative;
     width: 100%;
@@ -337,7 +337,7 @@ body.has-unit-share-sheet {
 
 .marcan-property-plan-lightbox-footer .marcan-button-line,
 .marcan-property-plan-lightbox-footer .marcan-button-dark {
-    font-size: 17px;
+    font-size: 16px;
     height: auto;
     line-height: 1.45;
     padding: 13px 26px;

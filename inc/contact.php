@@ -63,6 +63,8 @@ function marcan_save_contact_form_settings(): void
         'contact_privacy_text'     => 'sanitize_text_field',
         'contact_marketing_text'   => 'sanitize_text_field',
         'contact_phone_lines'      => 'sanitize_textarea_field',
+        'contact_recaptcha_site_key' => 'sanitize_text_field',
+        'contact_recaptcha_secret'   => 'sanitize_text_field',
     );
 
     foreach ($text_fields as $field => $sanitizer) {
@@ -93,6 +95,9 @@ function marcan_render_contact_form_settings_page(): void
         array('name' => 'contact_modal_title', 'label' => 'Título principal', 'type' => 'text'),
         array('name' => 'contact_privacy_text', 'label' => 'Texto del checkbox de privacidad', 'type' => 'textarea', 'rows' => 2, 'desc' => 'La frase "Políticas de privacidad" se convierte en enlace automáticamente.'),
         array('name' => 'contact_marketing_text', 'label' => 'Texto del checkbox de publicidad', 'type' => 'textarea', 'rows' => 2),
+        array('heading' => 'Anti-spam — Google reCAPTCHA v3'),
+        array('name' => 'contact_recaptcha_site_key', 'label' => 'Clave del sitio (site key)', 'type' => 'text', 'desc' => 'Crea las claves en google.com/recaptcha/admin (tipo reCAPTCHA v3). Si se deja vacío, el formulario funciona sin reCAPTCHA.'),
+        array('name' => 'contact_recaptcha_secret', 'label' => 'Clave secreta (secret key)', 'type' => 'text', 'desc' => 'Se usa solo en el servidor para verificar cada envío.'),
     );
 
     $defaults = array(
@@ -105,6 +110,8 @@ function marcan_render_contact_form_settings_page(): void
         'contact_phone_lines'      => "Contact Center: 919 490 440\nOficinas: (01) 711 9400",
         'contact_privacy_text'     => 'He leído y acepto las Políticas de privacidad y otorgo mi consentimiento para el envío de información.',
         'contact_marketing_text'   => 'Otorgo mi consentimiento para el envío de publicidad y/o anuncios comerciales y/o invitaciones a eventos.',
+        'contact_recaptcha_site_key' => '',
+        'contact_recaptcha_secret'   => '',
     );
 
     ?>
@@ -199,9 +206,57 @@ function marcan_clean_phone_for_whatsapp(string $phone): string
     return $phone;
 }
 
+function marcan_verify_recaptcha(string $token): bool
+{
+    $secret = marcan_get_option_text('contact_recaptcha_secret', '');
+    if ($secret === '') {
+        return true;
+    }
+
+    if ($token === '') {
+        return false;
+    }
+
+    $response = wp_remote_post('https://www.google.com/recaptcha/api/siteverify', array(
+        'timeout' => 10,
+        'body'    => array(
+            'secret'   => $secret,
+            'response' => $token,
+            'remoteip' => sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'] ?? '')),
+        ),
+    ));
+
+    if (is_wp_error($response)) {
+        // Si Google no responde, no bloquear a usuarios reales.
+        return true;
+    }
+
+    $body = json_decode(wp_remote_retrieve_body($response), true);
+    if (empty($body['success'])) {
+        return false;
+    }
+
+    if (isset($body['action']) && $body['action'] !== 'marcan_contact') {
+        return false;
+    }
+
+    if (isset($body['score']) && (float) $body['score'] < 0.5) {
+        return false;
+    }
+
+    return true;
+}
+
 function marcan_submit_contact_form(): void
 {
     check_ajax_referer('marcan_contact_form', 'nonce');
+
+    $recaptcha_token = sanitize_text_field(wp_unslash($_POST['recaptcha_token'] ?? ''));
+    if (!marcan_verify_recaptcha($recaptcha_token)) {
+        wp_send_json_error(array(
+            'message' => __('No pudimos verificar que eres una persona. Recarga la página e inténtalo nuevamente.', 'marcan'),
+        ), 403);
+    }
 
     $name = sanitize_text_field(wp_unslash($_POST['nombre'] ?? ''));
     $last_name = sanitize_text_field(wp_unslash($_POST['apellido'] ?? ''));

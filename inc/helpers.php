@@ -497,6 +497,152 @@ function marcan_get_project_card_field(int $post_id, string $field, string $fall
     return $fallback;
 }
 
+/**
+ * Mapa dispositivo => min-width (px) para los <source> del <picture> de banners.
+ * Ordenado de mayor a menor: el navegador toma el primer <source> que calza.
+ */
+function marcan_hero_breakpoint_map(): array
+{
+    return array(
+        'desktop_xl'       => 1920,
+        'desktop'          => 1366,
+        'laptop'           => 1024,
+        'tablet'           => 768,
+        'mobile_landscape' => 480,
+        'mobile_portrait'  => 0,
+    );
+}
+
+/**
+ * Renderiza un <picture> responsive a partir de las filas del repeater de imagenes
+ * (marcan_hero_image_repeater). Cada breakpoint usa su imagen cargada o la del
+ * siguiente tamano mayor disponible; si no existe, cae al tamano menor mas cercano.
+ *
+ * @param array  $rows Filas del repeater: cada una ['dispositivo' => string, 'imagen' => int].
+ * @param string $alt  Texto alternativo.
+ * @param array  $opts ['picture_class','img_class','eager'(bool),'size'(default 'full')].
+ */
+function marcan_render_hero_picture(array $rows, string $alt = '', array $opts = array()): string
+{
+    $picture_class = (string) ($opts['picture_class'] ?? '');
+    $img_class     = (string) ($opts['img_class'] ?? '');
+    $eager         = !empty($opts['eager']);
+    $size          = (string) ($opts['size'] ?? 'full');
+
+    $by_device = array();
+    foreach ($rows as $row) {
+        $device = (string) ($row['dispositivo'] ?? '');
+        $img_id = (int) ($row['imagen'] ?? 0);
+        if ($device !== '' && $img_id) {
+            $by_device[$device] = $img_id;
+        }
+    }
+    if (empty($by_device)) {
+        return '';
+    }
+
+    $map = marcan_hero_breakpoint_map();
+    $devices_ascending = array_reverse(array_keys($map));
+    $resolve_device = static function (string $target) use ($by_device, $devices_ascending): int {
+        if (!empty($by_device[$target])) {
+            return (int) $by_device[$target];
+        }
+
+        $target_index = array_search($target, $devices_ascending, true);
+        if ($target_index === false) {
+            return 0;
+        }
+
+        $total = count($devices_ascending);
+        for ($i = $target_index + 1; $i < $total; $i++) {
+            $device = $devices_ascending[$i];
+            if (!empty($by_device[$device])) {
+                return (int) $by_device[$device];
+            }
+        }
+
+        for ($i = $target_index - 1; $i >= 0; $i--) {
+            $device = $devices_ascending[$i];
+            if (!empty($by_device[$device])) {
+                return (int) $by_device[$device];
+            }
+        }
+
+        return 0;
+    };
+
+    $fallback_id = $resolve_device('mobile_portrait');
+
+    $fallback_url = $fallback_id ? wp_get_attachment_image_url($fallback_id, $size) : '';
+    if (!$fallback_url) {
+        return '';
+    }
+
+    $sources = '';
+    foreach ($map as $device => $min) {
+        if ($min <= 0) {
+            continue;
+        }
+        $img_id = $resolve_device((string) $device);
+        if (!$img_id) {
+            continue;
+        }
+        $url = wp_get_attachment_image_url($img_id, $size);
+        if (!$url) {
+            continue;
+        }
+        $sources .= sprintf('<source media="(min-width: %dpx)" srcset="%s">', $min, esc_url($url));
+    }
+
+    $img = sprintf(
+        '<img src="%s" alt="%s"%s decoding="async"%s>',
+        esc_url($fallback_url),
+        esc_attr($alt),
+        $img_class !== '' ? ' class="' . esc_attr($img_class) . '"' : '',
+        $eager ? ' fetchpriority="high"' : ' loading="lazy"'
+    );
+
+    return sprintf(
+        '<picture%s>%s%s</picture>',
+        $picture_class !== '' ? ' class="' . esc_attr($picture_class) . '"' : '',
+        $sources,
+        $img
+    );
+}
+
+/**
+ * Devuelve un unico id de imagen representativo de las filas del repeater de banner
+ * (para usos de una sola imagen, ej. miniatura/poster). Prefiere desktop; si no hay,
+ * toma el de mayor tamano disponible.
+ *
+ * @param array $rows Filas del repeater (['dispositivo','imagen']).
+ */
+function marcan_hero_primary_image_id(array $rows): int
+{
+    $by_device = array();
+    foreach ($rows as $row) {
+        $device = (string) ($row['dispositivo'] ?? '');
+        $img_id = (int) ($row['imagen'] ?? 0);
+        if ($device !== '' && $img_id) {
+            $by_device[$device] = $img_id;
+        }
+    }
+    if (empty($by_device)) {
+        return 0;
+    }
+    if (!empty($by_device['desktop'])) {
+        return (int) $by_device['desktop'];
+    }
+    // De mayor a menor min-width.
+    foreach (marcan_hero_breakpoint_map() as $device => $min) {
+        if (!empty($by_device[$device])) {
+            return (int) $by_device[$device];
+        }
+    }
+
+    return 0;
+}
+
 function marcan_get_home_hero_slides(): array
 {
     if (!function_exists('get_field')) {

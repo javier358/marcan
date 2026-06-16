@@ -57,7 +57,27 @@ if (is_singular('property')) {
     $property_id = get_queried_object_id();
     $property_kind = marcan_get_property_kind((int) $property_id);
     $contact_thanks_variant = $property_kind === 'oficina' ? 'office' : 'department';
-    $thank_you_image_id = marcan_get_property_image_id($property_id, 'detalle_hero_desktop', 'home_desktop_image');
+    $detalle_hero_rows = function_exists('get_field') ? get_field('detalle_hero_imagenes', $property_id) : array();
+    $thank_you_image_id = marcan_hero_primary_image_id(is_array($detalle_hero_rows) ? $detalle_hero_rows : array());
+    if (!$thank_you_image_id) {
+        $thank_you_image_id = marcan_get_property_image_id($property_id, 'home_desktop_image');
+    }
+} elseif (is_page(array('oficinas', 'departamentos'))) {
+    $listing_kind = is_page('oficinas') ? 'oficina' : 'departamento';
+    $contact_thanks_variant = $listing_kind === 'oficina' ? 'office' : 'department';
+    $listing_page_id = get_queried_object_id();
+    if ($listing_page_id && function_exists('get_field')) {
+        $listing_hero_rows = get_field('listing_hero_imagenes', $listing_page_id);
+        $thank_you_image_id = marcan_hero_primary_image_id(is_array($listing_hero_rows) ? $listing_hero_rows : array());
+    }
+    if (!$thank_you_image_id) {
+        $listing_query = marcan_get_properties_by_kind($listing_kind);
+        $listing_first = $listing_query->have_posts() ? $listing_query->posts[0] : null;
+        if ($listing_first) {
+            $thank_you_image_id = marcan_get_property_image_id((int) $listing_first->ID, 'listado_hero_imagen', 'home_desktop_image');
+        }
+        wp_reset_postdata();
+    }
 }
 if (!$thank_you_image_id && has_post_thumbnail()) {
     $thank_you_image_id = (int) get_post_thumbnail_id();

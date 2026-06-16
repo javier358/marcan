@@ -58,6 +58,7 @@ get_header();
             <?php if ($dept_query->have_posts()) : ?>
                 <div class="marcan-single-sidebar-group">
                     <h2><?php esc_html_e('Departamentos para ti', 'marcan'); ?></h2>
+                    <div class="marcan-single-sidebar-cards">
                     <?php while ($dept_query->have_posts()) : $dept_query->the_post(); ?>
                         <?php
                         $nombre   = function_exists('get_field') ? get_field('titulo_comercial', get_the_ID()) : '';
@@ -77,23 +78,25 @@ get_header();
                                 <?php endif; ?>
                             </a>
                             <div class="marcan-single-sidebar-card-meta">
-                                <span class="marcan-single-sidebar-card-name"><?php echo esc_html($nombre); ?></span>
+                                <span class="marcan-single-sidebar-card-name"><?php echo marcan_rich_inline($nombre); ?></span>
                                 <?php if ($estado) : ?>
                                     <span class="marcan-single-sidebar-card-sep" aria-hidden="true"></span>
-                                    <span class="marcan-single-sidebar-card-badge"><?php echo esc_html($estado); ?></span>
+                                    <span class="marcan-single-sidebar-card-badge"><?php echo marcan_rich_inline($estado); ?></span>
                                 <?php endif; ?>
                             </div>
                             <?php if ($ubicacion) : ?>
-                                <span class="marcan-single-sidebar-card-district"><?php echo esc_html($ubicacion); ?></span>
+                                <span class="marcan-single-sidebar-card-district"><?php echo marcan_rich_inline($ubicacion); ?></span>
                             <?php endif; ?>
                         </div>
                     <?php endwhile; ?>
+                    </div>
                 </div>
             <?php endif; ?>
 
             <?php if ($ofi_query->have_posts()) : ?>
                 <div class="marcan-single-sidebar-group">
                     <h2><?php esc_html_e('Oficinas para ti', 'marcan'); ?></h2>
+                    <div class="marcan-single-sidebar-cards">
                     <?php while ($ofi_query->have_posts()) : $ofi_query->the_post(); ?>
                         <?php
                         $nombre   = function_exists('get_field') ? get_field('titulo_comercial', get_the_ID()) : '';
@@ -113,17 +116,18 @@ get_header();
                                 <?php endif; ?>
                             </a>
                             <div class="marcan-single-sidebar-card-meta">
-                                <span class="marcan-single-sidebar-card-name"><?php echo esc_html($nombre); ?></span>
+                                <span class="marcan-single-sidebar-card-name"><?php echo marcan_rich_inline($nombre); ?></span>
                                 <?php if ($estado) : ?>
                                     <span class="marcan-single-sidebar-card-sep" aria-hidden="true"></span>
-                                    <span class="marcan-single-sidebar-card-badge"><?php echo esc_html($estado); ?></span>
+                                    <span class="marcan-single-sidebar-card-badge"><?php echo marcan_rich_inline($estado); ?></span>
                                 <?php endif; ?>
                             </div>
                             <?php if ($ubicacion) : ?>
-                                <span class="marcan-single-sidebar-card-district"><?php echo esc_html($ubicacion); ?></span>
+                                <span class="marcan-single-sidebar-card-district"><?php echo marcan_rich_inline($ubicacion); ?></span>
                             <?php endif; ?>
                         </div>
                     <?php endwhile; ?>
+                    </div>
                 </div>
             <?php endif; ?>
             <?php wp_reset_postdata(); ?>

@@ -57,7 +57,7 @@
     align-items: center;
     display: inline-flex;
     font-family: Inter, Arial, sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
     height: 51px;
     justify-content: center;
@@ -101,7 +101,7 @@
     color: #ffffff;
     display: block;
     font-family: Inter, Arial, sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 600;
     letter-spacing: 0.01em;
     margin-bottom: 10px;
@@ -201,7 +201,7 @@
     overflow-x: auto;
     overflow-y: hidden;
     scrollbar-width: none;
-    touch-action: pan-y;
+    touch-action: pan-x pan-y;
     user-select: none;
     width: 100%;
     -webkit-overflow-scrolling: touch;
@@ -301,7 +301,7 @@
 .marcan-property-gallery-lightbox {
     background: transparent;
     border: 0;
-    max-height: 92vh;
+    max-height: 92svh;
     max-width: 92vw;
     padding: 0;
 }
@@ -319,7 +319,7 @@
 
 .marcan-property-gallery-lightbox img {
     display: block;
-    max-height: 76vh;
+    max-height: 76svh;
     object-fit: contain;
     width: 100%;
 }
@@ -390,7 +390,7 @@
 .marcan-property-quote cite {
     align-self: start;
     font-family: Inter, Arial, sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     grid-area: cite;
@@ -441,7 +441,7 @@
 .marcan-property-related {
     background: #ffffff;
     min-height: 839px;
-    padding: 80px 30px;
+    padding: 80px 20px;
     position: relative;
     z-index: 990;
 }
@@ -491,7 +491,7 @@
     color: #4f4f4f;
     cursor: pointer;
     font-family: Inter, Arial, sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 1.45;
     padding: 13px 26px;
@@ -503,6 +503,10 @@
     grid-template-columns: 345px minmax(0, 781px);
     justify-content: start;
     padding: 80px 0 0;
+}
+
+.marcan-property-architecture--no-image {
+    padding-bottom: 80px;
 }
 
 .marcan-property-architecture-info {
@@ -755,7 +759,7 @@
     flex-direction: column;
     gap: 12px;
     min-height: 0;
-    padding: 15px 0 20px;
+    padding: 15px 10px 20px;
     position: relative;
 }
 
@@ -872,6 +876,10 @@
         padding-top: 48px;
     }
 
+    .marcan-property-architecture--no-image {
+        padding-bottom: 48px;
+    }
+
     .marcan-property-architecture-info {
         gap: 28px;
     }
@@ -956,7 +964,7 @@
     }
 
     .marcan-page-hero-simple p {
-        font-size: 19px;
+        font-size: 18px;
     }
 
     .marcan-property-archive-hero {
@@ -964,14 +972,15 @@
     }
 
     .marcan-property-archive-hero-media {
-        height: 360px;
+        height: auto;
+        position: static;
     }
 
     .marcan-property-archive-hero-content {
         display: flex;
         flex-direction: column;
         gap: 24px;
-        padding: 375px 16px 40px;
+        padding: 40px 16px;
     }
 
     .marcan-property-archive-copy,
@@ -990,7 +999,7 @@
 
     .marcan-property-archive-copy p,
     .marcan-property-archive-search-copy h2 {
-        font-size: 15px;
+        font-size: 16px;
     }
 
     .marcan-property-archive-search-copy p {
@@ -999,7 +1008,7 @@
     }
 
     .marcan-property-archive-whatsapp {
-        bottom: 20px;
+        bottom: 40px;
         right: 16px;
     }
 
@@ -1095,7 +1104,7 @@
     }
 
     .marcan-property-listing-price span {
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .marcan-property-listing-price strong {
@@ -1104,16 +1113,12 @@
 
     .marcan-property-listing-copy h3,
     .marcan-property-listing-copy p {
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .marcan-button-dark,
     .marcan-button-line {
-        font-size: 13px;
-    }
-
-    .marcan-property-single-hero-image {
-        aspect-ratio: 630 / 780;
+        font-size: 14px;
     }
 
     .marcan-property-sticky-quote {
@@ -1133,7 +1138,19 @@
 
     .marcan-property-sticky-meta {
         align-items: flex-start;
+        flex-direction: column;
         flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .marcan-property-sticky-divider {
+        display: none;
+    }
+
+    .marcan-property-status-pill {
+        font-size: 16px;
+        min-height: 30px;
+        padding: 4px 18px;
     }
 
     .marcan-property-sticky-subtitle {
@@ -1186,9 +1203,9 @@
     .marcan-property-tour-shell {
         display: grid;
         grid-template-columns: min(320px, 82vw) minmax(0, 1fr);
-        height: min(800px, var(--marcan-tour-available-height, 100vh));
+        height: min(800px, var(--marcan-tour-available-height, 100svh));
         margin-left: -16px;
-        max-height: var(--marcan-tour-available-height, 100vh);
+        max-height: var(--marcan-tour-available-height, 100svh);
         transition: grid-template-columns 320ms var(--marcan-ease);
         width: calc(100% + 32px);
     }
@@ -1275,7 +1292,7 @@
         justify-content: space-between;
         left: 50%;
         margin: 0;
-        max-height: calc(100vh - 32px);
+        max-height: calc(100svh - 32px);
         overflow-y: auto;
         padding: 20px;
         position: fixed;
@@ -1407,7 +1424,7 @@
         cursor: pointer;
         flex: 1;
         font-family: Inter, Arial, sans-serif;
-        font-size: 17px;
+        font-size: 16px;
         font-weight: 400;
         min-height: 52px;
         padding: 12px;
@@ -1464,6 +1481,10 @@
         min-height: 32px;
     }
 
+    .marcan-property-unit-card.is-expanded .marcan-property-unit-mobile-summary {
+        display: none;
+    }
+
     .marcan-property-unit-desktop-value {
         display: none;
     }
@@ -1477,7 +1498,7 @@
         display: flex;
         flex-direction: column;
         font-family: Inter, Arial, sans-serif;
-        font-size: 14px;
+        font-size: 18px;
         font-weight: 400;
         gap: 8px;
         line-height: 1.4;
@@ -1528,7 +1549,7 @@
     }
 
     .marcan-property-unit-info h3 {
-        font-size: 14px;
+        font-size: 18px;
         line-height: 1.4;
         margin: 0 0 7px;
         padding-right: 48px;
@@ -1546,7 +1567,7 @@
 
     .marcan-property-unit-features dt,
     .marcan-property-unit-features dd {
-        font-size: 14px;
+        font-size: 18px;
     }
 
     .marcan-property-unit-actions {
@@ -1556,10 +1577,11 @@
 
     .marcan-property-unit-actions .marcan-button-line,
     .marcan-property-unit-actions .marcan-button-dark {
-        font-size: 12px;
+        flex: 1 1 0;
+        font-size: 14px;
         justify-content: center;
-        min-height: 33px;
-        padding: 8px 10px;
+        min-height: 44px;
+        padding: 10px 12px;
         text-align: center;
     }
 
@@ -1574,7 +1596,7 @@
     }
 
     .marcan-property-map-canvas {
-        height: clamp(360px, 62vh, 520px);
+        height: clamp(360px, 62svh, 520px);
         min-height: 0;
         width: 100%;
     }
@@ -1681,216 +1703,6 @@
         height: 100%;
         object-fit: cover;
         width: 100%;
-    }
-
-    .marcan-property-plan-lightbox,
-    .marcan-property-contact-modal,
-    .marcan-property-contact-modal.is-contact-sent,
-    .marcan-property-contact-modal-general.is-contact-sent {
-        border-radius: 0;
-        height: 100dvh;
-        margin: 0;
-        max-height: none;
-        max-width: none;
-        width: 100vw;
-    }
-
-    .marcan-property-plan-lightbox[open],
-    .marcan-property-contact-modal[open] {
-        animation: marcanResponsiveModalFromRight 360ms cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .marcan-property-plan-lightbox-inner {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        height: 100%;
-        max-height: none;
-        overflow-x: hidden;
-        overflow-y: auto;
-        padding: 74px 16px 24px;
-    }
-
-    .marcan-property-plan-lightbox-unit-title {
-        font-size: 34px;
-        left: auto;
-        line-height: 1.1;
-        position: static;
-        top: auto;
-    }
-
-    .marcan-property-plan-lightbox-plan {
-        flex: 0 0 auto;
-        height: min(54vh, 510px);
-        left: auto;
-        position: static;
-        top: auto;
-        width: 100%;
-    }
-
-    .marcan-property-plan-lightbox-legend {
-        flex: 0 0 auto;
-        height: auto;
-        left: auto;
-        min-height: 0;
-        overflow: visible;
-        padding: 22px 18px;
-        position: static;
-        right: auto;
-        top: auto;
-    }
-
-    .marcan-property-plan-lightbox-legend-heading {
-        font-size: 24px;
-        margin-bottom: 18px;
-    }
-
-    .marcan-property-plan-lightbox-legend-cols {
-        bottom: auto;
-        flex-direction: column;
-        gap: 18px;
-        left: auto;
-        position: static;
-        right: auto;
-    }
-
-    .marcan-property-plan-lightbox-legend-group strong {
-        font-size: 18px;
-    }
-
-    .marcan-property-plan-lightbox-legend-group ul,
-    .marcan-property-plan-lightbox-legend-cols ol {
-        font-size: 16px;
-    }
-
-    .marcan-property-plan-lightbox-footer {
-        align-items: stretch;
-        bottom: auto;
-        display: grid;
-        gap: 10px;
-        grid-template-columns: 1fr 1fr 45px;
-        position: static;
-        right: auto;
-        top: auto;
-    }
-
-    .marcan-property-plan-lightbox-footer .marcan-button-line,
-    .marcan-property-plan-lightbox-footer .marcan-button-dark {
-        align-items: center;
-        display: flex;
-        font-size: 14px;
-        justify-content: center;
-        padding: 12px 10px;
-        text-align: center;
-    }
-
-    .marcan-property-plan-lightbox-close {
-        position: fixed;
-        right: 16px;
-        top: 16px;
-        z-index: 3;
-    }
-
-    .marcan-property-contact-modal {
-        overflow-x: hidden;
-        overflow-y: auto;
-    }
-
-    .marcan-property-contact-modal-inner {
-        display: block;
-        min-height: 100%;
-    }
-
-    .marcan-property-contact-modal-form-area {
-        min-height: 100dvh;
-        padding: 72px 20px 32px;
-    }
-
-    .marcan-property-contact-modal-form-area > h2 {
-        font-size: 36px;
-        margin-bottom: 34px;
-    }
-
-    .marcan-property-contact-modal-fields,
-    .marcan-property-contact-modal-checks,
-    .marcan-property-contact-modal-submit,
-    .marcan-property-contact-modal-message {
-        max-width: none;
-    }
-
-    .marcan-property-contact-modal-fields {
-        gap: 18px;
-    }
-
-    .marcan-property-contact-check span {
-        font-size: 13px;
-    }
-
-    .marcan-property-contact-modal-sidebar {
-        background: transparent;
-        inset: 0 0 auto auto;
-        overflow: visible;
-        padding: 0;
-        position: absolute;
-        z-index: 10;
-    }
-
-    .marcan-property-contact-modal-sidebar-content {
-        display: none;
-    }
-
-    .marcan-property-contact-modal-close {
-        height: 52px;
-        position: fixed;
-        right: 8px;
-        top: 8px;
-        width: 52px;
-    }
-
-    .marcan-property-contact-modal-thanks {
-        min-height: 100dvh;
-    }
-
-    .marcan-property-contact-modal-thanks img {
-        height: 56%;
-        left: 0;
-        object-fit: cover;
-        top: 0;
-        width: 100%;
-    }
-
-    .marcan-property-contact-modal-thanks-yellow {
-        bottom: 0;
-        height: 48%;
-        left: 0;
-        padding: 28px 24px;
-        top: auto;
-        width: 100%;
-    }
-
-    .marcan-property-contact-modal-thanks-arrow {
-        left: 24px;
-        top: 28px;
-    }
-
-    .marcan-property-contact-modal-thanks-yellow p {
-        bottom: 36px;
-        font-size: 34px;
-        left: 24px;
-        top: auto;
-    }
-
-    .marcan-property-contact-modal-thanks-close {
-        right: 8px;
-        top: 8px;
-    }
-
-    .marcan-property-contact-modal-general .marcan-property-contact-modal-thanks-yellow {
-        width: calc(100% - 48px);
-    }
-
-    .marcan-property-contact-modal-general .marcan-property-contact-modal-thanks-yellow p {
-        font-size: 34px;
     }
 }
 

@@ -13,7 +13,6 @@
 }
 
 .marcan-property-archive-hero-media {
-    height: 606px;
     left: 0;
     overflow: hidden;
     position: absolute;
@@ -21,7 +20,11 @@
     width: 100%;
 }
 
-.marcan-property-archive-hero-image,
+.marcan-property-archive-hero-media picture {
+    display: block;
+    width: 100%;
+}
+
 .marcan-property-listing-image,
 .marcan-property-single-hero-image,
 .marcan-property-single-wide-image img,
@@ -32,8 +35,10 @@
     width: 100%;
 }
 
-.marcan-property-archive-departamento .marcan-property-archive-hero-image {
-    object-position: center center;
+.marcan-property-archive-hero-image {
+    display: block;
+    height: auto;
+    width: 100%;
 }
 
 .marcan-property-archive-hero-content {
@@ -58,14 +63,8 @@
 
     .marcan-property-archive-departamento .marcan-property-archive-hero-media,
     .marcan-property-archive-oficina .marcan-property-archive-hero-media {
-        aspect-ratio: 2560 / 1026;
         height: auto;
         position: static;
-    }
-
-    .marcan-property-archive-departamento .marcan-property-archive-hero-image {
-        object-fit: cover;
-        object-position: center center;
     }
 }
 

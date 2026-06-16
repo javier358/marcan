@@ -12,3 +12,13 @@ package-lock.json
 .idea/
 *.zip
 theme-backup.css
+
+# QA / referencia visual — no van al deploy
+docs/*.png
+docs/*.jpg
+docs/*.jpeg
+
+# Scripts de import puntuales y backups — no son runtime del theme
+tools/
+*.sql
+*.tsv

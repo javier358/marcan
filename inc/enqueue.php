@@ -18,9 +18,22 @@ function marcan_enqueue_assets(): void
 
     wp_enqueue_style('marcan-theme', marcan_asset_uri('css/theme.css'), array(), $css_version);
     wp_enqueue_script('marcan-theme', marcan_asset_uri('js/theme.js'), array(), $js_version, true);
+
+    $recaptcha_site_key = marcan_get_option_text('contact_recaptcha_site_key', '');
+    if ($recaptcha_site_key !== '') {
+        wp_enqueue_script(
+            'google-recaptcha',
+            'https://www.google.com/recaptcha/api.js?render=' . rawurlencode($recaptcha_site_key),
+            array(),
+            null,
+            true
+        );
+    }
+
     wp_localize_script('marcan-theme', 'marcanContactForm', array(
         'ajaxUrl' => admin_url('admin-ajax.php'),
         'nonce'   => wp_create_nonce('marcan_contact_form'),
+        'recaptchaSiteKey' => $recaptcha_site_key,
     ));
 }
 add_action('wp_enqueue_scripts', 'marcan_enqueue_assets');

@@ -1,16 +1,20 @@
 .marcan-home-hero {
     background: #eaeae8;
     display: block;
+    padding-top: var(--marcan-header-height, 0px);
     position: relative;
 }
 
 .marcan-home-hero-slider {
+    height: calc(100vh - var(--marcan-header-height, 0px));
+    height: calc(100svh - var(--marcan-header-height, 0px));
     overflow: hidden;
     position: relative;
 }
 
 .marcan-home-hero-slide {
     background: #eaeae8;
+    height: 100%;
     inset: 0;
     opacity: 0;
     pointer-events: none;
@@ -31,36 +35,19 @@
 }
 
 .marcan-home-hero-media {
+    display: block;
     height: 100%;
     overflow: hidden;
-    position: relative;
     width: 100%;
-}
-
-.marcan-home-hero-media-mobile {
-    display: none;
 }
 
 .marcan-home-hero-media img {
     display: block;
-    height: auto;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center bottom;
     width: 100%;
-}
-
-@media (min-width: 901px) {
-    .marcan-home-hero-slider {
-        height: min(calc(100vw * 982 / 1512), 982px);
-    }
-
-    .marcan-home-hero-slide {
-        height: 100%;
-    }
-
-    .marcan-home-hero-media img {
-        height: 100%;
-        object-fit: cover;
-        object-position: center bottom;
-    }
 }
 
 .marcan-home-hero-mobile-copy {

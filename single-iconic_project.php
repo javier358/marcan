@@ -21,8 +21,13 @@ while (have_posts()) :
     $year = marcan_get_iconic_project_field($post_id, 'iconic_year');
     $status = marcan_get_iconic_project_field($post_id, 'iconic_status', __('Entregado', 'marcan'));
     $summary = marcan_get_iconic_project_field($post_id, 'iconic_summary', get_the_excerpt());
-    $hero_id = marcan_get_iconic_project_image_id($post_id, 'iconic_hero_desktop');
-    $hero_mobile_id = marcan_get_iconic_project_image_id($post_id, 'iconic_hero_mobile', 'iconic_hero_desktop');
+    $hero_rows = function_exists('get_field') ? get_field('iconic_hero_imagenes', $post_id) : array();
+    $hero_rows = is_array($hero_rows) ? $hero_rows : array();
+    $hero_id = marcan_hero_primary_image_id($hero_rows);
+    $hero_picture = marcan_render_hero_picture($hero_rows, '', array(
+        'img_class' => 'marcan-iconic-hero-image',
+        'eager' => true,
+    ));
     $detail_image_id = marcan_get_iconic_project_image_id($post_id, 'iconic_detail_image');
     $concept_title = marcan_get_iconic_project_field($post_id, 'iconic_concept_title', __('Concepto', 'marcan'));
     $concept_text = marcan_get_iconic_project_field($post_id, 'iconic_concept_text');
@@ -44,12 +49,13 @@ while (have_posts()) :
     $offices_url = home_url('/oficinas/');
     ?>
     <main class="marcan-iconic-single">
-        <?php if ($hero_id > 0) : ?>
+        <?php if ($hero_picture !== '') : ?>
+            <section class="marcan-iconic-hero">
+                <?php echo $hero_picture; ?>
+            </section>
+        <?php elseif ($hero_id > 0) : ?>
             <section class="marcan-iconic-hero">
                 <picture>
-                    <?php if ($hero_mobile_id > 0) : ?>
-                        <source media="(max-width: 900px)" srcset="<?php echo esc_url(wp_get_attachment_image_url($hero_mobile_id, 'full')); ?>">
-                    <?php endif; ?>
                     <?php echo wp_get_attachment_image($hero_id, 'full', false, array('class' => 'marcan-iconic-hero-image', 'alt' => '')); ?>
                 </picture>
             </section>
@@ -171,7 +177,8 @@ while (have_posts()) :
                         <?php foreach ($related_projects as $index => $related_project) : ?>
                             <?php
                             $related_id = (int) $related_project->ID;
-                            $related_image_id = marcan_get_iconic_project_image_id($related_id, 'iconic_hero_desktop');
+                            $related_hero_rows = function_exists('get_field') ? get_field('iconic_hero_imagenes', $related_id) : array();
+                            $related_image_id = marcan_hero_primary_image_id(is_array($related_hero_rows) ? $related_hero_rows : array());
                             $related_canson_id = marcan_get_iconic_project_image_id($related_id, 'iconic_lineal_image');
                             $related_district = marcan_get_iconic_project_field($related_id, 'iconic_district');
                             $related_year = marcan_get_iconic_project_field($related_id, 'iconic_year');

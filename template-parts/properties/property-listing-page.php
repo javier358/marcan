@@ -32,23 +32,35 @@ $intro = $get_listing_field('listing_intro', $default_intro);
 $search_title = $get_listing_field('listing_search_title', __('Encuentra lo que estas buscando', 'marcan'));
 $search_copy = $get_listing_field('listing_search_copy', $default_search_copy);
 
-$hero_image_id = 0;
+$hero_rows = array();
 if ($page_id && function_exists('get_field')) {
-    $hero_image_id = (int) get_field('listing_hero_image', $page_id);
+    $rows = get_field('listing_hero_imagenes', $page_id);
+    $hero_rows = is_array($rows) ? $rows : array();
 }
-if (!$hero_image_id && $first_post) {
-    $hero_image_id = marcan_get_property_image_id((int) $first_post->ID, 'listado_hero_imagen', 'home_desktop_image');
-}
+$hero_picture = marcan_render_hero_picture($hero_rows, '', array(
+    'img_class' => 'marcan-property-archive-hero-image',
+    'eager' => true,
+));
+
+// Respaldo (imagen unica) si el hero no tiene imagenes propias.
+$hero_image_id = 0;
 $hero_image_url = '';
-if (!$hero_image_id && !$is_office) {
-    $hero_image_url = get_theme_file_uri('assets/images/marcan-departamentos-hero-figma.png');
+if ($hero_picture === '') {
+    if ($first_post) {
+        $hero_image_id = marcan_get_property_image_id((int) $first_post->ID, 'listado_hero_imagen', 'home_desktop_image');
+    }
+    if (!$hero_image_id && !$is_office) {
+        $hero_image_url = get_theme_file_uri('assets/images/marcan-departamentos-hero-figma.png');
+    }
 }
 ?>
 
 <main class="marcan-property-archive marcan-property-archive-<?php echo esc_attr($kind); ?>">
     <section class="marcan-property-archive-hero">
         <div class="marcan-property-archive-hero-media">
-            <?php if ($hero_image_url !== '') : ?>
+            <?php if ($hero_picture !== '') : ?>
+                <?php echo $hero_picture; ?>
+            <?php elseif ($hero_image_url !== '') : ?>
                 <img src="<?php echo esc_url($hero_image_url); ?>" alt="" class="marcan-property-archive-hero-image">
             <?php elseif ($hero_image_id) : ?>
                 <?php echo wp_get_attachment_image($hero_image_id, 'full', false, array('alt' => '', 'class' => 'marcan-property-archive-hero-image')); ?>

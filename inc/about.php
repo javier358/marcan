@@ -36,26 +36,7 @@ function marcan_register_about_field_group(): void
                 'toolbar' => 'basic',
                 'media_upload' => 0,
             ),
-            array(
-                'key' => 'field_marcan_about_hero_image_desktop',
-                'label' => 'Hero - imagen desktop',
-                'name' => 'about_hero_image_desktop',
-                'type' => 'image',
-                'return_format' => 'id',
-                'preview_size' => 'large',
-                'library' => 'all',
-                'instructions' => marcan_acf_image_help('3150x1460 px', '550 KB'),
-            ),
-            array(
-                'key' => 'field_marcan_about_hero_image_mobile',
-                'label' => 'Hero - imagen vertical',
-                'name' => 'about_hero_image_mobile',
-                'type' => 'image',
-                'return_format' => 'id',
-                'preview_size' => 'large',
-                'library' => 'all',
-                'instructions' => marcan_acf_image_help('900x1200 px', '350 KB'),
-            ),
+            marcan_hero_image_repeater('field_marcan_about_hero', 'about_hero_imagenes', 'Hero - imagenes'),
             marcan_acf_tab('field_marcan_tab_about_reasons', '2. Razones'),
             array(
                 'key' => 'field_marcan_about_reasons_title',
@@ -368,8 +349,7 @@ function marcan_get_about_settings(): array
 {
     $defaults = array(
         'hero_intro' => '',
-        'hero_image_desktop' => '',
-        'hero_image_mobile' => '',
+        'hero_images' => array(),
         'reasons_title' => '',
         'reasons' => array(),
         'iconic_title' => '',
@@ -435,10 +415,12 @@ function marcan_get_about_settings(): array
         ? array_values(array_filter($team_members, static fn($item) => is_array($item) && $has_any_value($item, array('name', 'role', 'image_desktop', 'image_mobile', 'linkedin'))))
         : array();
 
+    $hero_images = get_field('about_hero_imagenes', $page);
+    $hero_images = is_array($hero_images) ? $hero_images : array();
+
     return array(
         'hero_intro' => $hero_intro,
-        'hero_image_desktop' => marcan_about_resolve_image(get_field('about_hero_image_desktop', $page), $defaults['hero_image_desktop']),
-        'hero_image_mobile' => marcan_about_resolve_image(get_field('about_hero_image_mobile', $page), $defaults['hero_image_mobile']),
+        'hero_images' => $hero_images,
         'reasons_title' => $reasons_title,
         'reasons' => $reasons,
         'iconic_title' => $iconic_title,

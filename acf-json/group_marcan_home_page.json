@@ -61,24 +61,43 @@
             "button_label": "Agregar slide",
             "sub_fields": [
                 {
-                    "key": "field_marcan_home_hero_slide_desktop",
-                    "label": "Imagen desktop",
-                    "name": "imagen_desktop",
-                    "type": "image",
-                    "return_format": "id",
-                    "preview_size": "large",
-                    "library": "all",
-                    "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 3150x2046 px. Peso maximo recomendado: 550 KB."
-                },
-                {
-                    "key": "field_marcan_home_hero_slide_mobile",
-                    "label": "Imagen vertical",
-                    "name": "imagen_movil",
-                    "type": "image",
-                    "return_format": "id",
-                    "preview_size": "large",
-                    "library": "all",
-                    "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 900x1200 px. Peso maximo recomendado: 350 KB. Si se deja vacio usa la imagen horizontal."
+                    "key": "field_marcan_home_slide_hero_imgs",
+                    "label": "Imagenes del slide",
+                    "name": "hero_imagenes",
+                    "type": "repeater",
+                    "layout": "table",
+                    "button_label": "Agregar imagen",
+                    "instructions": "Sube una imagen por cada tamano de pantalla. Cada fila indica la medida exacta, el peso maximo y el formato recomendados. Si dejas un tamano sin imagen, se usa la del tamano mas cercano disponible. Formato recomendado: WEBP (tambien PNG/JPG).",
+                    "max": 6,
+                    "sub_fields": [
+                        {
+                            "key": "field_marcan_home_slide_hero_img_device",
+                            "label": "Pantalla",
+                            "name": "dispositivo",
+                            "type": "select",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "default_value": "desktop",
+                            "choices": {
+                                "mobile_portrait": "Movil vertical · 480x854 px · max 350 KB",
+                                "mobile_landscape": "Movil horizontal · 854x480 px · max 350 KB",
+                                "tablet": "Tablet · 1024x768 px · max 400 KB",
+                                "laptop": "Laptop · 1366x854 px · max 450 KB",
+                                "desktop": "Desktop · 1920x1246 px · max 550 KB",
+                                "desktop_xl": "Monitor grande · 2560x1440 px · max 650 KB"
+                            }
+                        },
+                        {
+                            "key": "field_marcan_home_slide_hero_img_file",
+                            "label": "Imagen",
+                            "name": "imagen",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "instructions": "Formato recomendado: WEBP. Tambien PNG o JPG."
+                        }
+                    ]
                 },
                 {
                     "key": "field_marcan_home_hero_slide_label",

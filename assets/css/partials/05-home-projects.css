@@ -57,12 +57,13 @@
 .marcan-home-project-card-cta {
     align-items: center;
     background: var(--marcan-ink);
+    box-sizing: border-box;
     color: var(--marcan-white);
     display: inline-flex;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 400;
     justify-content: center;
-    line-height: 1.43;
+    line-height: 1.25;
     overflow: hidden;
     padding: 10px 20px;
     text-overflow: ellipsis;
@@ -72,11 +73,13 @@
 .marcan-home-projects-intro-button {
     left: 30px;
     height: 41px;
+    max-width: calc(100% - 60px);
+    min-width: 239px;
     position: absolute;
     top: 471px;
-    width: 239px;
+    width: auto;
     padding: 10px 20px;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .marcan-home-projects-group {
@@ -113,7 +116,7 @@
     cursor: grab;
     -webkit-overflow-scrolling: touch;
     margin-top: 26px;
-    touch-action: pan-y pan-x;
+    touch-action: pan-x pan-y;
     user-select: none;
 }
 
@@ -510,7 +513,7 @@
 .section-heading p,
 .eyebrow {
     color: var(--marcan-yellow);
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 800;
     letter-spacing: 0;
     margin: 0 0 14px;
@@ -661,7 +664,7 @@
 .project-card-top span {
     background: var(--marcan-yellow);
     border-radius: 999px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 800;
     padding: 7px 10px;
     white-space: nowrap;
@@ -809,7 +812,7 @@
 .property-facts span {
     background: var(--marcan-surface);
     border-radius: 999px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 800;
     padding: 7px 10px;
 }

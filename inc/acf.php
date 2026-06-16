@@ -77,6 +77,108 @@ function marcan_acf_image_help(string $size, string $max_weight = '350 KB'): str
     );
 }
 
+/**
+ * Catalogo fijo de tamanos de pantalla para los banners/heroes, ordenado de mayor
+ * a menor. Cada entrada: device => [min-width, etiqueta, medida, peso maximo].
+ * Fuente unica de verdad usada por el ACF y por el render del <picture>.
+ */
+function marcan_hero_devices(): array
+{
+    return array(
+        'desktop_xl'       => array('min' => 1920, 'label' => 'Monitor grande', 'size' => '2560x1440 px', 'weight' => '650 KB'),
+        'desktop'          => array('min' => 1366, 'label' => 'Desktop',        'size' => '1920x1246 px', 'weight' => '550 KB'),
+        'laptop'           => array('min' => 1024, 'label' => 'Laptop',         'size' => '1366x854 px',  'weight' => '450 KB'),
+        'tablet'           => array('min' => 768,  'label' => 'Tablet',         'size' => '1024x768 px',  'weight' => '400 KB'),
+        'mobile_landscape' => array('min' => 480,  'label' => 'Movil horizontal','size' => '854x480 px',  'weight' => '350 KB'),
+        'mobile_portrait'  => array('min' => 0,    'label' => 'Movil vertical', 'size' => '480x854 px',   'weight' => '350 KB'),
+    );
+}
+
+/**
+ * Devuelve los 6 campos de imagen FIJOS (uno por tamano de pantalla) para un banner.
+ * Siempre presentes, ordenados de mayor a menor, cada uno etiquetado con su medida y
+ * peso maximo, y vacios hasta que el cliente suba la imagen. Se reparten en columnas
+ * (wrapper width) para ocupar poco espacio. El cliente no elige ni agrega nada.
+ *
+ * Usar con el operador spread dentro del array de campos:
+ *   ...marcan_hero_image_fields('field_marcan_home_slide', 'hero_img'),
+ *
+ * @param string $key_prefix Prefijo unico de keys ACF (ej. 'field_marcan_home_slide').
+ * @param string $base       Prefijo del nombre de los campos (ej. 'hero_img').
+ *                           Cada campo se llama "{base}_{device}".
+ */
+function marcan_hero_image_fields(string $key_prefix, string $base): array
+{
+    $fields = array();
+    foreach (marcan_hero_devices() as $device => $info) {
+        $fields[] = array(
+            'key' => $key_prefix . '_' . $device,
+            'label' => $info['label'] . ' — ' . $info['size'],
+            'name' => $base . '_' . $device,
+            'type' => 'image',
+            'return_format' => 'id',
+            'preview_size' => 'medium',
+            'library' => 'all',
+            'instructions' => 'Medida ' . $info['size'] . ' · max ' . $info['weight'] . ' · WEBP (o PNG/JPG).',
+            'wrapper' => array('width' => '33'),
+        );
+    }
+
+    return $fields;
+}
+
+/**
+ * Devuelve un repeater de imagenes responsive para heroes/banners.
+ *
+ * Mantiene las keys que ya fueron guardadas en acf-json y postmeta:
+ * "{prefix}_hero_imgs", "{prefix}_hero_img_device" y "{prefix}_hero_img_file".
+ */
+function marcan_hero_image_repeater(string $key_prefix, string $name, string $label): array
+{
+    $choices = array();
+    foreach (array_reverse(marcan_hero_devices(), true) as $device => $info) {
+        $choices[$device] = sprintf(
+            '%s · %s · max %s',
+            $info['label'],
+            $info['size'],
+            $info['weight']
+        );
+    }
+
+    return array(
+        'key' => $key_prefix . '_hero_imgs',
+        'label' => $label,
+        'name' => $name,
+        'type' => 'repeater',
+        'layout' => 'table',
+        'button_label' => 'Agregar imagen',
+        'instructions' => 'Sube una imagen por cada tamano de pantalla. Cada fila indica la medida exacta, el peso maximo y el formato recomendados. Si dejas un tamano sin imagen, se usa la del tamano mas cercano disponible. Formato recomendado: WEBP (tambien PNG/JPG).',
+        'max' => 6,
+        'sub_fields' => array(
+            array(
+                'key' => $key_prefix . '_hero_img_device',
+                'label' => 'Pantalla',
+                'name' => 'dispositivo',
+                'type' => 'select',
+                'return_format' => 'value',
+                'allow_null' => 0,
+                'default_value' => 'desktop',
+                'choices' => $choices,
+            ),
+            array(
+                'key' => $key_prefix . '_hero_img_file',
+                'label' => 'Imagen',
+                'name' => 'imagen',
+                'type' => 'image',
+                'return_format' => 'id',
+                'preview_size' => 'thumbnail',
+                'library' => 'all',
+                'instructions' => 'Formato recomendado: WEBP. Tambien PNG o JPG.',
+            ),
+        ),
+    );
+}
+
 function marcan_acf_promote_editorial_text_fields(array $field): array
 {
     $type = (string) ($field['type'] ?? '');
@@ -301,8 +403,7 @@ function marcan_register_field_groups(): void
             array('key' => 'field_marcan_hero_interval', 'label' => 'Intervalo', 'name' => 'hero_interval', 'type' => 'number', 'default_value' => 5000, 'min' => 1000, 'step' => 500, 'instructions' => 'Milisegundos entre slides (1000 = 1 segundo).'),
             array('key' => 'field_marcan_hero_effect', 'label' => 'Efecto', 'name' => 'hero_effect', 'type' => 'select', 'choices' => array('fade' => 'Fade', 'zoom' => 'Zoom'), 'default_value' => 'fade', 'return_format' => 'value'),
             array('key' => 'field_marcan_home_hero_slides', 'label' => 'Slides del hero', 'name' => 'hero_slides', 'type' => 'repeater', 'layout' => 'row', 'button_label' => 'Agregar slide', 'sub_fields' => array(
-                array('key' => 'field_marcan_home_hero_slide_desktop', 'label' => 'Imagen desktop', 'name' => 'imagen_desktop', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'large', 'library' => 'all', 'instructions' => marcan_acf_image_help('3150x2046 px', '550 KB')),
-                    array('key' => 'field_marcan_home_hero_slide_mobile', 'label' => 'Imagen vertical', 'name' => 'imagen_movil', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'large', 'library' => 'all', 'instructions' => marcan_acf_image_help('900x1200 px', '350 KB') . ' Si se deja vacío usa la imagen horizontal.'),
+                marcan_hero_image_repeater('field_marcan_home_slide', 'hero_imagenes', 'Imagenes del slide'),
                 array('key' => 'field_marcan_home_hero_slide_label', 'label' => 'Etiqueta', 'name' => 'etiqueta', 'type' => 'text'),
                 array('key' => 'field_marcan_home_hero_slide_link', 'label' => 'Enlace', 'name' => 'enlace', 'type' => 'link'),
                 array('key' => 'field_marcan_home_hero_slide_duration', 'label' => 'Duración', 'name' => 'duracion', 'type' => 'number', 'default_value' => 5000, 'min' => 1000, 'step' => 500, 'instructions' => 'Milisegundos que dura este slide.'),
@@ -355,8 +456,7 @@ function marcan_register_field_groups(): void
         'title' => 'Departamentos - Contenido',
         'fields' => array(
             marcan_acf_tab('field_marcan_tab_dep_hero', '1. Hero'),
-            array('key' => 'field_marcan_dep_hero_image', 'label' => 'Imagen hero', 'name' => 'listing_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'large', 'library' => 'all', 'instructions' => marcan_acf_image_help('3150x1263 px', '550 KB')),
-            array('key' => 'field_marcan_dep_hero_image_mobile', 'label' => 'Imagen hero vertical', 'name' => 'listing_hero_image_mobile', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'large', 'library' => 'all', 'instructions' => marcan_acf_image_help('800x1100 px', '350 KB')),
+            marcan_hero_image_repeater('field_marcan_dep_hero', 'listing_hero_imagenes', 'Imagenes del hero'),
             marcan_acf_tab('field_marcan_tab_dep_text', '2. Textos'),
             array('key' => 'field_marcan_dep_title', 'label' => 'Título', 'name' => 'listing_title', 'type' => 'text'),
             marcan_acf_wysiwyg('field_marcan_dep_intro', 'Texto introductorio', 'listing_intro'),
@@ -378,8 +478,7 @@ function marcan_register_field_groups(): void
         'title' => 'Oficinas - Contenido',
         'fields' => array(
             marcan_acf_tab('field_marcan_ofi_tab_hero', '1. Hero'),
-            array('key' => 'field_marcan_ofi_hero_image', 'label' => 'Imagen hero', 'name' => 'listing_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'large', 'library' => 'all', 'instructions' => marcan_acf_image_help('3150x1263 px', '550 KB')),
-            array('key' => 'field_marcan_ofi_hero_image_mobile', 'label' => 'Imagen hero vertical', 'name' => 'listing_hero_image_mobile', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'large', 'library' => 'all', 'instructions' => marcan_acf_image_help('800x1100 px', '350 KB')),
+            marcan_hero_image_repeater('field_marcan_ofi_hero', 'listing_hero_imagenes', 'Imagenes del hero'),
             marcan_acf_tab('field_marcan_ofi_tab_text', '2. Textos'),
             array('key' => 'field_marcan_ofi_title', 'label' => 'Título', 'name' => 'listing_title', 'type' => 'text'),
             marcan_acf_wysiwyg('field_marcan_ofi_intro', 'Texto introductorio', 'listing_intro'),
@@ -408,8 +507,7 @@ function marcan_register_field_groups(): void
         'fields' => array(
             /* 1. Hero */
             marcan_acf_tab('field_marcan_tab_prop_media', '1. Hero'),
-            array('key' => 'field_marcan_detail_hero_desktop', 'label' => 'Detalle - hero desktop', 'name' => 'detalle_hero_desktop', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'large', 'library' => 'all', 'instructions' => marcan_acf_image_help('3150x1642 px', '650 KB')),
-            array('key' => 'field_marcan_detail_hero_mobile', 'label' => 'Detalle - hero vertical', 'name' => 'detalle_hero_movil', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'large', 'library' => 'all', 'instructions' => marcan_acf_image_help('828x1025 px', '350 KB')),
+            marcan_hero_image_repeater('field_marcan_detail_hero', 'detalle_hero_imagenes', 'Detalle - imagenes del hero'),
             array('key' => 'field_marcan_detail_wide_image', 'label' => 'Detalle - imagen ancha', 'name' => 'detalle_imagen_ancha', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'large', 'library' => 'all', 'instructions' => marcan_acf_image_help('3025x1552 px', '650 KB')),
             array('key' => 'field_marcan_listing_hero_image', 'label' => 'Listado - imagen hero', 'name' => 'listado_hero_imagen', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'large', 'library' => 'all', 'instructions' => marcan_acf_image_help('2236x1357 px', '450 KB')),
             array('key' => 'field_marcan_project_home_desktop_image', 'label' => 'Imagen para tarjeta Home (desktop)', 'name' => 'home_desktop_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium_large', 'library' => 'all', 'instructions' => marcan_acf_image_help('2063x1432 px', '450 KB') . ' Si se deja vacio se usa la imagen de listado.'),
@@ -533,8 +631,7 @@ function marcan_register_field_groups(): void
         'fields' => array(
             /* 1. Hero */
             marcan_acf_tab('field_marcan_iconic_tab_hero', '1. Hero'),
-            array('key' => 'field_marcan_iconic_hero_desktop', 'label' => 'Hero desktop', 'name' => 'iconic_hero_desktop', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'large', 'library' => 'all', 'instructions' => marcan_acf_image_help('3150x1642 px', '650 KB')),
-            array('key' => 'field_marcan_iconic_hero_mobile', 'label' => 'Hero mobile', 'name' => 'iconic_hero_mobile', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'large', 'library' => 'all', 'instructions' => marcan_acf_image_help('900x1200 px', '350 KB')),
+            marcan_hero_image_repeater('field_marcan_iconic_hero', 'iconic_hero_imagenes', 'Hero - imagenes'),
             array('key' => 'field_marcan_iconic_lineal_image', 'label' => 'Imagen lineal / Canson', 'name' => 'iconic_lineal_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium_large', 'library' => 'all', 'instructions' => marcan_acf_image_help('1627x1457 px', '450 KB')),
 
             /* 2. Cabecera */
