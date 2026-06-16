@@ -70,8 +70,9 @@ $members = array(
 );
 $complaint_page = get_page_by_path('libro-de-reclamaciones');
 $complaint_url = $complaint_page instanceof WP_Post ? get_permalink($complaint_page) : home_url('/libro-de-reclamaciones/');
-$complaint_icon = marcan_get_option_media_attachment_url('footer_complaint_icon');
-if ($complaint_icon === '') {
+$complaint_icon_id = (int) get_option('complaint_icon_id');
+$complaint_icon = $complaint_icon_id ? wp_get_attachment_url($complaint_icon_id) : '';
+if (!is_string($complaint_icon) || $complaint_icon === '') {
     $complaint_icon = marcan_asset_uri('images/libro-reclamaciones.svg');
 }
 

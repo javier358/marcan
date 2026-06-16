@@ -75,6 +75,8 @@ function marcan_save_complaint_settings(): void
         update_option($field, $value);
     }
 
+    update_option('complaint_icon_id', isset($_POST['complaint_icon_id']) ? absint($_POST['complaint_icon_id']) : 0);
+
     wp_safe_redirect(add_query_arg(array(
         'post_type' => 'complaint_submission',
         'page'      => 'marcan-complaint-settings',
@@ -102,6 +104,7 @@ function marcan_complaint_defaults(): array
 
 function marcan_render_complaint_settings_page(): void
 {
+    wp_enqueue_media();
     $defaults = marcan_complaint_defaults();
     $fields = array(
         array('name' => 'complaint_form_recipients', 'label' => 'Destinatarios del correo', 'type' => 'textarea', 'rows' => 3, 'desc' => 'Correos que reciben cada hoja de reclamación. Uno por línea o separados por coma.'),
@@ -148,6 +151,51 @@ function marcan_render_complaint_settings_page(): void
                     </tr>
                 <?php endforeach; ?>
             </table>
+
+            <h2 style="margin:24px 0 0;padding-top:20px;border-top:1px solid #ccc;font-size:15px"><?php esc_html_e('Ícono del footer', 'marcan'); ?></h2>
+            <table class="form-table" role="presentation">
+                <tr>
+                    <th scope="row"><label><?php esc_html_e('Ícono Libro de Reclamaciones', 'marcan'); ?></label></th>
+                    <td>
+                        <?php
+                        $icon_id = (int) get_option('complaint_icon_id');
+                        $icon_url = $icon_id ? wp_get_attachment_image_url($icon_id, 'medium') : '';
+                        $icon_fallback = get_template_directory_uri() . '/assets/images/libro-reclamaciones.svg';
+                        ?>
+                        <div id="marcan-complaint-icon-preview" style="margin-bottom:10px">
+                            <img src="<?php echo esc_url($icon_url ? $icon_url : $icon_fallback); ?>" alt="" style="max-width:90px;height:auto;border:1px solid #ddd;padding:6px;background:#fff;border-radius:4px">
+                        </div>
+                        <input type="hidden" name="complaint_icon_id" id="marcan-complaint-icon-id" value="<?php echo esc_attr($icon_id); ?>">
+                        <button type="button" class="button" id="marcan-complaint-icon-select"><?php esc_html_e('Seleccionar imagen', 'marcan'); ?></button>
+                        <button type="button" class="button" id="marcan-complaint-icon-remove"><?php esc_html_e('Quitar', 'marcan'); ?></button>
+                        <p class="description"><?php esc_html_e('Imagen del Libro de Reclamaciones que aparece en el footer (SVG o PNG). Si se deja vacío se usa un ícono por defecto.', 'marcan'); ?></p>
+                    </td>
+                </tr>
+            </table>
+            <script>
+            jQuery(function ($) {
+                var frame;
+                var fallback = <?php echo wp_json_encode($icon_fallback); ?>;
+                $('#marcan-complaint-icon-select').on('click', function (e) {
+                    e.preventDefault();
+                    if (frame) { frame.open(); return; }
+                    frame = wp.media({ title: <?php echo wp_json_encode(__('Seleccionar ícono', 'marcan')); ?>, button: { text: <?php echo wp_json_encode(__('Usar imagen', 'marcan')); ?> }, multiple: false });
+                    frame.on('select', function () {
+                        var att = frame.state().get('selection').first().toJSON();
+                        $('#marcan-complaint-icon-id').val(att.id);
+                        var url = (att.sizes && att.sizes.medium) ? att.sizes.medium.url : att.url;
+                        $('#marcan-complaint-icon-preview img').attr('src', url);
+                    });
+                    frame.open();
+                });
+                $('#marcan-complaint-icon-remove').on('click', function (e) {
+                    e.preventDefault();
+                    $('#marcan-complaint-icon-id').val('');
+                    $('#marcan-complaint-icon-preview img').attr('src', fallback);
+                });
+            });
+            </script>
+
             <?php submit_button(__('Guardar ajustes', 'marcan')); ?>
         </form>
     </div>
