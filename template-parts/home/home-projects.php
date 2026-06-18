@@ -122,7 +122,7 @@ function marcan_render_home_project_card(WP_Post $post, string $section_class = 
 
 <?php if ($departments_query->have_posts() || $offices_query->have_posts()) : ?>
 <section class="marcan-home-projects" aria-label="<?php esc_attr_e('Proyectos destacados', 'marcan'); ?>">
-    <?php $has_intro = !empty($project_settings['intro_title']) || !empty($project_settings['intro_mobile_title']) || !empty($project_settings['intro_copy']) || (!empty($project_settings['intro_button_url']) && (!empty($project_settings['intro_button_label']) || !empty($project_settings['intro_mobile_button_label']))); ?>
+    <?php $has_intro = !empty($project_settings['intro_title']) || !empty($project_settings['intro_copy']) || (!empty($project_settings['intro_button_url']) && !empty($project_settings['intro_button_label'])); ?>
     <?php if ($has_intro) : ?>
         <div class="marcan-home-projects-intro">
             <?php if (!empty($project_settings['intro_title']) || !empty($project_settings['intro_copy'])) : ?>
@@ -135,24 +135,14 @@ function marcan_render_home_project_card(WP_Post $post, string $section_class = 
                     <?php endif; ?>
                 </div>
             <?php endif; ?>
-            <?php if (!empty($project_settings['intro_title']) || !empty($project_settings['intro_mobile_title'])) : ?>
+            <?php if (!empty($project_settings['intro_title'])) : ?>
                 <h2 class="marcan-home-projects-intro-title">
-                    <?php if (!empty($project_settings['intro_title'])) : ?>
-                        <span<?php echo marcan_font_size_attrs($project_settings['intro_title_font_size'] ?? array(), 'marcan-home-desktop-text'); ?>><?php echo marcan_rich_inline($project_settings['intro_title']); ?></span>
-                    <?php endif; ?>
-                    <?php if (!empty($project_settings['intro_mobile_title'])) : ?>
-                        <span<?php echo marcan_font_size_attrs($project_settings['intro_mobile_title_font_size'] ?? array(), 'marcan-home-mobile-text'); ?>><?php echo marcan_rich_inline($project_settings['intro_mobile_title']); ?></span>
-                    <?php endif; ?>
+                    <span<?php echo marcan_font_size_attrs($project_settings['intro_title_font_size'] ?? array()); ?>><?php echo marcan_rich_inline($project_settings['intro_title']); ?></span>
                 </h2>
             <?php endif; ?>
-            <?php if (!empty($project_settings['intro_button_url']) && (!empty($project_settings['intro_button_label']) || !empty($project_settings['intro_mobile_button_label']))) : ?>
+            <?php if (!empty($project_settings['intro_button_url']) && !empty($project_settings['intro_button_label'])) : ?>
                 <a class="marcan-home-projects-intro-button" href="<?php echo esc_url($project_settings['intro_button_url']); ?>">
-                    <?php if (!empty($project_settings['intro_button_label'])) : ?>
-                        <span<?php echo marcan_font_size_attrs($project_settings['intro_button_label_font_size'] ?? array(), 'marcan-home-desktop-text'); ?>><?php echo marcan_rich_inline($project_settings['intro_button_label']); ?></span>
-                    <?php endif; ?>
-                    <?php if (!empty($project_settings['intro_mobile_button_label'])) : ?>
-                        <span<?php echo marcan_font_size_attrs($project_settings['intro_mobile_button_label_font_size'] ?? array(), 'marcan-home-mobile-text'); ?>><?php echo marcan_rich_inline($project_settings['intro_mobile_button_label']); ?></span>
-                    <?php endif; ?>
+                    <span<?php echo marcan_font_size_attrs($project_settings['intro_button_label_font_size'] ?? array()); ?>><?php echo marcan_rich_inline($project_settings['intro_button_label']); ?></span>
                 </a>
             <?php endif; ?>
         </div>
@@ -161,24 +151,14 @@ function marcan_render_home_project_card(WP_Post $post, string $section_class = 
     <?php if ($departments_query->have_posts()) : ?>
     <div class="marcan-home-projects-group">
         <div class="marcan-home-projects-heading">
-            <?php if (!empty($project_settings['departments_title']) || !empty($project_settings['departments_mobile_title'])) : ?>
+            <?php if (!empty($project_settings['departments_title'])) : ?>
                 <h2>
-                    <?php if (!empty($project_settings['departments_title'])) : ?>
-                        <span<?php echo marcan_font_size_attrs($project_settings['departments_title_font_size'] ?? array(), 'marcan-home-desktop-text'); ?>><?php echo marcan_rich_inline($project_settings['departments_title']); ?></span>
-                    <?php endif; ?>
-                    <?php if (!empty($project_settings['departments_mobile_title'])) : ?>
-                        <span<?php echo marcan_font_size_attrs($project_settings['departments_mobile_title_font_size'] ?? array(), 'marcan-home-mobile-text'); ?>><?php echo marcan_rich_inline($project_settings['departments_mobile_title']); ?></span>
-                    <?php endif; ?>
+                    <span<?php echo marcan_font_size_attrs($project_settings['departments_title_font_size'] ?? array()); ?>><?php echo marcan_rich_inline($project_settings['departments_title']); ?></span>
                 </h2>
             <?php endif; ?>
-            <?php if (!empty($project_settings['departments_button_url']) && (!empty($project_settings['departments_button_label']) || !empty($project_settings['departments_mobile_button_label']))) : ?>
+            <?php if (!empty($project_settings['departments_button_url']) && !empty($project_settings['departments_button_label'])) : ?>
                 <a class="marcan-home-projects-heading-button" href="<?php echo esc_url($project_settings['departments_button_url']); ?>">
-                    <?php if (!empty($project_settings['departments_button_label'])) : ?>
-                        <span<?php echo marcan_font_size_attrs($project_settings['departments_button_label_font_size'] ?? array(), 'marcan-home-desktop-text'); ?>><?php echo marcan_rich_inline($project_settings['departments_button_label']); ?></span>
-                    <?php endif; ?>
-                    <?php if (!empty($project_settings['departments_mobile_button_label'])) : ?>
-                        <span<?php echo marcan_font_size_attrs($project_settings['departments_mobile_button_label_font_size'] ?? array(), 'marcan-home-mobile-text'); ?>><?php echo marcan_rich_inline($project_settings['departments_mobile_button_label']); ?></span>
-                    <?php endif; ?>
+                    <span<?php echo marcan_font_size_attrs($project_settings['departments_button_label_font_size'] ?? array()); ?>><?php echo marcan_rich_inline($project_settings['departments_button_label']); ?></span>
                 </a>
             <?php endif; ?>
         </div>
@@ -199,24 +179,14 @@ function marcan_render_home_project_card(WP_Post $post, string $section_class = 
     <?php if ($offices_query->have_posts()) : ?>
     <div class="marcan-home-projects-group marcan-home-projects-group-offices">
         <div class="marcan-home-projects-heading">
-            <?php if (!empty($project_settings['offices_title']) || !empty($project_settings['offices_mobile_title'])) : ?>
+            <?php if (!empty($project_settings['offices_title'])) : ?>
                 <h2>
-                    <?php if (!empty($project_settings['offices_title'])) : ?>
-                        <span<?php echo marcan_font_size_attrs($project_settings['offices_title_font_size'] ?? array(), 'marcan-home-desktop-text'); ?>><?php echo marcan_rich_inline($project_settings['offices_title']); ?></span>
-                    <?php endif; ?>
-                    <?php if (!empty($project_settings['offices_mobile_title'])) : ?>
-                        <span<?php echo marcan_font_size_attrs($project_settings['offices_mobile_title_font_size'] ?? array(), 'marcan-home-mobile-text'); ?>><?php echo marcan_rich_inline($project_settings['offices_mobile_title']); ?></span>
-                    <?php endif; ?>
+                    <span<?php echo marcan_font_size_attrs($project_settings['offices_title_font_size'] ?? array()); ?>><?php echo marcan_rich_inline($project_settings['offices_title']); ?></span>
                 </h2>
             <?php endif; ?>
-            <?php if (!empty($project_settings['offices_button_url']) && (!empty($project_settings['offices_button_label']) || !empty($project_settings['offices_mobile_button_label']))) : ?>
+            <?php if (!empty($project_settings['offices_button_url']) && !empty($project_settings['offices_button_label'])) : ?>
                 <a class="marcan-home-projects-heading-button" href="<?php echo esc_url($project_settings['offices_button_url']); ?>">
-                    <?php if (!empty($project_settings['offices_button_label'])) : ?>
-                        <span<?php echo marcan_font_size_attrs($project_settings['offices_button_label_font_size'] ?? array(), 'marcan-home-desktop-text'); ?>><?php echo marcan_rich_inline($project_settings['offices_button_label']); ?></span>
-                    <?php endif; ?>
-                    <?php if (!empty($project_settings['offices_mobile_button_label'])) : ?>
-                        <span<?php echo marcan_font_size_attrs($project_settings['offices_mobile_button_label_font_size'] ?? array(), 'marcan-home-mobile-text'); ?>><?php echo marcan_rich_inline($project_settings['offices_mobile_button_label']); ?></span>
-                    <?php endif; ?>
+                    <span<?php echo marcan_font_size_attrs($project_settings['offices_button_label_font_size'] ?? array()); ?>><?php echo marcan_rich_inline($project_settings['offices_button_label']); ?></span>
                 </a>
             <?php endif; ?>
         </div>

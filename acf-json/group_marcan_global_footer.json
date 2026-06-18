@@ -28,7 +28,7 @@
         },
         {
             "key": "field_marcan_tab_footer_titles",
-            "label": "Titulos",
+            "label": "Títulos",
             "name": "",
             "type": "tab",
             "placement": "top",
@@ -43,11 +43,11 @@
         },
         {
             "key": "field_marcan_footer_projects_title_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "footer_projects_title_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_footer_projects_title_font_size_desktop",
@@ -128,11 +128,11 @@
         },
         {
             "key": "field_marcan_footer_company_title_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "footer_company_title_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_footer_company_title_font_size_desktop",
@@ -213,11 +213,11 @@
         },
         {
             "key": "field_marcan_footer_member_title_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "footer_member_title_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_footer_member_title_font_size_desktop",
@@ -439,11 +439,11 @@
         },
         {
             "key": "field_marcan_footer_address_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "footer_address_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_footer_address_font_size_desktop",
@@ -525,11 +525,11 @@
         },
         {
             "key": "field_marcan_footer_phone_lines_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "footer_phone_lines_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_footer_phone_lines_font_size_desktop",
@@ -633,11 +633,11 @@
         },
         {
             "key": "field_marcan_contact_modal_address_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "contact_modal_address_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_contact_modal_address_font_size_desktop",
@@ -718,11 +718,11 @@
         },
         {
             "key": "field_marcan_contact_modal_title_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "contact_modal_title_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_contact_modal_title_font_size_desktop",
@@ -807,11 +807,11 @@
         },
         {
             "key": "field_marcan_contact_privacy_text_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "contact_privacy_text_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_contact_privacy_text_font_size_desktop",
@@ -896,11 +896,11 @@
         },
         {
             "key": "field_marcan_contact_marketing_text_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "contact_marketing_text_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_contact_marketing_text_font_size_desktop",
@@ -981,11 +981,11 @@
         },
         {
             "key": "field_marcan_contact_sidebar_title_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "contact_sidebar_title_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_contact_sidebar_title_font_size_desktop",
@@ -1070,11 +1070,11 @@
         },
         {
             "key": "field_marcan_contact_sidebar_copy_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "contact_sidebar_copy_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_contact_sidebar_copy_font_size_desktop",
@@ -1154,11 +1154,11 @@
         },
         {
             "key": "field_marcan_footer_email_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "footer_email_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_footer_email_font_size_desktop",
@@ -1239,11 +1239,11 @@
         },
         {
             "key": "field_marcan_footer_legal_text_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "footer_legal_text_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_footer_legal_text_font_size_desktop",
@@ -1324,11 +1324,11 @@
         },
         {
             "key": "field_marcan_footer_projects_button_label_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "footer_projects_button_label_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_footer_projects_button_label_font_size_desktop",

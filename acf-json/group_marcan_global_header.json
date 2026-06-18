@@ -48,11 +48,11 @@
         },
         {
             "key": "field_marcan_header_menu_label_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "header_menu_label_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_header_menu_label_font_size_desktop",

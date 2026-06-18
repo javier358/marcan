@@ -106,7 +106,7 @@
     }
 
     .marcan-home-projects-intro {
-        height: calc(752px * var(--marcan-home-wide-scale));
+        height: calc(440px * var(--marcan-home-wide-scale));
         padding: calc(30px * var(--marcan-home-wide-scale)) calc(30px * var(--marcan-home-wide-scale)) 0;
     }
 
@@ -125,7 +125,7 @@
         font-size: calc(45px * var(--marcan-home-wide-scale));
         left: calc(30px * var(--marcan-home-wide-scale));
         max-width: calc(591px * var(--marcan-home-wide-scale));
-        top: calc(341px * var(--marcan-home-wide-scale));
+        top: calc(210px * var(--marcan-home-wide-scale));
         width: calc(591px * var(--marcan-home-wide-scale));
     }
 
@@ -135,7 +135,7 @@
         left: calc(30px * var(--marcan-home-wide-scale));
         min-width: calc(239px * var(--marcan-home-wide-scale));
         padding: calc(10px * var(--marcan-home-wide-scale)) calc(20px * var(--marcan-home-wide-scale));
-        top: calc(471px * var(--marcan-home-wide-scale));
+        top: calc(340px * var(--marcan-home-wide-scale));
         width: auto;
     }
 

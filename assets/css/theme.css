@@ -831,7 +831,7 @@ img {
 .marcan-home-projects-intro {
     box-sizing: border-box;
     display: block;
-    min-height: 752px;
+    min-height: 440px;
     padding: 30px 30px 0;
     position: relative;
 }
@@ -866,7 +866,7 @@ img {
     left: 30px;
     margin: 0;
     position: absolute;
-    top: 341px;
+    top: 210px;
     max-width: 591px;
     width: 591px;
 }
@@ -895,7 +895,7 @@ img {
     max-width: calc(100% - 60px);
     min-width: 239px;
     position: absolute;
-    top: 471px;
+    top: 340px;
     width: auto;
     padding: 10px 20px;
     font-size: 16px;
@@ -1796,7 +1796,7 @@ img {
     }
 
     .marcan-home-projects-intro {
-        height: calc(752px * var(--marcan-home-wide-scale));
+        height: calc(440px * var(--marcan-home-wide-scale));
         padding: calc(30px * var(--marcan-home-wide-scale)) calc(30px * var(--marcan-home-wide-scale)) 0;
     }
 
@@ -1815,7 +1815,7 @@ img {
         font-size: calc(45px * var(--marcan-home-wide-scale));
         left: calc(30px * var(--marcan-home-wide-scale));
         max-width: calc(591px * var(--marcan-home-wide-scale));
-        top: calc(341px * var(--marcan-home-wide-scale));
+        top: calc(210px * var(--marcan-home-wide-scale));
         width: calc(591px * var(--marcan-home-wide-scale));
     }
 
@@ -1825,7 +1825,7 @@ img {
         left: calc(30px * var(--marcan-home-wide-scale));
         min-width: calc(239px * var(--marcan-home-wide-scale));
         padding: calc(10px * var(--marcan-home-wide-scale)) calc(20px * var(--marcan-home-wide-scale));
-        top: calc(471px * var(--marcan-home-wide-scale));
+        top: calc(340px * var(--marcan-home-wide-scale));
         width: auto;
     }
 
@@ -2171,8 +2171,7 @@ img {
 .marcan-about-hero {
     background: #d9d9d6;
     min-height: 1200px;
-    overflow-x: hidden;
-    overflow-y: visible;
+    overflow: visible;
 }
 
 .marcan-about-hero-copy {
@@ -2211,11 +2210,11 @@ img {
 
 .marcan-about-reasons {
     background: #d9d9d6;
-    min-height: 555px;
+    min-height: 592px;
 }
 
 .marcan-about-reasons-inner {
-    min-height: 555px;
+    min-height: 592px;
 }
 
 .marcan-about-section-title {
@@ -2240,7 +2239,7 @@ img {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     position: absolute;
     right: 76px;
-    top: 79px;
+    top: 60px;
     width: 668px;
 }
 

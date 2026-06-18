@@ -75,11 +75,11 @@
         },
         {
             "key": "field_marcan_iconic_district_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "iconic_district_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_iconic_district_font_size_desktop",
@@ -159,11 +159,11 @@
         },
         {
             "key": "field_marcan_iconic_address_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "iconic_address_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_iconic_address_font_size_desktop",
@@ -243,11 +243,11 @@
         },
         {
             "key": "field_marcan_iconic_year_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "iconic_year_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_iconic_year_font_size_desktop",
@@ -328,11 +328,11 @@
         },
         {
             "key": "field_marcan_iconic_status_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "iconic_status_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_iconic_status_font_size_desktop",
@@ -416,11 +416,11 @@
         },
         {
             "key": "field_marcan_iconic_summary_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "iconic_summary_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_iconic_summary_font_size_desktop",
@@ -535,11 +535,11 @@
         },
         {
             "key": "field_marcan_iconic_concept_title_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "iconic_concept_title_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_iconic_concept_title_font_size_desktop",
@@ -623,11 +623,11 @@
         },
         {
             "key": "field_marcan_iconic_concept_text_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "iconic_concept_text_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_iconic_concept_text_font_size_desktop",
@@ -701,7 +701,7 @@
         },
         {
             "key": "field_marcan_iconic_tab_designer",
-            "label": "5. Disenador",
+            "label": "5. Diseñador",
             "name": "",
             "type": "tab",
             "placement": "top",
@@ -733,11 +733,11 @@
         },
         {
             "key": "field_marcan_iconic_designer_name_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "iconic_designer_name_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_iconic_designer_name_font_size_desktop",
@@ -817,11 +817,11 @@
         },
         {
             "key": "field_marcan_iconic_designer_role_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "iconic_designer_role_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_iconic_designer_role_font_size_desktop",
@@ -927,11 +927,11 @@
         },
         {
             "key": "field_marcan_iconic_facade_title_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "iconic_facade_title_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_iconic_facade_title_font_size_desktop",
@@ -1015,11 +1015,11 @@
         },
         {
             "key": "field_marcan_iconic_facade_text_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "iconic_facade_text_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_iconic_facade_text_font_size_desktop",
@@ -1093,7 +1093,7 @@
         },
         {
             "key": "field_marcan_iconic_tab_gallery",
-            "label": "7. Galeria",
+            "label": "7. Galería",
             "name": "",
             "type": "tab",
             "placement": "top",
@@ -1142,11 +1142,11 @@
         },
         {
             "key": "field_marcan_iconic_details_title_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "iconic_details_title_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_iconic_details_title_font_size_desktop",
@@ -1230,11 +1230,11 @@
         },
         {
             "key": "field_marcan_iconic_details_text_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "iconic_details_text_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_iconic_details_text_font_size_desktop",
@@ -1331,11 +1331,11 @@
         },
         {
             "key": "field_marcan_iconic_cta_title_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "iconic_cta_title_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_iconic_cta_title_font_size_desktop",

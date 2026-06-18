@@ -264,8 +264,6 @@ function marcan_page_url(string $slug, ?string $fallback = null): string
 function marcan_get_home_hero_settings(): array
 {
     $defaults = array(
-        'mobile_copy' => 'Somos una inmobiliaria enfocada en hacer proyectos que impulsan el desarrollo urbano de Lima, inspirados en las verdaderas necesidades de las personas y de la ciudad.',
-        'mobile_copy_font_size' => array(),
         'autoplay'    => true,
         'interval'    => 5000,
         'effect'      => 'fade',
@@ -281,14 +279,11 @@ function marcan_get_home_hero_settings(): array
         return $defaults;
     }
 
-    $mobile_copy = get_field('hero_mobile_copy', $page_id);
     $autoplay = get_field('hero_autoplay', $page_id);
     $interval = get_field('hero_interval', $page_id);
     $effect = get_field('hero_effect', $page_id);
 
     return array(
-        'mobile_copy' => is_string($mobile_copy) && $mobile_copy !== '' ? $mobile_copy : $defaults['mobile_copy'],
-        'mobile_copy_font_size' => marcan_get_field_font_size('hero_mobile_copy', $page_id),
         'autoplay'    => $autoplay === null ? $defaults['autoplay'] : (bool) $autoplay,
         'interval'    => is_numeric($interval) ? max(1000, (int) $interval) : $defaults['interval'],
         'effect'      => is_string($effect) && $effect !== '' ? $effect : $defaults['effect'],
@@ -300,32 +295,20 @@ function marcan_get_home_projects_settings(): array
     $defaults = array(
         'intro_title'                 => 'Tenemos una manera diferente de hacer las cosas',
         'intro_title_font_size'       => array(),
-        'intro_mobile_title'          => 'Tenemos una manera diferente de hacer las cosas',
-        'intro_mobile_title_font_size' => array(),
         'intro_copy'                  => 'Somos una inmobiliaria enfocada en hacer proyectos que impulsan el desarrollo urbano de Lima, inspirados en las verdaderas necesidades de las personas y de la ciudad.',
         'intro_copy_font_size'        => array(),
         'intro_button_label'          => 'Conoce más sobre nosotros',
         'intro_button_label_font_size' => array(),
-        'intro_mobile_button_label'   => 'Conoce más sobre nosotros',
-        'intro_mobile_button_label_font_size' => array(),
         'intro_button_url'            => '',
         'departments_title'           => 'Departamentos en venta',
         'departments_title_font_size' => array(),
         'departments_button_label'     => 'Ver más departamentos',
         'departments_button_label_font_size' => array(),
-        'departments_mobile_title'    => 'Departamentos en venta',
-        'departments_mobile_title_font_size' => array(),
-        'departments_mobile_button_label' => 'Ver más departamentos',
-        'departments_mobile_button_label_font_size' => array(),
         'departments_button_url'       => '',
         'offices_title'               => 'Oficinas en venta',
         'offices_title_font_size'     => array(),
         'offices_button_label'        => 'Ver más oficinas',
         'offices_button_label_font_size' => array(),
-        'offices_mobile_title'        => 'Oficinas en venta',
-        'offices_mobile_title_font_size' => array(),
-        'offices_mobile_button_label' => 'Ver más oficinas',
-        'offices_mobile_button_label_font_size' => array(),
         'offices_button_url'          => '',
     );
 
@@ -354,32 +337,20 @@ function marcan_get_home_projects_settings(): array
     return array(
         'intro_title'             => (string) (get_field('home_intro_title', $page_id) ?: ''),
         'intro_title_font_size'   => marcan_get_field_font_size('home_intro_title', $page_id),
-        'intro_mobile_title'      => (string) (get_field('home_intro_mobile_title', $page_id) ?: get_field('home_intro_title', $page_id) ?: ''),
-        'intro_mobile_title_font_size' => marcan_get_field_font_size('home_intro_mobile_title', $page_id, 'home_intro_title'),
         'intro_copy'              => (string) (get_field('home_intro_copy', $page_id) ?: ''),
         'intro_copy_font_size'    => marcan_get_field_font_size('home_intro_copy', $page_id),
         'intro_button_label'      => (string) (get_field('home_intro_button_label', $page_id) ?: ''),
         'intro_button_label_font_size' => marcan_get_field_font_size('home_intro_button_label', $page_id),
-        'intro_mobile_button_label' => (string) (get_field('home_intro_mobile_button_label', $page_id) ?: get_field('home_intro_button_label', $page_id) ?: ''),
-        'intro_mobile_button_label_font_size' => marcan_get_field_font_size('home_intro_mobile_button_label', $page_id, 'home_intro_button_label'),
         'intro_button_url'        => $resolve_link($intro_button),
         'departments_title'       => (string) (get_field('home_departments_title', $page_id) ?: ''),
         'departments_title_font_size' => marcan_get_field_font_size('home_departments_title', $page_id),
         'departments_button_label' => (string) (get_field('home_departments_button_label', $page_id) ?: ''),
         'departments_button_label_font_size' => marcan_get_field_font_size('home_departments_button_label', $page_id),
-        'departments_mobile_title' => (string) (get_field('home_departments_mobile_title', $page_id) ?: get_field('home_departments_title', $page_id) ?: ''),
-        'departments_mobile_title_font_size' => marcan_get_field_font_size('home_departments_mobile_title', $page_id, 'home_departments_title'),
-        'departments_mobile_button_label' => (string) (get_field('home_departments_mobile_button_label', $page_id) ?: get_field('home_departments_button_label', $page_id) ?: ''),
-        'departments_mobile_button_label_font_size' => marcan_get_field_font_size('home_departments_mobile_button_label', $page_id, 'home_departments_button_label'),
         'departments_button_url'  => $resolve_link($departments_button),
         'offices_title'           => (string) (get_field('home_offices_title', $page_id) ?: ''),
         'offices_title_font_size' => marcan_get_field_font_size('home_offices_title', $page_id),
         'offices_button_label'    => (string) (get_field('home_offices_button_label', $page_id) ?: ''),
         'offices_button_label_font_size' => marcan_get_field_font_size('home_offices_button_label', $page_id),
-        'offices_mobile_title'    => (string) (get_field('home_offices_mobile_title', $page_id) ?: get_field('home_offices_title', $page_id) ?: ''),
-        'offices_mobile_title_font_size' => marcan_get_field_font_size('home_offices_mobile_title', $page_id, 'home_offices_title'),
-        'offices_mobile_button_label' => (string) (get_field('home_offices_mobile_button_label', $page_id) ?: get_field('home_offices_button_label', $page_id) ?: ''),
-        'offices_mobile_button_label_font_size' => marcan_get_field_font_size('home_offices_mobile_button_label', $page_id, 'home_offices_button_label'),
         'offices_button_url'      => $resolve_link($offices_button),
     );
 }
@@ -391,10 +362,6 @@ function marcan_get_home_delivered_settings(): array
         'title_font_size'     => array(),
         'button_label'        => 'Conoce más sobre nosotros',
         'button_label_font_size' => array(),
-        'mobile_title'        => 'Nuestros proyectos entregados hablan por nosotros',
-        'mobile_title_font_size' => array(),
-        'mobile_button_label' => 'Conoce más sobre nosotros',
-        'mobile_button_label_font_size' => array(),
         'button_url'          => '',
         'image_desktop_id'    => 0,
         'image_mobile_id'     => 0,
@@ -425,10 +392,6 @@ function marcan_get_home_delivered_settings(): array
         'title_font_size'   => marcan_get_field_font_size('home_delivered_title', $field_source),
         'button_label'      => (string) (get_field('home_delivered_button_label', $field_source) ?: ''),
         'button_label_font_size' => marcan_get_field_font_size('home_delivered_button_label', $field_source),
-        'mobile_title'      => (string) (get_field('home_delivered_mobile_title', $field_source) ?: get_field('home_delivered_title', $field_source) ?: ''),
-        'mobile_title_font_size' => marcan_get_field_font_size('home_delivered_mobile_title', $field_source, 'home_delivered_title'),
-        'mobile_button_label' => (string) (get_field('home_delivered_mobile_button_label', $field_source) ?: get_field('home_delivered_button_label', $field_source) ?: ''),
-        'mobile_button_label_font_size' => marcan_get_field_font_size('home_delivered_mobile_button_label', $field_source, 'home_delivered_button_label'),
         'button_url'        => $button_url,
         'image_desktop_id'  => (int) (get_field('home_delivered_image_desktop', $field_source) ?: $defaults['image_desktop_id']),
         'image_mobile_id'   => (int) (get_field('home_delivered_image_mobile', $field_source) ?: $defaults['image_mobile_id']),

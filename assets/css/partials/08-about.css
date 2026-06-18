@@ -1,8 +1,7 @@
 .marcan-about-hero {
     background: #d9d9d6;
     min-height: 1200px;
-    overflow-x: hidden;
-    overflow-y: visible;
+    overflow: visible;
 }
 
 .marcan-about-hero-copy {
@@ -41,11 +40,11 @@
 
 .marcan-about-reasons {
     background: #d9d9d6;
-    min-height: 555px;
+    min-height: 592px;
 }
 
 .marcan-about-reasons-inner {
-    min-height: 555px;
+    min-height: 592px;
 }
 
 .marcan-about-section-title {
@@ -70,7 +69,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     position: absolute;
     right: 76px;
-    top: 79px;
+    top: 60px;
     width: 668px;
 }
 

@@ -56,6 +56,10 @@ while (have_posts()) :
     $internal_mobile = function_exists('get_field') ? get_field('areas_internas_mobile', $post_id) : array();
     $units = function_exists('get_field') ? get_field('unidades', $post_id) : array();
     $virtual_tours_rows = function_exists('get_field') ? get_field('recorridos_virtuales', $post_id) : array();
+    // Tamaño general por repeater-tabla (uno para todo el repeater, no por fila)
+    $units_font_size = marcan_get_field_font_size('unidades', $post_id);
+    $tours_font_size = marcan_get_field_font_size('recorridos_virtuales', $post_id);
+    $nearby_font_size = marcan_get_field_font_size('lugares_cercanos', $post_id);
     $related = marcan_get_properties_by_kind($kind, 3);
     $related_count = 0;
     foreach ($related->posts as $related_post) {
@@ -157,9 +161,7 @@ while (have_posts()) :
 
             $virtual_tours[] = array(
                 'title' => $tour_title,
-                'title_font_size' => marcan_get_row_font_size($tour_row, 'titulo'),
                 'group' => $tour_group,
-                'group_font_size' => marcan_get_row_font_size($tour_row, 'grupo'),
                 'src' => $tour_src,
                 'external' => $tour_url !== '' ? $tour_url : $tour_src,
             );
@@ -340,7 +342,7 @@ while (have_posts()) :
                                 <?php foreach ($tour_groups as $tour_group => $tour_group_items) : ?>
                                     <div class="marcan-property-tour-group is-collapsed">
                                         <button class="marcan-property-tour-group-toggle" type="button" data-tour-group-toggle aria-expanded="false">
-                                            <span<?php echo marcan_font_size_attrs($tour_group_items[0]['group_font_size'] ?? array()); ?>><?php echo marcan_rich_inline($tour_group); ?></span>
+                                            <span<?php echo marcan_font_size_attrs($tours_font_size); ?>><?php echo marcan_rich_inline($tour_group); ?></span>
                                             <span aria-hidden="true"></span>
                                         </button>
                                         <div class="marcan-property-tour-group-items">
@@ -353,7 +355,7 @@ while (have_posts()) :
                                                     data-tour-title="<?php echo esc_attr(wp_strip_all_tags($tour_item['title'])); ?>"
                                                     aria-pressed="false"
                                                 >
-                                                    <span<?php echo marcan_font_size_attrs($tour_item['title_font_size'] ?? array()); ?>><?php echo marcan_rich_inline($tour_item['title']); ?></span>
+                                                    <span<?php echo marcan_font_size_attrs($tours_font_size); ?>><?php echo marcan_rich_inline($tour_item['title']); ?></span>
                                                 </button>
                                             <?php endforeach; ?>
                                         </div>
@@ -448,7 +450,7 @@ while (have_posts()) :
                     </div>
                     </div>
                 <?php endif; ?>
-                <div class="marcan-property-pricing-table" data-property-units>
+                <div<?php echo marcan_font_size_attrs($units_font_size, 'marcan-property-pricing-table', true); ?> data-property-units>
                     <div class="marcan-property-pricing-head">
                         <span><?php esc_html_e('Código', 'marcan'); ?></span>
                         <span><?php esc_html_e('Piso', 'marcan'); ?></span>
@@ -619,7 +621,7 @@ while (have_posts()) :
                         <?php if (!empty($map_nearby_content) && is_array($map_nearby_content)) : ?>
                             <div class="marcan-property-map-nearby">
                                 <p<?php echo $map_nearby_title_attrs; ?>><?php echo marcan_rich_inline($map_nearby_title); ?></p>
-                                <div class="marcan-property-map-nearby-grid">
+                                <div<?php echo marcan_font_size_attrs($nearby_font_size, 'marcan-property-map-nearby-grid', true); ?>>
                                     <?php foreach ($map_nearby_content as $group) : ?>
                                         <?php
                                         $cat = trim((string) ($group['categoria'] ?? ''));

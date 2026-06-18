@@ -9,6 +9,8 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+// NOTA: si los acentos/ñ salen como "?" en el admin, revisar los .json de acf-json/
+// (ACF los carga y pueden tener mojibake heredado aunque el PHP esté en UTF-8 correcto).
 function marcan_acf_json_save_point(string $path): string
 {
     return MARCAN_THEME_PATH . 'acf-json';
@@ -147,6 +149,19 @@ function marcan_acf_field_supports_font_size(array $field): bool
     return true;
 }
 
+function marcan_acf_repeater_has_editorial_text(array $field): bool
+{
+    if (empty($field['sub_fields']) || !is_array($field['sub_fields'])) {
+        return false;
+    }
+    foreach ($field['sub_fields'] as $sub) {
+        if (is_array($sub) && marcan_acf_field_supports_font_size($sub)) {
+            return true;
+        }
+    }
+    return false;
+}
+
 function marcan_acf_add_font_size_controls(array $fields): array
 {
     $result = array();
@@ -157,13 +172,20 @@ function marcan_acf_add_font_size_controls(array $fields): array
             continue;
         }
 
-        if (!empty($field['sub_fields']) && is_array($field['sub_fields'])) {
+        // Repeaters tipo tabla: UN solo tamaño para todo el repeater, nunca uno por fila.
+        $is_table_repeater = ($field['type'] ?? '') === 'repeater' && ($field['layout'] ?? '') === 'table';
+
+        if (!empty($field['sub_fields']) && is_array($field['sub_fields']) && !$is_table_repeater) {
             $field['sub_fields'] = marcan_acf_add_font_size_controls($field['sub_fields']);
         }
 
         $result[] = $field;
 
-        if (marcan_acf_field_supports_font_size($field)) {
+        if ($is_table_repeater) {
+            if (marcan_acf_repeater_has_editorial_text($field)) {
+                $result[] = marcan_acf_font_size_group((string) $field['key'], (string) $field['name']);
+            }
+        } elseif (marcan_acf_field_supports_font_size($field)) {
             $result[] = marcan_acf_font_size_group((string) $field['key'], (string) $field['name']);
         }
     }
@@ -484,7 +506,6 @@ function marcan_register_field_groups(): void
         'title' => 'Inicio - Contenido',
         'fields' => array(
             marcan_acf_tab('field_marcan_tab_home_hero', '1. Hero'),
-            array('key' => 'field_marcan_hero_mobile_copy', 'label' => 'Texto móvil', 'name' => 'hero_mobile_copy', 'type' => 'wysiwyg', 'tabs' => 'all', 'toolbar' => 'basic', 'media_upload' => 0, 'instructions' => 'Texto introductorio que aparece bajo el slider en móvil.'),
             array('key' => 'field_marcan_hero_autoplay', 'label' => 'Autoplay', 'name' => 'hero_autoplay', 'type' => 'true_false', 'ui' => 1, 'default_value' => 1, 'instructions' => 'Reproducir el slider automáticamente.'),
             array('key' => 'field_marcan_hero_interval', 'label' => 'Intervalo', 'name' => 'hero_interval', 'type' => 'number', 'default_value' => 5000, 'min' => 1000, 'step' => 500, 'instructions' => 'Milisegundos entre slides (1000 = 1 segundo).'),
             array('key' => 'field_marcan_hero_effect', 'label' => 'Efecto', 'name' => 'hero_effect', 'type' => 'select', 'choices' => array('fade' => 'Fade', 'zoom' => 'Zoom'), 'default_value' => 'fade', 'return_format' => 'value'),
@@ -498,27 +519,19 @@ function marcan_register_field_groups(): void
 
             marcan_acf_tab('field_marcan_tab_home_projects', '2. Sección Proyectos'),
             array('key' => 'field_marcan_home_intro_title', 'label' => 'Título introductorio', 'name' => 'home_intro_title', 'type' => 'text'),
-            array('key' => 'field_marcan_home_intro_mobile_title', 'label' => 'Título introductorio móvil', 'name' => 'home_intro_mobile_title', 'type' => 'text'),
             marcan_acf_wysiwyg('field_marcan_home_intro_copy', 'Texto introductorio', 'home_intro_copy'),
             array('key' => 'field_marcan_home_intro_button_label', 'label' => 'Etiqueta botón introductorio', 'name' => 'home_intro_button_label', 'type' => 'text'),
-            array('key' => 'field_marcan_home_intro_mobile_button_label', 'label' => 'Etiqueta botón introductorio móvil', 'name' => 'home_intro_mobile_button_label', 'type' => 'text'),
             array('key' => 'field_marcan_home_intro_button', 'label' => 'Enlace botón introductorio', 'name' => 'home_intro_button', 'type' => 'link'),
             array('key' => 'field_marcan_home_departments_title', 'label' => 'Título departamentos', 'name' => 'home_departments_title', 'type' => 'text'),
-            array('key' => 'field_marcan_home_departments_mobile_title', 'label' => 'Título departamentos móvil', 'name' => 'home_departments_mobile_title', 'type' => 'text'),
             array('key' => 'field_marcan_home_departments_button_label', 'label' => 'Etiqueta botón departamentos', 'name' => 'home_departments_button_label', 'type' => 'text'),
-            array('key' => 'field_marcan_home_departments_mobile_button_label', 'label' => 'Etiqueta botón departamentos móvil', 'name' => 'home_departments_mobile_button_label', 'type' => 'text'),
             array('key' => 'field_marcan_home_departments_button', 'label' => 'Enlace botón departamentos', 'name' => 'home_departments_button', 'type' => 'link'),
             array('key' => 'field_marcan_home_offices_title', 'label' => 'Título oficinas', 'name' => 'home_offices_title', 'type' => 'text'),
-            array('key' => 'field_marcan_home_offices_mobile_title', 'label' => 'Título oficinas móvil', 'name' => 'home_offices_mobile_title', 'type' => 'text'),
             array('key' => 'field_marcan_home_offices_button_label', 'label' => 'Etiqueta botón oficinas', 'name' => 'home_offices_button_label', 'type' => 'text'),
-            array('key' => 'field_marcan_home_offices_mobile_button_label', 'label' => 'Etiqueta botón oficinas móvil', 'name' => 'home_offices_mobile_button_label', 'type' => 'text'),
             array('key' => 'field_marcan_home_offices_button', 'label' => 'Enlace botón oficinas', 'name' => 'home_offices_button', 'type' => 'link'),
 
             marcan_acf_tab('field_marcan_tab_home_delivered', '3. Proyectos Entregados'),
             array('key' => 'field_marcan_home_delivered_title', 'label' => 'Título', 'name' => 'home_delivered_title', 'type' => 'text'),
-            array('key' => 'field_marcan_home_delivered_mobile_title', 'label' => 'Título móvil', 'name' => 'home_delivered_mobile_title', 'type' => 'text'),
             array('key' => 'field_marcan_home_delivered_button_label', 'label' => 'Etiqueta botón', 'name' => 'home_delivered_button_label', 'type' => 'text'),
-            array('key' => 'field_marcan_home_delivered_mobile_button_label', 'label' => 'Etiqueta botón móvil', 'name' => 'home_delivered_mobile_button_label', 'type' => 'text'),
             array('key' => 'field_marcan_home_delivered_button', 'label' => 'Enlace botón', 'name' => 'home_delivered_button', 'type' => 'link'),
             array('key' => 'field_marcan_home_delivered_image_desktop', 'label' => 'Imagen desktop', 'name' => 'home_delivered_image_desktop', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'large', 'library' => 'all', 'instructions' => marcan_acf_image_help('1577x1563 px', '450 KB')),
             array('key' => 'field_marcan_home_delivered_image_mobile', 'label' => 'Imagen vertical', 'name' => 'home_delivered_image_mobile', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'large', 'library' => 'all', 'instructions' => marcan_acf_image_help('720x900 px', '300 KB')),
@@ -601,41 +614,41 @@ function marcan_register_field_groups(): void
 
             /* 2. Identidad */
             marcan_acf_tab('field_marcan_tab_prop_identity', '2. Identidad'),
-            marcan_acf_wysiwyg('field_marcan_commercial_title', 'T\u00edtulo comercial', 'titulo_comercial', 'basic'),
-            marcan_acf_wysiwyg('field_marcan_subtitle', 'Subt\u00edtulo', 'subtitulo', 'basic'),
-            marcan_acf_wysiwyg('field_marcan_short_description', 'Descripci\u00f3n corta', 'descripcion_corta'),
+            marcan_acf_wysiwyg('field_marcan_commercial_title', 'Título comercial', 'titulo_comercial', 'basic'),
+            marcan_acf_wysiwyg('field_marcan_subtitle', 'Subtítulo', 'subtitulo', 'basic'),
+            marcan_acf_wysiwyg('field_marcan_short_description', 'Descripción corta', 'descripcion_corta'),
             marcan_acf_wysiwyg('field_marcan_status', 'Estado', 'estado', 'basic'),
             marcan_acf_wysiwyg('field_marcan_delivery_date', 'Fecha de entrega', 'fecha_entrega', 'basic'),
             array('key' => 'field_marcan_property_kind', 'label' => 'Tipo de inmueble', 'name' => 'tipo_inmueble', 'type' => 'select', 'choices' => array('departamento' => 'Departamento', 'oficina' => 'Oficina'), 'default_value' => 'departamento', 'ui' => 1, 'return_format' => 'value'),
-            array('key' => 'field_marcan_project_home_section', 'label' => 'Ubicaci\u00f3n en Home', 'name' => 'home_section', 'type' => 'select', 'choices' => array('departamentos' => 'Departamentos', 'oficinas' => 'Oficinas'), 'default_value' => 'departamentos', 'ui' => 1, 'return_format' => 'value', 'instructions' => 'En qu\u00e9 slider del Home aparece. Por defecto usa el Tipo de inmueble.'),
+            array('key' => 'field_marcan_project_home_section', 'label' => 'Ubicación en Home', 'name' => 'home_section', 'type' => 'select', 'choices' => array('departamentos' => 'Departamentos', 'oficinas' => 'Oficinas'), 'default_value' => 'departamentos', 'ui' => 1, 'return_format' => 'value', 'instructions' => 'En qué slider del Home aparece. Por defecto usa el Tipo de inmueble.'),
             array('key' => 'field_marcan_show_listing', 'label' => 'Mostrar en listados', 'name' => 'mostrar_en_listado', 'type' => 'true_false', 'default_value' => 1, 'ui' => 1),
             array('key' => 'field_marcan_featured_home', 'label' => 'Mostrar en Home', 'name' => 'destacado_home', 'type' => 'true_false', 'default_value' => 1, 'ui' => 1),
             array('key' => 'field_marcan_listing_order', 'label' => 'Orden de listado', 'name' => 'orden_listado', 'type' => 'number', 'default_value' => 0),
 
-            /* 3. Ficha t\u00e9cnica */
-            marcan_acf_tab('field_marcan_tab_prop_specs', '3. Ficha t\u00e9cnica'),
-            array('key' => 'field_marcan_show_specs', 'label' => 'Mostrar secci\u00f3n', 'name' => 'mostrar_ficha_tecnica', 'type' => 'true_false', 'default_value' => 1, 'ui' => 1),
+            /* 3. Ficha técnica */
+            marcan_acf_tab('field_marcan_tab_prop_specs', '3. Ficha técnica'),
+            array('key' => 'field_marcan_show_specs', 'label' => 'Mostrar sección', 'name' => 'mostrar_ficha_tecnica', 'type' => 'true_false', 'default_value' => 1, 'ui' => 1),
             array('key' => 'field_marcan_price', 'label' => 'Precio', 'name' => 'precio', 'type' => 'text'),
-            marcan_acf_wysiwyg('field_marcan_location', 'Ubicaci\u00f3n', 'ubicacion', 'basic'),
-            array('key' => 'field_marcan_area_number', 'label' => '\u00c1rea', 'name' => 'area_numero', 'type' => 'number', 'step' => '0.01'),
-            array('key' => 'field_marcan_area_unit', 'label' => 'Unidad de \u00e1rea', 'name' => 'area_unidad', 'type' => 'select', 'choices' => array('m2' => 'm²', 'm lineal' => 'm lineal', 'ha' => 'ha'), 'default_value' => 'm2', 'ui' => 1, 'return_format' => 'value'),
+            marcan_acf_wysiwyg('field_marcan_location', 'Ubicación', 'ubicacion', 'basic'),
+            array('key' => 'field_marcan_area_number', 'label' => 'Área', 'name' => 'area_numero', 'type' => 'number', 'step' => '0.01'),
+            array('key' => 'field_marcan_area_unit', 'label' => 'Unidad de área', 'name' => 'area_unidad', 'type' => 'select', 'choices' => array('m2' => 'm²', 'm lineal' => 'm lineal', 'ha' => 'ha'), 'default_value' => 'm2', 'ui' => 1, 'return_format' => 'value'),
             marcan_acf_wysiwyg('field_marcan_bedrooms', 'Dormitorios', 'dormitorios', 'basic'),
-            array('key' => 'field_marcan_bathrooms', 'label' => 'Ba\u00f1os', 'name' => 'banos', 'type' => 'number'),
+            array('key' => 'field_marcan_bathrooms', 'label' => 'Baños', 'name' => 'banos', 'type' => 'number'),
             array('key' => 'field_marcan_parking', 'label' => 'Estacionamientos', 'name' => 'estacionamientos', 'type' => 'number'),
             marcan_acf_wysiwyg('field_marcan_project_home_price_label', 'Etiqueta de precio', 'home_price_label', 'basic', 0, 'Texto antes del precio en la tarjeta Home. Ej: "Desde:".'),
             array('key' => 'field_marcan_brochure', 'label' => 'Brochure', 'name' => 'brochure', 'type' => 'file', 'return_format' => 'id', 'library' => 'all', 'instructions' => 'PDF del brochure.'),
-            array('key' => 'field_marcan_show_brochure', 'label' => 'Mostrar bot\u00f3n brochure', 'name' => 'mostrar_brochure', 'type' => 'true_false', 'default_value' => 1, 'ui' => 1),
+            array('key' => 'field_marcan_show_brochure', 'label' => 'Mostrar botón brochure', 'name' => 'mostrar_brochure', 'type' => 'true_false', 'default_value' => 1, 'ui' => 1),
 
             /* 4. Concepto */
             marcan_acf_tab('field_marcan_tab_prop_concept', '4. Concepto'),
-            array('key' => 'field_marcan_show_concept', 'label' => 'Mostrar secci\u00f3n', 'name' => 'mostrar_concepto', 'type' => 'true_false', 'default_value' => 1, 'ui' => 1),
-            marcan_acf_wysiwyg('field_marcan_concept_title', 'T\u00edtulo concepto', 'concepto_titulo', 'basic'),
+            array('key' => 'field_marcan_show_concept', 'label' => 'Mostrar sección', 'name' => 'mostrar_concepto', 'type' => 'true_false', 'default_value' => 1, 'ui' => 1),
+            marcan_acf_wysiwyg('field_marcan_concept_title', 'Título concepto', 'concepto_titulo', 'basic'),
             marcan_acf_wysiwyg('field_marcan_concept_text', 'Texto concepto', 'concepto_texto', 'full'),
             marcan_acf_wysiwyg('field_marcan_quote_text', 'Frase del proyecto', 'frase_proyecto'),
             marcan_acf_wysiwyg('field_marcan_quote_author', 'Autor frase', 'autor_frase', 'basic'),
-            marcan_acf_wysiwyg('field_marcan_related_intro_text', 'Texto antes de relacionados', 'relacionados_intro_texto', 'basic', 0, 'Opcional. Si se deja vac\u00edo se usa el texto por defecto del tipo de inmueble.'),
-            marcan_acf_wysiwyg('field_marcan_project_home_cta_label', 'Etiqueta CTA para Home', 'home_cta_label', 'basic', 0, 'Texto del bot\u00f3n en la tarjeta Home. Ej: "Ver m\u00e1s". Si se deja vac\u00edo se muestra "Ver m\u00e1s".'),
-            array('key' => 'field_marcan_project_home_cta_link', 'label' => 'Enlace CTA para Home', 'name' => 'home_cta_link', 'type' => 'link', 'instructions' => 'Si se deja vac\u00edo enlaza a la p\u00e1gina de detalle del inmueble.'),
+            marcan_acf_wysiwyg('field_marcan_related_intro_text', 'Texto antes de relacionados', 'relacionados_intro_texto', 'basic', 0, 'Opcional. Si se deja vacío se usa el texto por defecto del tipo de inmueble.'),
+            marcan_acf_wysiwyg('field_marcan_project_home_cta_label', 'Etiqueta CTA para Home', 'home_cta_label', 'basic', 0, 'Texto del botón en la tarjeta Home. Ej: "Ver más". Si se deja vacío se muestra "Ver más".'),
+            array('key' => 'field_marcan_project_home_cta_link', 'label' => 'Enlace CTA para Home', 'name' => 'home_cta_link', 'type' => 'link', 'instructions' => 'Si se deja vacío enlaza a la página de detalle del inmueble.'),
 
             /* 5. Diseñador */
             marcan_acf_tab('field_marcan_tab_prop_designer', '5. Diseñador'),
@@ -644,8 +657,18 @@ function marcan_register_field_groups(): void
             marcan_acf_wysiwyg('field_marcan_interior_designer_role', 'Cargo del diseñador', 'disenador_interiores_cargo', 'basic'),
             array('key' => 'field_marcan_interior_designer_photo', 'label' => 'Foto del diseñador', 'name' => 'disenador_interiores_foto', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'library' => 'all', 'instructions' => marcan_acf_image_help('600x600 px', '220 KB')),
 
-            /* 6. Unidades */
-            marcan_acf_tab('field_marcan_tab_prop_units', '6. Unidades'),
+            /* 6. Tours Virtuales */
+            marcan_acf_tab('field_marcan_tab_prop_tours', '6. Tours Virtuales'),
+            array('key' => 'field_marcan_show_tours', 'label' => 'Mostrar sección', 'name' => 'mostrar_tours', 'type' => 'true_false', 'default_value' => 1, 'ui' => 1),
+            array('key' => 'field_marcan_virtual_tours', 'label' => 'Recorridos virtuales', 'name' => 'recorridos_virtuales', 'type' => 'repeater', 'layout' => 'table', 'button_label' => 'Agregar recorrido', 'sub_fields' => array(
+                array('key' => 'field_marcan_virtual_tour_title', 'label' => 'Título', 'name' => 'titulo', 'type' => 'text'),
+                array('key' => 'field_marcan_virtual_tour_group', 'label' => 'Grupo', 'name' => 'grupo', 'type' => 'text', 'instructions' => 'Ejemplo: Áreas comunes o Departamentos. Se muestra como encabezado cuando cambia el grupo.'),
+                array('key' => 'field_marcan_virtual_tour_url', 'label' => 'URL externa', 'name' => 'url', 'type' => 'url'),
+                array('key' => 'field_marcan_virtual_tour_active', 'label' => 'Activo', 'name' => 'activo', 'type' => 'true_false', 'default_value' => 1, 'ui' => 1),
+            )),
+
+            /* 7. Unidades */
+            marcan_acf_tab('field_marcan_tab_prop_units', '7. Unidades'),
             array('key' => 'field_marcan_show_units', 'label' => 'Mostrar sección', 'name' => 'mostrar_unidades', 'type' => 'true_false', 'default_value' => 1, 'ui' => 1),
             array('key' => 'field_marcan_units', 'label' => 'Unidades', 'name' => 'unidades', 'type' => 'repeater', 'layout' => 'table', 'button_label' => 'Agregar unidad', 'sub_fields' => array(
                 array('key' => 'field_marcan_unit_code', 'label' => 'Nombre', 'name' => 'codigo', 'type' => 'text'),
@@ -658,16 +681,6 @@ function marcan_register_field_groups(): void
                 array('key' => 'field_marcan_unit_status', 'label' => 'Tipología', 'name' => 'estado', 'type' => 'text', 'instructions' => 'Excel: Tipología en departamentos; Tipo de Unidad en oficinas.'),
                 array('key' => 'field_marcan_unit_plan', 'label' => 'Plano', 'name' => 'plano', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'thumbnail', 'library' => 'all', 'instructions' => marcan_acf_image_help('934x1027 px o 1867x1027 px', '350 KB')),
                 array('key' => 'field_marcan_unit_quote_pdf', 'label' => 'PDF cotización', 'name' => 'cotizacion_pdf', 'type' => 'file', 'return_format' => 'id', 'library' => 'all', 'mime_types' => 'pdf', 'instructions' => 'PDF específico para el botón Descargar cotización de esta unidad.'),
-            )),
-
-            /* 7. Tours Virtuales */
-            marcan_acf_tab('field_marcan_tab_prop_tours', '7. Tours Virtuales'),
-            array('key' => 'field_marcan_show_tours', 'label' => 'Mostrar sección', 'name' => 'mostrar_tours', 'type' => 'true_false', 'default_value' => 1, 'ui' => 1),
-            array('key' => 'field_marcan_virtual_tours', 'label' => 'Recorridos virtuales', 'name' => 'recorridos_virtuales', 'type' => 'repeater', 'layout' => 'table', 'button_label' => 'Agregar recorrido', 'sub_fields' => array(
-                array('key' => 'field_marcan_virtual_tour_title', 'label' => 'Título', 'name' => 'titulo', 'type' => 'text'),
-                array('key' => 'field_marcan_virtual_tour_group', 'label' => 'Grupo', 'name' => 'grupo', 'type' => 'text', 'instructions' => 'Ejemplo: Áreas comunes o Departamentos. Se muestra como encabezado cuando cambia el grupo.'),
-                array('key' => 'field_marcan_virtual_tour_url', 'label' => 'URL externa', 'name' => 'url', 'type' => 'url'),
-                array('key' => 'field_marcan_virtual_tour_active', 'label' => 'Activo', 'name' => 'activo', 'type' => 'true_false', 'default_value' => 1, 'ui' => 1),
             )),
 
             /* 8. Ubicación */

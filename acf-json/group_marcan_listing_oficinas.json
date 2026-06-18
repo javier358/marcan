@@ -65,11 +65,11 @@
         },
         {
             "key": "field_marcan_ofi_title_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "listing_title_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_ofi_title_font_size_desktop",
@@ -153,11 +153,11 @@
         },
         {
             "key": "field_marcan_ofi_intro_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "listing_intro_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_ofi_intro_font_size_desktop",
@@ -237,11 +237,11 @@
         },
         {
             "key": "field_marcan_ofi_search_title_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "listing_search_title_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_ofi_search_title_font_size_desktop",
@@ -325,11 +325,11 @@
         },
         {
             "key": "field_marcan_ofi_search_copy_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "listing_search_copy_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_ofi_search_copy_font_size_desktop",
@@ -417,11 +417,11 @@
         },
         {
             "key": "field_marcan_ofi_reasons_title_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "listing_reasons_title_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_ofi_reasons_title_font_size_desktop",
@@ -509,11 +509,11 @@
                 },
                 {
                     "key": "field_marcan_ofi_reason_number_font_size",
-                    "label": "Tama?o de letra",
+                    "label": "Tamaño de letra",
                     "name": "number_font_size",
                     "type": "group",
                     "layout": "block",
-                    "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+                    "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
                     "sub_fields": [
                         {
                             "key": "field_marcan_ofi_reason_number_font_size_desktop",
@@ -597,11 +597,11 @@
                 },
                 {
                     "key": "field_marcan_ofi_reason_text_font_size",
-                    "label": "Tama?o de letra",
+                    "label": "Tamaño de letra",
                     "name": "text_font_size",
                     "type": "group",
                     "layout": "block",
-                    "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+                    "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
                     "sub_fields": [
                         {
                             "key": "field_marcan_ofi_reason_text_font_size_desktop",

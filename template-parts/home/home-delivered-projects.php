@@ -13,8 +13,8 @@ $delivered = marcan_get_home_delivered_settings();
 $desktop_image_id = (int) $delivered['image_desktop_id'];
 $mobile_image_id = (int) $delivered['image_mobile_id'];
 $button_link = $delivered['button_url'];
-$has_title = !empty($delivered['title']) || !empty($delivered['mobile_title']);
-$has_button = $button_link !== '' && (!empty($delivered['button_label']) || !empty($delivered['mobile_button_label']));
+$has_title = !empty($delivered['title']);
+$has_button = $button_link !== '' && !empty($delivered['button_label']);
 $has_delivered = $desktop_image_id || $mobile_image_id || $has_title || $has_button;
 $button_target = '_self';
 if (function_exists('get_field')) {
@@ -47,22 +47,12 @@ if (function_exists('get_field')) {
         <div class="marcan-home-delivered-copy">
             <?php if ($has_title) : ?>
                 <h2>
-                    <?php if (!empty($delivered['title'])) : ?>
-                        <span<?php echo marcan_font_size_attrs($delivered['title_font_size'] ?? array(), 'marcan-home-desktop-text'); ?>><?php echo marcan_rich_inline($delivered['title']); ?></span>
-                    <?php endif; ?>
-                    <?php if (!empty($delivered['mobile_title'])) : ?>
-                        <span<?php echo marcan_font_size_attrs($delivered['mobile_title_font_size'] ?? array(), 'marcan-home-mobile-text'); ?>><?php echo marcan_rich_inline($delivered['mobile_title']); ?></span>
-                    <?php endif; ?>
+                    <span<?php echo marcan_font_size_attrs($delivered['title_font_size'] ?? array()); ?>><?php echo marcan_rich_inline($delivered['title']); ?></span>
                 </h2>
             <?php endif; ?>
             <?php if ($has_button) : ?>
                 <a class="marcan-home-delivered-button" href="<?php echo esc_url($button_link); ?>" target="<?php echo esc_attr($button_target ?: '_self'); ?>">
-                    <?php if (!empty($delivered['button_label'])) : ?>
-                        <span<?php echo marcan_font_size_attrs($delivered['button_label_font_size'] ?? array(), 'marcan-home-desktop-text'); ?>><?php echo marcan_rich_inline($delivered['button_label']); ?></span>
-                    <?php endif; ?>
-                    <?php if (!empty($delivered['mobile_button_label'])) : ?>
-                        <span<?php echo marcan_font_size_attrs($delivered['mobile_button_label_font_size'] ?? array(), 'marcan-home-mobile-text'); ?>><?php echo marcan_rich_inline($delivered['mobile_button_label']); ?></span>
-                    <?php endif; ?>
+                    <span<?php echo marcan_font_size_attrs($delivered['button_label_font_size'] ?? array()); ?>><?php echo marcan_rich_inline($delivered['button_label']); ?></span>
                 </a>
             <?php endif; ?>
         </div>

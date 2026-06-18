@@ -11,6 +11,9 @@ if (!defined('ABSPATH')) {
 
 $hero_settings = marcan_get_home_hero_settings();
 $hero_slides = marcan_get_home_hero_slides();
+$hero_projects = marcan_get_home_projects_settings();
+$hero_intro_copy = (string) ($hero_projects['intro_copy'] ?? '');
+$hero_intro_copy_font_size = $hero_projects['intro_copy_font_size'] ?? array();
 ?>
 
 <section class="marcan-home-hero" aria-label="<?php esc_attr_e('Marcan', 'marcan'); ?>">
@@ -53,7 +56,9 @@ $hero_slides = marcan_get_home_hero_slides();
             </article>
         <?php endif; ?>
     </div>
+    <?php if ($hero_intro_copy !== '') : ?>
     <div class="marcan-home-hero-mobile-copy">
-        <p<?php echo marcan_font_size_attrs($hero_settings['mobile_copy_font_size'] ?? array()); ?>><?php echo esc_html(wp_strip_all_tags($hero_settings['mobile_copy'])); ?></p>
+        <p<?php echo marcan_font_size_attrs($hero_intro_copy_font_size); ?>><?php echo esc_html(wp_strip_all_tags($hero_intro_copy)); ?></p>
     </div>
+    <?php endif; ?>
 </section>

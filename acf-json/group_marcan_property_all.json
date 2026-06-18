@@ -89,11 +89,11 @@
         },
         {
             "key": "field_marcan_commercial_title_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "titulo_comercial_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_commercial_title_font_size_desktop",
@@ -177,11 +177,11 @@
         },
         {
             "key": "field_marcan_subtitle_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "subtitulo_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_subtitle_font_size_desktop",
@@ -265,11 +265,11 @@
         },
         {
             "key": "field_marcan_short_description_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "descripcion_corta_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_short_description_font_size_desktop",
@@ -353,11 +353,11 @@
         },
         {
             "key": "field_marcan_status_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "estado_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_status_font_size_desktop",
@@ -441,11 +441,11 @@
         },
         {
             "key": "field_marcan_delivery_date_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "fecha_entrega_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_delivery_date_font_size_desktop",
@@ -532,7 +532,7 @@
         },
         {
             "key": "field_marcan_tab_prop_specs",
-            "label": "3. Ficha tecnica",
+            "label": "3. Ficha técnica",
             "name": "",
             "type": "tab",
             "placement": "top",
@@ -554,11 +554,11 @@
         },
         {
             "key": "field_marcan_price_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "precio_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_price_font_size_desktop",
@@ -642,11 +642,11 @@
         },
         {
             "key": "field_marcan_location_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "ubicacion_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_location_font_size_desktop",
@@ -751,11 +751,11 @@
         },
         {
             "key": "field_marcan_bedrooms_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "dormitorios_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_bedrooms_font_size_desktop",
@@ -867,11 +867,11 @@
         },
         {
             "key": "field_marcan_concept_title_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "concepto_titulo_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_concept_title_font_size_desktop",
@@ -955,11 +955,11 @@
         },
         {
             "key": "field_marcan_concept_text_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "concepto_texto_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_concept_text_font_size_desktop",
@@ -1043,11 +1043,11 @@
         },
         {
             "key": "field_marcan_quote_text_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "frase_proyecto_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_quote_text_font_size_desktop",
@@ -1131,11 +1131,11 @@
         },
         {
             "key": "field_marcan_quote_author_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "autor_frase_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_quote_author_font_size_desktop",
@@ -1209,7 +1209,7 @@
         },
         {
             "key": "field_marcan_tab_prop_designer",
-            "label": "5. Disenador",
+            "label": "5. Diseñador",
             "name": "",
             "type": "tab",
             "placement": "top",
@@ -1235,11 +1235,11 @@
         },
         {
             "key": "field_marcan_interior_designer_name_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "disenador_interiores_nombre_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_interior_designer_name_font_size_desktop",
@@ -1323,11 +1323,11 @@
         },
         {
             "key": "field_marcan_interior_designer_role_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "disenador_interiores_cargo_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_interior_designer_role_font_size_desktop",
@@ -1410,8 +1410,142 @@
             "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 600x600 px. Peso maximo recomendado: 220 KB."
         },
         {
+            "key": "field_marcan_tab_prop_tours",
+            "label": "6. Tours Virtuales",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_show_tours",
+            "label": "Mostrar seccion",
+            "name": "mostrar_tours",
+            "type": "true_false",
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_marcan_virtual_tours",
+            "label": "Recorridos virtuales",
+            "name": "recorridos_virtuales",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Agregar recorrido",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_virtual_tour_title",
+                    "label": "Titulo",
+                    "name": "titulo",
+                    "type": "text"
+                },
+                {
+                    "key": "field_marcan_virtual_tour_group",
+                    "label": "Grupo",
+                    "name": "grupo",
+                    "type": "text",
+                    "instructions": "Ejemplo: Areas comunes o Departamentos. Se muestra como encabezado cuando cambia el grupo."
+                },
+                {
+                    "key": "field_marcan_virtual_tour_url",
+                    "label": "URL externa",
+                    "name": "url",
+                    "type": "url"
+                },
+                {
+                    "key": "field_marcan_virtual_tour_active",
+                    "label": "Activo",
+                    "name": "activo",
+                    "type": "true_false",
+                    "default_value": 1,
+                    "ui": 1
+                }
+            ]
+        },
+        {
+            "key": "field_marcan_virtual_tours_font_size",
+            "label": "Tamaño de letra",
+            "name": "recorridos_virtuales_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Tamaño para todo el contenido de esta tabla. Por defecto usa el tamaño base del diseño.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_virtual_tours_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    },
+                    "parent": "field_marcan_virtual_tours_font_size"
+                },
+                {
+                    "key": "field_marcan_virtual_tours_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    },
+                    "parent": "field_marcan_virtual_tours_font_size"
+                }
+            ],
+            "parent": "group_marcan_property_all"
+        },
+        {
             "key": "field_marcan_tab_prop_units",
-            "label": "6. Unidades",
+            "label": "7. Unidades",
             "name": "",
             "type": "tab",
             "placement": "top",
@@ -1446,250 +1580,16 @@
                     "type": "text"
                 },
                 {
-                    "key": "field_marcan_unit_floor_font_size",
-                    "label": "Tama?o de letra",
-                    "name": "piso_font_size",
-                    "type": "group",
-                    "layout": "block",
-                    "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
-                    "sub_fields": [
-                        {
-                            "key": "field_marcan_unit_floor_font_size_desktop",
-                            "label": "PC",
-                            "name": "desktop",
-                            "type": "select",
-                            "choices": {
-                                "": "Por defecto",
-                                "12px": "12px",
-                                "14px": "14px",
-                                "15px": "15px",
-                                "16px": "16px",
-                                "18px": "18px",
-                                "20px": "20px",
-                                "21px": "21px",
-                                "22px": "22px",
-                                "24px": "24px",
-                                "25px": "25px",
-                                "26px": "26px",
-                                "28px": "28px",
-                                "30px": "30px",
-                                "32px": "32px",
-                                "36px": "36px",
-                                "40px": "40px",
-                                "45px": "45px",
-                                "48px": "48px"
-                            },
-                            "default_value": "",
-                            "allow_null": 0,
-                            "return_format": "value",
-                            "ui": 1,
-                            "wrapper": {
-                                "width": "50"
-                            }
-                        },
-                        {
-                            "key": "field_marcan_unit_floor_font_size_mobile",
-                            "label": "Mobile",
-                            "name": "mobile",
-                            "type": "select",
-                            "choices": {
-                                "": "Por defecto",
-                                "12px": "12px",
-                                "14px": "14px",
-                                "15px": "15px",
-                                "16px": "16px",
-                                "18px": "18px",
-                                "20px": "20px",
-                                "21px": "21px",
-                                "22px": "22px",
-                                "24px": "24px",
-                                "25px": "25px",
-                                "26px": "26px",
-                                "28px": "28px",
-                                "30px": "30px",
-                                "32px": "32px",
-                                "36px": "36px",
-                                "40px": "40px",
-                                "45px": "45px",
-                                "48px": "48px"
-                            },
-                            "default_value": "",
-                            "allow_null": 0,
-                            "return_format": "value",
-                            "ui": 1,
-                            "wrapper": {
-                                "width": "50"
-                            }
-                        }
-                    ]
-                },
-                {
                     "key": "field_marcan_unit_bedrooms",
                     "label": "dormitorios",
                     "name": "habitaciones",
                     "type": "text"
                 },
                 {
-                    "key": "field_marcan_unit_bedrooms_font_size",
-                    "label": "Tama?o de letra",
-                    "name": "habitaciones_font_size",
-                    "type": "group",
-                    "layout": "block",
-                    "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
-                    "sub_fields": [
-                        {
-                            "key": "field_marcan_unit_bedrooms_font_size_desktop",
-                            "label": "PC",
-                            "name": "desktop",
-                            "type": "select",
-                            "choices": {
-                                "": "Por defecto",
-                                "12px": "12px",
-                                "14px": "14px",
-                                "15px": "15px",
-                                "16px": "16px",
-                                "18px": "18px",
-                                "20px": "20px",
-                                "21px": "21px",
-                                "22px": "22px",
-                                "24px": "24px",
-                                "25px": "25px",
-                                "26px": "26px",
-                                "28px": "28px",
-                                "30px": "30px",
-                                "32px": "32px",
-                                "36px": "36px",
-                                "40px": "40px",
-                                "45px": "45px",
-                                "48px": "48px"
-                            },
-                            "default_value": "",
-                            "allow_null": 0,
-                            "return_format": "value",
-                            "ui": 1,
-                            "wrapper": {
-                                "width": "50"
-                            }
-                        },
-                        {
-                            "key": "field_marcan_unit_bedrooms_font_size_mobile",
-                            "label": "Mobile",
-                            "name": "mobile",
-                            "type": "select",
-                            "choices": {
-                                "": "Por defecto",
-                                "12px": "12px",
-                                "14px": "14px",
-                                "15px": "15px",
-                                "16px": "16px",
-                                "18px": "18px",
-                                "20px": "20px",
-                                "21px": "21px",
-                                "22px": "22px",
-                                "24px": "24px",
-                                "25px": "25px",
-                                "26px": "26px",
-                                "28px": "28px",
-                                "30px": "30px",
-                                "32px": "32px",
-                                "36px": "36px",
-                                "40px": "40px",
-                                "45px": "45px",
-                                "48px": "48px"
-                            },
-                            "default_value": "",
-                            "allow_null": 0,
-                            "return_format": "value",
-                            "ui": 1,
-                            "wrapper": {
-                                "width": "50"
-                            }
-                        }
-                    ]
-                },
-                {
                     "key": "field_marcan_unit_bathrooms",
                     "label": "Banos",
                     "name": "banos",
                     "type": "text"
-                },
-                {
-                    "key": "field_marcan_unit_bathrooms_font_size",
-                    "label": "Tama?o de letra",
-                    "name": "banos_font_size",
-                    "type": "group",
-                    "layout": "block",
-                    "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
-                    "sub_fields": [
-                        {
-                            "key": "field_marcan_unit_bathrooms_font_size_desktop",
-                            "label": "PC",
-                            "name": "desktop",
-                            "type": "select",
-                            "choices": {
-                                "": "Por defecto",
-                                "12px": "12px",
-                                "14px": "14px",
-                                "15px": "15px",
-                                "16px": "16px",
-                                "18px": "18px",
-                                "20px": "20px",
-                                "21px": "21px",
-                                "22px": "22px",
-                                "24px": "24px",
-                                "25px": "25px",
-                                "26px": "26px",
-                                "28px": "28px",
-                                "30px": "30px",
-                                "32px": "32px",
-                                "36px": "36px",
-                                "40px": "40px",
-                                "45px": "45px",
-                                "48px": "48px"
-                            },
-                            "default_value": "",
-                            "allow_null": 0,
-                            "return_format": "value",
-                            "ui": 1,
-                            "wrapper": {
-                                "width": "50"
-                            }
-                        },
-                        {
-                            "key": "field_marcan_unit_bathrooms_font_size_mobile",
-                            "label": "Mobile",
-                            "name": "mobile",
-                            "type": "select",
-                            "choices": {
-                                "": "Por defecto",
-                                "12px": "12px",
-                                "14px": "14px",
-                                "15px": "15px",
-                                "16px": "16px",
-                                "18px": "18px",
-                                "20px": "20px",
-                                "21px": "21px",
-                                "22px": "22px",
-                                "24px": "24px",
-                                "25px": "25px",
-                                "26px": "26px",
-                                "28px": "28px",
-                                "30px": "30px",
-                                "32px": "32px",
-                                "36px": "36px",
-                                "40px": "40px",
-                                "45px": "45px",
-                                "48px": "48px"
-                            },
-                            "default_value": "",
-                            "allow_null": 0,
-                            "return_format": "value",
-                            "ui": 1,
-                            "wrapper": {
-                                "width": "50"
-                            }
-                        }
-                    ]
                 },
                 {
                     "key": "field_marcan_unit_area",
@@ -1718,167 +1618,11 @@
                     "type": "text"
                 },
                 {
-                    "key": "field_marcan_unit_price_font_size",
-                    "label": "Tama?o de letra",
-                    "name": "precio_font_size",
-                    "type": "group",
-                    "layout": "block",
-                    "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
-                    "sub_fields": [
-                        {
-                            "key": "field_marcan_unit_price_font_size_desktop",
-                            "label": "PC",
-                            "name": "desktop",
-                            "type": "select",
-                            "choices": {
-                                "": "Por defecto",
-                                "12px": "12px",
-                                "14px": "14px",
-                                "15px": "15px",
-                                "16px": "16px",
-                                "18px": "18px",
-                                "20px": "20px",
-                                "21px": "21px",
-                                "22px": "22px",
-                                "24px": "24px",
-                                "25px": "25px",
-                                "26px": "26px",
-                                "28px": "28px",
-                                "30px": "30px",
-                                "32px": "32px",
-                                "36px": "36px",
-                                "40px": "40px",
-                                "45px": "45px",
-                                "48px": "48px"
-                            },
-                            "default_value": "",
-                            "allow_null": 0,
-                            "return_format": "value",
-                            "ui": 1,
-                            "wrapper": {
-                                "width": "50"
-                            }
-                        },
-                        {
-                            "key": "field_marcan_unit_price_font_size_mobile",
-                            "label": "Mobile",
-                            "name": "mobile",
-                            "type": "select",
-                            "choices": {
-                                "": "Por defecto",
-                                "12px": "12px",
-                                "14px": "14px",
-                                "15px": "15px",
-                                "16px": "16px",
-                                "18px": "18px",
-                                "20px": "20px",
-                                "21px": "21px",
-                                "22px": "22px",
-                                "24px": "24px",
-                                "25px": "25px",
-                                "26px": "26px",
-                                "28px": "28px",
-                                "30px": "30px",
-                                "32px": "32px",
-                                "36px": "36px",
-                                "40px": "40px",
-                                "45px": "45px",
-                                "48px": "48px"
-                            },
-                            "default_value": "",
-                            "allow_null": 0,
-                            "return_format": "value",
-                            "ui": 1,
-                            "wrapper": {
-                                "width": "50"
-                            }
-                        }
-                    ]
-                },
-                {
                     "key": "field_marcan_unit_status",
                     "label": "Tipologia",
                     "name": "estado",
                     "type": "text",
                     "instructions": "Excel: Tipologia en departamentos; Tipo de Unidad en oficinas."
-                },
-                {
-                    "key": "field_marcan_unit_status_font_size",
-                    "label": "Tama?o de letra",
-                    "name": "estado_font_size",
-                    "type": "group",
-                    "layout": "block",
-                    "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
-                    "sub_fields": [
-                        {
-                            "key": "field_marcan_unit_status_font_size_desktop",
-                            "label": "PC",
-                            "name": "desktop",
-                            "type": "select",
-                            "choices": {
-                                "": "Por defecto",
-                                "12px": "12px",
-                                "14px": "14px",
-                                "15px": "15px",
-                                "16px": "16px",
-                                "18px": "18px",
-                                "20px": "20px",
-                                "21px": "21px",
-                                "22px": "22px",
-                                "24px": "24px",
-                                "25px": "25px",
-                                "26px": "26px",
-                                "28px": "28px",
-                                "30px": "30px",
-                                "32px": "32px",
-                                "36px": "36px",
-                                "40px": "40px",
-                                "45px": "45px",
-                                "48px": "48px"
-                            },
-                            "default_value": "",
-                            "allow_null": 0,
-                            "return_format": "value",
-                            "ui": 1,
-                            "wrapper": {
-                                "width": "50"
-                            }
-                        },
-                        {
-                            "key": "field_marcan_unit_status_font_size_mobile",
-                            "label": "Mobile",
-                            "name": "mobile",
-                            "type": "select",
-                            "choices": {
-                                "": "Por defecto",
-                                "12px": "12px",
-                                "14px": "14px",
-                                "15px": "15px",
-                                "16px": "16px",
-                                "18px": "18px",
-                                "20px": "20px",
-                                "21px": "21px",
-                                "22px": "22px",
-                                "24px": "24px",
-                                "25px": "25px",
-                                "26px": "26px",
-                                "28px": "28px",
-                                "30px": "30px",
-                                "32px": "32px",
-                                "36px": "36px",
-                                "40px": "40px",
-                                "45px": "45px",
-                                "48px": "48px"
-                            },
-                            "default_value": "",
-                            "allow_null": 0,
-                            "return_format": "value",
-                            "ui": 1,
-                            "wrapper": {
-                                "width": "50"
-                            }
-                        }
-                    ]
                 },
                 {
                     "key": "field_marcan_unit_plan",
@@ -1903,217 +1647,89 @@
             ]
         },
         {
-            "key": "field_marcan_tab_prop_tours",
-            "label": "7. Tours Virtuales",
-            "name": "",
-            "type": "tab",
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_marcan_show_tours",
-            "label": "Mostrar seccion",
-            "name": "mostrar_tours",
-            "type": "true_false",
-            "default_value": 1,
-            "ui": 1
-        },
-        {
-            "key": "field_marcan_virtual_tours",
-            "label": "Recorridos virtuales",
-            "name": "recorridos_virtuales",
-            "type": "repeater",
-            "layout": "table",
-            "button_label": "Agregar recorrido",
+            "key": "field_marcan_units_font_size",
+            "label": "Tamaño de letra",
+            "name": "unidades_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Tamaño para todo el contenido de esta tabla. Por defecto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
-                    "key": "field_marcan_virtual_tour_title",
-                    "label": "Titulo",
-                    "name": "titulo",
-                    "type": "text"
+                    "key": "field_marcan_units_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    },
+                    "parent": "field_marcan_units_font_size"
                 },
                 {
-                    "key": "field_marcan_virtual_tour_title_font_size",
-                    "label": "Tama?o de letra",
-                    "name": "titulo_font_size",
-                    "type": "group",
-                    "layout": "block",
-                    "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
-                    "sub_fields": [
-                        {
-                            "key": "field_marcan_virtual_tour_title_font_size_desktop",
-                            "label": "PC",
-                            "name": "desktop",
-                            "type": "select",
-                            "choices": {
-                                "": "Por defecto",
-                                "12px": "12px",
-                                "14px": "14px",
-                                "15px": "15px",
-                                "16px": "16px",
-                                "18px": "18px",
-                                "20px": "20px",
-                                "21px": "21px",
-                                "22px": "22px",
-                                "24px": "24px",
-                                "25px": "25px",
-                                "26px": "26px",
-                                "28px": "28px",
-                                "30px": "30px",
-                                "32px": "32px",
-                                "36px": "36px",
-                                "40px": "40px",
-                                "45px": "45px",
-                                "48px": "48px"
-                            },
-                            "default_value": "",
-                            "allow_null": 0,
-                            "return_format": "value",
-                            "ui": 1,
-                            "wrapper": {
-                                "width": "50"
-                            }
-                        },
-                        {
-                            "key": "field_marcan_virtual_tour_title_font_size_mobile",
-                            "label": "Mobile",
-                            "name": "mobile",
-                            "type": "select",
-                            "choices": {
-                                "": "Por defecto",
-                                "12px": "12px",
-                                "14px": "14px",
-                                "15px": "15px",
-                                "16px": "16px",
-                                "18px": "18px",
-                                "20px": "20px",
-                                "21px": "21px",
-                                "22px": "22px",
-                                "24px": "24px",
-                                "25px": "25px",
-                                "26px": "26px",
-                                "28px": "28px",
-                                "30px": "30px",
-                                "32px": "32px",
-                                "36px": "36px",
-                                "40px": "40px",
-                                "45px": "45px",
-                                "48px": "48px"
-                            },
-                            "default_value": "",
-                            "allow_null": 0,
-                            "return_format": "value",
-                            "ui": 1,
-                            "wrapper": {
-                                "width": "50"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "key": "field_marcan_virtual_tour_group",
-                    "label": "Grupo",
-                    "name": "grupo",
-                    "type": "text",
-                    "instructions": "Ejemplo: Areas comunes o Departamentos. Se muestra como encabezado cuando cambia el grupo."
-                },
-                {
-                    "key": "field_marcan_virtual_tour_group_font_size",
-                    "label": "Tama?o de letra",
-                    "name": "grupo_font_size",
-                    "type": "group",
-                    "layout": "block",
-                    "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
-                    "sub_fields": [
-                        {
-                            "key": "field_marcan_virtual_tour_group_font_size_desktop",
-                            "label": "PC",
-                            "name": "desktop",
-                            "type": "select",
-                            "choices": {
-                                "": "Por defecto",
-                                "12px": "12px",
-                                "14px": "14px",
-                                "15px": "15px",
-                                "16px": "16px",
-                                "18px": "18px",
-                                "20px": "20px",
-                                "21px": "21px",
-                                "22px": "22px",
-                                "24px": "24px",
-                                "25px": "25px",
-                                "26px": "26px",
-                                "28px": "28px",
-                                "30px": "30px",
-                                "32px": "32px",
-                                "36px": "36px",
-                                "40px": "40px",
-                                "45px": "45px",
-                                "48px": "48px"
-                            },
-                            "default_value": "",
-                            "allow_null": 0,
-                            "return_format": "value",
-                            "ui": 1,
-                            "wrapper": {
-                                "width": "50"
-                            }
-                        },
-                        {
-                            "key": "field_marcan_virtual_tour_group_font_size_mobile",
-                            "label": "Mobile",
-                            "name": "mobile",
-                            "type": "select",
-                            "choices": {
-                                "": "Por defecto",
-                                "12px": "12px",
-                                "14px": "14px",
-                                "15px": "15px",
-                                "16px": "16px",
-                                "18px": "18px",
-                                "20px": "20px",
-                                "21px": "21px",
-                                "22px": "22px",
-                                "24px": "24px",
-                                "25px": "25px",
-                                "26px": "26px",
-                                "28px": "28px",
-                                "30px": "30px",
-                                "32px": "32px",
-                                "36px": "36px",
-                                "40px": "40px",
-                                "45px": "45px",
-                                "48px": "48px"
-                            },
-                            "default_value": "",
-                            "allow_null": 0,
-                            "return_format": "value",
-                            "ui": 1,
-                            "wrapper": {
-                                "width": "50"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "key": "field_marcan_virtual_tour_url",
-                    "label": "URL externa",
-                    "name": "url",
-                    "type": "url"
-                },
-                {
-                    "key": "field_marcan_virtual_tour_active",
-                    "label": "Activo",
-                    "name": "activo",
-                    "type": "true_false",
-                    "default_value": 1,
-                    "ui": 1
+                    "key": "field_marcan_units_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    },
+                    "parent": "field_marcan_units_font_size"
                 }
-            ]
+            ],
+            "parent": "group_marcan_property_all"
         },
         {
             "key": "field_marcan_tab_prop_map",
-            "label": "8. Ubicacion",
+            "label": "8. Ubicación",
             "name": "",
             "type": "tab",
             "placement": "top",
@@ -2159,11 +1775,11 @@
         },
         {
             "key": "field_marcan_map_heading_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "ubicacion_titulo_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_map_heading_font_size_desktop",
@@ -2247,11 +1863,11 @@
         },
         {
             "key": "field_marcan_map_nearby_title_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "lugares_cercanos_titulo_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_map_nearby_title_font_size_desktop",
@@ -2339,169 +1955,94 @@
                     "type": "text"
                 },
                 {
-                    "key": "field_marcan_map_nearby_cat_font_size",
-                    "label": "Tama?o de letra",
-                    "name": "categoria_font_size",
-                    "type": "group",
-                    "layout": "block",
-                    "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
-                    "sub_fields": [
-                        {
-                            "key": "field_marcan_map_nearby_cat_font_size_desktop",
-                            "label": "PC",
-                            "name": "desktop",
-                            "type": "select",
-                            "choices": {
-                                "": "Por defecto",
-                                "12px": "12px",
-                                "14px": "14px",
-                                "15px": "15px",
-                                "16px": "16px",
-                                "18px": "18px",
-                                "20px": "20px",
-                                "21px": "21px",
-                                "22px": "22px",
-                                "24px": "24px",
-                                "25px": "25px",
-                                "26px": "26px",
-                                "28px": "28px",
-                                "30px": "30px",
-                                "32px": "32px",
-                                "36px": "36px",
-                                "40px": "40px",
-                                "45px": "45px",
-                                "48px": "48px"
-                            },
-                            "default_value": "",
-                            "allow_null": 0,
-                            "return_format": "value",
-                            "ui": 1,
-                            "wrapper": {
-                                "width": "50"
-                            }
-                        },
-                        {
-                            "key": "field_marcan_map_nearby_cat_font_size_mobile",
-                            "label": "Mobile",
-                            "name": "mobile",
-                            "type": "select",
-                            "choices": {
-                                "": "Por defecto",
-                                "12px": "12px",
-                                "14px": "14px",
-                                "15px": "15px",
-                                "16px": "16px",
-                                "18px": "18px",
-                                "20px": "20px",
-                                "21px": "21px",
-                                "22px": "22px",
-                                "24px": "24px",
-                                "25px": "25px",
-                                "26px": "26px",
-                                "28px": "28px",
-                                "30px": "30px",
-                                "32px": "32px",
-                                "36px": "36px",
-                                "40px": "40px",
-                                "45px": "45px",
-                                "48px": "48px"
-                            },
-                            "default_value": "",
-                            "allow_null": 0,
-                            "return_format": "value",
-                            "ui": 1,
-                            "wrapper": {
-                                "width": "50"
-                            }
-                        }
-                    ]
-                },
-                {
                     "key": "field_marcan_map_nearby_items",
                     "label": "Items (uno por linea)",
                     "name": "items",
                     "type": "textarea",
                     "rows": 4
-                },
-                {
-                    "key": "field_marcan_map_nearby_items_font_size",
-                    "label": "Tama?o de letra",
-                    "name": "items_font_size",
-                    "type": "group",
-                    "layout": "block",
-                    "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
-                    "sub_fields": [
-                        {
-                            "key": "field_marcan_map_nearby_items_font_size_desktop",
-                            "label": "PC",
-                            "name": "desktop",
-                            "type": "select",
-                            "choices": {
-                                "": "Por defecto",
-                                "12px": "12px",
-                                "14px": "14px",
-                                "15px": "15px",
-                                "16px": "16px",
-                                "18px": "18px",
-                                "20px": "20px",
-                                "21px": "21px",
-                                "22px": "22px",
-                                "24px": "24px",
-                                "25px": "25px",
-                                "26px": "26px",
-                                "28px": "28px",
-                                "30px": "30px",
-                                "32px": "32px",
-                                "36px": "36px",
-                                "40px": "40px",
-                                "45px": "45px",
-                                "48px": "48px"
-                            },
-                            "default_value": "",
-                            "allow_null": 0,
-                            "return_format": "value",
-                            "ui": 1,
-                            "wrapper": {
-                                "width": "50"
-                            }
-                        },
-                        {
-                            "key": "field_marcan_map_nearby_items_font_size_mobile",
-                            "label": "Mobile",
-                            "name": "mobile",
-                            "type": "select",
-                            "choices": {
-                                "": "Por defecto",
-                                "12px": "12px",
-                                "14px": "14px",
-                                "15px": "15px",
-                                "16px": "16px",
-                                "18px": "18px",
-                                "20px": "20px",
-                                "21px": "21px",
-                                "22px": "22px",
-                                "24px": "24px",
-                                "25px": "25px",
-                                "26px": "26px",
-                                "28px": "28px",
-                                "30px": "30px",
-                                "32px": "32px",
-                                "36px": "36px",
-                                "40px": "40px",
-                                "45px": "45px",
-                                "48px": "48px"
-                            },
-                            "default_value": "",
-                            "allow_null": 0,
-                            "return_format": "value",
-                            "ui": 1,
-                            "wrapper": {
-                                "width": "50"
-                            }
-                        }
-                    ]
                 }
             ]
+        },
+        {
+            "key": "field_marcan_map_nearby_font_size",
+            "label": "Tamaño de letra",
+            "name": "lugares_cercanos_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Tamaño para todo el contenido de esta tabla. Por defecto usa el tamaño base del diseño.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_map_nearby_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    },
+                    "parent": "field_marcan_map_nearby_font_size"
+                },
+                {
+                    "key": "field_marcan_map_nearby_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    },
+                    "parent": "field_marcan_map_nearby_font_size"
+                }
+            ],
+            "parent": "group_marcan_property_all"
         },
         {
             "key": "field_marcan_map_description",
@@ -2515,11 +2056,11 @@
         },
         {
             "key": "field_marcan_map_description_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "ubicacion_descripcion_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_map_description_font_size_desktop",
@@ -2593,7 +2134,7 @@
         },
         {
             "key": "field_marcan_tab_prop_gallery",
-            "label": "9. Galeria",
+            "label": "9. Galería",
             "name": "",
             "type": "tab",
             "placement": "top",
@@ -2675,11 +2216,11 @@
         },
         {
             "key": "field_marcan_architecture_section_title_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "arquitectura_titulo_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_architecture_section_title_font_size_desktop",
@@ -2763,11 +2304,11 @@
         },
         {
             "key": "field_marcan_architecture_section_text_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "arquitectura_texto_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_architecture_section_text_font_size_desktop",
@@ -2861,11 +2402,11 @@
         },
         {
             "key": "field_marcan_architecture_studio_name_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "arquitectura_estudio_nombre_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_architecture_studio_name_font_size_desktop",
@@ -2949,11 +2490,11 @@
         },
         {
             "key": "field_marcan_architecture_studio_role_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "arquitectura_estudio_cargo_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_architecture_studio_role_font_size_desktop",
@@ -3078,11 +2619,11 @@
         },
         {
             "key": "field_marcan_project_home_price_label_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "home_price_label_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_project_home_price_label_font_size_desktop",
@@ -3167,11 +2708,11 @@
         },
         {
             "key": "field_marcan_project_home_cta_label_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "home_cta_label_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_project_home_cta_label_font_size_desktop",
@@ -3283,11 +2824,11 @@
         },
         {
             "key": "field_marcan_related_intro_text_font_size",
-            "label": "Tama?o de letra",
+            "label": "Tamaño de letra",
             "name": "relacionados_intro_texto_font_size",
             "type": "group",
             "layout": "block",
-            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
             "sub_fields": [
                 {
                     "key": "field_marcan_related_intro_text_font_size_desktop",
