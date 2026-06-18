@@ -49,6 +49,7 @@ while (have_posts()) :
     if ($hero_original_url === '' && $hero_id) {
         $hero_original_url = (string) wp_get_attachment_image_url($hero_id, 'full');
     }
+    $has_hero_media = $hero_picture !== '' || $hero_id;
     $content_image_id = marcan_get_property_image_id($post_id, 'detalle_imagen_ancha', 'listado_hero_imagen');
     $common = function_exists('get_field') ? get_field('areas_comunes', $post_id) : array();
     $common_mobile = function_exists('get_field') ? get_field('areas_comunes_mobile', $post_id) : array();
@@ -243,6 +244,7 @@ while (have_posts()) :
     ?>
 
     <main class="marcan-property-single marcan-property-single-<?php echo esc_attr($kind); ?>">
+        <?php if ($has_hero_media) : ?>
         <section class="marcan-property-single-hero">
             <?php if ($hero_picture !== '') : ?>
                 <?php echo $hero_picture; ?>
@@ -252,6 +254,7 @@ while (have_posts()) :
                 </picture>
             <?php endif; ?>
         </section>
+        <?php endif; ?>
 
         <section class="marcan-property-sticky-quote" id="cotizar">
             <div>

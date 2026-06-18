@@ -73,15 +73,27 @@ body.ml-loading .marcan-global-whatsapp { opacity: 0; pointer-events: none; tran
 }
 
 .marcan-iconic-hero {
-    margin-top: 32px;
+    height: 100vh;
+    height: 100svh;
+    margin-top: 0;
     overflow: hidden;
+    padding-top: var(--marcan-header-height, 0px);
     width: 100%;
 }
 
-.marcan-iconic-hero picture,
+.marcan-iconic-hero picture {
+    display: block;
+    height: calc(100vh - var(--marcan-header-height, 0px));
+    height: calc(100svh - var(--marcan-header-height, 0px));
+    width: 100%;
+}
+
 .marcan-iconic-hero img {
     display: block;
-    height: auto;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center bottom;
     width: 100%;
 }
 
@@ -385,8 +397,9 @@ body.ml-loading .marcan-global-whatsapp { opacity: 0; pointer-events: none; tran
     }
 
     .marcan-iconic-hero {
-        height: auto;
-        margin-top: 67px;
+        height: 100vh;
+        height: 100svh;
+        margin-top: 0;
     }
 
     .marcan-iconic-intro {
@@ -4432,18 +4445,26 @@ img {
 
 .marcan-property-single-hero {
     background: #f3f2f1;
+    height: 100vh;
+    height: 100svh;
     overflow: hidden;
+    padding-top: var(--marcan-header-height, 0px);
     width: 100%;
 }
 
 .marcan-property-single-hero picture {
     display: block;
+    height: calc(100vh - var(--marcan-header-height, 0px));
+    height: calc(100svh - var(--marcan-header-height, 0px));
     width: 100%;
 }
 
 .marcan-property-single-hero-image {
     display: block;
-    height: auto;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center bottom;
     width: 100%;
 }
 

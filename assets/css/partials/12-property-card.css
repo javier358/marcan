@@ -426,18 +426,26 @@
 
 .marcan-property-single-hero {
     background: #f3f2f1;
+    height: 100vh;
+    height: 100svh;
     overflow: hidden;
+    padding-top: var(--marcan-header-height, 0px);
     width: 100%;
 }
 
 .marcan-property-single-hero picture {
     display: block;
+    height: calc(100vh - var(--marcan-header-height, 0px));
+    height: calc(100svh - var(--marcan-header-height, 0px));
     width: 100%;
 }
 
 .marcan-property-single-hero-image {
     display: block;
-    height: auto;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center bottom;
     width: 100%;
 }
 
