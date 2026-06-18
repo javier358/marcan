@@ -22,6 +22,84 @@
             "instructions": "Texto introductorio que aparece bajo el slider en movil."
         },
         {
+            "key": "field_marcan_hero_mobile_copy_font_size",
+            "label": "Tama?o de letra",
+            "name": "hero_mobile_copy_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_hero_mobile_copy_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_hero_mobile_copy_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        },
+        {
             "key": "field_marcan_hero_autoplay",
             "label": "Autoplay",
             "name": "hero_autoplay",
@@ -106,6 +184,84 @@
                     "type": "text"
                 },
                 {
+                    "key": "field_marcan_home_hero_slide_label_font_size",
+                    "label": "Tama?o de letra",
+                    "name": "etiqueta_font_size",
+                    "type": "group",
+                    "layout": "block",
+                    "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+                    "sub_fields": [
+                        {
+                            "key": "field_marcan_home_hero_slide_label_font_size_desktop",
+                            "label": "PC",
+                            "name": "desktop",
+                            "type": "select",
+                            "choices": {
+                                "": "Por defecto",
+                                "12px": "12px",
+                                "14px": "14px",
+                                "15px": "15px",
+                                "16px": "16px",
+                                "18px": "18px",
+                                "20px": "20px",
+                                "21px": "21px",
+                                "22px": "22px",
+                                "24px": "24px",
+                                "25px": "25px",
+                                "26px": "26px",
+                                "28px": "28px",
+                                "30px": "30px",
+                                "32px": "32px",
+                                "36px": "36px",
+                                "40px": "40px",
+                                "45px": "45px",
+                                "48px": "48px"
+                            },
+                            "default_value": "",
+                            "allow_null": 0,
+                            "return_format": "value",
+                            "ui": 1,
+                            "wrapper": {
+                                "width": "50"
+                            }
+                        },
+                        {
+                            "key": "field_marcan_home_hero_slide_label_font_size_mobile",
+                            "label": "Mobile",
+                            "name": "mobile",
+                            "type": "select",
+                            "choices": {
+                                "": "Por defecto",
+                                "12px": "12px",
+                                "14px": "14px",
+                                "15px": "15px",
+                                "16px": "16px",
+                                "18px": "18px",
+                                "20px": "20px",
+                                "21px": "21px",
+                                "22px": "22px",
+                                "24px": "24px",
+                                "25px": "25px",
+                                "26px": "26px",
+                                "28px": "28px",
+                                "30px": "30px",
+                                "32px": "32px",
+                                "36px": "36px",
+                                "40px": "40px",
+                                "45px": "45px",
+                                "48px": "48px"
+                            },
+                            "default_value": "",
+                            "allow_null": 0,
+                            "return_format": "value",
+                            "ui": 1,
+                            "wrapper": {
+                                "width": "50"
+                            }
+                        }
+                    ]
+                },
+                {
                     "key": "field_marcan_home_hero_slide_link",
                     "label": "Enlace",
                     "name": "enlace",
@@ -149,10 +305,166 @@
             "type": "text"
         },
         {
+            "key": "field_marcan_home_intro_title_font_size",
+            "label": "Tama?o de letra",
+            "name": "home_intro_title_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_home_intro_title_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_home_intro_title_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        },
+        {
             "key": "field_marcan_home_intro_mobile_title",
             "label": "Titulo introductorio movil",
             "name": "home_intro_mobile_title",
             "type": "text"
+        },
+        {
+            "key": "field_marcan_home_intro_mobile_title_font_size",
+            "label": "Tama?o de letra",
+            "name": "home_intro_mobile_title_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_home_intro_mobile_title_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_home_intro_mobile_title_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
         },
         {
             "key": "field_marcan_home_intro_copy",
@@ -165,16 +477,250 @@
             "delay": 0
         },
         {
+            "key": "field_marcan_home_intro_copy_font_size",
+            "label": "Tama?o de letra",
+            "name": "home_intro_copy_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_home_intro_copy_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_home_intro_copy_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        },
+        {
             "key": "field_marcan_home_intro_button_label",
             "label": "Etiqueta boton introductorio",
             "name": "home_intro_button_label",
             "type": "text"
         },
         {
+            "key": "field_marcan_home_intro_button_label_font_size",
+            "label": "Tama?o de letra",
+            "name": "home_intro_button_label_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_home_intro_button_label_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_home_intro_button_label_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        },
+        {
             "key": "field_marcan_home_intro_mobile_button_label",
             "label": "Etiqueta boton introductorio movil",
             "name": "home_intro_mobile_button_label",
             "type": "text"
+        },
+        {
+            "key": "field_marcan_home_intro_mobile_button_label_font_size",
+            "label": "Tama?o de letra",
+            "name": "home_intro_mobile_button_label_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_home_intro_mobile_button_label_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_home_intro_mobile_button_label_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
         },
         {
             "key": "field_marcan_home_intro_button",
@@ -189,10 +735,166 @@
             "type": "text"
         },
         {
+            "key": "field_marcan_home_departments_title_font_size",
+            "label": "Tama?o de letra",
+            "name": "home_departments_title_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_home_departments_title_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_home_departments_title_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        },
+        {
             "key": "field_marcan_home_departments_mobile_title",
             "label": "Titulo departamentos movil",
             "name": "home_departments_mobile_title",
             "type": "text"
+        },
+        {
+            "key": "field_marcan_home_departments_mobile_title_font_size",
+            "label": "Tama?o de letra",
+            "name": "home_departments_mobile_title_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_home_departments_mobile_title_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_home_departments_mobile_title_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
         },
         {
             "key": "field_marcan_home_departments_button_label",
@@ -201,10 +903,166 @@
             "type": "text"
         },
         {
+            "key": "field_marcan_home_departments_button_label_font_size",
+            "label": "Tama?o de letra",
+            "name": "home_departments_button_label_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_home_departments_button_label_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_home_departments_button_label_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        },
+        {
             "key": "field_marcan_home_departments_mobile_button_label",
             "label": "Etiqueta boton departamentos movil",
             "name": "home_departments_mobile_button_label",
             "type": "text"
+        },
+        {
+            "key": "field_marcan_home_departments_mobile_button_label_font_size",
+            "label": "Tama?o de letra",
+            "name": "home_departments_mobile_button_label_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_home_departments_mobile_button_label_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_home_departments_mobile_button_label_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
         },
         {
             "key": "field_marcan_home_departments_button",
@@ -219,10 +1077,166 @@
             "type": "text"
         },
         {
+            "key": "field_marcan_home_offices_title_font_size",
+            "label": "Tama?o de letra",
+            "name": "home_offices_title_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_home_offices_title_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_home_offices_title_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        },
+        {
             "key": "field_marcan_home_offices_mobile_title",
             "label": "Titulo oficinas movil",
             "name": "home_offices_mobile_title",
             "type": "text"
+        },
+        {
+            "key": "field_marcan_home_offices_mobile_title_font_size",
+            "label": "Tama?o de letra",
+            "name": "home_offices_mobile_title_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_home_offices_mobile_title_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_home_offices_mobile_title_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
         },
         {
             "key": "field_marcan_home_offices_button_label",
@@ -231,10 +1245,166 @@
             "type": "text"
         },
         {
+            "key": "field_marcan_home_offices_button_label_font_size",
+            "label": "Tama?o de letra",
+            "name": "home_offices_button_label_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_home_offices_button_label_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_home_offices_button_label_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        },
+        {
             "key": "field_marcan_home_offices_mobile_button_label",
             "label": "Etiqueta boton oficinas movil",
             "name": "home_offices_mobile_button_label",
             "type": "text"
+        },
+        {
+            "key": "field_marcan_home_offices_mobile_button_label_font_size",
+            "label": "Tama?o de letra",
+            "name": "home_offices_mobile_button_label_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_home_offices_mobile_button_label_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_home_offices_mobile_button_label_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
         },
         {
             "key": "field_marcan_home_offices_button",
@@ -257,10 +1427,166 @@
             "type": "text"
         },
         {
+            "key": "field_marcan_home_delivered_title_font_size",
+            "label": "Tama?o de letra",
+            "name": "home_delivered_title_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_home_delivered_title_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_home_delivered_title_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        },
+        {
             "key": "field_marcan_home_delivered_mobile_title",
             "label": "Titulo movil",
             "name": "home_delivered_mobile_title",
             "type": "text"
+        },
+        {
+            "key": "field_marcan_home_delivered_mobile_title_font_size",
+            "label": "Tama?o de letra",
+            "name": "home_delivered_mobile_title_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_home_delivered_mobile_title_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_home_delivered_mobile_title_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
         },
         {
             "key": "field_marcan_home_delivered_button_label",
@@ -269,10 +1595,166 @@
             "type": "text"
         },
         {
+            "key": "field_marcan_home_delivered_button_label_font_size",
+            "label": "Tama?o de letra",
+            "name": "home_delivered_button_label_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_home_delivered_button_label_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_home_delivered_button_label_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        },
+        {
             "key": "field_marcan_home_delivered_mobile_button_label",
             "label": "Etiqueta boton movil",
             "name": "home_delivered_mobile_button_label",
             "type": "text"
+        },
+        {
+            "key": "field_marcan_home_delivered_mobile_button_label_font_size",
+            "label": "Tama?o de letra",
+            "name": "home_delivered_mobile_button_label_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_home_delivered_mobile_button_label_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_home_delivered_mobile_button_label_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
         },
         {
             "key": "field_marcan_home_delivered_button",

@@ -47,6 +47,84 @@
             "instructions": "Texto del boton que abre el menu."
         },
         {
+            "key": "field_marcan_header_menu_label_font_size",
+            "label": "Tama?o de letra",
+            "name": "header_menu_label_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tama?o base del dise?o.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_header_menu_label_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_header_menu_label_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        },
+        {
             "key": "field_marcan_header_background_color",
             "label": "Color fondo",
             "name": "header_background_color",

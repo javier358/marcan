@@ -34,6 +34,12 @@ if (stripos($contact_privacy_text, 'Políticas de privacidad') !== false) {
 }
 $contact_marketing_text = marcan_get_option_text('contact_marketing_text', 'Otorgo mi consentimiento para el envío de publicidad y/o anuncios comerciales y/o invitaciones a eventos.');
 $contact_sidebar_title = marcan_get_option_text('contact_sidebar_title', 'Contáctanos ahora');
+$contact_sidebar_copy_field = marcan_get_option_text('contact_sidebar_copy', '');
+$contact_modal_title_attrs = marcan_font_size_attrs(marcan_get_option_font_size('contact_modal_title'));
+$contact_privacy_attrs = marcan_font_size_attrs(marcan_get_option_font_size('contact_privacy_text'), '', true);
+$contact_marketing_attrs = marcan_font_size_attrs(marcan_get_option_font_size('contact_marketing_text'), '', true);
+$contact_sidebar_title_attrs = marcan_font_size_attrs(marcan_get_option_font_size('contact_sidebar_title'), 'marcan-property-contact-modal-sidebar-heading');
+$contact_sidebar_copy_attrs = marcan_font_size_attrs(marcan_get_option_font_size('contact_sidebar_copy'), 'marcan-property-contact-modal-sidebar-info', true);
 
 // Construir contenido de barra lateral sin que el cliente toque HTML
 $contact_sidebar_parts = array();
@@ -50,7 +56,7 @@ if (trim($contact_address) !== '') {
 if (trim($contact_hours) !== '') {
     $contact_sidebar_parts[] = '<strong>Horario:</strong><br>' . esc_html($contact_hours);
 }
-$contact_sidebar_copy = implode('<br><br>', $contact_sidebar_parts);
+$contact_sidebar_copy = trim($contact_sidebar_copy_field) !== '' ? $contact_sidebar_copy_field : implode('<br><br>', $contact_sidebar_parts);
 $contact_thanks_variant = 'general';
 $thank_you_image_id = 0;
 if (is_singular('property')) {
@@ -87,7 +93,7 @@ $thank_you_image = $thank_you_image_id ? wp_get_attachment_image_url($thank_you_
 <dialog class="marcan-property-contact-modal marcan-property-contact-modal-<?php echo esc_attr($contact_thanks_variant); ?>" data-contact-modal data-contact-thanks-variant="<?php echo esc_attr($contact_thanks_variant); ?>" aria-label="<?php esc_attr_e('Contáctanos', 'marcan'); ?>">
     <div class="marcan-property-contact-modal-inner">
         <form class="marcan-property-contact-modal-form-area" data-contact-form novalidate>
-            <h2><?php echo marcan_rich_inline($contact_modal_title); ?></h2>
+            <h2<?php echo $contact_modal_title_attrs; ?>><?php echo marcan_rich_inline($contact_modal_title); ?></h2>
             <div class="marcan-property-contact-modal-fields">
                 <div class="marcan-property-contact-field">
                     <label><?php esc_html_e('Nombre*', 'marcan'); ?></label>
@@ -109,11 +115,11 @@ $thank_you_image = $thank_you_image_id ? wp_get_attachment_image_url($thank_you_
             <div class="marcan-property-contact-modal-checks">
                 <label class="marcan-property-contact-check">
                     <input type="checkbox" name="privacidad" required>
-                    <span><?php echo wp_kses_post($contact_privacy_text); ?></span>
+                    <span<?php echo $contact_privacy_attrs; ?>><?php echo wp_kses_post($contact_privacy_text); ?></span>
                 </label>
                 <label class="marcan-property-contact-check">
                     <input type="checkbox" name="publicidad">
-                    <span><?php echo wp_kses_post($contact_marketing_text); ?></span>
+                    <span<?php echo $contact_marketing_attrs; ?>><?php echo wp_kses_post($contact_marketing_text); ?></span>
                 </label>
             </div>
             <input type="hidden" name="source_url" value="">
@@ -134,8 +140,8 @@ $thank_you_image = $thank_you_image_id ? wp_get_attachment_image_url($thank_you_
         <aside class="marcan-property-contact-modal-sidebar">
             <button class="marcan-property-contact-modal-close" type="button" data-contact-modal-close aria-label="<?php esc_attr_e('Cerrar', 'marcan'); ?>"></button>
             <div class="marcan-property-contact-modal-sidebar-content">
-                <p class="marcan-property-contact-modal-sidebar-heading"><?php echo marcan_rich_inline($contact_sidebar_title); ?></p>
-                <div class="marcan-property-contact-modal-sidebar-info">
+                <p<?php echo $contact_sidebar_title_attrs; ?>><?php echo marcan_rich_inline($contact_sidebar_title); ?></p>
+                <div<?php echo $contact_sidebar_copy_attrs; ?>>
                     <?php echo marcan_rich_block($contact_sidebar_copy); ?>
                 </div>
             </div>

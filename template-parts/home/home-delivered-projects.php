@@ -48,20 +48,20 @@ if (function_exists('get_field')) {
             <?php if ($has_title) : ?>
                 <h2>
                     <?php if (!empty($delivered['title'])) : ?>
-                        <span class="marcan-home-desktop-text"><?php echo marcan_rich_inline($delivered['title']); ?></span>
+                        <span<?php echo marcan_font_size_attrs($delivered['title_font_size'] ?? array(), 'marcan-home-desktop-text'); ?>><?php echo marcan_rich_inline($delivered['title']); ?></span>
                     <?php endif; ?>
                     <?php if (!empty($delivered['mobile_title'])) : ?>
-                        <span class="marcan-home-mobile-text"><?php echo marcan_rich_inline($delivered['mobile_title']); ?></span>
+                        <span<?php echo marcan_font_size_attrs($delivered['mobile_title_font_size'] ?? array(), 'marcan-home-mobile-text'); ?>><?php echo marcan_rich_inline($delivered['mobile_title']); ?></span>
                     <?php endif; ?>
                 </h2>
             <?php endif; ?>
             <?php if ($has_button) : ?>
                 <a class="marcan-home-delivered-button" href="<?php echo esc_url($button_link); ?>" target="<?php echo esc_attr($button_target ?: '_self'); ?>">
                     <?php if (!empty($delivered['button_label'])) : ?>
-                        <span class="marcan-home-desktop-text"><?php echo marcan_rich_inline($delivered['button_label']); ?></span>
+                        <span<?php echo marcan_font_size_attrs($delivered['button_label_font_size'] ?? array(), 'marcan-home-desktop-text'); ?>><?php echo marcan_rich_inline($delivered['button_label']); ?></span>
                     <?php endif; ?>
                     <?php if (!empty($delivered['mobile_button_label'])) : ?>
-                        <span class="marcan-home-mobile-text"><?php echo marcan_rich_inline($delivered['mobile_button_label']); ?></span>
+                        <span<?php echo marcan_font_size_attrs($delivered['mobile_button_label_font_size'] ?? array(), 'marcan-home-mobile-text'); ?>><?php echo marcan_rich_inline($delivered['mobile_button_label']); ?></span>
                     <?php endif; ?>
                 </a>
             <?php endif; ?>

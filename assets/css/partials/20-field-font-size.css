@@ -1,0 +1,23 @@
+.marcan-field-font-size {
+    font-size: inherit;
+}
+
+@media (min-width: 901px) {
+    .marcan-field-font-size[style*="--marcan-font-size-desktop"] {
+        font-size: var(--marcan-font-size-desktop) !important;
+    }
+
+    .marcan-field-font-size--rich[style*="--marcan-font-size-desktop"] :where(p, span, strong, b, em, i, a, li, h1, h2, h3, h4, h5, h6, div) {
+        font-size: var(--marcan-font-size-desktop) !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .marcan-field-font-size[style*="--marcan-font-size-mobile"] {
+        font-size: var(--marcan-font-size-mobile) !important;
+    }
+
+    .marcan-field-font-size--rich[style*="--marcan-font-size-mobile"] :where(p, span, strong, b, em, i, a, li, h1, h2, h3, h4, h5, h6, div) {
+        font-size: var(--marcan-font-size-mobile) !important;
+    }
+}

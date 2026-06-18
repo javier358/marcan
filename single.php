@@ -65,6 +65,7 @@ get_header();
                         $estado   = function_exists('get_field') ? get_field('estado', get_the_ID()) : '';
                         $ubicacion = function_exists('get_field') ? get_field('ubicacion', get_the_ID()) : '';
                         if (!$nombre) $nombre = get_the_title();
+                        $sidebar_post_id = get_the_ID();
                         ?>
                         <div class="marcan-single-sidebar-card">
                             <?php
@@ -78,14 +79,14 @@ get_header();
                                 <?php endif; ?>
                             </a>
                             <div class="marcan-single-sidebar-card-meta">
-                                <span class="marcan-single-sidebar-card-name"><?php echo marcan_rich_inline($nombre); ?></span>
+                                <span<?php echo marcan_font_size_attrs(marcan_get_field_font_size('titulo_comercial', $sidebar_post_id), 'marcan-single-sidebar-card-name'); ?>><?php echo marcan_rich_inline($nombre); ?></span>
                                 <?php if ($estado) : ?>
                                     <span class="marcan-single-sidebar-card-sep" aria-hidden="true"></span>
-                                    <span class="marcan-single-sidebar-card-badge"><?php echo marcan_rich_inline($estado); ?></span>
+                                    <span<?php echo marcan_font_size_attrs(marcan_get_field_font_size('estado', $sidebar_post_id), 'marcan-single-sidebar-card-badge'); ?>><?php echo marcan_rich_inline($estado); ?></span>
                                 <?php endif; ?>
                             </div>
                             <?php if ($ubicacion) : ?>
-                                <span class="marcan-single-sidebar-card-district"><?php echo marcan_rich_inline($ubicacion); ?></span>
+                                <span<?php echo marcan_font_size_attrs(marcan_get_field_font_size('ubicacion', $sidebar_post_id), 'marcan-single-sidebar-card-district'); ?>><?php echo marcan_rich_inline($ubicacion); ?></span>
                             <?php endif; ?>
                         </div>
                     <?php endwhile; ?>
@@ -103,6 +104,7 @@ get_header();
                         $estado   = function_exists('get_field') ? get_field('estado', get_the_ID()) : '';
                         $ubicacion = function_exists('get_field') ? get_field('ubicacion', get_the_ID()) : '';
                         if (!$nombre) $nombre = get_the_title();
+                        $sidebar_post_id = get_the_ID();
                         ?>
                         <div class="marcan-single-sidebar-card">
                             <?php
@@ -116,14 +118,14 @@ get_header();
                                 <?php endif; ?>
                             </a>
                             <div class="marcan-single-sidebar-card-meta">
-                                <span class="marcan-single-sidebar-card-name"><?php echo marcan_rich_inline($nombre); ?></span>
+                                <span<?php echo marcan_font_size_attrs(marcan_get_field_font_size('titulo_comercial', $sidebar_post_id), 'marcan-single-sidebar-card-name'); ?>><?php echo marcan_rich_inline($nombre); ?></span>
                                 <?php if ($estado) : ?>
                                     <span class="marcan-single-sidebar-card-sep" aria-hidden="true"></span>
-                                    <span class="marcan-single-sidebar-card-badge"><?php echo marcan_rich_inline($estado); ?></span>
+                                    <span<?php echo marcan_font_size_attrs(marcan_get_field_font_size('estado', $sidebar_post_id), 'marcan-single-sidebar-card-badge'); ?>><?php echo marcan_rich_inline($estado); ?></span>
                                 <?php endif; ?>
                             </div>
                             <?php if ($ubicacion) : ?>
-                                <span class="marcan-single-sidebar-card-district"><?php echo marcan_rich_inline($ubicacion); ?></span>
+                                <span<?php echo marcan_font_size_attrs(marcan_get_field_font_size('ubicacion', $sidebar_post_id), 'marcan-single-sidebar-card-district'); ?>><?php echo marcan_rich_inline($ubicacion); ?></span>
                             <?php endif; ?>
                         </div>
                     <?php endwhile; ?>

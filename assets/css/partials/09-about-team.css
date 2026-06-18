@@ -510,7 +510,6 @@
 
     .marcan-menu-button {
         color: var(--marcan-logo);
-        font-size: var(--mt-menu-m);
         font-weight: 400;
         height: 34px;
         justify-content: flex-start;
@@ -544,7 +543,6 @@
 
     .marcan-menu-list a {
         color: var(--marcan-logo);
-        font-size: var(--mt-menuitem-m);
         font-weight: 300;
     }
 
@@ -592,7 +590,7 @@
     }
 
     .marcan-home-delivered-copy h2 {
-        font-size: var(--mt-titular-m);
+        font-size: 32px;
         margin: 0 auto 30px;
         max-width: 362px;
         position: static;
@@ -639,7 +637,7 @@
     .marcan-home-hero-mobile-copy p {
         color: var(--marcan-ink);
         font-family: Inter, Arial, Helvetica, sans-serif;
-        font-size: var(--mt-subtitulo-m);
+        font-size: 18px;
         font-weight: 300;
         letter-spacing: 0;
         line-height: 1.28;
@@ -666,7 +664,7 @@
     .marcan-home-projects-intro-title {
         font-family: Bitter, Georgia, serif;
         font-weight: 400;
-        font-size: var(--mt-titular-m);
+        font-size: 32px;
         letter-spacing: 0.01em;
         line-height: 1;
         margin: 0 auto 20px;
@@ -693,7 +691,7 @@
     }
 
     .marcan-home-projects-heading h2 {
-        font-size: var(--mt-seccion-m);
+        font-size: 24px;
         font-weight: 400;
         line-height: 1;
     }
@@ -773,7 +771,7 @@
     }
 
     .marcan-home-project-card-title-row h3 {
-        font-size: var(--mt-card-m);
+        font-size: 20px;
     }
 
     .marcan-home-project-card-location {
@@ -801,7 +799,7 @@
     }
 
     .marcan-home-project-card-price strong {
-        font-size: var(--mt-precio-m);
+        font-size: 20px;
         font-weight: 300;
     }
 
@@ -812,7 +810,6 @@
 
     .marcan-home-project-card-spec {
         gap: 10px;
-        font-size: var(--mt-datos-m);
         font-weight: 300;
     }
 

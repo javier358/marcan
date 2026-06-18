@@ -21,6 +21,17 @@ if ($footer_company_title === 'Quiénes somos') {
 }
 $footer_member_title = marcan_get_option_text('footer_member_title', 'Miembro de');
 $footer_legal = marcan_get_option_text('footer_legal_text', 'Términos & Condiciones | Política de Privacidad | © 2026 Marcan Ingenieros');
+$footer_projects_title_attrs = marcan_font_size_attrs(marcan_get_option_font_size('footer_projects_title'), 'marcan-site-footer-nav-title');
+$footer_company_title_attrs = marcan_font_size_attrs(marcan_get_option_font_size('footer_company_title'), 'marcan-site-footer-nav-title');
+$footer_member_title_attrs = marcan_font_size_attrs(marcan_get_option_font_size('footer_member_title'), 'marcan-site-footer-members-title');
+$footer_button_attrs = marcan_font_size_attrs(marcan_get_option_font_size('footer_projects_button_label'), 'marcan-site-footer-button');
+$footer_address_attrs = marcan_font_size_attrs(marcan_get_option_font_size('footer_address'), 'marcan-site-footer-address');
+$footer_phone_attrs = marcan_font_size_attrs(marcan_get_option_font_size('footer_phone_lines'), 'marcan-site-footer-phone-lines', true);
+$footer_email_attrs = marcan_font_size_attrs(marcan_get_option_font_size('footer_email'), 'marcan-site-footer-email');
+$footer_contact_address_attrs = marcan_font_size_attrs(marcan_get_option_font_size('footer_address'), 'marcan-site-footer-contact-line');
+$footer_contact_phone_attrs = marcan_font_size_attrs(marcan_get_option_font_size('footer_phone_lines'), 'marcan-site-footer-contact-line', true);
+$footer_contact_email_attrs = marcan_font_size_attrs(marcan_get_option_font_size('footer_email'), 'marcan-site-footer-contact-line');
+$footer_legal_attrs = marcan_font_size_attrs(marcan_get_option_font_size('footer_legal_text'), 'marcan-site-footer-legal', true);
 $terms_url = home_url('/terminos-condiciones/');
 $privacy_url = get_privacy_policy_url();
 if ($privacy_url === '') {
@@ -98,21 +109,21 @@ $render_links = static function (string $theme_location, array $fallback_items):
 <footer class="marcan-site-footer" style="<?php echo esc_attr('--marcan-footer-bg:' . $footer_bg . ';--marcan-footer-text:' . $footer_text . ';'); ?>">
     <div class="marcan-site-footer-desktop">
         <div class="marcan-site-footer-left">
-            <div class="marcan-site-footer-nav-title"><?php echo marcan_rich_inline($footer_projects_title); ?></div>
+            <div<?php echo $footer_projects_title_attrs; ?>><?php echo marcan_rich_inline($footer_projects_title); ?></div>
             <?php $render_links('footer_projects', $footer_projects_fallback); ?>
-            <a class="marcan-site-footer-button" href="<?php echo esc_url($projects_button_url); ?>" target="<?php echo esc_attr($projects_button_target); ?>"><?php echo marcan_rich_inline(marcan_get_option_text('footer_projects_button_label', 'Ver Proyectos')); ?></a>
+            <a<?php echo $footer_button_attrs; ?> href="<?php echo esc_url($projects_button_url); ?>" target="<?php echo esc_attr($projects_button_target); ?>"><?php echo marcan_rich_inline(marcan_get_option_text('footer_projects_button_label', 'Ver Proyectos')); ?></a>
         </div>
 
         <div class="marcan-site-footer-center">
-            <div class="marcan-site-footer-nav-title"><?php echo marcan_rich_inline($footer_company_title); ?></div>
+            <div<?php echo $footer_company_title_attrs; ?>><?php echo marcan_rich_inline($footer_company_title); ?></div>
             <?php $render_links('footer_company', $footer_company_fallback); ?>
         </div>
 
         <div class="marcan-site-footer-right">
             <div class="marcan-site-footer-contact">
-                <p class="marcan-site-footer-address"><?php echo esc_html(marcan_get_option_text('footer_address', 'Av. Santa Cruz 830 Of. 402, Miraflores.')); ?></p>
-                <p class="marcan-site-footer-phone-lines"><?php echo nl2br(esc_html(marcan_get_option_text('footer_phone_lines', "Contact Center: 919 490 440\nOficinas: (01) 711 9400"))); ?></p>
-                <p class="marcan-site-footer-email"><?php echo esc_html(marcan_get_option_text('footer_email', 'Escríbenos a ventas@marcan.com.pe')); ?></p>
+                <p<?php echo $footer_address_attrs; ?>><?php echo esc_html(marcan_get_option_text('footer_address', 'Av. Santa Cruz 830 Of. 402, Miraflores.')); ?></p>
+                <p<?php echo $footer_phone_attrs; ?>><?php echo nl2br(esc_html(marcan_get_option_text('footer_phone_lines', "Contact Center: 919 490 440\nOficinas: (01) 711 9400"))); ?></p>
+                <p<?php echo $footer_email_attrs; ?>><?php echo esc_html(marcan_get_option_text('footer_email', 'Escríbenos a ventas@marcan.com.pe')); ?></p>
             </div>
 
             <div class="marcan-site-footer-socials" aria-label="<?php esc_attr_e('Redes sociales', 'marcan'); ?>">
@@ -124,7 +135,7 @@ $render_links = static function (string $theme_location, array $fallback_items):
             </div>
 
             <div class="marcan-site-footer-members">
-                <span class="marcan-site-footer-members-title"><?php echo marcan_rich_inline($footer_member_title); ?></span>
+                <span<?php echo $footer_member_title_attrs; ?>><?php echo marcan_rich_inline($footer_member_title); ?></span>
                 <div class="marcan-site-footer-members-logos">
                     <?php foreach ($members as $member_url) : ?>
                         <?php if ($member_url) : ?>
@@ -149,25 +160,25 @@ $render_links = static function (string $theme_location, array $fallback_items):
             <?php endif; ?>
         </div>
 
-        <p class="marcan-site-footer-legal"><?php echo marcan_rich_inline($footer_legal); ?></p>
+        <p<?php echo $footer_legal_attrs; ?>><?php echo marcan_rich_inline($footer_legal); ?></p>
     </div>
 
     <div class="marcan-site-footer-mobile">
         <div class="marcan-site-footer-mobile-group">
-            <div class="marcan-site-footer-nav-title"><?php echo marcan_rich_inline($footer_projects_title); ?></div>
+            <div<?php echo $footer_projects_title_attrs; ?>><?php echo marcan_rich_inline($footer_projects_title); ?></div>
             <?php $render_links('footer_projects', $footer_projects_fallback); ?>
-            <a class="marcan-site-footer-button" href="<?php echo esc_url($projects_button_url); ?>" target="<?php echo esc_attr($projects_button_target); ?>"><?php echo marcan_rich_inline(marcan_get_option_text('footer_projects_button_label', 'Ver Proyectos')); ?></a>
+            <a<?php echo $footer_button_attrs; ?> href="<?php echo esc_url($projects_button_url); ?>" target="<?php echo esc_attr($projects_button_target); ?>"><?php echo marcan_rich_inline(marcan_get_option_text('footer_projects_button_label', 'Ver Proyectos')); ?></a>
         </div>
 
         <div class="marcan-site-footer-mobile-group">
-            <div class="marcan-site-footer-nav-title"><?php echo marcan_rich_inline($footer_company_title); ?></div>
+            <div<?php echo $footer_company_title_attrs; ?>><?php echo marcan_rich_inline($footer_company_title); ?></div>
             <?php $render_links('footer_company', $footer_company_fallback); ?>
         </div>
 
         <div class="marcan-site-footer-mobile-group">
-            <p class="marcan-site-footer-contact-line"><?php echo esc_html(marcan_get_option_text('footer_address', 'Av. Santa Cruz 830 Of. 402, Miraflores.')); ?></p>
-            <p class="marcan-site-footer-contact-line"><?php echo nl2br(esc_html(marcan_get_option_text('footer_phone_lines', "Contact Center: 919 490 440\nOficinas: (01) 711 9400"))); ?></p>
-            <p class="marcan-site-footer-contact-line"><?php echo esc_html(marcan_get_option_text('footer_email', 'Escríbenos a ventas@marcan.com.pe')); ?></p>
+            <p<?php echo $footer_contact_address_attrs; ?>><?php echo esc_html(marcan_get_option_text('footer_address', 'Av. Santa Cruz 830 Of. 402, Miraflores.')); ?></p>
+            <p<?php echo $footer_contact_phone_attrs; ?>><?php echo nl2br(esc_html(marcan_get_option_text('footer_phone_lines', "Contact Center: 919 490 440\nOficinas: (01) 711 9400"))); ?></p>
+            <p<?php echo $footer_contact_email_attrs; ?>><?php echo esc_html(marcan_get_option_text('footer_email', 'Escríbenos a ventas@marcan.com.pe')); ?></p>
         </div>
 
         <div class="marcan-site-footer-socials marcan-site-footer-socials-mobile" aria-label="<?php esc_attr_e('Redes sociales', 'marcan'); ?>">
@@ -179,7 +190,7 @@ $render_links = static function (string $theme_location, array $fallback_items):
         </div>
 
         <div class="marcan-site-footer-mobile-group">
-            <span class="marcan-site-footer-members-title"><?php echo marcan_rich_inline($footer_member_title); ?></span>
+            <span<?php echo $footer_member_title_attrs; ?>><?php echo marcan_rich_inline($footer_member_title); ?></span>
             <div class="marcan-site-footer-members-logos">
                 <?php foreach ($members as $member_url) : ?>
                     <?php if ($member_url) : ?>
@@ -204,7 +215,7 @@ $render_links = static function (string $theme_location, array $fallback_items):
                 <?php endif; ?>
             </div>
 
-            <p class="marcan-site-footer-legal"><?php echo marcan_rich_inline($footer_legal); ?></p>
+            <p<?php echo $footer_legal_attrs; ?>><?php echo marcan_rich_inline($footer_legal); ?></p>
         </div>
     </div>
 </footer>

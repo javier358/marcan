@@ -26,6 +26,13 @@ $title = $title !== '' ? $title : get_the_title($post_id);
 $title_plain = wp_strip_all_tags($title);
 $url = $cta_link && is_array($cta_link) && !empty($cta_link['url']) ? $cta_link['url'] : get_permalink($post_id);
 $target = $cta_link && is_array($cta_link) && !empty($cta_link['target']) ? $cta_link['target'] : '_self';
+$title_attrs = marcan_font_size_attrs(marcan_get_field_font_size('titulo_comercial', $post_id));
+$badge_attrs = marcan_font_size_attrs(marcan_get_field_font_size('estado', $post_id), 'marcan-home-project-card-badge');
+$location_attrs = marcan_font_size_attrs(marcan_get_field_font_size('ubicacion', $post_id), 'marcan-home-project-card-location');
+$price_label_attrs = marcan_font_size_attrs(marcan_get_field_font_size('home_price_label', $post_id));
+$price_attrs = marcan_font_size_attrs(marcan_get_field_font_size('precio', $post_id));
+$bedrooms_attrs = marcan_font_size_attrs(marcan_get_field_font_size('dormitorios', $post_id));
+$cta_attrs = marcan_font_size_attrs(marcan_get_field_font_size('home_cta_label', $post_id), 'marcan-home-project-card-cta');
 ?>
 <article class="marcan-home-project-card marcan-property-related-home-card <?php echo esc_attr($kind === 'oficina' ? 'is-office' : 'is-department'); ?>">
     <a class="marcan-home-project-card-link" href="<?php echo esc_url($url); ?>" target="<?php echo esc_attr($target); ?>">
@@ -46,29 +53,29 @@ $target = $cta_link && is_array($cta_link) && !empty($cta_link['target']) ? $cta
             <div class="marcan-home-project-card-main">
                 <div class="marcan-home-project-card-heading">
                     <div class="marcan-home-project-card-title-row">
-                        <h3><?php echo marcan_rich_inline($title); ?></h3>
+                        <h3<?php echo $title_attrs; ?>><?php echo marcan_rich_inline($title); ?></h3>
                         <?php if ($divider_id) : ?>
                             <span class="marcan-home-project-card-divider" aria-hidden="true"><?php echo wp_get_attachment_image($divider_id, 'full', false, array('alt' => '')); ?></span>
                         <?php endif; ?>
                         <?php if ($badge !== '') : ?>
-                            <span class="marcan-home-project-card-badge"><?php echo marcan_rich_inline($badge); ?></span>
+                            <span<?php echo $badge_attrs; ?>><?php echo marcan_rich_inline($badge); ?></span>
                         <?php endif; ?>
                     </div>
                     <?php if ($location !== '') : ?>
-                        <p class="marcan-home-project-card-location"><?php echo marcan_rich_inline($location); ?></p>
+                        <p<?php echo $location_attrs; ?>><?php echo marcan_rich_inline($location); ?></p>
                     <?php endif; ?>
                 </div>
             </div>
             <div class="marcan-home-project-card-side">
                 <div class="marcan-home-project-card-price">
-                    <span><?php echo marcan_rich_inline($price_label !== '' ? $price_label : __('Desde:', 'marcan')); ?></span>
-                    <?php if ($price !== '') : ?><strong><?php echo esc_html($price); ?></strong><?php endif; ?>
+                    <span<?php echo $price_label_attrs; ?>><?php echo marcan_rich_inline($price_label !== '' ? $price_label : __('Desde:', 'marcan')); ?></span>
+                    <?php if ($price !== '') : ?><strong<?php echo $price_attrs; ?>><?php echo esc_html($price); ?></strong><?php endif; ?>
                 </div>
                 <div class="marcan-home-project-card-specs">
                     <?php if ($bedrooms !== '') : ?>
                         <div class="marcan-home-project-card-spec">
                             <?php if ($bedrooms_icon_id) : ?><span class="marcan-home-project-card-spec-icon"><?php echo wp_get_attachment_image($bedrooms_icon_id, 'full', false, array('alt' => '')); ?></span><?php endif; ?>
-                            <span><?php echo marcan_rich_inline($bedrooms); ?></span>
+                            <span<?php echo $bedrooms_attrs; ?>><?php echo marcan_rich_inline($bedrooms); ?></span>
                         </div>
                     <?php endif; ?>
                     <?php if ($area !== '') : ?>
@@ -80,7 +87,7 @@ $target = $cta_link && is_array($cta_link) && !empty($cta_link['target']) ? $cta
                 </div>
             </div>
             <div class="marcan-home-project-card-actions">
-                <span class="marcan-home-project-card-cta"><?php echo marcan_rich_inline($cta_label !== '' ? $cta_label : __('Ver más', 'marcan')); ?></span>
+                <span<?php echo $cta_attrs; ?>><?php echo marcan_rich_inline($cta_label !== '' ? $cta_label : __('Ver más', 'marcan')); ?></span>
             </div>
         </div>
     </a>

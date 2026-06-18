@@ -68,6 +68,118 @@ function marcan_acf_wysiwyg(string $key, string $label, string $name, string $to
     );
 }
 
+function marcan_acf_font_size_choices(): array
+{
+    $choices = array('' => 'Por defecto');
+    foreach (marcan_font_size_choices() as $size) {
+        $choices[$size] = $size;
+    }
+
+    return $choices;
+}
+
+function marcan_acf_font_size_group(string $key, string $name): array
+{
+    return array(
+        'key' => $key . '_font_size',
+        'label' => 'Tamaño de letra',
+        'name' => $name . '_font_size',
+        'type' => 'group',
+        'layout' => 'block',
+        'instructions' => 'Opcional. Si queda en "Por defecto", el texto usa el tamaño base del diseño.',
+        'sub_fields' => array(
+            array(
+                'key' => $key . '_font_size_desktop',
+                'label' => 'PC',
+                'name' => 'desktop',
+                'type' => 'select',
+                'choices' => marcan_acf_font_size_choices(),
+                'default_value' => '',
+                'allow_null' => 0,
+                'return_format' => 'value',
+                'ui' => 1,
+                'wrapper' => array('width' => '50'),
+            ),
+            array(
+                'key' => $key . '_font_size_mobile',
+                'label' => 'Mobile',
+                'name' => 'mobile',
+                'type' => 'select',
+                'choices' => marcan_acf_font_size_choices(),
+                'default_value' => '',
+                'allow_null' => 0,
+                'return_format' => 'value',
+                'ui' => 1,
+                'wrapper' => array('width' => '50'),
+            ),
+        ),
+    );
+}
+
+function marcan_acf_field_supports_font_size(array $field): bool
+{
+    $type = (string) ($field['type'] ?? '');
+    $name = (string) ($field['name'] ?? '');
+
+    if (!in_array($type, array('text', 'textarea', 'wysiwyg'), true) || $name === '') {
+        return false;
+    }
+
+    if (str_ends_with($name, '_font_size')) {
+        return false;
+    }
+
+    $haystack = strtolower(remove_accents($name . ' ' . ($field['label'] ?? '') . ' ' . ($field['key'] ?? '')));
+    $technical_patterns = array(
+        'background_color', 'text_color', 'button_background', 'button_text_color',
+        'color', 'hex', 'rgba', 'recaptcha', 'recipient', 'destinatario',
+        'subject', 'asunto', 'whatsapp_contacto', 'url', 'maps', 'waze',
+        'css', 'slug', 'orden', 'order', 'intervalo', 'interval', 'duracion',
+        'duration', 'efecto', 'effect', 'mime', 'codigo', 'code',
+    );
+
+    foreach ($technical_patterns as $pattern) {
+        if (str_contains($haystack, $pattern)) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function marcan_acf_add_font_size_controls(array $fields): array
+{
+    $result = array();
+
+    foreach ($fields as $field) {
+        if (!is_array($field)) {
+            $result[] = $field;
+            continue;
+        }
+
+        if (!empty($field['sub_fields']) && is_array($field['sub_fields'])) {
+            $field['sub_fields'] = marcan_acf_add_font_size_controls($field['sub_fields']);
+        }
+
+        $result[] = $field;
+
+        if (marcan_acf_field_supports_font_size($field)) {
+            $result[] = marcan_acf_font_size_group((string) $field['key'], (string) $field['name']);
+        }
+    }
+
+    return $result;
+}
+
+function marcan_acf_add_local_field_group(array $group): void
+{
+    if (!empty($group['fields']) && is_array($group['fields'])) {
+        $group['fields'] = marcan_acf_add_font_size_controls($group['fields']);
+    }
+
+    acf_add_local_field_group($group);
+}
+
 function marcan_acf_image_help(string $size, string $max_weight = '350 KB'): string
 {
     return sprintf(
@@ -292,7 +404,7 @@ function marcan_register_field_groups(): void
     }
 
     /* ───────────────────────── GLOBAL: HEADER + FOOTER (Options) ───────────────────────── */
-    acf_add_local_field_group(array(
+    marcan_acf_add_local_field_group(array(
         'key' => 'group_marcan_global_header',
         'title' => 'Global - Header',
         'fields' => array(
@@ -315,7 +427,7 @@ function marcan_register_field_groups(): void
         'active' => true,
     ));
 
-    acf_add_local_field_group(array(
+    marcan_acf_add_local_field_group(array(
         'key' => 'group_marcan_global_footer',
         'title' => 'Global - Footer',
         'fields' => array(
@@ -367,67 +479,7 @@ function marcan_register_field_groups(): void
     ));
 
     /* ───────────────────────── INICIO (Front page) ───────────────────────── */
-    acf_add_local_field_group(array(
-        'key' => 'group_marcan_global_typography',
-        'title' => 'Global - Tipografia',
-        'fields' => array(
-            marcan_acf_tab('field_marcan_tab_typography_desktop', 'Desktop'),
-            array('key' => 'field_marcan_type_title_desktop', 'label' => 'Títulos desktop', 'name' => 'type_title_desktop', 'type' => 'text', 'default_value' => '40px', 'instructions' => 'Tamaño en px para títulos principales (sistema heredado). Ej: 40px.'),
-            array('key' => 'field_marcan_type_subtitle_desktop', 'label' => 'Subtítulos desktop', 'name' => 'type_subtitle_desktop', 'type' => 'text', 'default_value' => '24px', 'instructions' => 'Tamaño en px para subtítulos de sección (sistema heredado). Ej: 24px.'),
-            array('key' => 'field_marcan_type_description_desktop', 'label' => 'Descripciones desktop', 'name' => 'type_description_desktop', 'type' => 'text', 'default_value' => '18px', 'instructions' => 'Tamaño CSS para párrafos y descripciones largas.'),
-            marcan_acf_tab('field_marcan_tab_typography_tablet', 'Tablet'),
-            array('key' => 'field_marcan_type_title_tablet', 'label' => 'Títulos tablet', 'name' => 'type_title_tablet', 'type' => 'text', 'default_value' => '40px'),
-            array('key' => 'field_marcan_type_subtitle_tablet', 'label' => 'Subtitulos tablet', 'name' => 'type_subtitle_tablet', 'type' => 'text', 'default_value' => '30px'),
-            array('key' => 'field_marcan_type_description_tablet', 'label' => 'Descripciones tablet', 'name' => 'type_description_tablet', 'type' => 'text', 'default_value' => '16px'),
-            marcan_acf_tab('field_marcan_tab_typography_mobile', 'Mobile'),
-            array('key' => 'field_marcan_type_title_mobile', 'label' => 'Títulos mobile', 'name' => 'type_title_mobile', 'type' => 'text', 'default_value' => '32px'),
-            array('key' => 'field_marcan_type_subtitle_mobile', 'label' => 'Subtitulos mobile', 'name' => 'type_subtitle_mobile', 'type' => 'text', 'default_value' => '24px'),
-            array('key' => 'field_marcan_type_description_mobile', 'label' => 'Descripciones mobile', 'name' => 'type_description_mobile', 'type' => 'text', 'default_value' => '15px'),
-        ),
-        'location' => array(
-            array(
-                array('param' => 'options_page', 'operator' => '==', 'value' => 'marcan-global-settings'),
-            ),
-        ),
-        'menu_order' => 2,
-        'active' => true,
-    ));
-
-    acf_add_local_field_group(array(
-        'key' => 'group_marcan_home_typography',
-        'title' => 'Global - Tipografia',
-        'fields' => array(
-            marcan_acf_tab('field_marcan_tab_mt_desktop', 'Escritorio'),
-            array('key' => 'field_marcan_mt_titular_d', 'label' => 'Titular — Escritorio', 'name' => 'mt_titular_d', 'type' => 'text', 'default_value' => '40px', 'instructions' => 'Título grande serif del home: «Hacemos las cosas diferente» y el título de «Proyectos entregados». Vista escritorio. Ej: 40px.'),
-            array('key' => 'field_marcan_mt_subtitulo_d', 'label' => 'Bajada / subtítulo — Escritorio', 'name' => 'mt_subtitulo_d', 'type' => 'text', 'default_value' => '24px', 'instructions' => 'Texto de introducción que va bajo el titular del home. Vista escritorio. Ej: 24px.'),
-            array('key' => 'field_marcan_mt_seccion_d', 'label' => 'Título de sección — Escritorio', 'name' => 'mt_seccion_d', 'type' => 'text', 'default_value' => '26px', 'instructions' => 'Títulos «Departamentos en venta» y «Oficinas en venta». Vista escritorio. Ej: 26px.'),
-            array('key' => 'field_marcan_mt_card_d', 'label' => 'Título de tarjeta — Escritorio', 'name' => 'mt_card_d', 'type' => 'text', 'default_value' => '25px', 'instructions' => 'Nombre del proyecto en las tarjetas (ej. «Llano Zapata 430»). Vista escritorio. Ej: 25px.'),
-            array('key' => 'field_marcan_mt_precio_d', 'label' => 'Precio — Escritorio', 'name' => 'mt_precio_d', 'type' => 'text', 'default_value' => '25px', 'instructions' => 'Precio en las tarjetas (ej. «S/ 965,000»). Vista escritorio. Ej: 25px.'),
-            array('key' => 'field_marcan_mt_datos_d', 'label' => 'Datos / características — Escritorio', 'name' => 'mt_datos_d', 'type' => 'text', 'default_value' => '21px', 'instructions' => 'Características de la tarjeta: dormitorios, m², etc. Vista escritorio. Ej: 21px.'),
-            array('key' => 'field_marcan_mt_texto_d', 'label' => 'Texto / cuerpo — Escritorio', 'name' => 'mt_texto_d', 'type' => 'text', 'default_value' => '18px', 'instructions' => 'Párrafos de cuerpo largo (descripciones, blog, páginas legales). Vista escritorio. Ej: 18px.'),
-            array('key' => 'field_marcan_mt_menu_d', 'label' => 'Botón MENÚ — Escritorio', 'name' => 'mt_menu_d', 'type' => 'text', 'default_value' => '20px', 'instructions' => 'Texto del botón «MENÚ» del encabezado. Vista escritorio. Ej: 20px.'),
-            array('key' => 'field_marcan_mt_menuitem_d', 'label' => 'Ítems del menú — Escritorio', 'name' => 'mt_menuitem_d', 'type' => 'text', 'default_value' => '20px', 'instructions' => 'Enlaces del menú desplegable (Quiénes somos, Departamentos, etc.). Vista escritorio. Ej: 20px.'),
-            marcan_acf_tab('field_marcan_tab_mt_mobile', 'Móvil'),
-            array('key' => 'field_marcan_mt_titular_m', 'label' => 'Titular — Móvil', 'name' => 'mt_titular_m', 'type' => 'text', 'default_value' => '26px', 'instructions' => 'Título grande serif del home en celular. Ej: 26px.'),
-            array('key' => 'field_marcan_mt_subtitulo_m', 'label' => 'Bajada / subtítulo — Móvil', 'name' => 'mt_subtitulo_m', 'type' => 'text', 'default_value' => '16px', 'instructions' => 'Texto de introducción del hero en celular. Ej: 16px.'),
-            array('key' => 'field_marcan_mt_seccion_m', 'label' => 'Título de sección — Móvil', 'name' => 'mt_seccion_m', 'type' => 'text', 'default_value' => '21px', 'instructions' => 'Títulos «Departamentos en venta» / «Oficinas en venta» en celular. Ej: 21px.'),
-            array('key' => 'field_marcan_mt_card_m', 'label' => 'Título de tarjeta — Móvil', 'name' => 'mt_card_m', 'type' => 'text', 'default_value' => '21px', 'instructions' => 'Nombre del proyecto en las tarjetas en celular. Ej: 21px.'),
-            array('key' => 'field_marcan_mt_precio_m', 'label' => 'Precio — Móvil', 'name' => 'mt_precio_m', 'type' => 'text', 'default_value' => '21px', 'instructions' => 'Precio en las tarjetas en celular. Ej: 21px.'),
-            array('key' => 'field_marcan_mt_datos_m', 'label' => 'Datos / características — Móvil', 'name' => 'mt_datos_m', 'type' => 'text', 'default_value' => '14px', 'instructions' => 'Características de la tarjeta (dormitorios, m²) en celular. Ej: 14px.'),
-            array('key' => 'field_marcan_mt_texto_m', 'label' => 'Texto / cuerpo — Móvil', 'name' => 'mt_texto_m', 'type' => 'text', 'default_value' => '16px', 'instructions' => 'Párrafos de cuerpo largo en celular. Ej: 16px.'),
-            array('key' => 'field_marcan_mt_menu_m', 'label' => 'Botón MENÚ — Móvil', 'name' => 'mt_menu_m', 'type' => 'text', 'default_value' => '18px', 'instructions' => 'Texto del botón «MENÚ» del encabezado en celular. Ej: 18px.'),
-            array('key' => 'field_marcan_mt_menuitem_m', 'label' => 'Ítems del menú — Móvil', 'name' => 'mt_menuitem_m', 'type' => 'text', 'default_value' => '16px', 'instructions' => 'Enlaces del menú desplegable en celular. Ej: 16px.'),
-        ),
-        'location' => array(
-            array(
-                array('param' => 'options_page', 'operator' => '==', 'value' => 'marcan-global-settings'),
-            ),
-        ),
-        'menu_order' => 3,
-        'active' => true,
-    ));
-
-    acf_add_local_field_group(array(
+    marcan_acf_add_local_field_group(array(
         'key' => 'group_marcan_home_page',
         'title' => 'Inicio - Contenido',
         'fields' => array(
@@ -485,7 +537,7 @@ function marcan_register_field_groups(): void
     ));
 
     /* ───────────────────────── LISTADO DEPARTAMENTOS (page-departamentos.php) ───────────────────────── */
-    acf_add_local_field_group(array(
+    marcan_acf_add_local_field_group(array(
         'key' => 'group_marcan_listing_departamentos',
         'title' => 'Departamentos - Contenido',
         'fields' => array(
@@ -507,7 +559,7 @@ function marcan_register_field_groups(): void
     ));
 
     /* ───────────────────────── LISTADO OFICINAS (page-oficinas.php) ───────────────────────── */
-    acf_add_local_field_group(array(
+    marcan_acf_add_local_field_group(array(
         'key' => 'group_marcan_listing_oficinas',
         'title' => 'Oficinas - Contenido',
         'fields' => array(
@@ -535,7 +587,7 @@ function marcan_register_field_groups(): void
     ));
 
     /* ───────────────────────── PROPIEDAD (CPT property) ───────────────────────── */
-    acf_add_local_field_group(array(
+    marcan_acf_add_local_field_group(array(
         'key' => 'group_marcan_property_all',
         'title' => 'Datos del inmueble',
         'fields' => array(
@@ -659,7 +711,7 @@ function marcan_register_field_groups(): void
         'active' => true,
     ));
 
-    acf_add_local_field_group(array(
+    marcan_acf_add_local_field_group(array(
         'key' => 'group_marcan_iconic_project',
         'title' => 'Proyecto icónico - Detalle',
         'fields' => array(
@@ -727,7 +779,7 @@ function marcan_register_field_groups(): void
         'active' => true,
     ));
 
-    acf_add_local_field_group(array(
+    marcan_acf_add_local_field_group(array(
         'key' => 'group_marcan_context_whatsapp',
         'title' => 'WhatsApp flotante',
         'fields' => array(

@@ -22,7 +22,7 @@ function marcan_register_blog_field_group(): void
         return;
     }
 
-    acf_add_local_field_group(array(
+    marcan_acf_add_local_field_group(array(
         'key' => 'group_marcan_blog_page',
         'title' => 'Blog - Contenido',
         'fields' => array(
@@ -79,19 +79,31 @@ function marcan_get_blog_page_content(): array
 
     return array(
         'featured_label' => (string) $get('blog_featured_label', 'Nuevo'),
+        'featured_label_font_size' => marcan_get_field_font_size('blog_featured_label', $page_id),
         'important_label' => (string) $get('blog_important_label', 'Noticia importante'),
+        'important_label_font_size' => marcan_get_field_font_size('blog_important_label', $page_id),
         'all_label' => (string) $get('blog_all_label', 'Todas las publicaciones'),
+        'all_label_font_size' => marcan_get_field_font_size('blog_all_label', $page_id),
         'about_image_id' => (int) $get('blog_about_image', 0),
         'about_label' => (string) $get('blog_about_label', 'Sobre nosotros'),
+        'about_label_font_size' => marcan_get_field_font_size('blog_about_label', $page_id),
         'about_title' => (string) $get('blog_about_title', 'Construimos confianza, creamos bienestar.'),
+        'about_title_font_size' => marcan_get_field_font_size('blog_about_title', $page_id),
         'about_text' => (string) $get('blog_about_text', 'Diseñamos espacios pensados para que las personas vivan mejor y más felices.'),
+        'about_text_font_size' => marcan_get_field_font_size('blog_about_text', $page_id),
         'vision_image_id' => (int) $get('blog_vision_image', 0),
         'vision_label' => (string) $get('blog_vision_label', 'Nuestra visión'),
+        'vision_label_font_size' => marcan_get_field_font_size('blog_vision_label', $page_id),
         'vision_title' => (string) $get('blog_vision_title', 'Ser la inmobiliaria más confiable del país'),
+        'vision_title_font_size' => marcan_get_field_font_size('blog_vision_title', $page_id),
         'vision_text' => (string) $get('blog_vision_text', 'Una empresa sólida, rentable y profesional, con un equipo íntegro, adaptable y enfocado en resultados.'),
+        'vision_text_font_size' => marcan_get_field_font_size('blog_vision_text', $page_id),
         'stats' => $stats,
         'cta_title' => (string) $get('blog_cta_title', 'Creamos proyectos que marcan'),
+        'cta_title_font_size' => marcan_get_field_font_size('blog_cta_title', $page_id),
         'cta_departments_label' => (string) $get('blog_cta_departments_label', 'Departamentos en venta'),
+        'cta_departments_label_font_size' => marcan_get_field_font_size('blog_cta_departments_label', $page_id),
         'cta_offices_label' => (string) $get('blog_cta_offices_label', 'Oficinas en venta'),
+        'cta_offices_label_font_size' => marcan_get_field_font_size('blog_cta_offices_label', $page_id),
     );
 }

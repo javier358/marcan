@@ -16,7 +16,7 @@ $has_hero = !empty($about['hero_intro']) || $hero_picture !== '';
     <section class="marcan-about-hero">
         <?php if (!empty($about['hero_intro'])) : ?>
             <div class="marcan-about-hero-copy">
-                <div><?php echo wp_kses_post(wpautop((string) $about['hero_intro'])); ?></div>
+                <div<?php echo marcan_font_size_attrs($about['hero_intro_font_size'] ?? array(), '', true); ?>><?php echo wp_kses_post(wpautop((string) $about['hero_intro'])); ?></div>
             </div>
         <?php endif; ?>
         <?php echo $hero_picture; ?>

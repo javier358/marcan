@@ -14,19 +14,8 @@ body.ml-loading .marcan-global-whatsapp { opacity: 0; pointer-events: none; tran
     --marcan-max: 1180px;
     --marcan-radius: 8px;
     --marcan-ease: cubic-bezier(0.19, 1, 0.22, 1);
-    --marcan-type-title: 40px;
-    --marcan-type-subtitle: 24px;
+    --marcan-type-title: clamp(42px, 5vw, 80px);
+    --marcan-type-subtitle: clamp(24px, 2.6vw, 42px);
     --marcan-type-description: 18px;
-
-    /* Tipografía global editable desde MARCAN Global (px). -d = desktop, -m = móvil. */
-    --mt-titular-d: 40px;   --mt-titular-m: 26px;
-    --mt-subtitulo-d: 24px; --mt-subtitulo-m: 16px;
-    --mt-seccion-d: 26px;   --mt-seccion-m: 21px;
-    --mt-card-d: 25px;      --mt-card-m: 21px;
-    --mt-precio-d: 25px;    --mt-precio-m: 21px;
-    --mt-datos-d: 21px;     --mt-datos-m: 14px;
-    --mt-texto-d: 18px;     --mt-texto-m: 16px;
-    --mt-menu-d: 20px;      --mt-menu-m: 18px;
-    --mt-menuitem-d: 20px;  --mt-menuitem-m: 16px;
 }
 

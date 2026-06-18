@@ -90,6 +90,27 @@ while (have_posts()) :
             ? __('Revisa las oficinas que tenemos para ti', 'marcan')
             : __('Revisa las opciones que tenemos para ti', 'marcan');
     }
+    $title_attrs = marcan_font_size_attrs(marcan_get_field_font_size('titulo_comercial', $post_id));
+    $subtitle_attrs = marcan_font_size_attrs(marcan_get_field_font_size('subtitulo', $post_id, 'ubicacion'), 'marcan-property-sticky-subtitle');
+    $status_attrs = marcan_font_size_attrs(marcan_get_field_font_size('estado', $post_id), 'marcan-property-status-pill');
+    $delivery_attrs = marcan_font_size_attrs(marcan_get_field_font_size('fecha_entrega', $post_id), 'marcan-property-delivery');
+    $price_attrs = marcan_font_size_attrs(marcan_get_field_font_size('precio', $post_id));
+    $bedrooms_attrs = marcan_font_size_attrs(marcan_get_field_font_size('dormitorios', $post_id), 'marcan-property-price-spec marcan-property-price-spec-bedrooms');
+    $intro_attrs = marcan_font_size_attrs(marcan_get_field_font_size('descripcion_corta', $post_id), 'marcan-property-intro', true);
+    $concept_title_attrs = marcan_font_size_attrs(marcan_get_field_font_size('concepto_titulo', $post_id));
+    $concept_text_attrs = marcan_font_size_attrs(marcan_get_field_font_size('concepto_texto', $post_id), '', true);
+    $designer_name_attrs = marcan_font_size_attrs(marcan_get_field_font_size('disenador_interiores_nombre', $post_id));
+    $designer_role_attrs = marcan_font_size_attrs(marcan_get_field_font_size('disenador_interiores_cargo', $post_id));
+    $map_heading_attrs = marcan_font_size_attrs(marcan_get_field_font_size('ubicacion_titulo', $post_id));
+    $map_nearby_title_attrs = marcan_font_size_attrs(marcan_get_field_font_size('lugares_cercanos_titulo', $post_id));
+    $map_description_attrs = marcan_font_size_attrs(marcan_get_field_font_size('ubicacion_descripcion', $post_id), 'marcan-property-map-description', true);
+    $quote_attrs = marcan_font_size_attrs(marcan_get_field_font_size('frase_proyecto', $post_id));
+    $quote_author_attrs = marcan_font_size_attrs(marcan_get_field_font_size('autor_frase', $post_id));
+    $architecture_title_attrs = marcan_font_size_attrs(marcan_get_field_font_size('arquitectura_titulo', $post_id));
+    $architecture_text_attrs = marcan_font_size_attrs(marcan_get_field_font_size('arquitectura_texto', $post_id), '', true);
+    $architecture_studio_name_attrs = marcan_font_size_attrs(marcan_get_field_font_size('arquitectura_estudio_nombre', $post_id));
+    $architecture_studio_role_attrs = marcan_font_size_attrs(marcan_get_field_font_size('arquitectura_estudio_cargo', $post_id));
+    $related_intro_attrs = marcan_font_size_attrs(marcan_get_field_font_size('relacionados_intro_texto', $post_id));
     $related_quote_label = $is_office ? __('Cotizar oficina', 'marcan') : __('Cotizar proyecto', 'marcan');
     $map_embed_src = '';
 
@@ -136,7 +157,9 @@ while (have_posts()) :
 
             $virtual_tours[] = array(
                 'title' => $tour_title,
+                'title_font_size' => marcan_get_row_font_size($tour_row, 'titulo'),
                 'group' => $tour_group,
+                'group_font_size' => marcan_get_row_font_size($tour_row, 'grupo'),
                 'src' => $tour_src,
                 'external' => $tour_url !== '' ? $tour_url : $tour_src,
             );
@@ -228,12 +251,12 @@ while (have_posts()) :
 
         <section class="marcan-property-sticky-quote" id="cotizar">
             <div>
-                <h1><?php echo marcan_rich_inline($title); ?></h1>
+                <h1<?php echo $title_attrs; ?>><?php echo marcan_rich_inline($title); ?></h1>
                 <p class="marcan-property-sticky-meta">
-                    <span class="marcan-property-sticky-subtitle"><?php echo marcan_rich_inline($subtitle); ?></span>
+                    <span<?php echo $subtitle_attrs; ?>><?php echo marcan_rich_inline($subtitle); ?></span>
                     <?php if ($status !== '') : ?>
                         <span class="marcan-property-sticky-divider" aria-hidden="true"></span>
-                        <span class="marcan-property-status-pill"><?php echo marcan_rich_inline($status); ?></span>
+                        <span<?php echo $status_attrs; ?>><?php echo marcan_rich_inline($status); ?></span>
                     <?php endif; ?>
                 </p>
             </div>
@@ -247,17 +270,17 @@ while (have_posts()) :
 
         <section class="marcan-property-single-content">
             <div class="marcan-property-single-summary">
-                <p class="marcan-property-delivery"><?php echo marcan_rich_inline($delivery); ?></p>
+                <p<?php echo $delivery_attrs; ?>><?php echo marcan_rich_inline($delivery); ?></p>
                 <div class="marcan-property-price-block">
                     <span><?php esc_html_e('Desde:', 'marcan'); ?></span>
-                    <strong><?php echo esc_html($price); ?></strong>
+                    <strong<?php echo $price_attrs; ?>><?php echo esc_html($price); ?></strong>
                     <?php if (!$is_office && $bedrooms !== '') : ?>
-                        <small class="marcan-property-price-spec marcan-property-price-spec-bedrooms"><?php echo marcan_rich_inline($bedrooms); ?></small>
+                        <small<?php echo $bedrooms_attrs; ?>><?php echo marcan_rich_inline($bedrooms); ?></small>
                     <?php endif; ?>
                     <small class="marcan-property-price-spec marcan-property-price-spec-area"><?php echo esc_html($area_label); ?></small>
                 </div>
                 <?php if ($intro !== '') : ?>
-                    <div class="marcan-property-intro"><?php echo marcan_rich_block($intro); ?></div>
+                    <div<?php echo $intro_attrs; ?>><?php echo marcan_rich_block($intro); ?></div>
                 <?php endif; ?>
             </div>
             <?php if ($content_image_id) : ?>
@@ -269,8 +292,8 @@ while (have_posts()) :
             <?php if (marcan_section_is_active($post_id, 'mostrar_concepto', array('concepto_titulo', 'concepto_texto', 'frase_proyecto', 'autor_frase'))) : ?>
             <div class="marcan-property-concept">
                 <div class="marcan-property-concept-copy">
-                    <h2><?php echo marcan_rich_inline($concept_title); ?></h2>
-                    <?php echo marcan_rich_block($concept_text); ?>
+                    <h2<?php echo $concept_title_attrs; ?>><?php echo marcan_rich_inline($concept_title); ?></h2>
+                    <div<?php echo $concept_text_attrs; ?>><?php echo marcan_rich_block($concept_text); ?></div>
                 </div>
                 <?php if (marcan_section_is_active($post_id, 'mostrar_disenador', array('disenador_interiores_nombre', 'disenador_interiores_cargo', 'disenador_interiores_foto')) && ($designer_name !== '' || $designer_role !== '' || $designer_photo_id)) : ?>
                     <aside class="marcan-property-designer">
@@ -282,10 +305,10 @@ while (have_posts()) :
                         <?php if ($designer_name !== '' || $designer_role !== '') : ?>
                             <div class="marcan-property-designer-info">
                                 <?php if ($designer_name !== '') : ?>
-                                    <h3><?php echo marcan_rich_inline($designer_name); ?></h3>
+                                    <h3<?php echo $designer_name_attrs; ?>><?php echo marcan_rich_inline($designer_name); ?></h3>
                                 <?php endif; ?>
                                 <?php if ($designer_role !== '') : ?>
-                                    <p><?php echo marcan_rich_inline($designer_role); ?></p>
+                                    <p<?php echo $designer_role_attrs; ?>><?php echo marcan_rich_inline($designer_role); ?></p>
                                 <?php endif; ?>
                             </div>
                         <?php endif; ?>
@@ -317,7 +340,7 @@ while (have_posts()) :
                                 <?php foreach ($tour_groups as $tour_group => $tour_group_items) : ?>
                                     <div class="marcan-property-tour-group is-collapsed">
                                         <button class="marcan-property-tour-group-toggle" type="button" data-tour-group-toggle aria-expanded="false">
-                                            <span><?php echo marcan_rich_inline($tour_group); ?></span>
+                                            <span<?php echo marcan_font_size_attrs($tour_group_items[0]['group_font_size'] ?? array()); ?>><?php echo marcan_rich_inline($tour_group); ?></span>
                                             <span aria-hidden="true"></span>
                                         </button>
                                         <div class="marcan-property-tour-group-items">
@@ -330,7 +353,7 @@ while (have_posts()) :
                                                     data-tour-title="<?php echo esc_attr(wp_strip_all_tags($tour_item['title'])); ?>"
                                                     aria-pressed="false"
                                                 >
-                                                    <?php echo marcan_rich_inline($tour_item['title']); ?>
+                                                    <span<?php echo marcan_font_size_attrs($tour_item['title_font_size'] ?? array()); ?>><?php echo marcan_rich_inline($tour_item['title']); ?></span>
                                                 </button>
                                             <?php endforeach; ?>
                                         </div>
@@ -473,6 +496,9 @@ while (have_posts()) :
                             $unit_share_url = add_query_arg('tipologia', $unit_slug, get_permalink($post_id)) . '#tipologia-' . rawurlencode($unit_slug);
                             $unit_plan_full_url = $unit_plan_id ? wp_get_attachment_image_url($unit_plan_id, 'full') : '';
                             $unit_plan_title = $unit_code !== '' ? sprintf(__('Tipologia %s', 'marcan'), $unit_code) : sprintf(__('Tipologia %d', 'marcan'), $unit_index + 1);
+                            $unit_code_attrs = marcan_font_size_attrs(marcan_get_row_font_size($unit, 'codigo'));
+                            $unit_status_attrs = marcan_font_size_attrs(marcan_get_row_font_size($unit, 'estado'));
+                            $unit_price_attrs = marcan_font_size_attrs(marcan_get_row_font_size($unit, 'precio'));
                             ?>
                             <article
                                 class="marcan-property-unit-card<?php echo $unit_expanded ? ' is-expanded' : ''; ?>"
@@ -489,20 +515,20 @@ while (have_posts()) :
                                         <?php if ($unit_plan_id) : ?>
                                             <?php echo wp_get_attachment_image($unit_plan_id, 'thumbnail', false, array('class' => 'marcan-property-unit-row-plan', 'alt' => '')); ?>
                                         <?php endif; ?>
-                                        <span><?php echo esc_html($unit['codigo'] ?? ''); ?></span>
+                                        <span<?php echo $unit_code_attrs; ?>><?php echo esc_html($unit['codigo'] ?? ''); ?></span>
                                     </span>
                                     <span class="marcan-property-unit-desktop-value"><?php echo esc_html($unit['piso'] ?? ''); ?></span>
-                                    <span class="marcan-property-unit-desktop-value"><?php echo esc_html($is_office ? ($unit['estado'] ?? '') : ($unit['habitaciones'] ?? '')); ?></span>
+                                    <span class="marcan-property-unit-desktop-value"><?php if ($is_office) : ?><span<?php echo $unit_status_attrs; ?>><?php echo esc_html($unit['estado'] ?? ''); ?></span><?php else : ?><?php echo esc_html($unit['habitaciones'] ?? ''); ?><?php endif; ?></span>
                                     <span class="marcan-property-unit-desktop-value"><?php echo esc_html($unit['banos'] ?? ''); ?></span>
                                     <span class="marcan-property-unit-desktop-value"><?php echo esc_html($unit_area_display); ?></span>
-                                    <span class="marcan-property-unit-desktop-value"><?php echo esc_html($unit['precio'] ?? ''); ?></span>
+                                    <span class="marcan-property-unit-desktop-value"><span<?php echo $unit_price_attrs; ?>><?php echo esc_html($unit['precio'] ?? ''); ?></span></span>
                                     <span class="marcan-property-unit-mobile-summary">
                                         <span class="marcan-property-unit-mobile-topline">
-                                            <span><?php echo esc_html(trim($unit_code . (!empty($unit['piso']) ? ' - ' . sprintf(__('Piso %s', 'marcan'), $unit['piso']) : ''))); ?></span>
-                                            <span><?php echo esc_html(trim(($unit_area_display !== '' ? $unit_area_display : '') . (($unit['precio'] ?? '') !== '' ? ' - ' . ($unit['precio'] ?? '') : ''))); ?></span>
+                                            <span<?php echo $unit_code_attrs; ?>><?php echo esc_html(trim($unit_code . (!empty($unit['piso']) ? ' - ' . sprintf(__('Piso %s', 'marcan'), $unit['piso']) : ''))); ?></span>
+                                            <span<?php echo $unit_price_attrs; ?>><?php echo esc_html(trim(($unit_area_display !== '' ? $unit_area_display : '') . (($unit['precio'] ?? '') !== '' ? ' - ' . ($unit['precio'] ?? '') : ''))); ?></span>
                                         </span>
                                         <span class="marcan-property-unit-mobile-features">
-                                            <span><?php echo esc_html(sprintf('%s: %s', $is_office ? __('Tipo', 'marcan') : __('Habitaciones', 'marcan'), $is_office ? ($unit['estado'] ?? '') : ($unit['habitaciones'] ?? ''))); ?></span>
+                                            <span<?php echo $is_office ? $unit_status_attrs : ''; ?>><?php echo esc_html(sprintf('%s: %s', $is_office ? __('Tipo', 'marcan') : __('Habitaciones', 'marcan'), $is_office ? ($unit['estado'] ?? '') : ($unit['habitaciones'] ?? ''))); ?></span>
                                             <span><?php echo esc_html(sprintf(__('Baños: %s', 'marcan'), $unit['banos'] ?? '')); ?></span>
                                         </span>
                                     </span>
@@ -529,7 +555,7 @@ while (have_posts()) :
                                             <?php endif; ?>
                                         </figure>
                                         <div class="marcan-property-unit-info">
-                                            <h3><?php echo esc_html($unit_status); ?></h3>
+                                            <h3<?php echo $unit_status_attrs; ?>><?php echo esc_html($unit_status); ?></h3>
                                             <dl class="marcan-property-unit-features">
                                                 <?php if (!empty($unit['piso'])) : ?>
                                                     <div><dt><?php esc_html_e('Piso', 'marcan'); ?></dt><dd><?php echo esc_html($unit['piso']); ?></dd></div>
@@ -544,7 +570,7 @@ while (have_posts()) :
                                                     <div><dt><?php esc_html_e('Área', 'marcan'); ?></dt><dd><?php echo esc_html($unit_area_display); ?></dd></div>
                                                 <?php endif; ?>
                                                 <?php if (!empty($unit['precio'])) : ?>
-                                                    <div><dt><?php esc_html_e('Precio', 'marcan'); ?></dt><dd><?php echo esc_html($unit['precio']); ?></dd></div>
+                                                    <div><dt><?php esc_html_e('Precio', 'marcan'); ?></dt><dd<?php echo $unit_price_attrs; ?>><?php echo esc_html($unit['precio']); ?></dd></div>
                                                 <?php endif; ?>
                                             </dl>
                                             <div class="marcan-property-unit-actions">
@@ -581,7 +607,7 @@ while (have_posts()) :
                         <?php endif; ?>
                     </div>
                     <div class="marcan-property-map-info">
-                        <h2><?php echo marcan_rich_inline($map_heading); ?></h2>
+                        <h2<?php echo $map_heading_attrs; ?>><?php echo marcan_rich_inline($map_heading); ?></h2>
                         <div class="marcan-property-map-actions">
                             <?php if ($map_google_url !== '') : ?>
                                 <a class="marcan-property-map-button marcan-property-map-button-white" href="<?php echo esc_url($map_google_url); ?>" target="_blank" rel="noopener"><?php esc_html_e('Ver en Google Maps', 'marcan'); ?></a>
@@ -592,7 +618,7 @@ while (have_posts()) :
                         </div>
                         <?php if (!empty($map_nearby_content) && is_array($map_nearby_content)) : ?>
                             <div class="marcan-property-map-nearby">
-                                <p><?php echo marcan_rich_inline($map_nearby_title); ?></p>
+                                <p<?php echo $map_nearby_title_attrs; ?>><?php echo marcan_rich_inline($map_nearby_title); ?></p>
                                 <div class="marcan-property-map-nearby-grid">
                                     <?php foreach ($map_nearby_content as $group) : ?>
                                         <?php
@@ -603,12 +629,12 @@ while (have_posts()) :
                                         ?>
                                         <div class="marcan-property-map-nearby-group">
                                             <?php if ($cat !== '') : ?>
-                                                <strong><?php echo esc_html($cat); ?></strong>
+                                                <strong<?php echo marcan_font_size_attrs(marcan_get_row_font_size($group, 'categoria')); ?>><?php echo esc_html($cat); ?></strong>
                                             <?php endif; ?>
                                             <?php if (!empty($items)) : ?>
                                                 <ol>
                                                     <?php foreach ($items as $item) : ?>
-                                                        <li><?php echo esc_html($item); ?></li>
+                                                        <li<?php echo marcan_font_size_attrs(marcan_get_row_font_size($group, 'items')); ?>><?php echo esc_html($item); ?></li>
                                                     <?php endforeach; ?>
                                                 </ol>
                                             <?php endif; ?>
@@ -620,7 +646,7 @@ while (have_posts()) :
                     </div>
                 </div>
                 <?php if ($map_description !== '') : ?>
-                    <div class="marcan-property-map-description"><?php echo marcan_rich_block($map_description); ?></div>
+                    <div<?php echo $map_description_attrs; ?>><?php echo marcan_rich_block($map_description); ?></div>
                 <?php endif; ?>
             </section>
             <?php endif; ?>
@@ -696,8 +722,8 @@ while (have_posts()) :
             <?php if (marcan_section_is_active($post_id, 'mostrar_arquitectura', array('arquitectura_titulo', 'arquitectura_texto', 'arquitectura_imagen'))) : ?>
             <section class="marcan-property-quote">
                 <span><?php esc_html_e('Sobre el proyecto', 'marcan'); ?></span>
-                <blockquote><?php echo marcan_rich_block(marcan_get_property_field($post_id, 'frase_proyecto', 'Time: Aramburu se creo con el enfoque y balance de la naturaleza y el mar, vibran los detalles en cada espacio')); ?></blockquote>
-                <cite><?php echo marcan_rich_inline(marcan_get_property_field($post_id, 'autor_frase', 'Manuel de Rivero 51-1 Arquitectos')); ?></cite>
+                <blockquote<?php echo $quote_attrs; ?>><?php echo marcan_rich_block(marcan_get_property_field($post_id, 'frase_proyecto', 'Time: Aramburu se creo con el enfoque y balance de la naturaleza y el mar, vibran los detalles en cada espacio')); ?></blockquote>
+                <cite<?php echo $quote_author_attrs; ?>><?php echo marcan_rich_inline(marcan_get_property_field($post_id, 'autor_frase', 'Manuel de Rivero 51-1 Arquitectos')); ?></cite>
             </section>
 
             <?php if ($architecture_title !== '' || $architecture_text !== '' || $architecture_image_id) : ?>
@@ -705,10 +731,10 @@ while (have_posts()) :
                     <div class="marcan-property-architecture-info">
                         <div class="marcan-property-architecture-copy">
                             <?php if ($architecture_title !== '') : ?>
-                                <h2><?php echo marcan_rich_inline($architecture_title); ?></h2>
+                                <h2<?php echo $architecture_title_attrs; ?>><?php echo marcan_rich_inline($architecture_title); ?></h2>
                             <?php endif; ?>
                             <?php if ($architecture_text !== '') : ?>
-                                <div><?php echo marcan_rich_block($architecture_text); ?></div>
+                                <div<?php echo $architecture_text_attrs; ?>><?php echo marcan_rich_block($architecture_text); ?></div>
                             <?php endif; ?>
                         </div>
                         <?php if ($architecture_studio_name !== '' || $architecture_studio_role !== '' || $architecture_studio_photo_id) : ?>
@@ -716,8 +742,8 @@ while (have_posts()) :
                                 <?php if ($architecture_studio_photo_id) : ?>
                                     <figure><?php echo wp_get_attachment_image($architecture_studio_photo_id, 'medium', false, array('alt' => esc_attr($architecture_studio_name_plain))); ?></figure>
                                 <?php endif; ?>
-                                <?php if ($architecture_studio_name !== '') : ?><h3><?php echo marcan_rich_inline($architecture_studio_name); ?></h3><?php endif; ?>
-                                <?php if ($architecture_studio_role !== '') : ?><p><?php echo marcan_rich_inline($architecture_studio_role); ?></p><?php endif; ?>
+                                <?php if ($architecture_studio_name !== '') : ?><h3<?php echo $architecture_studio_name_attrs; ?>><?php echo marcan_rich_inline($architecture_studio_name); ?></h3><?php endif; ?>
+                                <?php if ($architecture_studio_role !== '') : ?><p<?php echo $architecture_studio_role_attrs; ?>><?php echo marcan_rich_inline($architecture_studio_role); ?></p><?php endif; ?>
                             </aside>
                         <?php endif; ?>
                     </div>
@@ -735,7 +761,7 @@ while (have_posts()) :
             <section class="marcan-property-related-intro">
                 <div class="marcan-property-related-intro-inner">
                     <h2>
-                        <span><?php echo marcan_rich_inline($related_intro); ?></span>
+                        <span<?php echo $related_intro_attrs; ?>><?php echo marcan_rich_inline($related_intro); ?></span>
                         <?php if ($price !== '') : ?><strong><?php echo esc_html(sprintf(__('desde %s', 'marcan'), $price)); ?></strong><?php endif; ?>
                     </h2>
                     <button class="marcan-property-related-intro-button" type="button" data-open-contact-modal><?php echo marcan_rich_inline($related_quote_label); ?></button>

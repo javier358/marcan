@@ -18,6 +18,9 @@ $get_listing_field = static function (string $field, string $fallback = '') use 
     }
     return $fallback;
 };
+$get_listing_font_size = static function (string $field) use ($page_id): array {
+    return $page_id ? marcan_get_field_font_size($field, $page_id) : array();
+};
 
 $default_title = $is_office ? __('Oficinas en venta', 'marcan') : __('Departamentos en venta', 'marcan');
 $default_intro = $is_office
@@ -68,8 +71,8 @@ if ($hero_picture === '') {
         </div>
         <div class="marcan-property-archive-hero-content">
         <div class="marcan-property-archive-copy">
-            <h1><?php echo marcan_rich_inline($title); ?></h1>
-            <div><?php echo marcan_rich_block($intro); ?></div>
+            <h1<?php echo marcan_font_size_attrs($get_listing_font_size('listing_title')); ?>><?php echo marcan_rich_inline($title); ?></h1>
+            <div<?php echo marcan_font_size_attrs($get_listing_font_size('listing_intro'), '', true); ?>><?php echo marcan_rich_block($intro); ?></div>
         </div>
         <?php if ($is_office) : ?>
             <?php
@@ -85,17 +88,17 @@ if ($hero_picture === '') {
             }
             ?>
             <div class="marcan-property-archive-reasons">
-                <h2><?php echo marcan_rich_inline($reasons_title); ?></h2>
+                <h2<?php echo marcan_font_size_attrs($get_listing_font_size('listing_reasons_title')); ?>><?php echo marcan_rich_inline($reasons_title); ?></h2>
                 <ol>
                     <?php foreach ($reasons as $reason) : ?>
-                        <li><span><?php echo marcan_rich_inline((string) ($reason['number'] ?? '')); ?></span><div><?php echo marcan_rich_block((string) ($reason['text'] ?? '')); ?></div></li>
+                        <li><span<?php echo marcan_font_size_attrs(marcan_get_row_font_size($reason, 'number')); ?>><?php echo marcan_rich_inline((string) ($reason['number'] ?? '')); ?></span><div<?php echo marcan_font_size_attrs(marcan_get_row_font_size($reason, 'text'), '', true); ?>><?php echo marcan_rich_block((string) ($reason['text'] ?? '')); ?></div></li>
                     <?php endforeach; ?>
                 </ol>
             </div>
         <?php endif; ?>
         <div class="marcan-property-archive-search-copy">
-            <h2><?php echo marcan_rich_inline($search_title); ?></h2>
-            <div><?php echo marcan_rich_block($search_copy); ?></div>
+            <h2<?php echo marcan_font_size_attrs($get_listing_font_size('listing_search_title')); ?>><?php echo marcan_rich_inline($search_title); ?></h2>
+            <div<?php echo marcan_font_size_attrs($get_listing_font_size('listing_search_copy'), '', true); ?>><?php echo marcan_rich_block($search_copy); ?></div>
         </div>
         </div>
     </section>

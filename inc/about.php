@@ -22,7 +22,7 @@ function marcan_register_about_field_group(): void
         return;
     }
 
-    acf_add_local_field_group(array(
+    marcan_acf_add_local_field_group(array(
         'key' => 'group_marcan_about_page',
         'title' => 'Quienes Somos - Contenido',
         'fields' => array(
@@ -349,19 +349,26 @@ function marcan_get_about_settings(): array
 {
     $defaults = array(
         'hero_intro' => '',
+        'hero_intro_font_size' => array(),
         'hero_images' => array(),
         'reasons_title' => '',
+        'reasons_title_font_size' => array(),
         'reasons' => array(),
         'iconic_title' => '',
+        'iconic_title_font_size' => array(),
         'iconic_projects' => array(),
         'timeline_arrow' => '',
         'promise_image_desktop' => '',
         'promise_image_mobile' => '',
         'promise_title' => '',
+        'promise_title_font_size' => array(),
         'promise_text' => '',
+        'promise_text_font_size' => array(),
         'awards_title' => '',
+        'awards_title_font_size' => array(),
         'awards' => array(),
         'team_title' => '',
+        'team_title_font_size' => array(),
         'team_members' => array(),
     );
 
@@ -420,19 +427,26 @@ function marcan_get_about_settings(): array
 
     return array(
         'hero_intro' => $hero_intro,
+        'hero_intro_font_size' => marcan_get_field_font_size('about_hero_intro', $page),
         'hero_images' => $hero_images,
         'reasons_title' => $reasons_title,
+        'reasons_title_font_size' => marcan_get_field_font_size('about_reasons_title', $page),
         'reasons' => $reasons,
         'iconic_title' => $iconic_title,
+        'iconic_title_font_size' => marcan_get_field_font_size('about_iconic_title', $page),
         'iconic_projects' => $iconic_projects,
         'timeline_arrow' => marcan_about_resolve_image(get_field('about_timeline_arrow', $page), $defaults['timeline_arrow']),
         'promise_image_desktop' => marcan_about_resolve_image(get_field('about_promise_image_desktop', $page), $defaults['promise_image_desktop']),
         'promise_image_mobile' => marcan_about_resolve_image(get_field('about_promise_image_mobile', $page), $defaults['promise_image_mobile']),
         'promise_title' => $promise_title,
+        'promise_title_font_size' => marcan_get_field_font_size('about_promise_title', $page),
         'promise_text' => $promise_text,
+        'promise_text_font_size' => marcan_get_field_font_size('about_promise_text', $page),
         'awards_title' => $awards_title,
+        'awards_title_font_size' => marcan_get_field_font_size('about_awards_title', $page),
         'awards' => $awards,
         'team_title' => $team_title,
+        'team_title_font_size' => marcan_get_field_font_size('about_team_title', $page),
         'team_members' => $team_members,
     );
 }

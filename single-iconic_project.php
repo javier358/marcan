@@ -42,6 +42,18 @@ while (have_posts()) :
     $details_title = marcan_get_iconic_project_field($post_id, 'iconic_details_title', __('Detalles que marcan', 'marcan'));
     $details_text = marcan_get_iconic_project_field($post_id, 'iconic_details_text');
     $cta_title = marcan_get_iconic_project_field($post_id, 'iconic_cta_title', __('Creamos proyectos que marcan', 'marcan'));
+    $status_attrs = marcan_font_size_attrs(marcan_get_field_font_size('iconic_status', $post_id), 'marcan-iconic-pill');
+    $district_attrs = marcan_font_size_attrs(marcan_get_field_font_size('iconic_district', $post_id, 'iconic_address'));
+    $summary_attrs = marcan_font_size_attrs(marcan_get_field_font_size('iconic_summary', $post_id), 'marcan-iconic-summary', true);
+    $concept_title_attrs = marcan_font_size_attrs(marcan_get_field_font_size('iconic_concept_title', $post_id));
+    $concept_text_attrs = marcan_font_size_attrs(marcan_get_field_font_size('iconic_concept_text', $post_id), '', true);
+    $designer_name_attrs = marcan_font_size_attrs(marcan_get_field_font_size('iconic_designer_name', $post_id), 'marcan-iconic-designer-name');
+    $designer_role_attrs = marcan_font_size_attrs(marcan_get_field_font_size('iconic_designer_role', $post_id), 'marcan-iconic-designer-role');
+    $facade_title_attrs = marcan_font_size_attrs(marcan_get_field_font_size('iconic_facade_title', $post_id));
+    $facade_text_attrs = marcan_font_size_attrs(marcan_get_field_font_size('iconic_facade_text', $post_id), '', true);
+    $details_title_attrs = marcan_font_size_attrs(marcan_get_field_font_size('iconic_details_title', $post_id));
+    $details_text_attrs = marcan_font_size_attrs(marcan_get_field_font_size('iconic_details_text', $post_id), '', true);
+    $cta_title_attrs = marcan_font_size_attrs(marcan_get_field_font_size('iconic_cta_title', $post_id));
     $related_projects = marcan_get_iconic_projects($post_id);
     $about_settings = function_exists('marcan_get_about_settings') ? marcan_get_about_settings() : array();
     $timeline_arrow = isset($about_settings['timeline_arrow']) ? (string) $about_settings['timeline_arrow'] : '';
@@ -64,13 +76,13 @@ while (have_posts()) :
         <section class="marcan-iconic-intro">
             <div class="marcan-iconic-title-block">
                 <?php if ($status !== '') : ?>
-                    <span class="marcan-iconic-pill"><?php echo marcan_rich_inline($status); ?></span>
+                    <span<?php echo $status_attrs; ?>><?php echo marcan_rich_inline($status); ?></span>
                 <?php endif; ?>
                 <h1><?php echo marcan_rich_inline($title); ?></h1>
-                <p><?php echo marcan_rich_inline($district !== '' ? $district : $address); ?></p>
+                <p<?php echo $district_attrs; ?>><?php echo marcan_rich_inline($district !== '' ? $district : $address); ?></p>
             </div>
             <?php if ($summary !== '') : ?>
-                <div class="marcan-iconic-summary"><?php echo marcan_rich_block($summary); ?></div>
+                <div<?php echo $summary_attrs; ?>><?php echo marcan_rich_block($summary); ?></div>
             <?php endif; ?>
         </section>
 
@@ -84,8 +96,8 @@ while (have_posts()) :
             <section class="marcan-iconic-concept">
                 <?php if ($concept_text !== '') : ?>
                     <div class="marcan-iconic-copy">
-                        <h2><?php echo marcan_rich_inline($concept_title); ?></h2>
-                        <div><?php echo marcan_rich_block($concept_text); ?></div>
+                        <h2<?php echo $concept_title_attrs; ?>><?php echo marcan_rich_inline($concept_title); ?></h2>
+                        <div<?php echo $concept_text_attrs; ?>><?php echo marcan_rich_block($concept_text); ?></div>
                     </div>
                 <?php endif; ?>
 
@@ -95,10 +107,10 @@ while (have_posts()) :
                             <?php echo wp_get_attachment_image($designer_photo_id, 'medium_large', false, array('alt' => esc_attr($designer_name_plain))); ?>
                         <?php endif; ?>
                         <?php if ($designer_name !== '') : ?>
-                            <p class="marcan-iconic-designer-name"><?php echo marcan_rich_inline($designer_name); ?></p>
+                            <p<?php echo $designer_name_attrs; ?>><?php echo marcan_rich_inline($designer_name); ?></p>
                         <?php endif; ?>
                         <?php if ($designer_role !== '') : ?>
-                            <p class="marcan-iconic-designer-role"><?php echo marcan_rich_inline($designer_role); ?></p>
+                            <p<?php echo $designer_role_attrs; ?>><?php echo marcan_rich_inline($designer_role); ?></p>
                         <?php endif; ?>
                     </aside>
                 <?php endif; ?>
@@ -112,8 +124,8 @@ while (have_posts()) :
                 <?php endif; ?>
                 <?php if ($facade_text !== '') : ?>
                     <div class="marcan-iconic-facade-card">
-                        <h2><?php echo marcan_rich_inline($facade_title !== '' ? $facade_title : __('La fachada', 'marcan')); ?></h2>
-                        <div><?php echo marcan_rich_block($facade_text); ?></div>
+                        <h2<?php echo $facade_title_attrs; ?>><?php echo marcan_rich_inline($facade_title !== '' ? $facade_title : __('La fachada', 'marcan')); ?></h2>
+                        <div<?php echo $facade_text_attrs; ?>><?php echo marcan_rich_block($facade_text); ?></div>
                     </div>
                 <?php endif; ?>
             </section>
@@ -153,8 +165,8 @@ while (have_posts()) :
 
         <?php if ($details_text !== '') : ?>
             <section class="marcan-iconic-details">
-                <h2><?php echo marcan_rich_inline($details_title); ?></h2>
-                <div><?php echo marcan_rich_block($details_text); ?></div>
+                <h2<?php echo $details_title_attrs; ?>><?php echo marcan_rich_inline($details_title); ?></h2>
+                <div<?php echo $details_text_attrs; ?>><?php echo marcan_rich_block($details_text); ?></div>
             </section>
         <?php endif; ?>
 
@@ -199,8 +211,8 @@ while (have_posts()) :
                                 </a>
                                 <div class="marcan-about-timeline-info">
                                     <div class="marcan-about-timeline-info-title"><?php echo marcan_rich_inline(get_the_title($related_id)); ?></div>
-                                    <div class="marcan-about-timeline-info-district"><?php echo marcan_rich_inline($related_district); ?></div>
-                                    <div class="marcan-about-timeline-info-year"><?php echo marcan_rich_inline($related_year); ?></div>
+                                    <div<?php echo marcan_font_size_attrs(marcan_get_field_font_size('iconic_district', $related_id), 'marcan-about-timeline-info-district'); ?>><?php echo marcan_rich_inline($related_district); ?></div>
+                                    <div<?php echo marcan_font_size_attrs(marcan_get_field_font_size('iconic_year', $related_id), 'marcan-about-timeline-info-year'); ?>><?php echo marcan_rich_inline($related_year); ?></div>
                                 </div>
                             </article>
                         <?php endforeach; ?>
@@ -210,7 +222,7 @@ while (have_posts()) :
         <?php endif; ?>
 
         <section class="marcan-iconic-cta">
-            <h2><?php echo marcan_rich_inline($cta_title); ?></h2>
+            <h2<?php echo $cta_title_attrs; ?>><?php echo marcan_rich_inline($cta_title); ?></h2>
             <div>
                 <a class="marcan-iconic-cta-button is-yellow" href="<?php echo esc_url($departments_url); ?>"><?php esc_html_e('Departamentos en venta', 'marcan'); ?></a>
                 <a class="marcan-iconic-cta-button is-white" href="<?php echo esc_url($offices_url); ?>"><?php esc_html_e('Oficinas en venta', 'marcan'); ?></a>

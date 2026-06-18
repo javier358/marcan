@@ -11,7 +11,7 @@ $has_iconic_projects = !empty($about['iconic_projects']);
     <section class="marcan-about-iconic">
         <div class="marcan-about-section-inner marcan-about-iconic-heading">
             <?php if (!empty($about['iconic_title'])) : ?>
-                <h2 class="marcan-about-section-title marcan-about-section-title--iconic"><?php echo marcan_rich_inline($about['iconic_title']); ?></h2>
+                <h2<?php echo marcan_font_size_attrs($about['iconic_title_font_size'] ?? array(), 'marcan-about-section-title marcan-about-section-title--iconic'); ?>><?php echo marcan_rich_inline($about['iconic_title']); ?></h2>
             <?php endif; ?>
             <?php if (count($about['iconic_projects']) > 1) : ?>
                 <div class="marcan-about-iconic-actions">
@@ -58,13 +58,13 @@ $has_iconic_projects = !empty($about['iconic_projects']);
                         <?php if ($has_info) : ?>
                             <div class="marcan-about-timeline-info">
                                 <?php if ($project_name !== '') : ?>
-                                    <div class="marcan-about-timeline-info-title"><?php echo marcan_rich_inline($project_name); ?></div>
+                                    <div<?php echo marcan_font_size_attrs(marcan_get_row_font_size($project, 'name'), 'marcan-about-timeline-info-title'); ?>><?php echo marcan_rich_inline($project_name); ?></div>
                                 <?php endif; ?>
                                 <?php if (!empty($project['district'])) : ?>
-                                    <div class="marcan-about-timeline-info-district"><?php echo marcan_rich_inline($project['district']); ?></div>
+                                    <div<?php echo marcan_font_size_attrs(marcan_get_row_font_size($project, 'district'), 'marcan-about-timeline-info-district'); ?>><?php echo marcan_rich_inline($project['district']); ?></div>
                                 <?php endif; ?>
                                 <?php if (!empty($project['year'])) : ?>
-                                    <div class="marcan-about-timeline-info-year"><?php echo marcan_rich_inline($project['year']); ?></div>
+                                    <div<?php echo marcan_font_size_attrs(marcan_get_row_font_size($project, 'year'), 'marcan-about-timeline-info-year'); ?>><?php echo marcan_rich_inline($project['year']); ?></div>
                                 <?php endif; ?>
                             </div>
                         <?php endif; ?>

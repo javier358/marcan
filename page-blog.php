@@ -32,7 +32,7 @@ get_header();
                 <?php endif; ?>
             </div>
             <div class="marcan-blog-hero-panel">
-                <span class="marcan-blog-hero-new"><?php echo esc_html($blog_content['featured_label']); ?></span>
+                <span<?php echo marcan_font_size_attrs($blog_content['featured_label_font_size'] ?? array(), 'marcan-blog-hero-new'); ?>><?php echo esc_html($blog_content['featured_label']); ?></span>
                 <h1 class="marcan-blog-hero-title">
                     <a href="<?php echo esc_url(get_permalink($featured->ID)); ?>"><?php echo esc_html(get_the_title($featured->ID)); ?></a>
                 </h1>
@@ -49,8 +49,8 @@ get_header();
 
     <section class="marcan-blog-content">
         <div class="marcan-blog-content-labels">
-            <span><?php echo esc_html($blog_content['important_label']); ?></span>
-            <span><?php echo esc_html($blog_content['all_label']); ?></span>
+            <span<?php echo marcan_font_size_attrs($blog_content['important_label_font_size'] ?? array()); ?>><?php echo esc_html($blog_content['important_label']); ?></span>
+            <span<?php echo marcan_font_size_attrs($blog_content['all_label_font_size'] ?? array()); ?>><?php echo esc_html($blog_content['all_label']); ?></span>
         </div>
         <div class="marcan-blog-content-grid">
             <article class="marcan-blog-main">
@@ -83,8 +83,8 @@ get_header();
     <section class="marcan-blog-about">
         <div class="marcan-blog-about-grid">
             <?php foreach (array(
-                array('image_id' => $blog_content['about_image_id'], 'label' => $blog_content['about_label'], 'title' => $blog_content['about_title'], 'text' => $blog_content['about_text']),
-                array('image_id' => $blog_content['vision_image_id'], 'label' => $blog_content['vision_label'], 'title' => $blog_content['vision_title'], 'text' => $blog_content['vision_text']),
+                array('image_id' => $blog_content['about_image_id'], 'label' => $blog_content['about_label'], 'title' => $blog_content['about_title'], 'text' => $blog_content['about_text'], 'label_font_size' => $blog_content['about_label_font_size'] ?? array(), 'title_font_size' => $blog_content['about_title_font_size'] ?? array(), 'text_font_size' => $blog_content['about_text_font_size'] ?? array()),
+                array('image_id' => $blog_content['vision_image_id'], 'label' => $blog_content['vision_label'], 'title' => $blog_content['vision_title'], 'text' => $blog_content['vision_text'], 'label_font_size' => $blog_content['vision_label_font_size'] ?? array(), 'title_font_size' => $blog_content['vision_title_font_size'] ?? array(), 'text_font_size' => $blog_content['vision_text_font_size'] ?? array()),
             ) as $about_block) : ?>
                 <div class="marcan-blog-about-block">
                     <div class="marcan-blog-about-photo">
@@ -93,9 +93,9 @@ get_header();
                         <?php endif; ?>
                     </div>
                     <div class="marcan-blog-about-copy">
-                        <p class="marcan-blog-about-label"><?php echo esc_html($about_block['label']); ?></p>
-                        <h2><?php echo esc_html($about_block['title']); ?></h2>
-                        <p><?php echo esc_html($about_block['text']); ?></p>
+                        <p<?php echo marcan_font_size_attrs($about_block['label_font_size'] ?? array(), 'marcan-blog-about-label'); ?>><?php echo esc_html($about_block['label']); ?></p>
+                        <h2<?php echo marcan_font_size_attrs($about_block['title_font_size'] ?? array()); ?>><?php echo esc_html($about_block['title']); ?></h2>
+                        <p<?php echo marcan_font_size_attrs($about_block['text_font_size'] ?? array()); ?>><?php echo esc_html($about_block['text']); ?></p>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -103,8 +103,8 @@ get_header();
         <div class="marcan-blog-about-stats">
             <?php foreach ($blog_content['stats'] as $stat) : ?>
                 <div class="marcan-blog-about-stat">
-                    <span class="marcan-blog-about-stat-number"><?php echo esc_html((string) ($stat['number'] ?? '')); ?></span>
-                    <span class="marcan-blog-about-stat-label"><?php echo esc_html((string) ($stat['label'] ?? '')); ?></span>
+                    <span<?php echo marcan_font_size_attrs(marcan_get_row_font_size($stat, 'number'), 'marcan-blog-about-stat-number'); ?>><?php echo esc_html((string) ($stat['number'] ?? '')); ?></span>
+                    <span<?php echo marcan_font_size_attrs(marcan_get_row_font_size($stat, 'label'), 'marcan-blog-about-stat-label'); ?>><?php echo esc_html((string) ($stat['label'] ?? '')); ?></span>
                 </div>
             <?php endforeach; ?>
         </div>
@@ -112,10 +112,10 @@ get_header();
 
     <section class="marcan-blog-cta">
         <div class="marcan-blog-cta-inner">
-            <h2><?php echo esc_html($blog_content['cta_title']); ?></h2>
+            <h2<?php echo marcan_font_size_attrs($blog_content['cta_title_font_size'] ?? array()); ?>><?php echo esc_html($blog_content['cta_title']); ?></h2>
             <div class="marcan-blog-cta-actions">
-                <a href="<?php echo esc_url(marcan_page_url('departamentos')); ?>" class="marcan-blog-cta-btn marcan-blog-cta-btn-yellow"><?php echo esc_html($blog_content['cta_departments_label']); ?></a>
-                <a href="<?php echo esc_url(marcan_page_url('oficinas')); ?>" class="marcan-blog-cta-btn marcan-blog-cta-btn-white"><?php echo esc_html($blog_content['cta_offices_label']); ?></a>
+                <a href="<?php echo esc_url(marcan_page_url('departamentos')); ?>"<?php echo marcan_font_size_attrs($blog_content['cta_departments_label_font_size'] ?? array(), 'marcan-blog-cta-btn marcan-blog-cta-btn-yellow'); ?>><?php echo esc_html($blog_content['cta_departments_label']); ?></a>
+                <a href="<?php echo esc_url(marcan_page_url('oficinas')); ?>"<?php echo marcan_font_size_attrs($blog_content['cta_offices_label_font_size'] ?? array(), 'marcan-blog-cta-btn marcan-blog-cta-btn-white'); ?>><?php echo esc_html($blog_content['cta_offices_label']); ?></a>
             </div>
         </div>
     </section>

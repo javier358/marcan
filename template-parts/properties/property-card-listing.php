@@ -39,21 +39,27 @@ $bathrooms_label = $bathrooms !== '' && preg_match('/[[:alpha:]]/u', $bathrooms)
 $parking_label = $parking !== '' && preg_match('/[[:alpha:]]/u', $parking) ? $parking : trim($parking . ' ' . __('estacionamientos', 'marcan'));
 $listing_specs = array();
 if ($kind === 'departamento' && $bedrooms !== '') {
-    $listing_specs[] = array('class' => 'bedrooms', 'label' => $bedrooms_label);
+    $listing_specs[] = array('class' => 'bedrooms', 'label' => $bedrooms_label, 'font_size' => marcan_get_field_font_size('dormitorios', $post_id));
 }
 if ($area !== '') {
-    $listing_specs[] = array('class' => 'area', 'label' => $area);
+    $listing_specs[] = array('class' => 'area', 'label' => $area, 'font_size' => marcan_get_field_font_size('area', $post_id));
 }
 if ($bathrooms !== '') {
-    $listing_specs[] = array('class' => 'bathrooms', 'label' => $bathrooms_label);
+    $listing_specs[] = array('class' => 'bathrooms', 'label' => $bathrooms_label, 'font_size' => marcan_get_field_font_size('banos', $post_id));
 }
 if ($parking !== '') {
-    $listing_specs[] = array('class' => 'parking', 'label' => $parking_label);
+    $listing_specs[] = array('class' => 'parking', 'label' => $parking_label, 'font_size' => marcan_get_field_font_size('estacionamientos', $post_id));
 }
 if ($delivery_date !== '') {
-    $listing_specs[] = array('class' => 'delivery', 'label' => $delivery_date);
+    $listing_specs[] = array('class' => 'delivery', 'label' => $delivery_date, 'font_size' => marcan_get_field_font_size('fecha_entrega', $post_id));
 }
 $listing_specs = array_slice($listing_specs, 0, 5);
+$status_attrs = marcan_font_size_attrs(marcan_get_field_font_size('estado', $post_id), 'marcan-property-badge');
+$title_attrs = marcan_font_size_attrs(marcan_get_field_font_size('titulo_comercial', $post_id));
+$subtitle_attrs = marcan_font_size_attrs(marcan_get_field_font_size('subtitulo', $post_id, 'ubicacion'));
+$price_attrs = marcan_font_size_attrs(marcan_get_field_font_size('precio', $post_id));
+$listing_intro_title_attrs = marcan_font_size_attrs(marcan_get_field_font_size('listado_intro_titulo', $post_id, 'concepto_titulo'));
+$listing_intro_text_attrs = marcan_font_size_attrs(marcan_get_field_font_size('listado_intro_texto', $post_id, 'descripcion_corta'), '', true);
 ?>
 
 <article class="marcan-property-listing-card <?php echo esc_attr($layout === 'info-left' ? 'is-info-left' : 'is-media-left'); ?>">
@@ -68,30 +74,30 @@ $listing_specs = array_slice($listing_specs, 0, 5);
         <?php endif; ?>
     </a>
     <div class="marcan-property-listing-info">
-        <span class="marcan-property-badge"><?php echo marcan_rich_inline($status); ?></span>
+        <span<?php echo $status_attrs; ?>><?php echo marcan_rich_inline($status); ?></span>
         <div class="marcan-property-listing-title">
-            <h2><?php echo marcan_rich_inline($title); ?></h2>
+            <h2<?php echo $title_attrs; ?>><?php echo marcan_rich_inline($title); ?></h2>
             <?php if ($subtitle !== '') : ?>
-                <p><?php echo marcan_rich_inline($subtitle); ?></p>
+                <p<?php echo $subtitle_attrs; ?>><?php echo marcan_rich_inline($subtitle); ?></p>
             <?php endif; ?>
         </div>
         <div class="marcan-property-listing-price">
             <span><?php esc_html_e('Desde:', 'marcan'); ?></span>
-            <strong><?php echo esc_html($price); ?></strong>
+            <strong<?php echo $price_attrs; ?>><?php echo esc_html($price); ?></strong>
         </div>
         <?php if (!empty($listing_specs)) : ?>
             <div class="marcan-property-listing-specs">
                 <?php foreach ($listing_specs as $spec) : ?>
-                    <span class="marcan-property-listing-spec marcan-property-listing-spec-<?php echo esc_attr($spec['class']); ?>"><?php echo marcan_rich_inline($spec['label']); ?></span>
+                    <span<?php echo marcan_font_size_attrs($spec['font_size'] ?? array(), 'marcan-property-listing-spec marcan-property-listing-spec-' . $spec['class']); ?>><?php echo marcan_rich_inline($spec['label']); ?></span>
                 <?php endforeach; ?>
             </div>
         <?php endif; ?>
         <div class="marcan-property-listing-copy">
             <?php if ($listing_intro_title !== '') : ?>
-                <h3><?php echo marcan_rich_inline($listing_intro_title); ?></h3>
+                <h3<?php echo $listing_intro_title_attrs; ?>><?php echo marcan_rich_inline($listing_intro_title); ?></h3>
             <?php endif; ?>
             <?php if ($listing_intro_text !== '') : ?>
-                <div><?php echo marcan_rich_block($listing_intro_text); ?></div>
+                <div<?php echo $listing_intro_text_attrs; ?>><?php echo marcan_rich_block($listing_intro_text); ?></div>
             <?php endif; ?>
         </div>
         <div class="marcan-property-listing-actions">

@@ -29,10 +29,10 @@ $has_facts = $has_promise || $has_awards || $has_team;
                         <div class="marcan-about-promise-card">
                             <div class="marcan-about-promise-card-inner">
                                 <?php if (!empty($about['promise_title'])) : ?>
-                                    <h2><?php echo marcan_rich_inline($about['promise_title']); ?></h2>
+                                    <h2<?php echo marcan_font_size_attrs($about['promise_title_font_size'] ?? array()); ?>><?php echo marcan_rich_inline($about['promise_title']); ?></h2>
                                 <?php endif; ?>
                                 <?php if (!empty($about['promise_text'])) : ?>
-                                    <div><?php echo marcan_rich_block($about['promise_text']); ?></div>
+                                    <div<?php echo marcan_font_size_attrs($about['promise_text_font_size'] ?? array(), '', true); ?>><?php echo marcan_rich_block($about['promise_text']); ?></div>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -43,7 +43,7 @@ $has_facts = $has_promise || $has_awards || $has_team;
             <?php if ($has_awards) : ?>
                 <div class="marcan-about-awards">
                     <?php if (!empty($about['awards_title'])) : ?>
-                        <h2 class="marcan-about-section-title marcan-about-section-title--light"><?php echo marcan_rich_inline($about['awards_title']); ?></h2>
+                        <h2<?php echo marcan_font_size_attrs($about['awards_title_font_size'] ?? array(), 'marcan-about-section-title marcan-about-section-title--light'); ?>><?php echo marcan_rich_inline($about['awards_title']); ?></h2>
                     <?php endif; ?>
                     <div class="marcan-about-awards-grid">
                         <?php foreach ($about['awards'] as $award) : ?>
@@ -56,16 +56,16 @@ $has_facts = $has_promise || $has_awards || $has_team;
                                 <?php if (!empty($award['year']) || !empty($award['title']) || !empty($award['text']) || !empty($award['link_url'])) : ?>
                                     <div class="marcan-about-award-content">
                                         <?php if (!empty($award['year'])) : ?>
-                                            <div class="marcan-about-award-year"><?php echo marcan_rich_inline($award['year']); ?></div>
+                                            <div<?php echo marcan_font_size_attrs(marcan_get_row_font_size($award, 'year'), 'marcan-about-award-year'); ?>><?php echo marcan_rich_inline($award['year']); ?></div>
                                         <?php endif; ?>
                                         <?php if (!empty($award['title'])) : ?>
-                                            <h3><?php echo marcan_rich_inline($award['title']); ?></h3>
+                                            <h3<?php echo marcan_font_size_attrs(marcan_get_row_font_size($award, 'title')); ?>><?php echo marcan_rich_inline($award['title']); ?></h3>
                                         <?php endif; ?>
                                         <?php if (!empty($award['text'])) : ?>
-                                            <div><?php echo marcan_rich_block($award['text']); ?></div>
+                                            <div<?php echo marcan_font_size_attrs(marcan_get_row_font_size($award, 'text'), '', true); ?>><?php echo marcan_rich_block($award['text']); ?></div>
                                         <?php endif; ?>
                                         <?php if (!empty($award['link_url'])) : ?>
-                                            <a href="<?php echo esc_url($award['link_url']); ?>"><?php echo marcan_rich_inline(!empty($award['link_label']) ? $award['link_label'] : 'Ver proyecto'); ?></a>
+                                            <a<?php echo marcan_font_size_attrs(marcan_get_row_font_size($award, 'link_label')); ?> href="<?php echo esc_url($award['link_url']); ?>"><?php echo marcan_rich_inline(!empty($award['link_label']) ? $award['link_label'] : 'Ver proyecto'); ?></a>
                                         <?php endif; ?>
                                     </div>
                                 <?php endif; ?>
@@ -78,7 +78,7 @@ $has_facts = $has_promise || $has_awards || $has_team;
             <?php if ($has_team) : ?>
                 <div class="marcan-about-team">
                     <?php if (!empty($about['team_title'])) : ?>
-                        <h2 class="marcan-about-section-title marcan-about-section-title--light"><?php echo marcan_rich_inline($about['team_title']); ?></h2>
+                        <h2<?php echo marcan_font_size_attrs($about['team_title_font_size'] ?? array(), 'marcan-about-section-title marcan-about-section-title--light'); ?>><?php echo marcan_rich_inline($about['team_title']); ?></h2>
                     <?php endif; ?>
                     <div class="marcan-about-team-track" data-about-slider="team">
                         <?php foreach ($about['team_members'] as $member) : ?>
@@ -96,10 +96,10 @@ $has_facts = $has_promise || $has_awards || $has_team;
                                 <?php if (!empty($member['name']) || !empty($member['role']) || !empty($member['linkedin'])) : ?>
                                     <div class="marcan-about-team-meta">
                                         <?php if (!empty($member['name'])) : ?>
-                                            <h3><?php echo marcan_rich_inline($member['name']); ?></h3>
+                                            <h3<?php echo marcan_font_size_attrs(marcan_get_row_font_size($member, 'name')); ?>><?php echo marcan_rich_inline($member['name']); ?></h3>
                                         <?php endif; ?>
                                         <?php if (!empty($member['role'])) : ?>
-                                            <p><?php echo marcan_rich_inline($member['role']); ?></p>
+                                            <p<?php echo marcan_font_size_attrs(marcan_get_row_font_size($member, 'role')); ?>><?php echo marcan_rich_inline($member['role']); ?></p>
                                         <?php endif; ?>
                                         <?php if (!empty($member['linkedin'])) : ?>
                                             <a href="<?php echo esc_url($member['linkedin']); ?>" target="_blank" rel="noreferrer">LinkedIn</a>
