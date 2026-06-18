@@ -34,7 +34,7 @@ function marcan_register_options_page(): void
         'page_title' => 'MARCAN Global',
         'menu_title' => 'MARCAN Global',
         'menu_slug'  => 'marcan-global-settings',
-        'capability' => 'edit_theme_options',
+        'capability' => 'manage_marcan_content',
         'redirect'   => false,
     ));
 }
@@ -193,10 +193,30 @@ function marcan_acf_add_font_size_controls(array $fields): array
     return $result;
 }
 
+function marcan_acf_group_targets_options(array $group): bool
+{
+    foreach ((array) ($group['location'] ?? array()) as $or_group) {
+        foreach ((array) $or_group as $rule) {
+            if (is_array($rule) && ($rule['param'] ?? '') === 'options_page') {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
 function marcan_acf_add_local_field_group(array $group): void
 {
     if (!empty($group['fields']) && is_array($group['fields'])) {
         $group['fields'] = marcan_acf_add_font_size_controls($group['fields']);
+    }
+
+    // En pantallas de edicion de post/pagina/CPT, mostrar los campos SCF arriba
+    // (justo bajo el titulo) para que el cliente vea primero lo editable y el
+    // editor nativo quede al final. No aplica a paginas de opciones.
+    if (!isset($group['position']) && !marcan_acf_group_targets_options($group)) {
+        $group['position'] = 'acf_after_title';
     }
 
     acf_add_local_field_group($group);
@@ -424,6 +444,147 @@ function marcan_register_field_groups(): void
     if (!function_exists('acf_add_local_field_group')) {
         return;
     }
+
+    /* ───────────────────────── PÁGINA: POLÍTICA DE PRIVACIDAD ───────────────────────── */
+    marcan_acf_add_local_field_group(array(
+        'key' => 'group_marcan_privacy_page',
+        'title' => 'Política de privacidad',
+        'fields' => array(
+            marcan_acf_wysiwyg(
+                'field_marcan_privacy_body',
+                'Contenido de la política',
+                'privacy_body',
+                'full',
+                1,
+                'Texto completo de la política de privacidad. Si lo dejas vacío se muestra el texto por defecto de Marcan. Puedes usar títulos, párrafos, listas y enlaces.'
+            ),
+        ),
+        'location' => array(
+            array(
+                array('param' => 'page_template', 'operator' => '==', 'value' => 'page-politicas-privacidad.php'),
+            ),
+        ),
+        'menu_order' => 0,
+        'active' => true,
+    ));
+
+    /* ───────────────────────── PÁGINA: TÉRMINOS Y CONDICIONES ───────────────────────── */
+    marcan_acf_add_local_field_group(array(
+        'key' => 'group_marcan_terms_page',
+        'title' => 'Términos y condiciones',
+        'fields' => array(
+            marcan_acf_wysiwyg(
+                'field_marcan_terms_body',
+                'Contenido de los términos',
+                'terms_body',
+                'full',
+                1,
+                'Texto completo de los términos y condiciones. Si lo dejas vacío se muestra el texto por defecto de Marcan. Puedes usar títulos, párrafos, listas y enlaces.'
+            ),
+        ),
+        'location' => array(
+            array(
+                array('param' => 'page_template', 'operator' => '==', 'value' => 'page-terminos-condiciones.php'),
+            ),
+        ),
+        'menu_order' => 0,
+        'active' => true,
+    ));
+
+    /* ───────────────────────── GLOBAL: TEXTOS DEL MODAL DE CONTACTO ───────────────────────── */
+    marcan_acf_add_local_field_group(array(
+        'key' => 'group_marcan_ui_contact_modal',
+        'title' => 'Textos - Formulario de contacto',
+        'fields' => array(
+            marcan_acf_tab('field_marcan_tab_ui_contact_labels', 'Etiquetas del formulario'),
+            array('key' => 'field_marcan_ui_contact_label_nombre', 'label' => 'Etiqueta: Nombre', 'name' => 'ui_contact_label_nombre', 'type' => 'text', 'default_value' => 'Nombre*', 'instructions' => 'Etiqueta del campo Nombre en el formulario de contacto.', 'wrapper' => array('width' => '50')),
+            array('key' => 'field_marcan_ui_contact_ph_nombre', 'label' => 'Placeholder: Nombre', 'name' => 'ui_contact_ph_nombre', 'type' => 'text', 'default_value' => 'Ingresa tu nombre', 'instructions' => 'Texto guía dentro del campo Nombre.', 'wrapper' => array('width' => '50')),
+            array('key' => 'field_marcan_ui_contact_label_apellido', 'label' => 'Etiqueta: Apellido', 'name' => 'ui_contact_label_apellido', 'type' => 'text', 'default_value' => 'Apellido*', 'wrapper' => array('width' => '50')),
+            array('key' => 'field_marcan_ui_contact_ph_apellido', 'label' => 'Placeholder: Apellido', 'name' => 'ui_contact_ph_apellido', 'type' => 'text', 'default_value' => 'Ingresa tu apellido', 'wrapper' => array('width' => '50')),
+            array('key' => 'field_marcan_ui_contact_label_email', 'label' => 'Etiqueta: Email', 'name' => 'ui_contact_label_email', 'type' => 'text', 'default_value' => 'Email*', 'wrapper' => array('width' => '50')),
+            array('key' => 'field_marcan_ui_contact_ph_email', 'label' => 'Placeholder: Email', 'name' => 'ui_contact_ph_email', 'type' => 'text', 'default_value' => 'nombre@correo.com', 'wrapper' => array('width' => '50')),
+            array('key' => 'field_marcan_ui_contact_label_telefono', 'label' => 'Etiqueta: Teléfono', 'name' => 'ui_contact_label_telefono', 'type' => 'text', 'default_value' => 'Teléfono/Celular*', 'wrapper' => array('width' => '50')),
+            array('key' => 'field_marcan_ui_contact_ph_telefono', 'label' => 'Placeholder: Teléfono', 'name' => 'ui_contact_ph_telefono', 'type' => 'text', 'default_value' => '999 999 999', 'wrapper' => array('width' => '50')),
+            marcan_acf_tab('field_marcan_tab_ui_contact_buttons', 'Botones y mensajes'),
+            array('key' => 'field_marcan_ui_contact_submit', 'label' => 'Botón enviar', 'name' => 'ui_contact_submit', 'type' => 'text', 'default_value' => 'Contactar', 'instructions' => 'Texto del botón que envía el formulario.'),
+            array('key' => 'field_marcan_ui_contact_sending', 'label' => 'Mensaje "enviando"', 'name' => 'ui_contact_sending', 'type' => 'text', 'default_value' => 'Enviando solicitud', 'instructions' => 'Se muestra mientras se envía el formulario.'),
+            array('key' => 'field_marcan_ui_contact_thanks_general', 'label' => 'Mensaje de gracias (general)', 'name' => 'ui_contact_thanks_general', 'type' => 'text', 'default_value' => 'Gracias, un asesor se pondrá en contacto contigo', 'instructions' => 'Mensaje tras enviar el formulario desde páginas generales.'),
+            array('key' => 'field_marcan_ui_contact_thanks_property', 'label' => 'Mensaje de gracias (proyecto)', 'name' => 'ui_contact_thanks_property', 'type' => 'textarea', 'rows' => 3, 'new_lines' => 'br', 'default_value' => "Gracias,\ntu información\nha sido enviada", 'instructions' => 'Mensaje tras enviar desde una ficha de proyecto/oficina. Cada salto de línea es una línea nueva.'),
+        ),
+        'location' => array(
+            array(
+                array('param' => 'options_page', 'operator' => '==', 'value' => 'marcan-global-settings'),
+            ),
+        ),
+        'menu_order' => 5,
+        'active' => true,
+    ));
+
+    /* ───────────────────────── GLOBAL: TEXTOS DE TARJETAS DE PROYECTO ───────────────────────── */
+    marcan_acf_add_local_field_group(array(
+        'key' => 'group_marcan_ui_cards',
+        'title' => 'Textos - Tarjetas de proyecto',
+        'fields' => array(
+            array('key' => 'field_marcan_ui_card_cta_more', 'label' => 'Botón "Ver más"', 'name' => 'ui_card_cta_more', 'type' => 'text', 'default_value' => 'Ver más', 'instructions' => 'CTA por defecto de las tarjetas del home cuando no se define uno propio.'),
+            array('key' => 'field_marcan_ui_card_cta_office', 'label' => 'Botón "Ver oficina"', 'name' => 'ui_card_cta_office', 'type' => 'text', 'default_value' => 'Ver oficina', 'instructions' => 'CTA de las tarjetas en el listado de oficinas.'),
+            array('key' => 'field_marcan_ui_card_cta_department', 'label' => 'Botón "Ver departamento"', 'name' => 'ui_card_cta_department', 'type' => 'text', 'default_value' => 'Ver departamento', 'instructions' => 'CTA de las tarjetas en el listado de departamentos.'),
+            array('key' => 'field_marcan_ui_card_price_label', 'label' => 'Etiqueta de precio', 'name' => 'ui_card_price_label', 'type' => 'text', 'default_value' => 'Desde:', 'instructions' => 'Texto antes del precio en las tarjetas.'),
+            array('key' => 'field_marcan_ui_card_brochure', 'label' => 'Botón brochure', 'name' => 'ui_card_brochure', 'type' => 'text', 'default_value' => 'Descargar brochure', 'instructions' => 'Botón para descargar el brochure en las tarjetas del listado.'),
+        ),
+        'location' => array(
+            array(
+                array('param' => 'options_page', 'operator' => '==', 'value' => 'marcan-global-settings'),
+            ),
+        ),
+        'menu_order' => 6,
+        'active' => true,
+    ));
+
+    /* ───────────────────────── GLOBAL: TEXTOS DE FICHA DE PROYECTO ───────────────────────── */
+    marcan_acf_add_local_field_group(array(
+        'key' => 'group_marcan_ui_property',
+        'title' => 'Textos - Ficha de proyecto',
+        'fields' => array(
+            marcan_acf_tab('field_marcan_tab_ui_property_buttons', 'Botones'),
+            array('key' => 'field_marcan_ui_property_btn_brochure', 'label' => 'Botón brochure', 'name' => 'ui_property_btn_brochure', 'type' => 'text', 'default_value' => 'Descargar brochure', 'wrapper' => array('width' => '50')),
+            array('key' => 'field_marcan_ui_property_btn_quote_project', 'label' => 'Botón cotizar (departamento)', 'name' => 'ui_property_btn_quote_project', 'type' => 'text', 'default_value' => 'Cotizar proyecto', 'wrapper' => array('width' => '50')),
+            array('key' => 'field_marcan_ui_property_btn_quote_office', 'label' => 'Botón cotizar (oficina)', 'name' => 'ui_property_btn_quote_office', 'type' => 'text', 'default_value' => 'Cotizar oficina', 'wrapper' => array('width' => '50')),
+            array('key' => 'field_marcan_ui_property_btn_download_quote', 'label' => 'Botón descargar cotización', 'name' => 'ui_property_btn_download_quote', 'type' => 'text', 'default_value' => 'Descargar cotización', 'wrapper' => array('width' => '50')),
+            array('key' => 'field_marcan_ui_property_btn_contact', 'label' => 'Botón contáctanos', 'name' => 'ui_property_btn_contact', 'type' => 'text', 'default_value' => 'Contáctanos', 'wrapper' => array('width' => '50')),
+            array('key' => 'field_marcan_ui_property_btn_share', 'label' => 'Botón compartir', 'name' => 'ui_property_btn_share', 'type' => 'text', 'default_value' => 'Compartir', 'wrapper' => array('width' => '50')),
+            array('key' => 'field_marcan_ui_property_map_google', 'label' => 'Botón Google Maps', 'name' => 'ui_property_map_google', 'type' => 'text', 'default_value' => 'Ver en Google Maps', 'wrapper' => array('width' => '50')),
+            array('key' => 'field_marcan_ui_property_map_waze', 'label' => 'Botón Waze', 'name' => 'ui_property_map_waze', 'type' => 'text', 'default_value' => 'Ver en Waze', 'wrapper' => array('width' => '50')),
+            marcan_acf_tab('field_marcan_tab_ui_property_titles', 'Títulos de sección'),
+            array('key' => 'field_marcan_ui_property_tours_title', 'label' => 'Título recorridos virtuales', 'name' => 'ui_property_tours_title', 'type' => 'text', 'default_value' => 'Recorridos virtuales'),
+            array('key' => 'field_marcan_ui_property_about_label', 'label' => 'Etiqueta "Sobre el proyecto"', 'name' => 'ui_property_about_label', 'type' => 'text', 'default_value' => 'Sobre el proyecto'),
+            array('key' => 'field_marcan_ui_property_related_dept', 'label' => 'Título relacionados (departamentos)', 'name' => 'ui_property_related_dept', 'type' => 'text', 'default_value' => 'Otros departamentos en venta'),
+            array('key' => 'field_marcan_ui_property_related_office', 'label' => 'Título relacionados (oficinas)', 'name' => 'ui_property_related_office', 'type' => 'text', 'default_value' => 'Otras oficinas en venta'),
+        ),
+        'location' => array(
+            array(
+                array('param' => 'options_page', 'operator' => '==', 'value' => 'marcan-global-settings'),
+            ),
+        ),
+        'menu_order' => 7,
+        'active' => true,
+    ));
+
+    /* ───────────────────────── GLOBAL: TEXTOS DEL BLOG ───────────────────────── */
+    marcan_acf_add_local_field_group(array(
+        'key' => 'group_marcan_ui_blog',
+        'title' => 'Textos - Blog',
+        'fields' => array(
+            array('key' => 'field_marcan_ui_blog_read', 'label' => 'Botón "Leer publicación"', 'name' => 'ui_blog_read', 'type' => 'text', 'default_value' => 'Leer publicación', 'instructions' => 'Botón de la publicación destacada del blog.'),
+            array('key' => 'field_marcan_ui_blog_more', 'label' => 'Botón "Ver más"', 'name' => 'ui_blog_more', 'type' => 'text', 'default_value' => 'Ver más', 'instructions' => 'Botón al final de la barra lateral del blog.'),
+        ),
+        'location' => array(
+            array(
+                array('param' => 'options_page', 'operator' => '==', 'value' => 'marcan-global-settings'),
+            ),
+        ),
+        'menu_order' => 8,
+        'active' => true,
+    ));
 
     /* ───────────────────────── GLOBAL: HEADER + FOOTER (Options) ───────────────────────── */
     marcan_acf_add_local_field_group(array(

@@ -21,7 +21,9 @@ $listing_intro_text = marcan_get_property_field($post_id, 'listado_intro_texto',
 $delivery_date = marcan_get_property_field($post_id, 'fecha_entrega');
 $image_id = marcan_get_property_image_id($post_id, 'home_desktop_image', 'listado_hero_imagen');
 $mobile_image_id = marcan_get_property_image_id($post_id, 'home_mobile_image', 'home_desktop_image');
-$view_label = $kind === 'oficina' ? __('Ver oficina', 'marcan') : __('Ver departamento', 'marcan');
+$view_label = $kind === 'oficina'
+    ? marcan_get_option_text('ui_card_cta_office', 'Ver oficina')
+    : marcan_get_option_text('ui_card_cta_department', 'Ver departamento');
 $brochure_value = function_exists('get_field') ? get_field('brochure', $post_id) : get_post_meta($post_id, 'brochure', true);
 $brochure_url = '';
 if (is_numeric($brochure_value)) {
@@ -82,7 +84,7 @@ $listing_intro_text_attrs = marcan_font_size_attrs(marcan_get_field_font_size('l
             <?php endif; ?>
         </div>
         <div class="marcan-property-listing-price">
-            <span><?php esc_html_e('Desde:', 'marcan'); ?></span>
+            <span><?php echo esc_html(marcan_get_option_text('ui_card_price_label', 'Desde:')); ?></span>
             <strong<?php echo $price_attrs; ?>><?php echo esc_html($price); ?></strong>
         </div>
         <?php if (!empty($listing_specs)) : ?>
@@ -102,7 +104,7 @@ $listing_intro_text_attrs = marcan_font_size_attrs(marcan_get_field_font_size('l
         </div>
         <div class="marcan-property-listing-actions">
             <a class="marcan-button-dark marcan-button-icon marcan-button-icon-arrow" href="<?php echo esc_url(get_permalink($post_id)); ?>"><?php echo esc_html($view_label); ?></a>
-            <a class="marcan-button-line marcan-button-icon marcan-button-icon-download" href="<?php echo esc_url($brochure_url); ?>"><?php esc_html_e('Descargar brochure', 'marcan'); ?></a>
+            <a class="marcan-button-line marcan-button-icon marcan-button-icon-download" href="<?php echo esc_url($brochure_url); ?>"><?php echo esc_html(marcan_get_option_text('ui_card_brochure', 'Descargar brochure')); ?></a>
         </div>
     </div>
 </article>

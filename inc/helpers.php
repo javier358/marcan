@@ -912,3 +912,173 @@ function marcan_section_is_active(int $post_id, string $toggle_name, array $fiel
 
     return false;
 }
+
+/**
+ * Convierte un arreglo de secciones legales (intro/title/paragraphs/list) en HTML
+ * listo para pasar por the_content. Los párrafos pueden contener enlaces <a> de
+ * confianza (contenido propio por defecto), por eso no se escapan.
+ */
+function marcan_build_legal_default_html(array $sections): string
+{
+    $html = '';
+
+    foreach ($sections as $section) {
+        if (isset($section['subtitle'])) {
+            continue;
+        }
+
+        if (!empty($section['intro'])) {
+            foreach ((array) ($section['paragraphs'] ?? array()) as $p) {
+                $html .= '<p>' . $p . '</p>';
+            }
+            continue;
+        }
+
+        if (isset($section['title'])) {
+            $html .= '<h2>' . $section['title'] . '</h2>';
+        }
+
+        foreach ((array) ($section['paragraphs'] ?? array()) as $p) {
+            $html .= '<p>' . $p . '</p>';
+        }
+
+        if (!empty($section['list'])) {
+            $html .= '<ul>';
+            foreach ((array) $section['list'] as $item) {
+                $html .= '<li>' . $item . '</li>';
+            }
+            $html .= '</ul>';
+        }
+    }
+
+    return $html;
+}
+
+/**
+ * Devuelve el cuerpo de una página legal: el campo SCF si tiene contenido, o el
+ * HTML por defecto a partir de las secciones de respaldo (sin regresión visual).
+ */
+function marcan_get_legal_body(string $field_name, $post_id, array $default_sections): string
+{
+    if (function_exists('get_field')) {
+        $value = get_field($field_name, $post_id ?: false);
+        if (is_string($value) && trim($value) !== '') {
+            return $value;
+        }
+    }
+
+    return marcan_build_legal_default_html($default_sections);
+}
+
+/**
+ * Secciones por defecto de la Política de privacidad (respaldo si el campo SCF está vacío).
+ */
+function marcan_privacy_default_sections(): array
+{
+    return array(
+        array('intro' => true, 'paragraphs' => array(
+            'Inmobiliaria y Constructora Marcan S.A. reconoce la seguridad de los datos personales proporcionados a través de su portal web motivo por el cual brinda a la información el mayor interés y cuidado.',
+            'En este sentido, a través de esta política brinda las condiciones y medidas de seguridad con el propósito de salvaguardar el derecho de privacidad y confidencialidad de los datos personales conferidos, de acuerdo con lo establecido en la Ley N° 29733 y su Reglamento el Decreto Supremo N° 003-2013-JUS.',
+        )),
+        array('title' => 'Identificación, domicilio y titular de los datos personales', 'paragraphs' => array(
+            'Inmobiliaria y Constructora Marcan S.A. debidamente identificada con RUC N° 20133793195 y con domicilio en Avenida Santa Cruz N° 820, oficina 402, distrito de Miraflores.',
+            'El banco de datos donde se registra la información recopilada por el sitio web es denominado banco de datos personales: "usuarios de la página web" y "quejas y reclamos".',
+        )),
+        array('title' => 'Finalidad de la recopilación de los datos personales', 'paragraphs' => array(
+            'Recopilar la información de los usuarios web para gestionar las relaciones comerciales y de calidad.',
+        )),
+        array('title' => 'Datos personales obligatorios', 'paragraphs' => array(
+            'Para llevar a cabo las finalidades descritas en el numeral anterior, se les solicitará a los usuarios web cuando menos los siguientes datos: Nombre, Apellido Paterno, Apellido Materno, E-mail, Teléfono Fijo, Teléfono Celular, Proyecto inmobiliario y unidad o unidades inmobiliarias de su interés o en el cual haya adquirido una propiedad, Dirección (en caso de no tener relación con la empresa).',
+        )),
+        array('title' => 'Consecuencias de no proporcionar los datos personales requeridos', 'paragraphs' => array(
+            'En caso no se nos proporcione los datos personales considerados como obligatorios, no se podrá establecer una relación comercial con usted, motivo por el cual nos veremos impedidos de cumplir con los ofrecimientos establecidos en nuestra plataforma virtual.',
+        )),
+        array('title' => 'Plazo de conservación de los datos personales', 'paragraphs' => array(
+            'Los datos personales conferidos serán conservados el tiempo necesario para cumplir con las finalidades para la cuales fueron recopilados o hasta que el titular revoque su consentimiento.',
+        )),
+        array('title' => 'Cómo utilizamos los datos personales recopilados', 'paragraphs' => array(
+            'Utilizamos la información recopilada a través de nuestro portal web para distintos propósitos, entre los cuales tenemos:',
+        ), 'list' => array(
+            'Entregar información a los usuarios sobre las consultas hechas a través del formulario.',
+            'Preparar y entregar al titular de los datos personales publicidad de nuestros proyectos, promociones o comunicados.',
+            'Realizar encuestas sobre proyectos o servicios.',
+            'Envío de invitaciones a actividades convocadas por Inmobiliaria y Constructora Marcan S.A.',
+            'Actualizar y consultar datos de contacto y otra información relevante.',
+            'Evaluar la capacidad de endeudamiento, comportamiento de pago y de consumo, patrimonio, gustos y preferencias de consumo del titular de los datos personales.',
+            'Generar modelos predictivos y alimentarlos con los datos personales.',
+            'Elaborar estadísticas y/o estudios de comportamiento, gustos y/o tendencias.',
+            'Las demás finalidades que se informen de manera previa y expresa a los titulares de datos personales previo a su tratamiento.',
+        )),
+        array('title' => 'Flujo transfronterizo de la información', 'paragraphs' => array(
+            'Inmobiliaria y Constructora Marcan S.A. realiza la comunicación de datos personales a nivel internacional, remitiendo información a los Estados Unidos de América a la empresa Inmotion Hosting, Inc., con la finalidad de utilizar el servicio de web hosting a efectos de permitir el flujo de archivos y datos que conforman la página web, así como de los datos que se recopilan a través de ella.',
+        )),
+        array('title' => 'Ejercicio de derechos ARCO', 'paragraphs' => array(
+            'Los usuarios web podrán restringir la recopilación o el uso de la información personal proporcionada a través de este formulario. Así mismo, podrán rectificar su información en caso que los datos sean incompletos o inexactos y/o cancelarlos cuando ya no se requieren para la finalidad conferida.',
+            'Para hacer ejercicio de sus derechos ARCO escríbanos a <a href="mailto:ventas@marcan.com.pe">ventas@marcan.com.pe</a>.',
+        )),
+        array('title' => 'Seguridad y confidencialidad', 'paragraphs' => array(
+            'Inmobiliaria y Constructora Marcan S.A. cuenta con las medidas técnicas, organizativas y legales necesarias a fin de garantizar la seguridad y confidencialidad de los datos personales. Los datos serán tratados teniendo en consideración los principios de legalidad, consentimiento, proporcionalidad, calidad, finalidad, disposición de recurso, seguridad y nivel de protección adecuado, protegiendo de esta manera los datos conferidos a cabalidad.',
+        )),
+        array('title' => 'Vigencia y modificación de la política de privacidad', 'paragraphs' => array(
+            'Inmobiliaria y Constructora Marcan S.A. podrá modificar en cualquier momento la política de protección de datos personales. Cualquier cambio circunstancial será oportunamente comunicado antes de su implementación en su respectivo portal web <a href="https://marcan.com.pe">www.marcan.com.pe</a>.',
+        )),
+        array('title' => 'Consultas', 'paragraphs' => array(
+            'En caso de tener consultas respecto al alcance de la presente política no dude en comunicarse con nosotros a <a href="mailto:ventas@marcan.com.pe">ventas@marcan.com.pe</a>.',
+        )),
+        array('title' => 'Integridad del documento', 'paragraphs' => array(
+            'Los anexos a la política de privacidad conforman parte integrante del presente documento; y, rigen de acuerdo a lo estipulado en cuanto le sea aplicable.',
+        )),
+    );
+}
+
+function marcan_get_privacy_body($post_id = 0): string
+{
+    return marcan_get_legal_body('privacy_body', $post_id, marcan_privacy_default_sections());
+}
+
+/**
+ * Secciones por defecto de los Términos y condiciones (respaldo si el campo SCF está vacío).
+ */
+function marcan_terms_default_sections(): array
+{
+    return array(
+        array('intro' => true, 'paragraphs' => array(
+            'El presente documento establece los Términos y Condiciones de uso del sitio web www.marcan.com.pe (en adelante, "el Sitio Web"), propiedad de Inmobiliaria y Constructora Marcan S.A., identificada con RUC N° 20133793195, con domicilio en Avenida Santa Cruz N° 820, oficina 402, distrito de Miraflores, Lima, Perú.',
+            'El acceso y uso del Sitio Web implica la aceptación plena y sin reservas de los presentes Términos y Condiciones. Si no está de acuerdo con los mismos, le solicitamos abstenerse de utilizar el Sitio Web.',
+        )),
+        array('title' => 'Uso del Sitio Web', 'paragraphs' => array(
+            'El usuario se compromete a utilizar el Sitio Web de conformidad con la ley, la moral, las buenas costumbres y el orden público, así como con lo dispuesto en los presentes Términos y Condiciones.',
+            'Queda prohibido el uso del Sitio Web con fines ilícitos, lesivos de derechos de terceros o que puedan dañar, inutilizar, sobrecargar o deteriorar el Sitio Web o impedir su normal utilización.',
+        )),
+        array('title' => 'Propiedad intelectual', 'paragraphs' => array(
+            'Todos los contenidos del Sitio Web —incluyendo textos, fotografías, gráficos, imágenes, iconos, logotipos, marcas, diseños, software y demás elementos— son propiedad exclusiva de Inmobiliaria y Constructora Marcan S.A. o de terceros que han autorizado su uso, y están protegidos por la legislación peruana sobre propiedad intelectual.',
+            'Queda prohibida la reproducción, distribución, comunicación pública, transformación o cualquier otra forma de explotación de los contenidos del Sitio Web sin la autorización previa y por escrito de Inmobiliaria y Constructora Marcan S.A.',
+        )),
+        array('title' => 'Información sobre los proyectos inmobiliarios', 'paragraphs' => array(
+            'La información contenida en el Sitio Web respecto de los proyectos inmobiliarios —incluyendo precios, metrajes, planos, características, fechas de entrega y disponibilidad— es de carácter referencial y puede estar sujeta a modificaciones sin previo aviso.',
+            'Las imágenes, renders, recorridos virtuales y demás representaciones visuales de los proyectos son de carácter ilustrativo y pueden diferir del producto final entregado.',
+            'Los precios publicados no incluyen IGV ni gastos notariales o registrales, salvo indicación expresa en contrario.',
+        )),
+        array('title' => 'Exclusión de garantías y responsabilidad', 'paragraphs' => array(
+            'Inmobiliaria y Constructora Marcan S.A. no garantiza la disponibilidad, continuidad o infalibilidad del funcionamiento del Sitio Web, ni la ausencia de virus u otros elementos dañinos en el mismo.',
+            'Inmobiliaria y Constructora Marcan S.A. no será responsable por los daños y perjuicios de cualquier naturaleza que pudieran derivarse de la falta de disponibilidad o continuidad del funcionamiento del Sitio Web, de los fallos en el acceso a sus distintas páginas, ni de la transmisión de virus o elementos dañinos.',
+        )),
+        array('title' => 'Enlaces a terceros', 'paragraphs' => array(
+            'El Sitio Web puede contener enlaces a sitios web de terceros. Estos enlaces se proporcionan únicamente para conveniencia del usuario. Inmobiliaria y Constructora Marcan S.A. no controla ni asume responsabilidad alguna por el contenido, las políticas de privacidad o las prácticas de dichos sitios web de terceros.',
+        )),
+        array('title' => 'Modificaciones', 'paragraphs' => array(
+            'Inmobiliaria y Constructora Marcan S.A. se reserva el derecho de modificar en cualquier momento los presentes Términos y Condiciones. Las modificaciones serán publicadas en el Sitio Web y entrarán en vigor desde el momento de su publicación. Se recomienda al usuario revisar periódicamente los Términos y Condiciones.',
+        )),
+        array('title' => 'Legislación aplicable y jurisdicción', 'paragraphs' => array(
+            'Los presentes Términos y Condiciones se rigen por la legislación peruana. Para cualquier controversia derivada del uso del Sitio Web, las partes se someten a la jurisdicción de los jueces y tribunales del distrito de Miraflores, Lima, Perú, renunciando a cualquier otro fuero que pudiera corresponderles.',
+        )),
+        array('title' => 'Contacto', 'paragraphs' => array(
+            'Para cualquier consulta sobre los presentes Términos y Condiciones, puede contactarnos a través del formulario de contacto disponible en el Sitio Web o escribiendo a <a href="mailto:ventas@marcan.com.pe">ventas@marcan.com.pe</a>.',
+        )),
+    );
+}
+
+function marcan_get_terms_body($post_id = 0): string
+{
+    return marcan_get_legal_body('terms_body', $post_id, marcan_terms_default_sections());
+}

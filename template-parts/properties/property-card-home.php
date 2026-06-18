@@ -87,7 +87,7 @@ $cta_attrs = marcan_font_size_attrs(marcan_get_field_font_size('home_cta_label',
                 </div>
             </div>
             <div class="marcan-home-project-card-actions">
-                <span<?php echo $cta_attrs; ?>><?php echo marcan_rich_inline($cta_label !== '' ? $cta_label : __('Ver más', 'marcan')); ?></span>
+                <span<?php echo $cta_attrs; ?>><?php echo marcan_rich_inline($cta_label !== '' ? $cta_label : marcan_get_option_text('ui_card_cta_more', 'Ver más')); ?></span>
             </div>
         </div>
     </a>

@@ -115,7 +115,9 @@ while (have_posts()) :
     $architecture_studio_name_attrs = marcan_font_size_attrs(marcan_get_field_font_size('arquitectura_estudio_nombre', $post_id));
     $architecture_studio_role_attrs = marcan_font_size_attrs(marcan_get_field_font_size('arquitectura_estudio_cargo', $post_id));
     $related_intro_attrs = marcan_font_size_attrs(marcan_get_field_font_size('relacionados_intro_texto', $post_id));
-    $related_quote_label = $is_office ? __('Cotizar oficina', 'marcan') : __('Cotizar proyecto', 'marcan');
+    $related_quote_label = $is_office
+        ? marcan_get_option_text('ui_property_btn_quote_office', 'Cotizar oficina')
+        : marcan_get_option_text('ui_property_btn_quote_project', 'Cotizar proyecto');
     $map_embed_src = '';
 
     if ($map_google_url === '' && $map_address_plain !== '') {
@@ -264,9 +266,9 @@ while (have_posts()) :
             </div>
             <div class="marcan-property-sticky-actions">
                 <?php if (marcan_section_is_active($post_id, 'mostrar_brochure', array('brochure'))) : ?>
-                <a class="marcan-button-line marcan-button-icon marcan-button-icon-download" href="<?php echo esc_url($brochure_url); ?>"><?php esc_html_e('Descargar brochure', 'marcan'); ?></a>
+                <a class="marcan-button-line marcan-button-icon marcan-button-icon-download" href="<?php echo esc_url($brochure_url); ?>"><?php echo esc_html(marcan_get_option_text('ui_property_btn_brochure', 'Descargar brochure')); ?></a>
                 <?php endif; ?>
-                <a class="marcan-button-dark marcan-button-icon marcan-button-icon-arrow" href="#cotizar"><?php esc_html_e('Cotizar proyecto', 'marcan'); ?></a>
+                <a class="marcan-button-dark marcan-button-icon marcan-button-icon-arrow" href="#cotizar"><?php echo esc_html($is_office ? marcan_get_option_text('ui_property_btn_quote_office', 'Cotizar oficina') : marcan_get_option_text('ui_property_btn_quote_project', 'Cotizar proyecto')); ?></a>
             </div>
         </section>
 
@@ -274,7 +276,7 @@ while (have_posts()) :
             <div class="marcan-property-single-summary">
                 <p<?php echo $delivery_attrs; ?>><?php echo marcan_rich_inline($delivery); ?></p>
                 <div class="marcan-property-price-block">
-                    <span><?php esc_html_e('Desde:', 'marcan'); ?></span>
+                    <span><?php echo esc_html(marcan_get_option_text('ui_card_price_label', 'Desde:')); ?></span>
                     <strong<?php echo $price_attrs; ?>><?php echo esc_html($price); ?></strong>
                     <?php if (!$is_office && $bedrooms !== '') : ?>
                         <small<?php echo $bedrooms_attrs; ?>><?php echo marcan_rich_inline($bedrooms); ?></small>
@@ -324,7 +326,7 @@ while (have_posts()) :
                 <?php if (!empty($virtual_tours)) : ?>
                     <div class="marcan-property-tour-shell" data-marcan-tour>
                         <aside class="marcan-property-tour-menu" aria-label="<?php esc_attr_e('Recorridos virtuales', 'marcan'); ?>">
-                            <h2 class="marcan-property-tour-title"><?php esc_html_e('Recorridos virtuales', 'marcan'); ?></h2>
+                            <h2 class="marcan-property-tour-title"><?php echo esc_html(marcan_get_option_text('ui_property_tours_title', 'Recorridos virtuales')); ?></h2>
                             <div class="marcan-property-tour-nav">
                                 <?php
                                 $tour_groups = array();
@@ -577,11 +579,11 @@ while (have_posts()) :
                                             </dl>
                                             <div class="marcan-property-unit-actions">
                                                 <?php if ($unit_quote_url !== '') : ?>
-                                                    <a class="marcan-button-line marcan-button-icon marcan-button-icon-download" href="<?php echo esc_url($unit_quote_url); ?>" target="_blank" rel="noopener"><?php esc_html_e('Descargar cotización', 'marcan'); ?></a>
+                                                    <a class="marcan-button-line marcan-button-icon marcan-button-icon-download" href="<?php echo esc_url($unit_quote_url); ?>" target="_blank" rel="noopener"><?php echo esc_html(marcan_get_option_text('ui_property_btn_download_quote', 'Descargar cotización')); ?></a>
                                                 <?php endif; ?>
-                                                <button class="marcan-button-dark marcan-button-icon marcan-button-icon-arrow" type="button" data-open-contact-modal><?php esc_html_e('Contáctanos', 'marcan'); ?></button>
+                                                <button class="marcan-button-dark marcan-button-icon marcan-button-icon-arrow" type="button" data-open-contact-modal><?php echo esc_html(marcan_get_option_text('ui_property_btn_contact', 'Contáctanos')); ?></button>
                                                 <button class="marcan-button-line marcan-property-unit-share" type="button" data-unit-share data-share-url="<?php echo esc_url($unit_share_url); ?>" data-share-title="<?php echo esc_attr(sprintf(__('Tipología %1$s en %2$s', 'marcan'), $unit_code, $title_plain)); ?>">
-                                                    <span><?php esc_html_e('Compartir', 'marcan'); ?></span>
+                                                    <span><?php echo esc_html(marcan_get_option_text('ui_property_btn_share', 'Compartir')); ?></span>
                                                 </button>
                                             </div>
                                         </div>
@@ -612,10 +614,10 @@ while (have_posts()) :
                         <h2<?php echo $map_heading_attrs; ?>><?php echo marcan_rich_inline($map_heading); ?></h2>
                         <div class="marcan-property-map-actions">
                             <?php if ($map_google_url !== '') : ?>
-                                <a class="marcan-property-map-button marcan-property-map-button-white" href="<?php echo esc_url($map_google_url); ?>" target="_blank" rel="noopener"><?php esc_html_e('Ver en Google Maps', 'marcan'); ?></a>
+                                <a class="marcan-property-map-button marcan-property-map-button-white" href="<?php echo esc_url($map_google_url); ?>" target="_blank" rel="noopener"><?php echo esc_html(marcan_get_option_text('ui_property_map_google', 'Ver en Google Maps')); ?></a>
                             <?php endif; ?>
                             <?php if ($map_waze_url !== '') : ?>
-                                <a class="marcan-property-map-button marcan-property-map-button-yellow" href="<?php echo esc_url($map_waze_url); ?>" target="_blank" rel="noopener"><?php esc_html_e('Ver en Waze', 'marcan'); ?></a>
+                                <a class="marcan-property-map-button marcan-property-map-button-yellow" href="<?php echo esc_url($map_waze_url); ?>" target="_blank" rel="noopener"><?php echo esc_html(marcan_get_option_text('ui_property_map_waze', 'Ver en Waze')); ?></a>
                             <?php endif; ?>
                         </div>
                         <?php if (!empty($map_nearby_content) && is_array($map_nearby_content)) : ?>
@@ -723,7 +725,7 @@ while (have_posts()) :
 
             <?php if (marcan_section_is_active($post_id, 'mostrar_arquitectura', array('arquitectura_titulo', 'arquitectura_texto', 'arquitectura_imagen'))) : ?>
             <section class="marcan-property-quote">
-                <span><?php esc_html_e('Sobre el proyecto', 'marcan'); ?></span>
+                <span><?php echo esc_html(marcan_get_option_text('ui_property_about_label', 'Sobre el proyecto')); ?></span>
                 <blockquote<?php echo $quote_attrs; ?>><?php echo marcan_rich_block(marcan_get_property_field($post_id, 'frase_proyecto', 'Time: Aramburu se creo con el enfoque y balance de la naturaleza y el mar, vibran los detalles en cada espacio')); ?></blockquote>
                 <cite<?php echo $quote_author_attrs; ?>><?php echo marcan_rich_inline(marcan_get_property_field($post_id, 'autor_frase', 'Manuel de Rivero 51-1 Arquitectos')); ?></cite>
             </section>
@@ -772,7 +774,7 @@ while (have_posts()) :
         <?php endif; ?>
 
         <section class="marcan-property-related<?php echo $related_count === 1 ? ' is-single' : ''; ?><?php echo $related_count >= 3 ? ' has-slider' : ''; ?>">
-            <h2><?php echo esc_html($is_office ? __('Otras oficinas en venta', 'marcan') : __('Otros departamentos en venta', 'marcan')); ?></h2>
+            <h2><?php echo esc_html($is_office ? marcan_get_option_text('ui_property_related_office', 'Otras oficinas en venta') : marcan_get_option_text('ui_property_related_dept', 'Otros departamentos en venta')); ?></h2>
             <?php if ($related_count === 1) : ?>
                 <div class="marcan-property-related-grid is-single">
                     <?php if ($related->have_posts()) : ?>

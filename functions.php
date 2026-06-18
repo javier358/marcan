@@ -24,6 +24,9 @@ $marcan_includes = array(
     'inc/iconic-projects.php',
     'inc/blog.php',
     'inc/acf.php',
+    'inc/roles.php',
+    'inc/admin-ux.php',
+    'inc/audit-log.php',
 );
 
 foreach ($marcan_includes as $marcan_include) {

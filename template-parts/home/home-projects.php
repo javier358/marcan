@@ -38,8 +38,8 @@ function marcan_render_home_project_card(WP_Post $post, string $section_class = 
     $title = trim((string) get_field('home_title', $post_id));
     $title = $title !== '' ? $title : get_the_title($post_id);
     $title_plain = wp_strip_all_tags($title);
-    $default_price_label = $price_label !== '' ? $price_label : __('Desde:', 'marcan');
-    $default_cta_label = $cta_label !== '' ? $cta_label : html_entity_decode('Ver m&aacute;s', ENT_QUOTES, 'UTF-8');
+    $default_price_label = $price_label !== '' ? $price_label : marcan_get_option_text('ui_card_price_label', 'Desde:');
+    $default_cta_label = $cta_label !== '' ? $cta_label : marcan_get_option_text('ui_card_cta_more', 'Ver más');
     $title_attrs = marcan_font_size_attrs(marcan_get_field_font_size('titulo_comercial', $post_id));
     $badge_attrs = marcan_font_size_attrs(marcan_get_field_font_size('estado', $post_id), 'marcan-home-project-card-badge');
     $location_attrs = marcan_font_size_attrs(marcan_get_field_font_size('ubicacion', $post_id), 'marcan-home-project-card-location');

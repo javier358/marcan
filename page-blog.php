@@ -40,7 +40,7 @@ get_header();
                     <div class="marcan-blog-hero-card-inner">
                         <time datetime="<?php echo esc_attr(get_the_date('c', $featured->ID)); ?>"><?php echo esc_html(get_the_date('F j, Y', $featured->ID)); ?></time>
                         <p><?php echo esc_html(wp_trim_words(get_the_excerpt($featured->ID), 30)); ?></p>
-                        <a href="<?php echo esc_url(get_permalink($featured->ID)); ?>" class="marcan-blog-read-btn"><?php esc_html_e('Leer publicación', 'marcan'); ?></a>
+                        <a href="<?php echo esc_url(get_permalink($featured->ID)); ?>" class="marcan-blog-read-btn"><?php echo esc_html(marcan_get_option_text('ui_blog_read', 'Leer publicación')); ?></a>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@ get_header();
                         <h3><a href="<?php echo esc_url(get_permalink($side_post->ID)); ?>"><?php echo esc_html(get_the_title($side_post->ID)); ?></a></h3>
                     </article>
                 <?php endforeach; ?>
-                <a href="<?php echo esc_url(marcan_page_url('blog')); ?>" class="marcan-blog-more-btn"><?php esc_html_e('Ver más', 'marcan'); ?></a>
+                <a href="<?php echo esc_url(marcan_page_url('blog')); ?>" class="marcan-blog-more-btn"><?php echo esc_html(marcan_get_option_text('ui_blog_more', 'Ver más')); ?></a>
             </div>
         </div>
     </section>

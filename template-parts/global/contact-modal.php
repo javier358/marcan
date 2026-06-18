@@ -96,20 +96,20 @@ $thank_you_image = $thank_you_image_id ? wp_get_attachment_image_url($thank_you_
             <h2<?php echo $contact_modal_title_attrs; ?>><?php echo marcan_rich_inline($contact_modal_title); ?></h2>
             <div class="marcan-property-contact-modal-fields">
                 <div class="marcan-property-contact-field">
-                    <label><?php esc_html_e('Nombre*', 'marcan'); ?></label>
-                    <input type="text" name="nombre" placeholder="<?php esc_attr_e('Ingresa tu nombre', 'marcan'); ?>" required>
+                    <label><?php echo esc_html(marcan_get_option_text('ui_contact_label_nombre', 'Nombre*')); ?></label>
+                    <input type="text" name="nombre" placeholder="<?php echo esc_attr(marcan_get_option_text('ui_contact_ph_nombre', 'Ingresa tu nombre')); ?>" required>
                 </div>
                 <div class="marcan-property-contact-field">
-                    <label><?php esc_html_e('Apellido*', 'marcan'); ?></label>
-                    <input type="text" name="apellido" placeholder="<?php esc_attr_e('Ingresa tu apellido', 'marcan'); ?>" required>
+                    <label><?php echo esc_html(marcan_get_option_text('ui_contact_label_apellido', 'Apellido*')); ?></label>
+                    <input type="text" name="apellido" placeholder="<?php echo esc_attr(marcan_get_option_text('ui_contact_ph_apellido', 'Ingresa tu apellido')); ?>" required>
                 </div>
                 <div class="marcan-property-contact-field">
-                    <label><?php esc_html_e('Email*', 'marcan'); ?></label>
-                    <input type="email" name="email" placeholder="nombre@correo.com" required>
+                    <label><?php echo esc_html(marcan_get_option_text('ui_contact_label_email', 'Email*')); ?></label>
+                    <input type="email" name="email" placeholder="<?php echo esc_attr(marcan_get_option_text('ui_contact_ph_email', 'nombre@correo.com')); ?>" required>
                 </div>
                 <div class="marcan-property-contact-field">
-                    <label><?php esc_html_e('Teléfono/Celular*', 'marcan'); ?></label>
-                    <input type="tel" name="telefono" placeholder="999 999 999" required>
+                    <label><?php echo esc_html(marcan_get_option_text('ui_contact_label_telefono', 'Teléfono/Celular*')); ?></label>
+                    <input type="tel" name="telefono" placeholder="<?php echo esc_attr(marcan_get_option_text('ui_contact_ph_telefono', '999 999 999')); ?>" required>
                 </div>
             </div>
             <div class="marcan-property-contact-modal-checks">
@@ -129,12 +129,12 @@ $thank_you_image = $thank_you_image_id ? wp_get_attachment_image_url($thank_you_
             <input type="hidden" name="source_unit" value="">
             <p class="marcan-property-contact-modal-message" data-contact-form-message hidden></p>
             <button class="marcan-property-contact-modal-submit" type="submit">
-                <span data-contact-submit-label><?php esc_html_e('Contactar', 'marcan'); ?></span>
+                <span data-contact-submit-label><?php echo esc_html(marcan_get_option_text('ui_contact_submit', 'Contactar')); ?></span>
                 <span class="marcan-property-contact-modal-submit-icon" aria-hidden="true"></span>
             </button>
             <div class="marcan-property-contact-modal-sending" data-contact-form-sending aria-hidden="true">
                 <div class="marcan-property-contact-modal-sending-mark"></div>
-                <p><?php esc_html_e('Enviando solicitud', 'marcan'); ?></p>
+                <p><?php echo esc_html(marcan_get_option_text('ui_contact_sending', 'Enviando solicitud')); ?></p>
             </div>
         </form>
         <aside class="marcan-property-contact-modal-sidebar">
@@ -153,9 +153,9 @@ $thank_you_image = $thank_you_image_id ? wp_get_attachment_image_url($thank_you_
             <div class="marcan-property-contact-modal-thanks-yellow">
                 <span class="marcan-property-contact-modal-thanks-arrow" aria-hidden="true"></span>
                 <?php if ($contact_thanks_variant === 'general') : ?>
-                    <p><?php esc_html_e('Gracias, un asesor se pondrá en contacto contigo', 'marcan'); ?></p>
+                    <p><?php echo esc_html(marcan_get_option_text('ui_contact_thanks_general', 'Gracias, un asesor se pondrá en contacto contigo')); ?></p>
                 <?php else : ?>
-                    <p><?php esc_html_e('Gracias,', 'marcan'); ?><br><?php esc_html_e('tu información', 'marcan'); ?><br><?php esc_html_e('ha sido enviada', 'marcan'); ?></p>
+                    <p><?php echo wp_kses(nl2br(esc_html(marcan_get_option_text('ui_contact_thanks_property', "Gracias,\ntu información\nha sido enviada"))), array('br' => array())); ?></p>
                 <?php endif; ?>
             </div>
             <button class="marcan-property-contact-modal-thanks-close" type="button" data-contact-thanks-close aria-label="<?php esc_attr_e('Cerrar', 'marcan'); ?>"></button>
