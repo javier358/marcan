@@ -84,7 +84,7 @@ $complaint_url = $complaint_page instanceof WP_Post ? get_permalink($complaint_p
 $complaint_icon_id = (int) get_option('complaint_icon_id');
 $complaint_icon = $complaint_icon_id ? wp_get_attachment_url($complaint_icon_id) : '';
 if (!is_string($complaint_icon) || $complaint_icon === '') {
-    $complaint_icon = marcan_asset_uri('images/libro-reclamaciones.svg');
+    $complaint_icon = marcan_asset_uri('images/libro-recla.svg');
 }
 
 $render_links = static function (string $theme_location, array $fallback_items): void {

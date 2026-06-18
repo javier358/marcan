@@ -160,7 +160,7 @@ function marcan_render_complaint_settings_page(): void
                         <?php
                         $icon_id = (int) get_option('complaint_icon_id');
                         $icon_url = $icon_id ? wp_get_attachment_image_url($icon_id, 'medium') : '';
-                        $icon_fallback = get_template_directory_uri() . '/assets/images/libro-reclamaciones.svg';
+                        $icon_fallback = get_template_directory_uri() . '/assets/images/libro-recla.svg';
                         ?>
                         <div id="marcan-complaint-icon-preview" style="margin-bottom:10px">
                             <img src="<?php echo esc_url($icon_url ? $icon_url : $icon_fallback); ?>" alt="" style="max-width:90px;height:auto;border:1px solid #ddd;padding:6px;background:#fff;border-radius:4px">

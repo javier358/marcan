@@ -572,24 +572,22 @@ body.ml-loading .marcan-global-whatsapp { opacity: 0; pointer-events: none; tran
     color: var(--marcan-header-text, var(--marcan-logo));
     cursor: pointer;
     display: flex;
-    font-family: Inter, Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    font-weight: 500;
-    height: 30px;
+    height: 34px;
     justify-content: center;
-    letter-spacing: 0.01em;
-    line-height: 30px;
+    line-height: 0;
     padding: 0;
     position: absolute;
     right: 23px;
-    text-transform: uppercase;
-    top: 19px;
-    width: 61px;
+    top: 17px;
+    width: 34px;
 }
 
 .marcan-menu-icon {
-    display: none;
+    display: block;
     flex: 0 0 auto;
+    height: 100%;
+    object-fit: contain;
+    width: 100%;
 }
 
 .marcan-primary-nav {
@@ -2991,14 +2989,12 @@ img {
 
     .marcan-menu-button {
         color: var(--marcan-logo);
-        font-weight: 400;
         height: 34px;
-        justify-content: flex-start;
-        letter-spacing: 0;
-        line-height: 26px;
+        justify-content: center;
+        line-height: 0;
         right: 16px;
         top: 9px;
-        width: 94px;
+        width: 34px;
     }
 
     .marcan-menu-icon {

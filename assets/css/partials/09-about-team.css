@@ -510,14 +510,12 @@
 
     .marcan-menu-button {
         color: var(--marcan-logo);
-        font-weight: 400;
         height: 34px;
-        justify-content: flex-start;
-        letter-spacing: 0;
-        line-height: 26px;
+        justify-content: center;
+        line-height: 0;
         right: 16px;
         top: 9px;
-        width: 94px;
+        width: 34px;
     }
 
     .marcan-menu-icon {
@@ -1274,4 +1272,3 @@
 }
 
 .marcan-property-archive,
-
