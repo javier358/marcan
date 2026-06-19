@@ -70,25 +70,6 @@ function marcan_get_option_text(string $field_name, string $fallback = ''): stri
     return is_scalar($value) ? (string) $value : $fallback;
 }
 
-function marcan_get_context_text(int $post_id, string $field_name, string $option_field = '', string $fallback = ''): string
-{
-    if ($post_id > 0 && function_exists('get_field')) {
-        $value = get_field($field_name, $post_id);
-        if (is_scalar($value) && trim((string) $value) !== '') {
-            return (string) $value;
-        }
-    }
-
-    if ($post_id > 0) {
-        $meta_value = get_post_meta($post_id, $field_name, true);
-        if (is_scalar($meta_value) && trim((string) $meta_value) !== '') {
-            return (string) $meta_value;
-        }
-    }
-
-    return $option_field !== '' ? marcan_get_option_text($option_field, $fallback) : $fallback;
-}
-
 function marcan_normalize_phone_number(string $value): string
 {
     return preg_replace('/\D+/', '', $value) ?? '';

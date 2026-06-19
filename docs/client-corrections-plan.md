@@ -144,11 +144,13 @@ Validacion tecnica:
 - Corregido: `.marcan-property-intro` ahora declara `font-weight: 300`, alineado al peso de los textos rich del home.
 - Corregido: `template-parts/properties/property-listing-page.php` ya no usa fallbacks visibles para `listing_title`, `listing_intro`, `listing_reasons_title` ni las razones de inversion de oficinas; si ACF queda vacio, el bloque no se renderiza.
 - Agregada migracion idempotente `marcan_seed_listing_editable_copy` para sembrar esos textos anteriores en las paginas `departamentos` y `oficinas` una sola vez, sin reponerlos si el cliente los borra despues.
-- En progreso: se agregan pestañas `Cards` en Inicio, Departamentos y Oficinas para controlar por pagina el tamano de textos de las cards. Si el campo de pagina queda vacio, se conserva el tamano configurado en cada proyecto.
+- En progreso: se agregan pestanas `Cards` en Inicio, Departamentos y Oficinas para controlar por pagina el tamano de textos de las cards. Si el campo de pagina queda vacio, se conserva el tamano configurado en cada proyecto.
 - Revisado: los campos ACF de Arquitectura del proyecto si se usan en `single-property.php`; no afectan las cards de departamentos/oficinas porque pertenecen a la ficha del inmueble.
 - Ajustado: las imagenes especificas de card (`home_desktop_image` y `home_mobile_image`) se movieron a Ficha tecnica del proyecto para quedar junto a los datos que alimentan single/cards, manteniendo las mismas keys para no perder contenido.
-- Corregido: los CTAs del single ahora tienen override por inmueble en la pestaña `CTAs single` (`single_cta_*`, `single_price_label`, `single_tours_title`) y fallback solo a campos globales editables; si ambos quedan vacios, no se renderiza el CTA.
-- Corregido: se retiraron fallbacks visibles hardcodeados restantes del single para botones de unidad, mapa, brochure, cotizar, compartir, etiqueta de precio y titulo de recorridos. Los textos antiguos se siembran como ACF global editable por migracion.
+- Corregido tras aclaracion: se retiro la pestana `CTAs single`; los botones del single vuelven a depender de los textos globales editables, no de overrides por inmueble.
+- Corregido: los descansos/separadores del single quedan editables desde el inmueble: `quote_label`, `frase_proyecto`, `autor_frase` para `marcan-property-quote` y `relacionados_intro_texto` para `marcan-property-related-intro`. `quote_label` se siembra con el texto actual una sola vez y si queda vacio no se muestra.
+- Corregido: el copy interno de cards (`listado_intro_titulo` / `listado_intro_texto`) ahora vive en Ficha tecnica, usa clases unificadas `marcan-property-listing-copy-title` / `marcan-property-listing-copy-text`, y aplica igual para departamentos, oficinas y relacionados del single.
+- Corregido: los CTAs/etiquetas visibles de cards ya no tienen fallback hardcodeado en plantilla; se siembran como globales editables y si quedan vacios no se muestran.
 - Pendiente detectado para siguiente bloque: `inc/blog.php` mantiene defaults visibles en contenido/CTA del blog; revisar si entra en alcance antes del cierre final.
 
 ## Registro de avance

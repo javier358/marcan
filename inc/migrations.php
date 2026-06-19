@@ -74,7 +74,7 @@ function marcan_seed_option_once(string $field_name, string $value): void
 
 function marcan_seed_global_editable_copy(): void
 {
-    $version = '2026-06-19-phase-5-single-ctas';
+    $version = '2026-06-19-phase-5-card-labels';
     if (get_option('marcan_global_editable_copy_seed_version') === $version) {
         return;
     }
@@ -91,6 +91,11 @@ function marcan_seed_global_editable_copy(): void
     marcan_seed_option_once('ui_property_about_label', 'Sobre el proyecto');
     marcan_seed_option_once('ui_property_related_dept', 'Otros departamentos en venta');
     marcan_seed_option_once('ui_property_related_office', 'Otras oficinas en venta');
+    marcan_seed_option_once('ui_card_cta_more', 'Ver mas');
+    marcan_seed_option_once('ui_card_cta_office', 'Ver oficina');
+    marcan_seed_option_once('ui_card_cta_department', 'Ver departamento');
+    marcan_seed_option_once('ui_card_price_label', 'Desde:');
+    marcan_seed_option_once('ui_card_brochure', 'Descargar brochure');
 
     update_option('marcan_global_editable_copy_seed_version', $version, false);
 }
@@ -140,3 +145,56 @@ function marcan_seed_listing_editable_copy(): void
     update_option('marcan_listing_editable_copy_seed_version', $version, false);
 }
 add_action('init', 'marcan_seed_listing_editable_copy', 32);
+
+function marcan_seed_property_single_rest_copy(): void
+{
+    $version = '2026-06-19-phase-5-single-rest-copy';
+    if (get_option('marcan_property_single_rest_copy_seed_version') === $version) {
+        return;
+    }
+
+    $query = new WP_Query(array(
+        'post_type' => 'property',
+        'post_status' => 'any',
+        'posts_per_page' => -1,
+        'fields' => 'ids',
+        'no_found_rows' => true,
+    ));
+
+    $quote_label = marcan_get_option_text('ui_property_about_label', 'Sobre el proyecto');
+
+    foreach ($query->posts as $post_id) {
+        marcan_seed_meta_once((int) $post_id, 'quote_label', $quote_label);
+    }
+
+    update_option('marcan_property_single_rest_copy_seed_version', $version, false);
+}
+add_action('init', 'marcan_seed_property_single_rest_copy', 33);
+
+function marcan_seed_property_listing_card_copy(): void
+{
+    $version = '2026-06-19-phase-5-card-copy';
+    if (get_option('marcan_property_listing_card_copy_seed_version') === $version) {
+        return;
+    }
+
+    $query = new WP_Query(array(
+        'post_type' => 'property',
+        'post_status' => 'any',
+        'posts_per_page' => -1,
+        'fields' => 'ids',
+        'no_found_rows' => true,
+    ));
+
+    foreach ($query->posts as $post_id) {
+        $post_id = (int) $post_id;
+        $title = marcan_get_property_field($post_id, 'concepto_titulo', wp_strip_all_tags(get_the_title($post_id)));
+        $text = marcan_get_property_field($post_id, 'descripcion_corta', wp_strip_all_tags(get_the_excerpt($post_id)));
+
+        marcan_seed_meta_once($post_id, 'listado_intro_titulo', $title);
+        marcan_seed_meta_once($post_id, 'listado_intro_texto', $text);
+    }
+
+    update_option('marcan_property_listing_card_copy_seed_version', $version, false);
+}
+add_action('init', 'marcan_seed_property_listing_card_copy', 33);

@@ -68,7 +68,8 @@ $cta_attrs = marcan_font_size_attrs(marcan_get_field_font_size('home_cta_label',
             </div>
             <div class="marcan-home-project-card-side">
                 <div class="marcan-home-project-card-price">
-                    <span<?php echo $price_label_attrs; ?>><?php echo marcan_rich_inline($price_label !== '' ? $price_label : __('Desde:', 'marcan')); ?></span>
+                    <?php $card_price_label = $price_label !== '' ? $price_label : marcan_get_option_text('ui_card_price_label', ''); ?>
+                    <?php if ($card_price_label !== '') : ?><span<?php echo $price_label_attrs; ?>><?php echo marcan_rich_inline($card_price_label); ?></span><?php endif; ?>
                     <?php if ($price !== '') : ?><strong<?php echo $price_attrs; ?>><?php echo esc_html($price); ?></strong><?php endif; ?>
                 </div>
                 <div class="marcan-home-project-card-specs">
@@ -87,7 +88,8 @@ $cta_attrs = marcan_font_size_attrs(marcan_get_field_font_size('home_cta_label',
                 </div>
             </div>
             <div class="marcan-home-project-card-actions">
-                <span<?php echo $cta_attrs; ?>><?php echo marcan_rich_inline($cta_label !== '' ? $cta_label : marcan_get_option_text('ui_card_cta_more', 'Ver más')); ?></span>
+                <?php $card_cta_label = $cta_label !== '' ? $cta_label : marcan_get_option_text('ui_card_cta_more', ''); ?>
+                <?php if ($card_cta_label !== '') : ?><span<?php echo $cta_attrs; ?>><?php echo marcan_rich_inline($card_cta_label); ?></span><?php endif; ?>
             </div>
         </div>
     </a>

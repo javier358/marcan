@@ -38,8 +38,8 @@ function marcan_render_home_project_card(WP_Post $post, string $section_class = 
     $title = trim((string) get_field('home_title', $post_id));
     $title = $title !== '' ? $title : get_the_title($post_id);
     $title_plain = wp_strip_all_tags($title);
-    $default_price_label = $price_label !== '' ? $price_label : marcan_get_option_text('ui_card_price_label', 'Desde:');
-    $default_cta_label = $cta_label !== '' ? $cta_label : marcan_get_option_text('ui_card_cta_more', 'Ver más');
+    $default_price_label = $price_label !== '' ? $price_label : marcan_get_option_text('ui_card_price_label', '');
+    $default_cta_label = $cta_label !== '' ? $cta_label : marcan_get_option_text('ui_card_cta_more', '');
     $title_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['title'] ?? array(), 'titulo_comercial', $post_id));
     $badge_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['badge'] ?? array(), 'estado', $post_id), 'marcan-home-project-card-badge');
     $location_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['location'] ?? array(), 'ubicacion', $post_id), 'marcan-home-project-card-location');
@@ -84,12 +84,12 @@ function marcan_render_home_project_card(WP_Post $post, string $section_class = 
                         <?php endif; ?>
                     </div>
                     <div class="marcan-home-project-card-actions">
-                        <span<?php echo $cta_attrs; ?>><?php echo marcan_rich_inline($default_cta_label); ?></span>
+                        <?php if ($default_cta_label !== '') : ?><span<?php echo $cta_attrs; ?>><?php echo marcan_rich_inline($default_cta_label); ?></span><?php endif; ?>
                     </div>
                 </div>
                 <div class="marcan-home-project-card-side">
                     <div class="marcan-home-project-card-price">
-                        <span<?php echo $price_label_attrs; ?>><?php echo marcan_rich_inline($default_price_label); ?></span>
+                        <?php if ($default_price_label !== '') : ?><span<?php echo $price_label_attrs; ?>><?php echo marcan_rich_inline($default_price_label); ?></span><?php endif; ?>
                         <?php if ($price !== '') : ?>
                             <strong<?php echo $price_attrs; ?>><?php echo esc_html($price); ?></strong>
                         <?php endif; ?>

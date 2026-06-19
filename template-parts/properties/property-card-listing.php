@@ -16,15 +16,15 @@ $area = marcan_get_property_area_display($post_id, '80 m²');
 $bedrooms = marcan_get_property_field($post_id, 'dormitorios', '');
 $bathrooms = marcan_get_property_field($post_id, 'banos', '');
 $parking = marcan_get_property_field($post_id, 'estacionamientos', '');
-$short = marcan_get_property_field($post_id, 'descripcion_corta', get_the_excerpt($post_id));
-$listing_intro_title = marcan_get_property_field($post_id, 'listado_intro_titulo', marcan_get_property_field($post_id, 'concepto_titulo', $title));
-$listing_intro_text = marcan_get_property_field($post_id, 'listado_intro_texto', $short);
+$listing_intro_title = marcan_get_property_field($post_id, 'listado_intro_titulo');
+$listing_intro_text = marcan_get_property_field($post_id, 'listado_intro_texto');
 $delivery_date = marcan_get_property_field($post_id, 'fecha_entrega');
 $image_id = marcan_get_property_image_id($post_id, 'home_desktop_image', 'listado_hero_imagen');
 $mobile_image_id = marcan_get_property_image_id($post_id, 'home_mobile_image', 'home_desktop_image');
 $view_label = $kind === 'oficina'
-    ? marcan_get_option_text('ui_card_cta_office', 'Ver oficina')
-    : marcan_get_option_text('ui_card_cta_department', 'Ver departamento');
+    ? marcan_get_option_text('ui_card_cta_office', '')
+    : marcan_get_option_text('ui_card_cta_department', '');
+$brochure_label = marcan_get_option_text('ui_card_brochure', '');
 $brochure_value = function_exists('get_field') ? get_field('brochure', $post_id) : get_post_meta($post_id, 'brochure', true);
 $brochure_url = '';
 if (is_numeric($brochure_value)) {
@@ -62,8 +62,8 @@ $title_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_fon
 $subtitle_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['subtitle'] ?? array(), 'subtitulo', $post_id, 'ubicacion'));
 $price_label_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['price_label'] ?? array(), 'ui_card_price_label'));
 $price_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['price'] ?? array(), 'precio', $post_id));
-$listing_intro_title_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['intro_title'] ?? array(), 'listado_intro_titulo', $post_id, 'concepto_titulo'));
-$listing_intro_text_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['intro_text'] ?? array(), 'listado_intro_texto', $post_id, 'descripcion_corta'), '', true);
+$listing_intro_title_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['intro_title'] ?? array(), 'listado_intro_titulo', $post_id), 'marcan-property-listing-copy-title');
+$listing_intro_text_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['intro_text'] ?? array(), 'listado_intro_texto', $post_id), 'marcan-property-listing-copy-text', true);
 ?>
 
 <article class="marcan-property-listing-card <?php echo esc_attr($layout === 'info-left' ? 'is-info-left' : 'is-media-left'); ?>">
@@ -86,7 +86,8 @@ $listing_intro_text_attrs = marcan_font_size_attrs(marcan_resolve_context_font_s
             <?php endif; ?>
         </div>
         <div class="marcan-property-listing-price">
-            <span<?php echo $price_label_attrs; ?>><?php echo esc_html(marcan_get_option_text('ui_card_price_label', 'Desde:')); ?></span>
+            <?php $card_price_label = marcan_get_option_text('ui_card_price_label', ''); ?>
+            <?php if ($card_price_label !== '') : ?><span<?php echo $price_label_attrs; ?>><?php echo esc_html($card_price_label); ?></span><?php endif; ?>
             <strong<?php echo $price_attrs; ?>><?php echo esc_html($price); ?></strong>
         </div>
         <?php if (!empty($listing_specs)) : ?>
@@ -105,8 +106,12 @@ $listing_intro_text_attrs = marcan_font_size_attrs(marcan_resolve_context_font_s
             <?php endif; ?>
         </div>
         <div class="marcan-property-listing-actions">
-            <a<?php echo marcan_font_size_attrs($card_font_sizes['actions'] ?? array(), 'marcan-button-dark marcan-button-icon marcan-button-icon-arrow'); ?> href="<?php echo esc_url(get_permalink($post_id)); ?>"><?php echo esc_html($view_label); ?></a>
-            <a<?php echo marcan_font_size_attrs($card_font_sizes['actions'] ?? array(), 'marcan-button-line marcan-button-icon marcan-button-icon-download'); ?> href="<?php echo esc_url($brochure_url); ?>"><?php echo esc_html(marcan_get_option_text('ui_card_brochure', 'Descargar brochure')); ?></a>
+            <?php if ($view_label !== '') : ?>
+                <a<?php echo marcan_font_size_attrs($card_font_sizes['actions'] ?? array(), 'marcan-button-dark marcan-button-icon marcan-button-icon-arrow'); ?> href="<?php echo esc_url(get_permalink($post_id)); ?>"><?php echo esc_html($view_label); ?></a>
+            <?php endif; ?>
+            <?php if ($brochure_label !== '') : ?>
+                <a<?php echo marcan_font_size_attrs($card_font_sizes['actions'] ?? array(), 'marcan-button-line marcan-button-icon marcan-button-icon-download'); ?> href="<?php echo esc_url($brochure_url); ?>"><?php echo esc_html($brochure_label); ?></a>
+            <?php endif; ?>
         </div>
     </div>
 </article>

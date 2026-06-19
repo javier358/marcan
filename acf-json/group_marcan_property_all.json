@@ -942,6 +942,184 @@
             ]
         },
         {
+            "key": "field_marcan_listing_intro_title",
+            "label": "Card - titulo interno",
+            "name": "listado_intro_titulo",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0,
+            "instructions": "Titulo mostrado dentro de las cards de departamentos, oficinas y relacionados."
+        },
+        {
+            "key": "field_marcan_listing_intro_title_font_size",
+            "label": "Tama?o de letra",
+            "name": "listado_intro_titulo_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamano base del diseno.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_listing_intro_title_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_listing_intro_title_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_marcan_listing_intro_text",
+            "label": "Card - texto interno",
+            "name": "listado_intro_texto",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0,
+            "instructions": "Texto mostrado dentro de las cards de departamentos, oficinas y relacionados."
+        },
+        {
+            "key": "field_marcan_listing_intro_text_font_size",
+            "label": "Tama?o de letra",
+            "name": "listado_intro_texto_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamano base del diseno.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_listing_intro_text_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_listing_intro_text_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        },
+        {
             "key": "field_marcan_project_home_desktop_image",
             "label": "Card - imagen desktop",
             "name": "home_desktop_image",
@@ -1171,6 +1349,95 @@
             ]
         },
         {
+            "key": "field_marcan_quote_label",
+            "label": "Descanso frase - etiqueta",
+            "name": "quote_label",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0,
+            "instructions": "Texto pequeno del separador marcan-property-quote. Si se deja vacio no se muestra."
+        },
+        {
+            "key": "field_marcan_quote_label_font_size",
+            "label": "Tamaño de letra",
+            "name": "quote_label_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamaño base del diseño.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_quote_label_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_quote_label_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        },
+        {
             "key": "field_marcan_quote_text",
             "label": "Frase del proyecto",
             "name": "frase_proyecto",
@@ -1348,14 +1615,14 @@
         },
         {
             "key": "field_marcan_related_intro_text",
-            "label": "Texto antes de relacionados (opcional)",
+            "label": "Descanso relacionados - texto",
             "name": "relacionados_intro_texto",
             "type": "wysiwyg",
             "tabs": "all",
             "toolbar": "basic",
             "media_upload": 0,
             "delay": 0,
-            "instructions": "Opcional. Si se deja vacio no se muestra el bloque."
+            "instructions": "Texto del separador marcan-property-related-intro. Si se deja vacio no se muestra el bloque."
         },
         {
             "key": "field_marcan_related_intro_text_font_size",
@@ -1444,7 +1711,7 @@
             "toolbar": "basic",
             "media_upload": 0,
             "delay": 0,
-            "instructions": "Ejemplo: \"Ver mas\". Si se deja vacio se muestra \"Ver mas\"."
+            "instructions": "Texto del boton en la tarjeta Home."
         },
         {
             "key": "field_marcan_project_home_cta_label_font_size",
@@ -1530,95 +1797,6 @@
             "name": "home_cta_link",
             "type": "link",
             "instructions": "Opcional. Si se deja vacio enlaza a la pagina de detalle del inmueble."
-        },
-        {
-            "key": "field_marcan_tab_prop_single_ctas",
-            "label": "CTAs single",
-            "name": "",
-            "type": "tab",
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_marcan_single_cta_brochure_label",
-            "label": "Boton brochure",
-            "name": "single_cta_brochure_label",
-            "type": "text",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_marcan_single_cta_quote_label",
-            "label": "Boton cotizar",
-            "name": "single_cta_quote_label",
-            "type": "text",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_marcan_single_cta_unit_quote_label",
-            "label": "Boton descargar cotizacion",
-            "name": "single_cta_unit_quote_label",
-            "type": "text",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_marcan_single_cta_contact_label",
-            "label": "Boton contacto",
-            "name": "single_cta_contact_label",
-            "type": "text",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_marcan_single_cta_share_label",
-            "label": "Boton compartir",
-            "name": "single_cta_share_label",
-            "type": "text",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_marcan_single_cta_google_label",
-            "label": "Boton Google Maps",
-            "name": "single_cta_google_label",
-            "type": "text",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_marcan_single_cta_waze_label",
-            "label": "Boton Waze",
-            "name": "single_cta_waze_label",
-            "type": "text",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_marcan_single_price_label",
-            "label": "Etiqueta precio single",
-            "name": "single_price_label",
-            "type": "text",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_marcan_single_tours_title",
-            "label": "Titulo recorridos single",
-            "name": "single_tours_title",
-            "type": "text",
-            "wrapper": {
-                "width": "50"
-            }
         },
         {
             "key": "field_marcan_tab_prop_designer",
