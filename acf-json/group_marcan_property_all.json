@@ -2872,6 +2872,26 @@
             "instructions": "Ejemplo: \"Desde:\". Si se deja vacio se muestra \"Desde:\"."
         },
         {
+            "key": "field_marcan_project_home_desktop_image",
+            "label": "Card - imagen desktop",
+            "name": "home_desktop_image",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "medium_large",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 2063x1432 px. Peso maximo recomendado: 450 KB."
+        },
+        {
+            "key": "field_marcan_project_home_mobile_image",
+            "label": "Card - imagen vertical",
+            "name": "home_mobile_image",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "medium_large",
+            "library": "all",
+            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 630x780 px. Peso maximo recomendado: 280 KB."
+        },
+        {
             "key": "field_marcan_project_home_price_label_font_size",
             "label": "Tamaño de letra",
             "name": "home_price_label_font_size",
@@ -3044,26 +3064,6 @@
             "name": "home_cta_link",
             "type": "link",
             "instructions": "Opcional. Si se deja vacio enlaza a la pagina de detalle del inmueble."
-        },
-        {
-            "key": "field_marcan_project_home_desktop_image",
-            "label": "Imagen desktop",
-            "name": "home_desktop_image",
-            "type": "image",
-            "return_format": "id",
-            "preview_size": "medium_large",
-            "library": "all",
-            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 2063x1432 px. Peso maximo recomendado: 450 KB."
-        },
-        {
-            "key": "field_marcan_project_home_mobile_image",
-            "label": "Imagen vertical",
-            "name": "home_mobile_image",
-            "type": "image",
-            "return_format": "id",
-            "preview_size": "medium_large",
-            "library": "all",
-            "instructions": "Formato recomendado: WEBP. Tambien permite PNG y JPG. Medida exacta recomendada: 630x780 px. Peso maximo recomendado: 280 KB."
         },
         {
             "key": "field_marcan_related_intro_text",

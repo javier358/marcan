@@ -796,8 +796,6 @@ function marcan_register_field_groups(): void
             marcan_hero_image_repeater('field_marcan_detail_hero', 'detalle_hero_imagenes', 'Detalle - imagenes del hero'),
             array('key' => 'field_marcan_detail_wide_image', 'label' => 'Detalle - imagen ancha', 'name' => 'detalle_imagen_ancha', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'large', 'library' => 'all', 'instructions' => marcan_acf_image_help('3025x1552 px', '650 KB')),
             array('key' => 'field_marcan_listing_hero_image', 'label' => 'Listado - imagen hero', 'name' => 'listado_hero_imagen', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'large', 'library' => 'all', 'instructions' => marcan_acf_image_help('2236x1357 px', '450 KB')),
-            array('key' => 'field_marcan_project_home_desktop_image', 'label' => 'Imagen para tarjeta Home (desktop)', 'name' => 'home_desktop_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium_large', 'library' => 'all', 'instructions' => marcan_acf_image_help('2063x1432 px', '450 KB') . ' Si se deja vacio se usa la imagen de listado.'),
-            array('key' => 'field_marcan_project_home_mobile_image', 'label' => 'Imagen para tarjeta Home (vertical)', 'name' => 'home_mobile_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium_large', 'library' => 'all', 'instructions' => marcan_acf_image_help('630x780 px', '280 KB') . ' Si se deja vacio se usa la imagen desktop.'),
 
             /* 2. Identidad */
             marcan_acf_tab('field_marcan_tab_prop_identity', '2. Identidad'),
@@ -823,6 +821,8 @@ function marcan_register_field_groups(): void
             array('key' => 'field_marcan_bathrooms', 'label' => 'Baños', 'name' => 'banos', 'type' => 'number'),
             array('key' => 'field_marcan_parking', 'label' => 'Estacionamientos', 'name' => 'estacionamientos', 'type' => 'number'),
             marcan_acf_wysiwyg('field_marcan_project_home_price_label', 'Etiqueta de precio', 'home_price_label', 'basic', 0, 'Texto antes del precio en la tarjeta Home. Ej: "Desde:".'),
+            array('key' => 'field_marcan_project_home_desktop_image', 'label' => 'Card - imagen desktop', 'name' => 'home_desktop_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium_large', 'library' => 'all', 'instructions' => marcan_acf_image_help('2063x1432 px', '450 KB') . ' Si se deja vacio se usa la imagen de listado.'),
+            array('key' => 'field_marcan_project_home_mobile_image', 'label' => 'Card - imagen vertical', 'name' => 'home_mobile_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium_large', 'library' => 'all', 'instructions' => marcan_acf_image_help('630x780 px', '280 KB') . ' Si se deja vacio se usa la imagen desktop.'),
             array('key' => 'field_marcan_brochure', 'label' => 'Brochure', 'name' => 'brochure', 'type' => 'file', 'return_format' => 'id', 'library' => 'all', 'instructions' => 'PDF del brochure.'),
             array('key' => 'field_marcan_show_brochure', 'label' => 'Mostrar botón brochure', 'name' => 'mostrar_brochure', 'type' => 'true_false', 'default_value' => 1, 'ui' => 1),
 

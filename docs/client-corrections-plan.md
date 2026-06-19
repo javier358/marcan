@@ -146,6 +146,7 @@ Validacion tecnica:
 - Agregada migracion idempotente `marcan_seed_listing_editable_copy` para sembrar esos textos anteriores en las paginas `departamentos` y `oficinas` una sola vez, sin reponerlos si el cliente los borra despues.
 - En progreso: se agregan pestañas `Cards` en Inicio, Departamentos y Oficinas para controlar por pagina el tamano de textos de las cards. Si el campo de pagina queda vacio, se conserva el tamano configurado en cada proyecto.
 - Revisado: los campos ACF de Arquitectura del proyecto si se usan en `single-property.php`; no afectan las cards de departamentos/oficinas porque pertenecen a la ficha del inmueble.
+- Ajustado: las imagenes especificas de card (`home_desktop_image` y `home_mobile_image`) se movieron a Ficha tecnica del proyecto para quedar junto a los datos que alimentan single/cards, manteniendo las mismas keys para no perder contenido.
 - Pendiente detectado para siguiente bloque: `inc/blog.php` mantiene defaults visibles en contenido/CTA del blog; revisar si entra en alcance antes del cierre final.
 
 ## Registro de avance
