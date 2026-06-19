@@ -19,7 +19,7 @@ Reglas de trabajo:
 ## Estado de fases
 
 - [x] Fase 0 - Crear este plan de continuidad.
-- [ ] Fase 1 - Auditoria inicial y base global de colores/tipografia/fallbacks.
+- [x] Fase 1 - Auditoria inicial y base global de colores/tipografia/fallbacks.
 - [ ] Fase 2 - Departamentos/Oficinas, modal de contacto y sticky single property.
 - [ ] Fase 3 - Mapa/cercania y CTA de single property sin hardcodes.
 - [ ] Fase 4 - ACF de tamanos por contexto, galeria y otros proyectos.
@@ -135,4 +135,15 @@ Validacion tecnica:
 ### Fase 0
 
 - Creado este documento para continuidad.
-- Pendiente commit y push de la fase.
+- Commit y push completados: `b6fbc0b`.
+
+### Fase 1
+
+- Completada.
+- Auditoria inicial encontro grises `#838382` en textos de cards, unidades, mapa, blog y responsive.
+- No se tocaron fondos ni SVGs con `#838382` porque no son texto.
+- Se eliminaron fallbacks visibles legacy `Consultar` y `Disponible`.
+- Se alineo la cabecera de precios de unidades a `Inter`, consistente con el resto del bloque.
+- `npm run build:css` ejecutado correctamente.
+- `git diff --check` ejecutado correctamente.
+- `php -l` pendiente: PHP no esta disponible en PATH local.

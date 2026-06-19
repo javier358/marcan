@@ -15,8 +15,8 @@ while (have_posts()) :
     $bathrooms = marcan_get_property_meta(get_the_ID(), 'bathrooms');
     $parking = marcan_get_property_meta(get_the_ID(), 'parking');
     $address = marcan_get_property_meta(get_the_ID(), 'address');
-    $cta_label = marcan_get_property_meta(get_the_ID(), 'cta_label') ?: __('Consultar', 'marcan');
-    $cta_url = marcan_get_property_meta(get_the_ID(), 'cta_url') ?: '#';
+    $cta_label = marcan_get_property_meta(get_the_ID(), 'cta_label');
+    $cta_url = marcan_get_property_meta(get_the_ID(), 'cta_url');
     ?>
     <article <?php post_class('property-detail'); ?>>
         <div class="property-detail-media">
@@ -40,7 +40,9 @@ while (have_posts()) :
             <div class="entry-content">
                 <?php the_content(); ?>
             </div>
-            <a class="button-primary" href="<?php echo esc_url($cta_url); ?>"><?php echo esc_html($cta_label); ?></a>
+            <?php if ($cta_label && $cta_url) : ?>
+                <a class="button-primary" href="<?php echo esc_url($cta_url); ?>"><?php echo esc_html($cta_label); ?></a>
+            <?php endif; ?>
         </div>
     </article>
     <?php

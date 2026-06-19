@@ -19,7 +19,9 @@ $address = marcan_get_property_meta(get_the_ID(), 'address');
             <?php endif; ?>
         </div>
         <div class="property-card-body">
-            <p><?php echo esc_html($address ?: __('Disponible', 'marcan')); ?></p>
+            <?php if ($address) : ?>
+                <p><?php echo esc_html($address); ?></p>
+            <?php endif; ?>
             <h2><?php the_title(); ?></h2>
             <div>
                 <?php if ($price) : ?><span><?php echo esc_html($price); ?></span><?php endif; ?>
