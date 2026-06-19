@@ -20,7 +20,7 @@ Reglas de trabajo:
 
 - [x] Fase 0 - Crear este plan de continuidad.
 - [x] Fase 1 - Auditoria inicial y base global de colores/tipografia/fallbacks.
-- [ ] Fase 2 - Departamentos/Oficinas, modal de contacto y sticky single property.
+- [x] Fase 2 - Departamentos/Oficinas, modal de contacto y sticky single property.
 - [ ] Fase 3 - Mapa/cercania y CTA de single property sin hardcodes.
 - [ ] Fase 4 - ACF de tamanos por contexto, galeria y otros proyectos.
 - [ ] Fase 5 - Revision global, pruebas y documentacion final.
@@ -147,3 +147,13 @@ Validacion tecnica:
 - `npm run build:css` ejecutado correctamente.
 - `git diff --check` ejecutado correctamente.
 - `php -l` pendiente: PHP no esta disponible en PATH local.
+
+### Fase 2
+
+- Completada.
+- Se dejo de renderizar el bloque inferior duplicado `.marcan-property-archive-search-copy` en Departamentos y Oficinas.
+- Se quitaron los campos ACF duplicados `listing_search_title` y `listing_search_copy` de PHP y JSON local.
+- Se eliminaron fallbacks visibles de titulo, intro y razones en los listados; si ACF esta vacio, el bloque no se muestra.
+- Se ajusto el modal de contacto para laptop/desktop con `max-height`, respiro lateral/vertical y scroll interno del formulario.
+- Se redujo el alto visual de `.marcan-property-sticky-quote` en single property.
+- `npm run build:css`, `npm run verify:css`, `git diff --check` y `php -l` en PHP modificados ejecutados correctamente.

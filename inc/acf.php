@@ -720,8 +720,6 @@ function marcan_register_field_groups(): void
             marcan_acf_tab('field_marcan_tab_dep_text', '2. Textos'),
             array('key' => 'field_marcan_dep_title', 'label' => 'Título', 'name' => 'listing_title', 'type' => 'text'),
             marcan_acf_wysiwyg('field_marcan_dep_intro', 'Texto introductorio', 'listing_intro'),
-            array('key' => 'field_marcan_dep_search_title', 'label' => 'Título búsqueda', 'name' => 'listing_search_title', 'type' => 'text'),
-            marcan_acf_wysiwyg('field_marcan_dep_search_copy', 'Texto busqueda', 'listing_search_copy'),
         ),
         'location' => array(
             array(
@@ -742,8 +740,6 @@ function marcan_register_field_groups(): void
             marcan_acf_tab('field_marcan_ofi_tab_text', '2. Textos'),
             array('key' => 'field_marcan_ofi_title', 'label' => 'Título', 'name' => 'listing_title', 'type' => 'text'),
             marcan_acf_wysiwyg('field_marcan_ofi_intro', 'Texto introductorio', 'listing_intro'),
-            array('key' => 'field_marcan_ofi_search_title', 'label' => 'Título búsqueda', 'name' => 'listing_search_title', 'type' => 'text'),
-            marcan_acf_wysiwyg('field_marcan_ofi_search_copy', 'Texto busqueda', 'listing_search_copy'),
             marcan_acf_tab('field_marcan_ofi_tab_reasons', '3. Razones para invertir'),
             array('key' => 'field_marcan_ofi_reasons_title', 'label' => 'Título razones', 'name' => 'listing_reasons_title', 'type' => 'text'),
             array('key' => 'field_marcan_ofi_reasons', 'label' => 'Razones', 'name' => 'listing_reasons', 'type' => 'repeater', 'layout' => 'row', 'button_label' => 'Agregar razón', 'sub_fields' => array(
