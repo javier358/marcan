@@ -26,7 +26,7 @@
 }
 
 .marcan-complaint-provider .marcan-complaint-date {
-    color: #838382;
+    color: #4f4f4f;
     margin-top: 6px;
 }
 
@@ -119,7 +119,7 @@
 }
 
 .marcan-complaint-hint {
-    color: #838382;
+    color: #4f4f4f;
     font-size: 13px;
     line-height: 1.4;
     margin: 8px 0 0;

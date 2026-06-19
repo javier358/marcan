@@ -103,7 +103,7 @@ body.is-shared-unit-scrolling::after {
 
 .marcan-property-filter-group legend,
 .marcan-property-filter-label {
-    color: #838382;
+    color: #4f4f4f;
     display: block;
     font-family: Inter, Arial, sans-serif;
     font-size: 14px;
@@ -241,8 +241,8 @@ body.is-shared-unit-scrolling::after {
 }
 
 .marcan-property-pricing-head {
-    color: #838382;
-    font-family: Roboto, Inter, Arial, sans-serif;
+    color: #4f4f4f;
+    font-family: Inter, Arial, sans-serif;
     font-size: 18px;
     font-weight: 300;
     line-height: 1.2;
@@ -560,7 +560,7 @@ body.is-shared-unit-scrolling::after {
 }
 
 .marcan-property-unit-plan > span {
-    color: #838382;
+    color: #4f4f4f;
     font-family: Inter, Arial, sans-serif;
     font-size: 14px;
 }

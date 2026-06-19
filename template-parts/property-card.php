@@ -20,7 +20,9 @@ $post_id = get_the_ID();
             <?php endif; ?>
         </div>
         <div class="property-card-body">
-            <p<?php echo marcan_font_size_attrs(marcan_get_field_font_size('ubicacion', $post_id)); ?>><?php echo esc_html($address ?: __('Disponible', 'marcan')); ?></p>
+            <?php if ($address) : ?>
+                <p<?php echo marcan_font_size_attrs(marcan_get_field_font_size('ubicacion', $post_id)); ?>><?php echo esc_html($address); ?></p>
+            <?php endif; ?>
             <h2><?php the_title(); ?></h2>
             <div>
                 <?php if ($price) : ?><span<?php echo marcan_font_size_attrs(marcan_get_field_font_size('precio', $post_id)); ?>><?php echo esc_html($price); ?></span><?php endif; ?>
