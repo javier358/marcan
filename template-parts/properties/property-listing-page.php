@@ -22,12 +22,8 @@ $get_listing_font_size = static function (string $field) use ($page_id): array {
     return $page_id ? marcan_get_field_font_size($field, $page_id) : array();
 };
 
-$default_title = $is_office ? __('Oficinas en venta', 'marcan') : __('Departamentos en venta', 'marcan');
-$default_intro = $is_office
-    ? __('Espacios de trabajo pensados para invertir y crecer, en ubicaciones con alto potencial urbano.', 'marcan')
-    : __('Encuentra departamentos pensados para vivir mejor, con arquitectura funcional y ubicaciones conectadas a la ciudad.', 'marcan');
-$title = $get_listing_field('listing_title', $default_title);
-$intro = $get_listing_field('listing_intro', $default_intro);
+$title = $get_listing_field('listing_title');
+$intro = $get_listing_field('listing_intro');
 $search_copy = $get_listing_field('listing_search_copy');
 
 $hero_rows = array();
@@ -66,30 +62,31 @@ if ($hero_picture === '') {
         </div>
         <div class="marcan-property-archive-hero-content">
         <div class="marcan-property-archive-copy">
-            <h1<?php echo marcan_font_size_attrs($get_listing_font_size('listing_title')); ?>><?php echo marcan_rich_inline($title); ?></h1>
-            <div<?php echo marcan_font_size_attrs($get_listing_font_size('listing_intro'), '', true); ?>><?php echo marcan_rich_block($intro); ?></div>
+            <?php if ($title !== '') : ?>
+                <h1<?php echo marcan_font_size_attrs($get_listing_font_size('listing_title')); ?>><?php echo marcan_rich_inline($title); ?></h1>
+            <?php endif; ?>
+            <?php if ($intro !== '') : ?>
+                <div<?php echo marcan_font_size_attrs($get_listing_font_size('listing_intro'), '', true); ?>><?php echo marcan_rich_block($intro); ?></div>
+            <?php endif; ?>
         </div>
         <?php if ($is_office) : ?>
             <?php
-            $reasons_title = $get_listing_field('listing_reasons_title', __('¿Por qué invertir en oficinas?', 'marcan'));
+            $reasons_title = $get_listing_field('listing_reasons_title');
             $reasons = ($page_id && function_exists('get_field')) ? get_field('listing_reasons', $page_id) : array();
-            if (!is_array($reasons) || empty($reasons)) {
-                $reasons = array(
-                    array('number' => '1', 'text' => __('Los contratos empresariales ofrecen ingresos estables, predecibles y seguros a largo plazo.', 'marcan')),
-                    array('number' => '2', 'text' => __('Los espacios bien ubicados aumentan su valor de forma sostenida con el tiempo.', 'marcan')),
-                    array('number' => '3', 'text' => __('El trabajo híbrido impulsa la búsqueda de oficinas modernas, flexibles y funcionales.', 'marcan')),
-                    array('number' => '4', 'text' => __('Invertir en oficinas permite equilibrar tu portafolio, reduce riesgos y fortalece tu patrimonio.', 'marcan')),
-                );
-            }
+            $reasons = is_array($reasons) ? $reasons : array();
             ?>
-            <div class="marcan-property-archive-reasons">
-                <h2<?php echo marcan_font_size_attrs($get_listing_font_size('listing_reasons_title')); ?>><?php echo marcan_rich_inline($reasons_title); ?></h2>
-                <ol>
-                    <?php foreach ($reasons as $reason) : ?>
-                        <li><span<?php echo marcan_font_size_attrs(marcan_get_row_font_size($reason, 'number')); ?>><?php echo marcan_rich_inline((string) ($reason['number'] ?? '')); ?></span><div<?php echo marcan_font_size_attrs(marcan_get_row_font_size($reason, 'text'), '', true); ?>><?php echo marcan_rich_block((string) ($reason['text'] ?? '')); ?></div></li>
-                    <?php endforeach; ?>
-                </ol>
-            </div>
+            <?php if (!empty($reasons)) : ?>
+                <div class="marcan-property-archive-reasons">
+                    <?php if ($reasons_title !== '') : ?>
+                        <h2<?php echo marcan_font_size_attrs($get_listing_font_size('listing_reasons_title')); ?>><?php echo marcan_rich_inline($reasons_title); ?></h2>
+                    <?php endif; ?>
+                    <ol>
+                        <?php foreach ($reasons as $reason) : ?>
+                            <li><span<?php echo marcan_font_size_attrs(marcan_get_row_font_size($reason, 'number')); ?>><?php echo marcan_rich_inline((string) ($reason['number'] ?? '')); ?></span><div<?php echo marcan_font_size_attrs(marcan_get_row_font_size($reason, 'text'), '', true); ?>><?php echo marcan_rich_block((string) ($reason['text'] ?? '')); ?></div></li>
+                        <?php endforeach; ?>
+                    </ol>
+                </div>
+            <?php endif; ?>
         <?php endif; ?>
         <?php if ($search_copy !== '') : ?>
             <div class="marcan-property-archive-search-copy">

@@ -90,3 +90,48 @@ function marcan_seed_global_editable_copy(): void
     update_option('marcan_global_editable_copy_seed_version', $version, false);
 }
 add_action('init', 'marcan_seed_global_editable_copy', 31);
+
+function marcan_seed_listing_reasons_once(int $page_id, array $reasons): void
+{
+    if (empty($reasons) || marcan_meta_key_exists($page_id, 'listing_reasons')) {
+        return;
+    }
+
+    update_post_meta($page_id, 'listing_reasons', count($reasons));
+    foreach (array_values($reasons) as $index => $reason) {
+        update_post_meta($page_id, sprintf('listing_reasons_%d_number', $index), wp_slash((string) ($reason['number'] ?? '')));
+        update_post_meta($page_id, sprintf('listing_reasons_%d_text', $index), wp_slash((string) ($reason['text'] ?? '')));
+    }
+}
+
+function marcan_seed_listing_editable_copy(): void
+{
+    $version = '2026-06-19-phase-5-listing-copy';
+    if (get_option('marcan_listing_editable_copy_seed_version') === $version) {
+        return;
+    }
+
+    $departamentos = get_page_by_path('departamentos');
+    if ($departamentos instanceof WP_Post) {
+        $dept_id = (int) $departamentos->ID;
+        marcan_seed_meta_once($dept_id, 'listing_title', 'Departamentos en venta');
+        marcan_seed_meta_once($dept_id, 'listing_intro', 'Encuentra departamentos pensados para vivir mejor, con arquitectura funcional y ubicaciones conectadas a la ciudad.');
+    }
+
+    $oficinas = get_page_by_path('oficinas');
+    if ($oficinas instanceof WP_Post) {
+        $office_id = (int) $oficinas->ID;
+        marcan_seed_meta_once($office_id, 'listing_title', 'Oficinas en venta');
+        marcan_seed_meta_once($office_id, 'listing_intro', 'Espacios de trabajo pensados para invertir y crecer, en ubicaciones con alto potencial urbano.');
+        marcan_seed_meta_once($office_id, 'listing_reasons_title', 'Por que invertir en oficinas?');
+        marcan_seed_listing_reasons_once($office_id, array(
+            array('number' => '1', 'text' => 'Los contratos empresariales ofrecen ingresos estables, predecibles y seguros a largo plazo.'),
+            array('number' => '2', 'text' => 'Los espacios bien ubicados aumentan su valor de forma sostenida con el tiempo.'),
+            array('number' => '3', 'text' => 'El trabajo hibrido impulsa la busqueda de oficinas modernas, flexibles y funcionales.'),
+            array('number' => '4', 'text' => 'Invertir en oficinas permite equilibrar tu portafolio, reduce riesgos y fortalece tu patrimonio.'),
+        ));
+    }
+
+    update_option('marcan_listing_editable_copy_seed_version', $version, false);
+}
+add_action('init', 'marcan_seed_listing_editable_copy', 32);

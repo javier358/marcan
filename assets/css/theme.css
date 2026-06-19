@@ -4567,6 +4567,10 @@ img {
     margin: 0;
 }
 
+.marcan-property-intro {
+    font-weight: 300;
+}
+
 .marcan-property-delivery {
     font-size: 30px;
     grid-column: 1 / -1;
