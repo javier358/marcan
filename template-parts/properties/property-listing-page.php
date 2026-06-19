@@ -9,22 +9,31 @@ $query = marcan_get_properties_by_kind($kind);
 $first_post = $query->have_posts() ? $query->posts[0] : null;
 
 $page_id = get_queried_object_id();
-$get_listing_field = static function (string $field) use ($page_id): string {
+$get_listing_field = static function (string $field, string $fallback = '') use ($page_id): string {
     if ($page_id && function_exists('get_field')) {
         $value = get_field($field, $page_id);
         if (is_scalar($value) && (string) $value !== '') {
             return (string) $value;
         }
     }
-
-    return '';
+    return $fallback;
 };
 $get_listing_font_size = static function (string $field) use ($page_id): array {
     return $page_id ? marcan_get_field_font_size($field, $page_id) : array();
 };
 
-$title = $get_listing_field('listing_title');
-$intro = $get_listing_field('listing_intro');
+$default_title = $is_office ? __('Oficinas en venta', 'marcan') : __('Departamentos en venta', 'marcan');
+$default_intro = $is_office
+    ? __('Espacios de trabajo pensados para invertir y crecer, en ubicaciones con alto potencial urbano.', 'marcan')
+    : __('Encuentra departamentos pensados para vivir mejor, con arquitectura funcional y ubicaciones conectadas a la ciudad.', 'marcan');
+$default_search_copy = $is_office
+    ? __('Revisa las opciones que tenemos para ti desde S/455,222', 'marcan')
+    : __('Revisa las opciones que tenemos para ti desde S/355,222', 'marcan');
+
+$title = $get_listing_field('listing_title', $default_title);
+$intro = $get_listing_field('listing_intro', $default_intro);
+$search_title = $get_listing_field('listing_search_title', __('Encuentra lo que estas buscando', 'marcan'));
+$search_copy = $get_listing_field('listing_search_copy', $default_search_copy);
 
 $hero_rows = array();
 if ($page_id && function_exists('get_field')) {
@@ -36,6 +45,7 @@ $hero_picture = marcan_render_hero_picture($hero_rows, '', array(
     'eager' => true,
 ));
 
+// Respaldo (imagen unica) si el hero no tiene imagenes propias.
 $hero_image_id = 0;
 $hero_image_url = '';
 if ($hero_picture === '') {
@@ -60,39 +70,36 @@ if ($hero_picture === '') {
             <?php endif; ?>
         </div>
         <div class="marcan-property-archive-hero-content">
-            <?php if ($title !== '' || $intro !== '') : ?>
-                <div class="marcan-property-archive-copy">
-                    <?php if ($title !== '') : ?>
-                        <h1<?php echo marcan_font_size_attrs($get_listing_font_size('listing_title')); ?>><?php echo marcan_rich_inline($title); ?></h1>
-                    <?php endif; ?>
-                    <?php if ($intro !== '') : ?>
-                        <div<?php echo marcan_font_size_attrs($get_listing_font_size('listing_intro'), '', true); ?>><?php echo marcan_rich_block($intro); ?></div>
-                    <?php endif; ?>
-                </div>
-            <?php endif; ?>
-            <?php if ($is_office) : ?>
-                <?php
-                $reasons_title = $get_listing_field('listing_reasons_title');
-                $reasons = ($page_id && function_exists('get_field')) ? get_field('listing_reasons', $page_id) : array();
-                $reasons = is_array($reasons) ? array_filter($reasons, static function ($reason): bool {
-                    return trim((string) ($reason['number'] ?? '')) !== '' || trim((string) ($reason['text'] ?? '')) !== '';
-                }) : array();
-                ?>
-                <?php if ($reasons_title !== '' || !empty($reasons)) : ?>
-                    <div class="marcan-property-archive-reasons">
-                        <?php if ($reasons_title !== '') : ?>
-                            <h2<?php echo marcan_font_size_attrs($get_listing_font_size('listing_reasons_title')); ?>><?php echo marcan_rich_inline($reasons_title); ?></h2>
-                        <?php endif; ?>
-                        <?php if (!empty($reasons)) : ?>
-                            <ol>
-                                <?php foreach ($reasons as $reason) : ?>
-                                    <li><span<?php echo marcan_font_size_attrs(marcan_get_row_font_size($reason, 'number')); ?>><?php echo marcan_rich_inline((string) ($reason['number'] ?? '')); ?></span><div<?php echo marcan_font_size_attrs(marcan_get_row_font_size($reason, 'text'), '', true); ?>><?php echo marcan_rich_block((string) ($reason['text'] ?? '')); ?></div></li>
-                                <?php endforeach; ?>
-                            </ol>
-                        <?php endif; ?>
-                    </div>
-                <?php endif; ?>
-            <?php endif; ?>
+        <div class="marcan-property-archive-copy">
+            <h1<?php echo marcan_font_size_attrs($get_listing_font_size('listing_title')); ?>><?php echo marcan_rich_inline($title); ?></h1>
+            <div<?php echo marcan_font_size_attrs($get_listing_font_size('listing_intro'), '', true); ?>><?php echo marcan_rich_block($intro); ?></div>
+        </div>
+        <?php if ($is_office) : ?>
+            <?php
+            $reasons_title = $get_listing_field('listing_reasons_title', __('¿Por qué invertir en oficinas?', 'marcan'));
+            $reasons = ($page_id && function_exists('get_field')) ? get_field('listing_reasons', $page_id) : array();
+            if (!is_array($reasons) || empty($reasons)) {
+                $reasons = array(
+                    array('number' => '1', 'text' => __('Los contratos empresariales ofrecen ingresos estables, predecibles y seguros a largo plazo.', 'marcan')),
+                    array('number' => '2', 'text' => __('Los espacios bien ubicados aumentan su valor de forma sostenida con el tiempo.', 'marcan')),
+                    array('number' => '3', 'text' => __('El trabajo híbrido impulsa la búsqueda de oficinas modernas, flexibles y funcionales.', 'marcan')),
+                    array('number' => '4', 'text' => __('Invertir en oficinas permite equilibrar tu portafolio, reduce riesgos y fortalece tu patrimonio.', 'marcan')),
+                );
+            }
+            ?>
+            <div class="marcan-property-archive-reasons">
+                <h2<?php echo marcan_font_size_attrs($get_listing_font_size('listing_reasons_title')); ?>><?php echo marcan_rich_inline($reasons_title); ?></h2>
+                <ol>
+                    <?php foreach ($reasons as $reason) : ?>
+                        <li><span<?php echo marcan_font_size_attrs(marcan_get_row_font_size($reason, 'number')); ?>><?php echo marcan_rich_inline((string) ($reason['number'] ?? '')); ?></span><div<?php echo marcan_font_size_attrs(marcan_get_row_font_size($reason, 'text'), '', true); ?>><?php echo marcan_rich_block((string) ($reason['text'] ?? '')); ?></div></li>
+                    <?php endforeach; ?>
+                </ol>
+            </div>
+        <?php endif; ?>
+        <div class="marcan-property-archive-search-copy">
+            <h2<?php echo marcan_font_size_attrs($get_listing_font_size('listing_search_title')); ?>><?php echo marcan_rich_inline($search_title); ?></h2>
+            <div<?php echo marcan_font_size_attrs($get_listing_font_size('listing_search_copy'), '', true); ?>><?php echo marcan_rich_block($search_copy); ?></div>
+        </div>
         </div>
     </section>
 
@@ -111,6 +118,11 @@ if ($hero_picture === '') {
                 ?>
             <?php endwhile; ?>
             <?php wp_reset_postdata(); ?>
+        <?php else : ?>
+            <div class="marcan-property-empty">
+                <h2><?php esc_html_e('Aun no hay inmuebles publicados.', 'marcan'); ?></h2>
+                <p><?php esc_html_e('Agrega departamentos u oficinas desde el administrador para alimentar esta pagina y el home.', 'marcan'); ?></p>
+            </div>
         <?php endif; ?>
     </section>
 </main>
