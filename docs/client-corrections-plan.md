@@ -164,3 +164,4 @@ Validacion tecnica:
 - Se agregaron campos ACF `unidades_titulo_intro` y `unidades_titulo_detalle` para reemplazar el texto hardcodeado de la seccion de unidades/opciones.
 - Se quitaron fallbacks visibles de botones de cotizar/mapa usados en single property; si el campo global esta vacio no se muestra el boton.
 - Se quitaron fallbacks visibles de frase/autor del proyecto y del bloque previo a relacionados.
+- Se agrego una migracion idempotente que siembra esos textos antiguos en ACF una sola vez, solo cuando el campo aun no existe; si el cliente los borra despues, no se reponen.

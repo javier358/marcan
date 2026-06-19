@@ -23,6 +23,7 @@ $marcan_includes = array(
     'inc/about.php',
     'inc/iconic-projects.php',
     'inc/blog.php',
+    'inc/migrations.php',
     'inc/acf.php',
     'inc/roles.php',
     'inc/admin-ux.php',
