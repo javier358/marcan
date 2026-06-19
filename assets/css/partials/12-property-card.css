@@ -566,14 +566,14 @@
     display: block;
     font-family: Inter, Arial, sans-serif;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .marcan-property-price-block strong {
     display: block;
     font-family: Inter, Arial, sans-serif;
     font-size: 24px;
-    font-weight: 300;
+    font-weight: 500;
     margin: 4px 0 14px;
 }
 
@@ -655,9 +655,9 @@
 }
 
 .marcan-property-concept p {
-    font-family: Roboto, Inter, Arial, sans-serif;
+    font-family: Inter, Arial, sans-serif;
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.35;
     margin: 0 0 24px;
 }

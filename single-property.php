@@ -106,6 +106,7 @@ while (have_posts()) :
     $map_heading_attrs = marcan_font_size_attrs(marcan_get_field_font_size('ubicacion_titulo', $post_id));
     $map_nearby_title_attrs = marcan_font_size_attrs(marcan_get_field_font_size('lugares_cercanos_titulo', $post_id));
     $map_description_attrs = marcan_font_size_attrs(marcan_get_field_font_size('ubicacion_descripcion', $post_id), 'marcan-property-map-description', true);
+    $gallery_menu_attrs = marcan_font_size_attrs(marcan_get_field_font_size('gallery_menu', $post_id), 'marcan-property-gallery-nav');
     $units_heading_intro_attrs = marcan_font_size_attrs(marcan_get_field_font_size('unidades_titulo_intro', $post_id));
     $units_heading_detail_attrs = marcan_font_size_attrs(marcan_get_field_font_size('unidades_titulo_detalle', $post_id));
     $quote_attrs = marcan_font_size_attrs(marcan_get_field_font_size('frase_proyecto', $post_id));
@@ -118,6 +119,10 @@ while (have_posts()) :
     $related_quote_label = $is_office
         ? marcan_get_option_text('ui_property_btn_quote_office', '')
         : marcan_get_option_text('ui_property_btn_quote_project', '');
+    $related_title = $is_office
+        ? marcan_get_option_text('ui_property_related_office', '')
+        : marcan_get_option_text('ui_property_related_dept', '');
+    $related_title_attrs = marcan_font_size_attrs($is_office ? marcan_get_option_font_size('ui_property_related_office') : marcan_get_option_font_size('ui_property_related_dept'));
     $map_embed_src = '';
 
     if ($map_google_url !== '') {
@@ -724,7 +729,7 @@ while (have_posts()) :
                 <section class="marcan-property-gallery-row marcan-property-gallery-row-<?php echo esc_attr($label); ?>" data-property-gallery>
                     <div class="marcan-property-gallery-side">
                         <h2><?php echo esc_html($label === 'areas_comunes' ? __('Áreas comunes', 'marcan') : __('Departamento', 'marcan')); ?></h2>
-                        <div class="marcan-property-gallery-nav">
+                        <div<?php echo $gallery_menu_attrs; ?>>
                             <?php foreach ($gallery_items as $item_index => $gallery_item) : ?>
                                 <button class="<?php echo $item_index === 0 ? 'is-active' : ''; ?>" type="button" data-gallery-jump="<?php echo esc_attr($item_index); ?>">
                                     <?php echo esc_html($gallery_item['caption']); ?>
@@ -808,7 +813,9 @@ while (have_posts()) :
         <?php endif; ?>
 
         <section class="marcan-property-related<?php echo $related_count === 1 ? ' is-single' : ''; ?><?php echo $related_count >= 3 ? ' has-slider' : ''; ?>">
-            <h2><?php echo esc_html($is_office ? marcan_get_option_text('ui_property_related_office', 'Otras oficinas en venta') : marcan_get_option_text('ui_property_related_dept', 'Otros departamentos en venta')); ?></h2>
+            <?php if ($related_title !== '') : ?>
+                <h2<?php echo $related_title_attrs; ?>><?php echo esc_html($related_title); ?></h2>
+            <?php endif; ?>
             <?php if ($related_count === 1) : ?>
                 <div class="marcan-property-related-grid is-single">
                     <?php if ($related->have_posts()) : ?>

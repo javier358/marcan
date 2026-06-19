@@ -22,7 +22,7 @@ Reglas de trabajo:
 - [x] Fase 1 - Auditoria inicial y base global de colores/tipografia/fallbacks.
 - [x] Fase 2 - Departamentos/Oficinas, modal de contacto y sticky single property.
 - [x] Fase 3 - Mapa/cercania y CTA de single property sin hardcodes.
-- [ ] Fase 4 - ACF de tamanos por contexto, galeria y otros proyectos.
+- [x] Fase 4 - ACF de tamanos por contexto, galeria y otros proyectos.
 - [ ] Fase 5 - Revision global, pruebas y documentacion final.
 
 ## Fase 1 - Auditoria inicial y base global
@@ -110,6 +110,14 @@ Validacion:
 - Galeria single property permite editar tamano del menu lateral desde ACF.
 - Cards home/listados/single/relacionados conservan contenido editable.
 - Cambios de tamano afectan solo su contexto.
+
+### Fase 4
+
+- Completada pendiente de validacion visual del cliente.
+- Se agrego `gallery_menu_font_size` para editar el tamano del menu lateral de galeria en single property.
+- Se normalizaron pesos/familias en single property donde habia mezcla visible de `Roboto`/`300` contra `Inter`/`400`: precio, concepto, mapa, galeria lightbox y arquitectura.
+- El titulo de relacionados/otros proyectos dejo de usar fallback visible en template; ahora se siembra una sola vez como ACF global editable (`ui_property_related_dept` / `ui_property_related_office`) y si se borra no se renderiza.
+- El titulo de relacionados queda conectado al control de tamano ACF global generado para ese campo.
 
 ## Fase 5 - Revision global y cierre
 

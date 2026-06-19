@@ -74,7 +74,7 @@ function marcan_seed_option_once(string $field_name, string $value): void
 
 function marcan_seed_global_editable_copy(): void
 {
-    $version = '2026-06-19-phase-3-global-copy';
+    $version = '2026-06-19-phase-4-global-copy';
     if (get_option('marcan_global_editable_copy_seed_version') === $version) {
         return;
     }
@@ -84,6 +84,8 @@ function marcan_seed_global_editable_copy(): void
     marcan_seed_option_once('ui_property_map_google', 'Ver en Google Maps');
     marcan_seed_option_once('ui_property_map_waze', 'Ver en Waze');
     marcan_seed_option_once('ui_property_about_label', 'Sobre el proyecto');
+    marcan_seed_option_once('ui_property_related_dept', 'Otros departamentos en venta');
+    marcan_seed_option_once('ui_property_related_office', 'Otras oficinas en venta');
 
     update_option('marcan_global_editable_copy_seed_version', $version, false);
 }

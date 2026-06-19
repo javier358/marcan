@@ -557,8 +557,8 @@ function marcan_register_field_groups(): void
             marcan_acf_tab('field_marcan_tab_ui_property_titles', 'Títulos de sección'),
             array('key' => 'field_marcan_ui_property_tours_title', 'label' => 'Título recorridos virtuales', 'name' => 'ui_property_tours_title', 'type' => 'text', 'default_value' => 'Recorridos virtuales'),
             array('key' => 'field_marcan_ui_property_about_label', 'label' => 'Etiqueta "Sobre el proyecto"', 'name' => 'ui_property_about_label', 'type' => 'text'),
-            array('key' => 'field_marcan_ui_property_related_dept', 'label' => 'Título relacionados (departamentos)', 'name' => 'ui_property_related_dept', 'type' => 'text', 'default_value' => 'Otros departamentos en venta'),
-            array('key' => 'field_marcan_ui_property_related_office', 'label' => 'Título relacionados (oficinas)', 'name' => 'ui_property_related_office', 'type' => 'text', 'default_value' => 'Otras oficinas en venta'),
+            array('key' => 'field_marcan_ui_property_related_dept', 'label' => 'Título relacionados (departamentos)', 'name' => 'ui_property_related_dept', 'type' => 'text'),
+            array('key' => 'field_marcan_ui_property_related_office', 'label' => 'Título relacionados (oficinas)', 'name' => 'ui_property_related_office', 'type' => 'text'),
         ),
         'location' => array(
             array(
@@ -861,6 +861,7 @@ function marcan_register_field_groups(): void
             /* 9. Galería */
             marcan_acf_tab('field_marcan_tab_prop_gallery', '9. Galería'),
             array('key' => 'field_marcan_show_gallery', 'label' => 'Mostrar sección', 'name' => 'mostrar_galeria', 'type' => 'true_false', 'default_value' => 1, 'ui' => 1),
+            marcan_acf_font_size_group('field_marcan_gallery_menu', 'gallery_menu'),
             array('key' => 'field_marcan_common_areas', 'label' => 'Áreas comunes (PC)', 'name' => 'areas_comunes', 'type' => 'gallery', 'return_format' => 'id', 'preview_size' => 'medium', 'library' => 'all', 'instructions' => marcan_acf_image_help('2609x1832 px', '500 KB por imagen')),
             array('key' => 'field_marcan_common_areas_mobile', 'label' => 'Áreas comunes (vertical)', 'name' => 'areas_comunes_mobile', 'type' => 'gallery', 'return_format' => 'id', 'preview_size' => 'medium', 'library' => 'all', 'instructions' => marcan_acf_image_help('975x1330 px', '350 KB por imagen') . ' Debe tener el mismo numero de imagenes que la galeria horizontal.'),
             array('key' => 'field_marcan_internal_areas', 'label' => 'Áreas internas (PC)', 'name' => 'areas_internas', 'type' => 'gallery', 'return_format' => 'id', 'preview_size' => 'medium', 'library' => 'all', 'instructions' => marcan_acf_image_help('2609x1832 px', '500 KB por imagen')),
