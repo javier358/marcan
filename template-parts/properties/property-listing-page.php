@@ -26,13 +26,9 @@ $default_title = $is_office ? __('Oficinas en venta', 'marcan') : __('Departamen
 $default_intro = $is_office
     ? __('Espacios de trabajo pensados para invertir y crecer, en ubicaciones con alto potencial urbano.', 'marcan')
     : __('Encuentra departamentos pensados para vivir mejor, con arquitectura funcional y ubicaciones conectadas a la ciudad.', 'marcan');
-$default_search_copy = $is_office
-    ? __('Revisa las opciones que tenemos para ti desde S/455,222', 'marcan')
-    : __('Revisa las opciones que tenemos para ti desde S/355,222', 'marcan');
-
 $title = $get_listing_field('listing_title', $default_title);
 $intro = $get_listing_field('listing_intro', $default_intro);
-$search_copy = $get_listing_field('listing_search_copy', $default_search_copy);
+$search_copy = $get_listing_field('listing_search_copy');
 
 $hero_rows = array();
 if ($page_id && function_exists('get_field')) {
@@ -95,9 +91,11 @@ if ($hero_picture === '') {
                 </ol>
             </div>
         <?php endif; ?>
-        <div class="marcan-property-archive-search-copy">
-            <div<?php echo marcan_font_size_attrs($get_listing_font_size('listing_search_copy'), '', true); ?>><?php echo marcan_rich_block($search_copy); ?></div>
-        </div>
+        <?php if ($search_copy !== '') : ?>
+            <div class="marcan-property-archive-search-copy">
+                <div<?php echo marcan_font_size_attrs($get_listing_font_size('listing_search_copy'), '', true); ?>><?php echo marcan_rich_block($search_copy); ?></div>
+            </div>
+        <?php endif; ?>
         </div>
     </section>
 
