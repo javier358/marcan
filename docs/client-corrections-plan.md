@@ -115,7 +115,7 @@ Validacion:
 
 - Completada pendiente de validacion visual del cliente.
 - Se agrego `gallery_menu_font_size` para editar el tamano del menu lateral de galeria en single property.
-- Se normalizaron pesos/familias en single property donde habia mezcla visible de `Roboto`/`300` contra `Inter`/`400`: precio, concepto, mapa, galeria lightbox y arquitectura.
+- Se normalizaron familias en single property y se mantuvo el peso de textos editoriales/rich text alineado al home (`300`): concepto, mapa, galeria lightbox y arquitectura. Titulos y elementos destacados conservan su peso propio.
 - El titulo de relacionados/otros proyectos dejo de usar fallback visible en template; ahora se siembra una sola vez como ACF global editable (`ui_property_related_dept` / `ui_property_related_office`) y si se borra no se renderiza.
 - El titulo de relacionados queda conectado al control de tamano ACF global generado para ese campo.
 
