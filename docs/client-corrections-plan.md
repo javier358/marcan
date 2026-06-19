@@ -20,8 +20,8 @@ Reglas de trabajo:
 
 - [x] Fase 0 - Crear este plan de continuidad.
 - [x] Fase 1 - Auditoria inicial y base global de colores/tipografia/fallbacks.
-- [ ] Fase 2 - Departamentos/Oficinas, modal de contacto y sticky single property.
-- [ ] Fase 3 - Mapa/cercania y CTA de single property sin hardcodes.
+- [x] Fase 2 - Departamentos/Oficinas, modal de contacto y sticky single property.
+- [x] Fase 3 - Mapa/cercania y CTA de single property sin hardcodes.
 - [ ] Fase 4 - ACF de tamanos por contexto, galeria y otros proyectos.
 - [ ] Fase 5 - Revision global, pruebas y documentacion final.
 
@@ -155,3 +155,12 @@ Validacion tecnica:
 - Se elimino `listing_search_title`; se conserva solo `listing_search_copy` como tercera caja y se renombro su label a "Texto de opciones del listado".
 - Se mantiene aplicado el ajuste del modal de contacto para laptop/desktop con `max-height`, respiro lateral/vertical y scroll interno del formulario.
 - Se mantiene aplicado el ajuste de alto visual de `.marcan-property-sticky-quote` en single property.
+
+### Fase 3
+
+- Completada.
+- Se eliminaron fallbacks visibles de mapa: `ubicacion_titulo`, `lugares_cercanos_titulo`, URLs Google/Waze generadas automaticamente y listas vacias.
+- La seccion de mapa solo renderiza contenido si hay datos reales visibles o enlaces ACF configurados.
+- Se agregaron campos ACF `unidades_titulo_intro` y `unidades_titulo_detalle` para reemplazar el texto hardcodeado de la seccion de unidades/opciones.
+- Se quitaron fallbacks visibles de botones de cotizar/mapa usados en single property; si el campo global esta vacio no se muestra el boton.
+- Se quitaron fallbacks visibles de frase/autor del proyecto y del bloque previo a relacionados.
