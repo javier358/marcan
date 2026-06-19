@@ -179,6 +179,25 @@ function marcan_get_row_font_size($row, string $field_name): array
     return is_array($value) ? $value : array();
 }
 
+function marcan_font_size_group_has_override($font_size_group): bool
+{
+    if (!is_array($font_size_group)) {
+        return false;
+    }
+
+    return marcan_normalize_font_size_value($font_size_group['desktop'] ?? '') !== ''
+        || marcan_normalize_font_size_value($font_size_group['mobile'] ?? '') !== '';
+}
+
+function marcan_resolve_context_font_size($context_font_size, string $field_name, $post_id = 0, string $fallback_field = ''): array
+{
+    if (marcan_font_size_group_has_override($context_font_size)) {
+        return is_array($context_font_size) ? $context_font_size : array();
+    }
+
+    return marcan_get_field_font_size($field_name, $post_id, $fallback_field);
+}
+
 function marcan_font_size_attrs($font_size_group, string $class = '', bool $rich = false): string
 {
     $group = is_array($font_size_group) ? $font_size_group : array();
@@ -352,6 +371,15 @@ function marcan_get_home_projects_settings(): array
         'offices_button_label'    => (string) (get_field('home_offices_button_label', $page_id) ?: ''),
         'offices_button_label_font_size' => marcan_get_field_font_size('home_offices_button_label', $page_id),
         'offices_button_url'      => $resolve_link($offices_button),
+        'card_font_sizes'         => array(
+            'title' => marcan_get_field_font_size('home_card_title', $page_id),
+            'badge' => marcan_get_field_font_size('home_card_badge', $page_id),
+            'location' => marcan_get_field_font_size('home_card_location', $page_id),
+            'price_label' => marcan_get_field_font_size('home_card_price_label', $page_id),
+            'price' => marcan_get_field_font_size('home_card_price', $page_id),
+            'specs' => marcan_get_field_font_size('home_card_specs', $page_id),
+            'cta' => marcan_get_field_font_size('home_card_cta', $page_id),
+        ),
     );
 }
 

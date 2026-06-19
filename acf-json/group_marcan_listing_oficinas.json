@@ -590,6 +590,716 @@
                     ]
                 }
             ]
+        },
+        {
+            "key": "field_marcan_ofi_tab_cards",
+            "label": "Cards",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_ofi_card_status_font_size",
+            "label": "Card - estado",
+            "name": "listing_card_status_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamano base del diseno.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_ofi_card_status_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_ofi_card_status_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_marcan_ofi_card_title_font_size",
+            "label": "Card - titulo",
+            "name": "listing_card_title_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamano base del diseno.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_ofi_card_title_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_ofi_card_title_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_marcan_ofi_card_subtitle_font_size",
+            "label": "Card - subtitulo",
+            "name": "listing_card_subtitle_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamano base del diseno.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_ofi_card_subtitle_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_ofi_card_subtitle_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_marcan_ofi_card_price_label_font_size",
+            "label": "Card - etiqueta precio",
+            "name": "listing_card_price_label_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamano base del diseno.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_ofi_card_price_label_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_ofi_card_price_label_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_marcan_ofi_card_price_font_size",
+            "label": "Card - precio",
+            "name": "listing_card_price_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamano base del diseno.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_ofi_card_price_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_ofi_card_price_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_marcan_ofi_card_specs_font_size",
+            "label": "Card - datos",
+            "name": "listing_card_specs_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamano base del diseno.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_ofi_card_specs_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_ofi_card_specs_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_marcan_ofi_card_intro_title_font_size",
+            "label": "Card - titulo interno",
+            "name": "listing_card_intro_title_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamano base del diseno.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_ofi_card_intro_title_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_ofi_card_intro_title_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_marcan_ofi_card_intro_text_font_size",
+            "label": "Card - texto interno",
+            "name": "listing_card_intro_text_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamano base del diseno.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_ofi_card_intro_text_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_ofi_card_intro_text_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_marcan_ofi_card_actions_font_size",
+            "label": "Card - botones",
+            "name": "listing_card_actions_font_size",
+            "type": "group",
+            "layout": "block",
+            "instructions": "Opcional. Si queda en \"Por defecto\", el texto usa el tamano base del diseno.",
+            "sub_fields": [
+                {
+                    "key": "field_marcan_ofi_card_actions_font_size_desktop",
+                    "label": "PC",
+                    "name": "desktop",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_marcan_ofi_card_actions_font_size_mobile",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "select",
+                    "choices": {
+                        "": "Por defecto",
+                        "12px": "12px",
+                        "14px": "14px",
+                        "15px": "15px",
+                        "16px": "16px",
+                        "18px": "18px",
+                        "20px": "20px",
+                        "21px": "21px",
+                        "22px": "22px",
+                        "24px": "24px",
+                        "25px": "25px",
+                        "26px": "26px",
+                        "28px": "28px",
+                        "30px": "30px",
+                        "32px": "32px",
+                        "36px": "36px",
+                        "40px": "40px",
+                        "45px": "45px",
+                        "48px": "48px"
+                    },
+                    "default_value": "",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
         }
     ],
     "location": [

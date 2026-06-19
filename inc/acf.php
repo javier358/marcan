@@ -80,11 +80,11 @@ function marcan_acf_font_size_choices(): array
     return $choices;
 }
 
-function marcan_acf_font_size_group(string $key, string $name): array
+function marcan_acf_font_size_group(string $key, string $name, string $label = 'Tamaño de letra'): array
 {
     return array(
         'key' => $key . '_font_size',
-        'label' => 'Tamaño de letra',
+        'label' => $label,
         'name' => $name . '_font_size',
         'type' => 'group',
         'layout' => 'block',
@@ -689,6 +689,14 @@ function marcan_register_field_groups(): void
             array('key' => 'field_marcan_home_offices_title', 'label' => 'Título oficinas', 'name' => 'home_offices_title', 'type' => 'text'),
             array('key' => 'field_marcan_home_offices_button_label', 'label' => 'Etiqueta botón oficinas', 'name' => 'home_offices_button_label', 'type' => 'text'),
             array('key' => 'field_marcan_home_offices_button', 'label' => 'Enlace botón oficinas', 'name' => 'home_offices_button', 'type' => 'link'),
+            marcan_acf_tab('field_marcan_tab_home_cards', 'Cards'),
+            marcan_acf_font_size_group('field_marcan_home_card_title', 'home_card_title', 'Card - titulo'),
+            marcan_acf_font_size_group('field_marcan_home_card_badge', 'home_card_badge', 'Card - estado'),
+            marcan_acf_font_size_group('field_marcan_home_card_location', 'home_card_location', 'Card - ubicacion'),
+            marcan_acf_font_size_group('field_marcan_home_card_price_label', 'home_card_price_label', 'Card - etiqueta precio'),
+            marcan_acf_font_size_group('field_marcan_home_card_price', 'home_card_price', 'Card - precio'),
+            marcan_acf_font_size_group('field_marcan_home_card_specs', 'home_card_specs', 'Card - datos'),
+            marcan_acf_font_size_group('field_marcan_home_card_cta', 'home_card_cta', 'Card - CTA'),
 
             marcan_acf_tab('field_marcan_tab_home_delivered', '3. Proyectos Entregados'),
             array('key' => 'field_marcan_home_delivered_title', 'label' => 'Título', 'name' => 'home_delivered_title', 'type' => 'text'),
@@ -721,6 +729,16 @@ function marcan_register_field_groups(): void
             array('key' => 'field_marcan_dep_title', 'label' => 'Título', 'name' => 'listing_title', 'type' => 'text'),
             marcan_acf_wysiwyg('field_marcan_dep_intro', 'Texto introductorio', 'listing_intro'),
             marcan_acf_wysiwyg('field_marcan_dep_search_copy', 'Texto de opciones del listado', 'listing_search_copy'),
+            marcan_acf_tab('field_marcan_dep_tab_cards', 'Cards'),
+            marcan_acf_font_size_group('field_marcan_dep_card_status', 'listing_card_status', 'Card - estado'),
+            marcan_acf_font_size_group('field_marcan_dep_card_title', 'listing_card_title', 'Card - titulo'),
+            marcan_acf_font_size_group('field_marcan_dep_card_subtitle', 'listing_card_subtitle', 'Card - subtitulo'),
+            marcan_acf_font_size_group('field_marcan_dep_card_price_label', 'listing_card_price_label', 'Card - etiqueta precio'),
+            marcan_acf_font_size_group('field_marcan_dep_card_price', 'listing_card_price', 'Card - precio'),
+            marcan_acf_font_size_group('field_marcan_dep_card_specs', 'listing_card_specs', 'Card - datos'),
+            marcan_acf_font_size_group('field_marcan_dep_card_intro_title', 'listing_card_intro_title', 'Card - titulo interno'),
+            marcan_acf_font_size_group('field_marcan_dep_card_intro_text', 'listing_card_intro_text', 'Card - texto interno'),
+            marcan_acf_font_size_group('field_marcan_dep_card_actions', 'listing_card_actions', 'Card - botones'),
         ),
         'location' => array(
             array(
@@ -748,6 +766,16 @@ function marcan_register_field_groups(): void
                 array('key' => 'field_marcan_ofi_reason_number', 'label' => 'Número', 'name' => 'number', 'type' => 'text'),
                 marcan_acf_wysiwyg('field_marcan_ofi_reason_text', 'Texto', 'text'),
             )),
+            marcan_acf_tab('field_marcan_ofi_tab_cards', 'Cards'),
+            marcan_acf_font_size_group('field_marcan_ofi_card_status', 'listing_card_status', 'Card - estado'),
+            marcan_acf_font_size_group('field_marcan_ofi_card_title', 'listing_card_title', 'Card - titulo'),
+            marcan_acf_font_size_group('field_marcan_ofi_card_subtitle', 'listing_card_subtitle', 'Card - subtitulo'),
+            marcan_acf_font_size_group('field_marcan_ofi_card_price_label', 'listing_card_price_label', 'Card - etiqueta precio'),
+            marcan_acf_font_size_group('field_marcan_ofi_card_price', 'listing_card_price', 'Card - precio'),
+            marcan_acf_font_size_group('field_marcan_ofi_card_specs', 'listing_card_specs', 'Card - datos'),
+            marcan_acf_font_size_group('field_marcan_ofi_card_intro_title', 'listing_card_intro_title', 'Card - titulo interno'),
+            marcan_acf_font_size_group('field_marcan_ofi_card_intro_text', 'listing_card_intro_text', 'Card - texto interno'),
+            marcan_acf_font_size_group('field_marcan_ofi_card_actions', 'listing_card_actions', 'Card - botones'),
         ),
         'location' => array(
             array(

@@ -15,7 +15,7 @@ $offices_query = marcan_get_project_sections('oficinas');
 $departments_slider_class = $departments_query->post_count === 1 ? ' has-one-card' : ($departments_query->post_count === 2 ? ' has-two-cards' : '');
 $offices_slider_class = $offices_query->post_count === 1 ? ' has-one-card' : ($offices_query->post_count === 2 ? ' has-two-cards' : '');
 
-function marcan_render_home_project_card(WP_Post $post, string $section_class = ''): void
+function marcan_render_home_project_card(WP_Post $post, string $section_class = '', array $card_font_sizes = array()): void
 {
     $post_id = (int) $post->ID;
     $badge = trim((string) (get_field('home_badge_label', $post_id) ?: get_field('estado', $post_id)));
@@ -40,13 +40,13 @@ function marcan_render_home_project_card(WP_Post $post, string $section_class = 
     $title_plain = wp_strip_all_tags($title);
     $default_price_label = $price_label !== '' ? $price_label : marcan_get_option_text('ui_card_price_label', 'Desde:');
     $default_cta_label = $cta_label !== '' ? $cta_label : marcan_get_option_text('ui_card_cta_more', 'Ver más');
-    $title_attrs = marcan_font_size_attrs(marcan_get_field_font_size('titulo_comercial', $post_id));
-    $badge_attrs = marcan_font_size_attrs(marcan_get_field_font_size('estado', $post_id), 'marcan-home-project-card-badge');
-    $location_attrs = marcan_font_size_attrs(marcan_get_field_font_size('ubicacion', $post_id), 'marcan-home-project-card-location');
-    $price_label_attrs = marcan_font_size_attrs(marcan_get_field_font_size('home_price_label', $post_id));
-    $price_attrs = marcan_font_size_attrs(marcan_get_field_font_size('precio', $post_id));
-    $bedrooms_attrs = marcan_font_size_attrs(marcan_get_field_font_size('dormitorios', $post_id));
-    $cta_attrs = marcan_font_size_attrs(marcan_get_field_font_size('home_cta_label', $post_id), 'marcan-home-project-card-cta');
+    $title_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['title'] ?? array(), 'titulo_comercial', $post_id));
+    $badge_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['badge'] ?? array(), 'estado', $post_id), 'marcan-home-project-card-badge');
+    $location_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['location'] ?? array(), 'ubicacion', $post_id), 'marcan-home-project-card-location');
+    $price_label_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['price_label'] ?? array(), 'home_price_label', $post_id));
+    $price_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['price'] ?? array(), 'precio', $post_id));
+    $specs_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['specs'] ?? array(), 'dormitorios', $post_id));
+    $cta_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['cta'] ?? array(), 'home_cta_label', $post_id), 'marcan-home-project-card-cta');
     ?>
     <article class="marcan-home-project-card <?php echo esc_attr($section_class); ?>">
         <a class="marcan-home-project-card-link" href="<?php echo esc_url($cta_link && is_array($cta_link) && !empty($cta_link['url']) ? $cta_link['url'] : get_permalink($post_id)); ?>" target="<?php echo esc_attr($cta_link && is_array($cta_link) && !empty($cta_link['target']) ? $cta_link['target'] : '_self'); ?>">
@@ -100,7 +100,7 @@ function marcan_render_home_project_card(WP_Post $post, string $section_class = 
                                 <?php if ($bedrooms_icon_id) : ?>
                                     <span class="marcan-home-project-card-spec-icon"><?php echo wp_get_attachment_image($bedrooms_icon_id, 'full', false, array('alt' => '')); ?></span>
                                 <?php endif; ?>
-                                <span<?php echo $bedrooms_attrs; ?>><?php echo marcan_rich_inline($bedrooms); ?></span>
+                                <span<?php echo $specs_attrs; ?>><?php echo marcan_rich_inline($bedrooms); ?></span>
                             </div>
                         <?php endif; ?>
                         <?php if ($area !== '') : ?>
@@ -108,7 +108,7 @@ function marcan_render_home_project_card(WP_Post $post, string $section_class = 
                                 <?php if ($area_icon_id) : ?>
                                     <span class="marcan-home-project-card-spec-icon"><?php echo wp_get_attachment_image($area_icon_id, 'full', false, array('alt' => '')); ?></span>
                                 <?php endif; ?>
-                                <span><?php echo esc_html($area); ?></span>
+                                <span<?php echo $specs_attrs; ?>><?php echo esc_html($area); ?></span>
                             </div>
                         <?php endif; ?>
                     </div>
@@ -167,7 +167,7 @@ function marcan_render_home_project_card(WP_Post $post, string $section_class = 
                 <?php if ($departments_query->have_posts()) : ?>
                     <?php while ($departments_query->have_posts()) : ?>
                         <?php $departments_query->the_post(); ?>
-                        <?php marcan_render_home_project_card(get_post(), 'is-department'); ?>
+                        <?php marcan_render_home_project_card(get_post(), 'is-department', $project_settings['card_font_sizes'] ?? array()); ?>
                     <?php endwhile; ?>
                     <?php wp_reset_postdata(); ?>
                 <?php endif; ?>
@@ -195,7 +195,7 @@ function marcan_render_home_project_card(WP_Post $post, string $section_class = 
                 <?php if ($offices_query->have_posts()) : ?>
                     <?php while ($offices_query->have_posts()) : ?>
                         <?php $offices_query->the_post(); ?>
-                        <?php marcan_render_home_project_card(get_post(), 'is-office'); ?>
+                        <?php marcan_render_home_project_card(get_post(), 'is-office', $project_settings['card_font_sizes'] ?? array()); ?>
                     <?php endwhile; ?>
                     <?php wp_reset_postdata(); ?>
                 <?php endif; ?>

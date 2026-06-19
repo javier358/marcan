@@ -25,6 +25,17 @@ $get_listing_font_size = static function (string $field) use ($page_id): array {
 $title = $get_listing_field('listing_title');
 $intro = $get_listing_field('listing_intro');
 $search_copy = $get_listing_field('listing_search_copy');
+$listing_card_font_sizes = array(
+    'status' => $get_listing_font_size('listing_card_status'),
+    'title' => $get_listing_font_size('listing_card_title'),
+    'subtitle' => $get_listing_font_size('listing_card_subtitle'),
+    'price_label' => $get_listing_font_size('listing_card_price_label'),
+    'price' => $get_listing_font_size('listing_card_price'),
+    'specs' => $get_listing_font_size('listing_card_specs'),
+    'intro_title' => $get_listing_font_size('listing_card_intro_title'),
+    'intro_text' => $get_listing_font_size('listing_card_intro_text'),
+    'actions' => $get_listing_font_size('listing_card_actions'),
+);
 
 $hero_rows = array();
 if ($page_id && function_exists('get_field')) {
@@ -106,7 +117,11 @@ if ($hero_picture === '') {
                 if (!$is_office && $index % 2 === 1) {
                     $layout = 'media-left';
                 }
-                get_template_part('template-parts/properties/property-card-listing', null, array('post_id' => get_the_ID(), 'layout' => $layout));
+                get_template_part('template-parts/properties/property-card-listing', null, array(
+                    'post_id' => get_the_ID(),
+                    'layout' => $layout,
+                    'card_font_sizes' => $listing_card_font_sizes,
+                ));
                 $index++;
                 ?>
             <?php endwhile; ?>

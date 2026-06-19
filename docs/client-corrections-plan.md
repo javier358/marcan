@@ -144,6 +144,8 @@ Validacion tecnica:
 - Corregido: `.marcan-property-intro` ahora declara `font-weight: 300`, alineado al peso de los textos rich del home.
 - Corregido: `template-parts/properties/property-listing-page.php` ya no usa fallbacks visibles para `listing_title`, `listing_intro`, `listing_reasons_title` ni las razones de inversion de oficinas; si ACF queda vacio, el bloque no se renderiza.
 - Agregada migracion idempotente `marcan_seed_listing_editable_copy` para sembrar esos textos anteriores en las paginas `departamentos` y `oficinas` una sola vez, sin reponerlos si el cliente los borra despues.
+- En progreso: se agregan pestañas `Cards` en Inicio, Departamentos y Oficinas para controlar por pagina el tamano de textos de las cards. Si el campo de pagina queda vacio, se conserva el tamano configurado en cada proyecto.
+- Revisado: los campos ACF de Arquitectura del proyecto si se usan en `single-property.php`; no afectan las cards de departamentos/oficinas porque pertenecen a la ficha del inmueble.
 - Pendiente detectado para siguiente bloque: `inc/blog.php` mantiene defaults visibles en contenido/CTA del blog; revisar si entra en alcance antes del cierre final.
 
 ## Registro de avance

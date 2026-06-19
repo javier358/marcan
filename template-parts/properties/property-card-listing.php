@@ -5,6 +5,7 @@ if (!defined('ABSPATH')) {
 
 $post_id = isset($args['post_id']) ? (int) $args['post_id'] : get_the_ID();
 $layout = isset($args['layout']) ? (string) $args['layout'] : 'media-left';
+$card_font_sizes = isset($args['card_font_sizes']) && is_array($args['card_font_sizes']) ? $args['card_font_sizes'] : array();
 $kind = marcan_get_property_kind($post_id);
 $title = marcan_get_property_field($post_id, 'titulo_comercial', get_the_title($post_id));
 $title_plain = wp_strip_all_tags($title);
@@ -41,27 +42,28 @@ $bathrooms_label = $bathrooms !== '' && preg_match('/[[:alpha:]]/u', $bathrooms)
 $parking_label = $parking !== '' && preg_match('/[[:alpha:]]/u', $parking) ? $parking : trim($parking . ' ' . __('estacionamientos', 'marcan'));
 $listing_specs = array();
 if ($kind === 'departamento' && $bedrooms !== '') {
-    $listing_specs[] = array('class' => 'bedrooms', 'label' => $bedrooms_label, 'font_size' => marcan_get_field_font_size('dormitorios', $post_id));
+    $listing_specs[] = array('class' => 'bedrooms', 'label' => $bedrooms_label, 'field' => 'dormitorios');
 }
 if ($area !== '') {
-    $listing_specs[] = array('class' => 'area', 'label' => $area, 'font_size' => marcan_get_field_font_size('area', $post_id));
+    $listing_specs[] = array('class' => 'area', 'label' => $area, 'field' => 'area');
 }
 if ($bathrooms !== '') {
-    $listing_specs[] = array('class' => 'bathrooms', 'label' => $bathrooms_label, 'font_size' => marcan_get_field_font_size('banos', $post_id));
+    $listing_specs[] = array('class' => 'bathrooms', 'label' => $bathrooms_label, 'field' => 'banos');
 }
 if ($parking !== '') {
-    $listing_specs[] = array('class' => 'parking', 'label' => $parking_label, 'font_size' => marcan_get_field_font_size('estacionamientos', $post_id));
+    $listing_specs[] = array('class' => 'parking', 'label' => $parking_label, 'field' => 'estacionamientos');
 }
 if ($delivery_date !== '') {
-    $listing_specs[] = array('class' => 'delivery', 'label' => $delivery_date, 'font_size' => marcan_get_field_font_size('fecha_entrega', $post_id));
+    $listing_specs[] = array('class' => 'delivery', 'label' => $delivery_date, 'field' => 'fecha_entrega');
 }
 $listing_specs = array_slice($listing_specs, 0, 5);
-$status_attrs = marcan_font_size_attrs(marcan_get_field_font_size('estado', $post_id), 'marcan-property-badge');
-$title_attrs = marcan_font_size_attrs(marcan_get_field_font_size('titulo_comercial', $post_id));
-$subtitle_attrs = marcan_font_size_attrs(marcan_get_field_font_size('subtitulo', $post_id, 'ubicacion'));
-$price_attrs = marcan_font_size_attrs(marcan_get_field_font_size('precio', $post_id));
-$listing_intro_title_attrs = marcan_font_size_attrs(marcan_get_field_font_size('listado_intro_titulo', $post_id, 'concepto_titulo'));
-$listing_intro_text_attrs = marcan_font_size_attrs(marcan_get_field_font_size('listado_intro_texto', $post_id, 'descripcion_corta'), '', true);
+$status_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['status'] ?? array(), 'estado', $post_id), 'marcan-property-badge');
+$title_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['title'] ?? array(), 'titulo_comercial', $post_id));
+$subtitle_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['subtitle'] ?? array(), 'subtitulo', $post_id, 'ubicacion'));
+$price_label_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['price_label'] ?? array(), 'ui_card_price_label'));
+$price_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['price'] ?? array(), 'precio', $post_id));
+$listing_intro_title_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['intro_title'] ?? array(), 'listado_intro_titulo', $post_id, 'concepto_titulo'));
+$listing_intro_text_attrs = marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['intro_text'] ?? array(), 'listado_intro_texto', $post_id, 'descripcion_corta'), '', true);
 ?>
 
 <article class="marcan-property-listing-card <?php echo esc_attr($layout === 'info-left' ? 'is-info-left' : 'is-media-left'); ?>">
@@ -84,13 +86,13 @@ $listing_intro_text_attrs = marcan_font_size_attrs(marcan_get_field_font_size('l
             <?php endif; ?>
         </div>
         <div class="marcan-property-listing-price">
-            <span><?php echo esc_html(marcan_get_option_text('ui_card_price_label', 'Desde:')); ?></span>
+            <span<?php echo $price_label_attrs; ?>><?php echo esc_html(marcan_get_option_text('ui_card_price_label', 'Desde:')); ?></span>
             <strong<?php echo $price_attrs; ?>><?php echo esc_html($price); ?></strong>
         </div>
         <?php if (!empty($listing_specs)) : ?>
             <div class="marcan-property-listing-specs">
                 <?php foreach ($listing_specs as $spec) : ?>
-                    <span<?php echo marcan_font_size_attrs($spec['font_size'] ?? array(), 'marcan-property-listing-spec marcan-property-listing-spec-' . $spec['class']); ?>><?php echo marcan_rich_inline($spec['label']); ?></span>
+                    <span<?php echo marcan_font_size_attrs(marcan_resolve_context_font_size($card_font_sizes['specs'] ?? array(), (string) ($spec['field'] ?? ''), $post_id), 'marcan-property-listing-spec marcan-property-listing-spec-' . $spec['class']); ?>><?php echo marcan_rich_inline($spec['label']); ?></span>
                 <?php endforeach; ?>
             </div>
         <?php endif; ?>
@@ -103,8 +105,8 @@ $listing_intro_text_attrs = marcan_font_size_attrs(marcan_get_field_font_size('l
             <?php endif; ?>
         </div>
         <div class="marcan-property-listing-actions">
-            <a class="marcan-button-dark marcan-button-icon marcan-button-icon-arrow" href="<?php echo esc_url(get_permalink($post_id)); ?>"><?php echo esc_html($view_label); ?></a>
-            <a class="marcan-button-line marcan-button-icon marcan-button-icon-download" href="<?php echo esc_url($brochure_url); ?>"><?php echo esc_html(marcan_get_option_text('ui_card_brochure', 'Descargar brochure')); ?></a>
+            <a<?php echo marcan_font_size_attrs($card_font_sizes['actions'] ?? array(), 'marcan-button-dark marcan-button-icon marcan-button-icon-arrow'); ?> href="<?php echo esc_url(get_permalink($post_id)); ?>"><?php echo esc_html($view_label); ?></a>
+            <a<?php echo marcan_font_size_attrs($card_font_sizes['actions'] ?? array(), 'marcan-button-line marcan-button-icon marcan-button-icon-download'); ?> href="<?php echo esc_url($brochure_url); ?>"><?php echo esc_html(marcan_get_option_text('ui_card_brochure', 'Descargar brochure')); ?></a>
         </div>
     </div>
 </article>
