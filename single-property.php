@@ -116,9 +116,16 @@ while (have_posts()) :
     $architecture_studio_name_attrs = marcan_font_size_attrs(marcan_get_field_font_size('arquitectura_estudio_nombre', $post_id));
     $architecture_studio_role_attrs = marcan_font_size_attrs(marcan_get_field_font_size('arquitectura_estudio_cargo', $post_id));
     $related_intro_attrs = marcan_font_size_attrs(marcan_get_field_font_size('relacionados_intro_texto', $post_id));
-    $related_quote_label = $is_office
-        ? marcan_get_option_text('ui_property_btn_quote_office', '')
-        : marcan_get_option_text('ui_property_btn_quote_project', '');
+    $quote_option_field = $is_office ? 'ui_property_btn_quote_office' : 'ui_property_btn_quote_project';
+    $related_quote_label = marcan_get_context_text($post_id, 'single_cta_quote_label', $quote_option_field);
+    $brochure_label = marcan_get_context_text($post_id, 'single_cta_brochure_label', 'ui_property_btn_brochure');
+    $unit_quote_label = marcan_get_context_text($post_id, 'single_cta_unit_quote_label', 'ui_property_btn_download_quote');
+    $unit_contact_label = marcan_get_context_text($post_id, 'single_cta_contact_label', 'ui_property_btn_contact');
+    $unit_share_label = marcan_get_context_text($post_id, 'single_cta_share_label', 'ui_property_btn_share');
+    $map_google_label = marcan_get_context_text($post_id, 'single_cta_google_label', 'ui_property_map_google');
+    $map_waze_label = marcan_get_context_text($post_id, 'single_cta_waze_label', 'ui_property_map_waze');
+    $single_price_label = marcan_get_context_text($post_id, 'single_price_label', 'ui_card_price_label');
+    $single_tours_title = marcan_get_context_text($post_id, 'single_tours_title', 'ui_property_tours_title');
     $related_title = $is_office
         ? marcan_get_option_text('ui_property_related_office', '')
         : marcan_get_option_text('ui_property_related_dept', '');
@@ -282,7 +289,6 @@ while (have_posts()) :
             </div>
             <div class="marcan-property-sticky-actions">
                 <?php if (marcan_section_is_active($post_id, 'mostrar_brochure', array('brochure'))) : ?>
-                    <?php $brochure_label = marcan_get_option_text('ui_property_btn_brochure', ''); ?>
                     <?php if ($brochure_label !== '') : ?>
                         <a class="marcan-button-line marcan-button-icon marcan-button-icon-download" href="<?php echo esc_url($brochure_url); ?>"><?php echo esc_html($brochure_label); ?></a>
                     <?php endif; ?>
@@ -297,7 +303,7 @@ while (have_posts()) :
             <div class="marcan-property-single-summary">
                 <p<?php echo $delivery_attrs; ?>><?php echo marcan_rich_inline($delivery); ?></p>
                 <div class="marcan-property-price-block">
-                    <span><?php echo esc_html(marcan_get_option_text('ui_card_price_label', 'Desde:')); ?></span>
+                    <?php if ($single_price_label !== '') : ?><span><?php echo esc_html($single_price_label); ?></span><?php endif; ?>
                     <strong<?php echo $price_attrs; ?>><?php echo esc_html($price); ?></strong>
                     <?php if (!$is_office && $bedrooms !== '') : ?>
                         <small<?php echo $bedrooms_attrs; ?>><?php echo marcan_rich_inline($bedrooms); ?></small>
@@ -346,8 +352,8 @@ while (have_posts()) :
             <section class="marcan-property-tour">
                 <?php if (!empty($virtual_tours)) : ?>
                     <div class="marcan-property-tour-shell" data-marcan-tour>
-                        <aside class="marcan-property-tour-menu" aria-label="<?php esc_attr_e('Recorridos virtuales', 'marcan'); ?>">
-                            <h2 class="marcan-property-tour-title"><?php echo esc_html(marcan_get_option_text('ui_property_tours_title', 'Recorridos virtuales')); ?></h2>
+                        <aside class="marcan-property-tour-menu" aria-label="<?php echo esc_attr($single_tours_title !== '' ? wp_strip_all_tags($single_tours_title) : __('Selector de recorridos', 'marcan')); ?>">
+                            <?php if ($single_tours_title !== '') : ?><h2 class="marcan-property-tour-title"><?php echo esc_html($single_tours_title); ?></h2><?php endif; ?>
                             <div class="marcan-property-tour-nav">
                                 <?php
                                 $tour_groups = array();
@@ -605,13 +611,17 @@ while (have_posts()) :
                                                 <?php endif; ?>
                                             </dl>
                                             <div class="marcan-property-unit-actions">
-                                                <?php if ($unit_quote_url !== '') : ?>
-                                                    <a class="marcan-button-line marcan-button-icon marcan-button-icon-download" href="<?php echo esc_url($unit_quote_url); ?>" target="_blank" rel="noopener"><?php echo esc_html(marcan_get_option_text('ui_property_btn_download_quote', 'Descargar cotización')); ?></a>
+                                                <?php if ($unit_quote_url !== '' && $unit_quote_label !== '') : ?>
+                                                    <a class="marcan-button-line marcan-button-icon marcan-button-icon-download" href="<?php echo esc_url($unit_quote_url); ?>" target="_blank" rel="noopener"><?php echo esc_html($unit_quote_label); ?></a>
                                                 <?php endif; ?>
-                                                <button class="marcan-button-dark marcan-button-icon marcan-button-icon-arrow" type="button" data-open-contact-modal><?php echo esc_html(marcan_get_option_text('ui_property_btn_contact', 'Contáctanos')); ?></button>
-                                                <button class="marcan-button-line marcan-property-unit-share" type="button" data-unit-share data-share-url="<?php echo esc_url($unit_share_url); ?>" data-share-title="<?php echo esc_attr(sprintf(__('Tipología %1$s en %2$s', 'marcan'), $unit_code, $title_plain)); ?>">
-                                                    <span><?php echo esc_html(marcan_get_option_text('ui_property_btn_share', 'Compartir')); ?></span>
-                                                </button>
+                                                <?php if ($unit_contact_label !== '') : ?>
+                                                    <button class="marcan-button-dark marcan-button-icon marcan-button-icon-arrow" type="button" data-open-contact-modal><?php echo esc_html($unit_contact_label); ?></button>
+                                                <?php endif; ?>
+                                                <?php if ($unit_share_label !== '') : ?>
+                                                    <button class="marcan-button-line marcan-property-unit-share" type="button" data-unit-share data-share-url="<?php echo esc_url($unit_share_url); ?>" data-share-title="<?php echo esc_attr(sprintf(__('Tipología %1$s en %2$s', 'marcan'), $unit_code, $title_plain)); ?>">
+                                                        <span><?php echo esc_html($unit_share_label); ?></span>
+                                                    </button>
+                                                <?php endif; ?>
                                             </div>
                                         </div>
                                     </div>
@@ -643,13 +653,11 @@ while (have_posts()) :
                         <?php endif; ?>
                         <div class="marcan-property-map-actions">
                             <?php if ($map_google_url !== '') : ?>
-                                <?php $map_google_label = marcan_get_option_text('ui_property_map_google', ''); ?>
                                 <?php if ($map_google_label !== '') : ?>
                                     <a class="marcan-property-map-button marcan-property-map-button-white" href="<?php echo esc_url($map_google_url); ?>" target="_blank" rel="noopener"><?php echo esc_html($map_google_label); ?></a>
                                 <?php endif; ?>
                             <?php endif; ?>
                             <?php if ($map_waze_url !== '') : ?>
-                                <?php $map_waze_label = marcan_get_option_text('ui_property_map_waze', ''); ?>
                                 <?php if ($map_waze_label !== '') : ?>
                                     <a class="marcan-property-map-button marcan-property-map-button-yellow" href="<?php echo esc_url($map_waze_url); ?>" target="_blank" rel="noopener"><?php echo esc_html($map_waze_label); ?></a>
                                 <?php endif; ?>

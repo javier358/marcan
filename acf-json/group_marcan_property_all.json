@@ -861,7 +861,7 @@
             "toolbar": "basic",
             "media_upload": 0,
             "delay": 0,
-            "instructions": "Ejemplo: \"Desde:\". Si se deja vacio se muestra \"Desde:\"."
+            "instructions": "Texto antes del precio en la tarjeta Home."
         },
         {
             "key": "field_marcan_project_home_price_label_font_size",
@@ -1530,6 +1530,95 @@
             "name": "home_cta_link",
             "type": "link",
             "instructions": "Opcional. Si se deja vacio enlaza a la pagina de detalle del inmueble."
+        },
+        {
+            "key": "field_marcan_tab_prop_single_ctas",
+            "label": "CTAs single",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_marcan_single_cta_brochure_label",
+            "label": "Boton brochure",
+            "name": "single_cta_brochure_label",
+            "type": "text",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_marcan_single_cta_quote_label",
+            "label": "Boton cotizar",
+            "name": "single_cta_quote_label",
+            "type": "text",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_marcan_single_cta_unit_quote_label",
+            "label": "Boton descargar cotizacion",
+            "name": "single_cta_unit_quote_label",
+            "type": "text",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_marcan_single_cta_contact_label",
+            "label": "Boton contacto",
+            "name": "single_cta_contact_label",
+            "type": "text",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_marcan_single_cta_share_label",
+            "label": "Boton compartir",
+            "name": "single_cta_share_label",
+            "type": "text",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_marcan_single_cta_google_label",
+            "label": "Boton Google Maps",
+            "name": "single_cta_google_label",
+            "type": "text",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_marcan_single_cta_waze_label",
+            "label": "Boton Waze",
+            "name": "single_cta_waze_label",
+            "type": "text",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_marcan_single_price_label",
+            "label": "Etiqueta precio single",
+            "name": "single_price_label",
+            "type": "text",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_marcan_single_tours_title",
+            "label": "Titulo recorridos single",
+            "name": "single_tours_title",
+            "type": "text",
+            "wrapper": {
+                "width": "50"
+            }
         },
         {
             "key": "field_marcan_tab_prop_designer",

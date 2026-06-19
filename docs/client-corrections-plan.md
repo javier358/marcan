@@ -147,6 +147,8 @@ Validacion tecnica:
 - En progreso: se agregan pestañas `Cards` en Inicio, Departamentos y Oficinas para controlar por pagina el tamano de textos de las cards. Si el campo de pagina queda vacio, se conserva el tamano configurado en cada proyecto.
 - Revisado: los campos ACF de Arquitectura del proyecto si se usan en `single-property.php`; no afectan las cards de departamentos/oficinas porque pertenecen a la ficha del inmueble.
 - Ajustado: las imagenes especificas de card (`home_desktop_image` y `home_mobile_image`) se movieron a Ficha tecnica del proyecto para quedar junto a los datos que alimentan single/cards, manteniendo las mismas keys para no perder contenido.
+- Corregido: los CTAs del single ahora tienen override por inmueble en la pestaña `CTAs single` (`single_cta_*`, `single_price_label`, `single_tours_title`) y fallback solo a campos globales editables; si ambos quedan vacios, no se renderiza el CTA.
+- Corregido: se retiraron fallbacks visibles hardcodeados restantes del single para botones de unidad, mapa, brochure, cotizar, compartir, etiqueta de precio y titulo de recorridos. Los textos antiguos se siembran como ACF global editable por migracion.
 - Pendiente detectado para siguiente bloque: `inc/blog.php` mantiene defaults visibles en contenido/CTA del blog; revisar si entra en alcance antes del cierre final.
 
 ## Registro de avance

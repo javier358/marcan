@@ -74,15 +74,20 @@ function marcan_seed_option_once(string $field_name, string $value): void
 
 function marcan_seed_global_editable_copy(): void
 {
-    $version = '2026-06-19-phase-4-global-copy';
+    $version = '2026-06-19-phase-5-single-ctas';
     if (get_option('marcan_global_editable_copy_seed_version') === $version) {
         return;
     }
 
     marcan_seed_option_once('ui_property_btn_quote_project', 'Cotizar proyecto');
     marcan_seed_option_once('ui_property_btn_quote_office', 'Cotizar oficina');
+    marcan_seed_option_once('ui_property_btn_brochure', 'Descargar brochure');
+    marcan_seed_option_once('ui_property_btn_download_quote', 'Descargar cotizacion');
+    marcan_seed_option_once('ui_property_btn_contact', 'Contactanos');
+    marcan_seed_option_once('ui_property_btn_share', 'Compartir');
     marcan_seed_option_once('ui_property_map_google', 'Ver en Google Maps');
     marcan_seed_option_once('ui_property_map_waze', 'Ver en Waze');
+    marcan_seed_option_once('ui_property_tours_title', 'Recorridos virtuales');
     marcan_seed_option_once('ui_property_about_label', 'Sobre el proyecto');
     marcan_seed_option_once('ui_property_related_dept', 'Otros departamentos en venta');
     marcan_seed_option_once('ui_property_related_office', 'Otras oficinas en venta');
