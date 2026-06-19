@@ -32,7 +32,6 @@ $default_search_copy = $is_office
 
 $title = $get_listing_field('listing_title', $default_title);
 $intro = $get_listing_field('listing_intro', $default_intro);
-$search_title = $get_listing_field('listing_search_title', __('Encuentra lo que estas buscando', 'marcan'));
 $search_copy = $get_listing_field('listing_search_copy', $default_search_copy);
 
 $hero_rows = array();
@@ -97,7 +96,6 @@ if ($hero_picture === '') {
             </div>
         <?php endif; ?>
         <div class="marcan-property-archive-search-copy">
-            <h2<?php echo marcan_font_size_attrs($get_listing_font_size('listing_search_title')); ?>><?php echo marcan_rich_inline($search_title); ?></h2>
             <div<?php echo marcan_font_size_attrs($get_listing_font_size('listing_search_copy'), '', true); ?>><?php echo marcan_rich_block($search_copy); ?></div>
         </div>
         </div>

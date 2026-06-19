@@ -152,6 +152,6 @@ Validacion tecnica:
 
 - Parcialmente completada.
 - Revertido el cambio que eliminaba el contenedor/campos `listing_search_title` y `listing_search_copy`; el usuario indico que deben quedar 3 cajas y va a precisar cual eliminar.
-- Se mantiene pendiente decidir exactamente cual de las 4 cajas de Departamentos/Oficinas se eliminara para dejar 3.
+- Se elimino `listing_search_title`; se conserva solo `listing_search_copy` como tercera caja y se renombro su label a "Texto de opciones del listado".
 - Se mantiene aplicado el ajuste del modal de contacto para laptop/desktop con `max-height`, respiro lateral/vertical y scroll interno del formulario.
 - Se mantiene aplicado el ajuste de alto visual de `.marcan-property-sticky-quote` en single property.
