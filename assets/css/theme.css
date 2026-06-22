@@ -2204,6 +2204,11 @@ img {
     max-width: 1168px;
 }
 
+.marcan-about-page .marcan-field-font-size--rich,
+.marcan-about-page .marcan-field-font-size--rich :where(p, span, strong, b, em, i, a, li, h1, h2, h3, h4, h5, h6, div) {
+    font-weight: 400;
+}
+
 .marcan-about-hero-image {
     display: block;
     left: 0;
